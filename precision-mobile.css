@@ -40,14 +40,9 @@
   }
 }
 
-/* Hero stats progress bar (injected by JS) */
+/* Hero stats progress bar (injected by JS) — hidden everywhere */
 .hero-stats-progress-bar {
-  width: 100%;
-  height: 3px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, var(--color-accent-cyan) 0%, var(--color-accent-purple) 100%);
-  opacity: 0.6;
-  will-change: opacity;
+  display: none;
 }
 
 
@@ -69,10 +64,12 @@
     font-size: var(--font-size-md);
   }
 
-  .btn-primary,
+  .btn-primary:not(.header-btn),
   .btn-lg {
     width: 100%;
     justify-content: center;
+    padding: var(--space-4) var(--space-6);  /* normalise to btn-lg height on mobile */
+    font-size: var(--font-size-base);        /* 16px — matches btn-lg */
   }
 
 
@@ -124,8 +121,8 @@
 
   .hero-inner {
     flex-direction: column;
-    padding: var(--space-12) var(--space-4) var(--space-8);
-    gap: var(--space-8);
+    padding: var(--space-5) var(--space-4) var(--space-4);
+    gap: var(--space-6);
     align-items: stretch;
   }
 
@@ -143,21 +140,40 @@
   }
 
   .hero-visual {
-    max-width: 100%;
-    padding-top: 44px;
-    padding-bottom: 52px;
+    max-width: 82%;
+    margin: 0 auto;
+    padding-top: 36px;
+    padding-bottom: 20px;
   }
 
   .hero-stats-card {
     max-width: 100%;
+    padding: var(--space-4) var(--space-4) var(--space-3);
+  }
+
+  .stats-bars {
+    height: 120px;
+  }
+
+  .stats-card-header {
+    margin-bottom: var(--space-3);
+  }
+
+  .stats-float-tag {
+    font-size: var(--font-size-xs);
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .float-tag-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
   }
 
   .stats-float-tag--strategy {
-    right: 0;
-  }
-
-  .stats-float-tag--analysis {
-    font-size: var(--font-size-xs);
+    top: 0;
+    right: -40px;
   }
 
   .stats-metrics-row {
@@ -170,7 +186,7 @@
      ======================================================================== */
 
   .social-proof-section {
-    padding: var(--space-8) 0;
+    padding: var(--space-4) 0;
   }
 
   .logo-strip-fade {
@@ -193,11 +209,14 @@
     overflow-x: auto;
     overflow-y: visible;
     scroll-snap-type: x mandatory;
+    scroll-padding-left: 7vw;           /* (100vw - 86vw) / 2 = equal left & right gap */
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;              /* Firefox */
     gap: var(--space-4);
-    padding: var(--space-2) var(--space-4) var(--space-4);
+    padding: var(--space-2) 7vw var(--space-4);
     margin: 0 calc(-1 * var(--space-4)); /* bleed to edges */
+    width: calc(100% + 2 * var(--space-4)); /* override desktop width:100% so track fills full viewport */
+    max-width: none;                    /* override desktop 960px constraint */
   }
 
   .why-cards::-webkit-scrollbar {
@@ -205,15 +224,16 @@
   }
 
   .why-card {
-    flex: 0 0 84vw;                     /* ~84% viewport width per card */
-    max-width: 340px;
+    flex: 0 0 86vw;                     /* ~86% viewport width per card */
+    max-width: none;
     scroll-snap-align: start;
     transform: none !important;         /* disable GSAP Y on mobile */
+    padding: var(--space-6);            /* reduce from desktop 40px to 24px */
   }
 
   /* Featured card: same width as others on mobile */
   .why-card--featured {
-    flex: 0 0 84vw;
+    flex: 0 0 86vw;
   }
 
 
@@ -221,48 +241,89 @@
      5. CONVERSION ACCELERATOR — Horizontal top tabs on mobile
      ======================================================================== */
 
-  .accelerator-timeline {
-    overflow-x: auto;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: var(--space-2);
+  /* Stack: tabs on top, panel below */
+  .acc-wrapper {
+    flex-direction: column;
   }
 
-  .accelerator-timeline::-webkit-scrollbar {
+  /* Sidebar becomes a horizontal scroll tab strip */
+  .acc-sidebar {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    padding: 0;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .acc-sidebar::-webkit-scrollbar { display: none; }
+
+  /* Tabs lay out in a single horizontal row */
+  .acc-sidebar-list {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0;
+    padding: var(--space-2) var(--space-3);
+  }
+
+  /* Each tab: compact horizontal chip, don't shrink */
+  .acc-sidebar-item {
+    flex: 0 0 auto;
+    padding: var(--space-2) var(--space-3);
+    gap: var(--space-2);
+    white-space: nowrap;
+    border-radius: var(--radius-md);
+  }
+
+  /* Hide period in compact strip — name alone is enough */
+  .acc-sidebar-period {
     display: none;
   }
 
-  .timeline-list {
-    flex-direction: row;
-    overflow-x: auto;
-    min-width: 0;
-    /* Override the min-width that forces horizontal scroll */
-    white-space: nowrap;
-    gap: var(--space-1);
-    padding: var(--space-3);
+  .acc-sidebar-name {
+    font-size: 0.75rem;
   }
 
-  .timeline-step {
-    flex: 0 0 auto;
-    min-width: 110px;
-    padding: var(--space-3) var(--space-3);
-  }
-
-  .timeline-period {
-    font-size: 0.625rem; /* 10px */
-  }
-
-  .timeline-name {
-    font-size: var(--font-size-sm);
-  }
-
-  .accelerator-detail-card {
-    padding: var(--space-5);
+  /* Panel: full-width column below the tab strip */
+  .acc-panel-wrap {
+    flex-direction: column;
+    padding: var(--space-5) var(--space-4);
+    padding-top: var(--space-5);
     gap: var(--space-4);
   }
 
-  .detail-card-title {
+  /* Badges: was position:absolute top-right → now static above title */
+  .acc-panel-badges {
+    position: static;
+    margin-bottom: var(--space-2);
+  }
+
+  .acc-panel-main {
+    max-width: none;
+  }
+
+  .acc-panel-title {
     font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-3);
+  }
+
+  .acc-panel-desc {
+    font-size: var(--font-size-base);
+    max-width: none;
+    margin-bottom: var(--space-5);
+  }
+
+  /* Deliverables: 2-col grid → single column */
+  .acc-deliverables {
+    grid-template-columns: 1fr;
+    max-width: none;
+  }
+
+  /* Goal card: remove fixed 252px width */
+  .acc-goal-card {
+    width: 100%;
+    align-self: stretch;
   }
 
 
@@ -295,6 +356,12 @@
     flex-direction: column;
     text-align: center;
     gap: var(--space-4);
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: var(--space-4) 0;
+    margin-top: var(--space-3);
   }
 
   .test-bar-divider {
@@ -310,11 +377,13 @@
     flex-direction: row !important;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    scroll-padding-left: 7vw;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     gap: var(--space-4);
-    padding: var(--space-2) var(--space-4) var(--space-4);
+    padding: var(--space-2) 7vw var(--space-4);
     margin: 0 calc(-1 * var(--space-4));
+    width: calc(100% + 2 * var(--space-4));
   }
 
   .testimonials-grid::-webkit-scrollbar {
@@ -322,8 +391,8 @@
   }
 
   .testimonial-card {
-    flex: 0 0 84vw;
-    max-width: 320px;
+    flex: 0 0 86vw;
+    max-width: none;
     scroll-snap-align: start;
     transform: none !important;
   }
@@ -334,34 +403,100 @@
 
 
   /* ========================================================================
-     8. ROI CALCULATOR — Stacked top/bottom on mobile
+     8. ROI CALCULATOR — Compact single-column on mobile
      ======================================================================== */
+
+  /* Reduce card outer padding and clip children to rounded corners */
+  .roi-calculator-card {
+    padding: var(--space-4);
+    overflow: hidden;
+  }
 
   .roi-calculator-layout {
     grid-template-columns: 1fr;
-    gap: var(--space-5);
+    gap: 0;                /* remove gap — divider handled by border-top on results panel */
   }
 
+  /* Remove the double-padding added on mobile (card padding is sufficient) */
   .roi-inputs-panel,
   .roi-results-panel {
-    padding: var(--space-5);
+    padding: 0;
+    gap: var(--space-3);
+  }
+
+  /* Inputs panel: bleed to card edges with darker base colour */
+  .roi-inputs-panel {
+    background: var(--color-bg-base);
+    margin: calc(-1 * var(--space-4));
+    margin-bottom: 0;
+    padding: var(--space-4);
+    padding-bottom: var(--space-4);
+  }
+
+  /* Results panel: lighter surface with top divider and breathing room */
+  .roi-results-panel {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: var(--space-4);
+  }
+
+  /* Panel titles: match Figma prominence — 24px fits "Configure Growth Parameters" on one line */
+  .roi-panel-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  /* Slider current value: reduce from 24px, step down weight from black(900) to bold(700) */
+  .roi-current-value {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+  }
+
+  /* Baseline revenue figure: less dominant */
+  .roi-baseline-value {
+    font-size: var(--font-size-2xl); /* 24px — down from 36px */
+  }
+
+  /* Tighter top spacing on baseline block */
+  .roi-baseline {
+    padding-top: var(--space-3);     /* 12px — down from 24px */
+  }
+
+  /* Override desktop negative margin that pulls subtitle into title */
+  .roi-panel-subtitle {
+    margin-top: var(--space-1);        /* small positive gap instead of -20px */
+  }
+
+  /* Scenarios stay in a single row — no wrapping */
+  .roi-scenario {
+    flex-wrap: nowrap;
+    padding: var(--space-3) var(--space-3); /* reduce H padding: 20px → 12px = wider header column */
+    gap: var(--space-2);                    /* tighter gap between pill / header / result */
+  }
+
+  /* Allow header to shrink so description can clip to one line */
+  .roi-scenario-header {
+    min-width: 0;
+  }
+
+  /* Force description to one line — prevents taller cards on wrap */
+  .roi-scenario-desc {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.6875rem;              /* 11px — fits "20% conversion improvement" on one line */
+  }
+
+  /* Scenario dollar values: smaller to fit one-row layout */
+  .roi-scenario-value {
+    font-size: var(--font-size-base);  /* 16px — down from 20px */
   }
 
   .roi-maximum-value {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-2xl);
   }
 
   .roi-cta {
     width: 100%;
     justify-content: center;
-  }
-
-  .roi-scenario {
-    flex-wrap: wrap;
-  }
-
-  .roi-scenario-result {
-    align-items: flex-start;
   }
 
 
@@ -378,11 +513,13 @@
     flex-direction: row !important;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    scroll-padding-left: 7vw;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     gap: var(--space-4);
-    padding: var(--space-2) var(--space-4) var(--space-4);
+    padding: 20px 7vw var(--space-4);
     margin: 0 calc(-1 * var(--space-4));
+    width: calc(100% + 2 * var(--space-4));
     align-items: stretch;
   }
 
@@ -390,16 +527,37 @@
     display: none;
   }
 
-  .service-card {
-    flex: 0 0 84vw;
-    max-width: 320px;
+  .service-card,
+  .service-popular-wrapper {
+    flex: 0 0 86vw;
+    max-width: none;
     scroll-snap-align: start;
     transform: none !important;
+  }
+
+  /* The inner card inside the popular wrapper fills the wrapper */
+  .service-popular-wrapper .service-card {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  /* Remove cross-card title alignment — not needed in carousel */
+  .service-card-title {
+    min-height: unset;
   }
 
   /* Featured card: same width on mobile */
   .service-card--featured {
     grid-column: auto;
+  }
+
+  .services-cta-banner {
+    padding-left: var(--space-4);
+    gap: var(--space-4);
+  }
+
+  .services-cta-text {
+    font-size: var(--font-size-base);
   }
 
 
@@ -417,8 +575,8 @@
   }
 
   .founder-photo-frame {
-    width: 220px;
-    height: 280px;
+    width: 270px;
+    height: 360px;
   }
 
   .founder-content-col .section-heading {
@@ -436,6 +594,7 @@
 
   .founder-bio {
     font-size: var(--font-size-md);
+    padding: 0 var(--space-3);
   }
 
   .founder-stats {
@@ -456,6 +615,12 @@
   .cta-layout {
     grid-template-columns: 1fr;
     gap: var(--space-8);
+  }
+
+  .cta-content {
+    padding-top: 0;
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
   }
 
   .cta-content .section-heading {
@@ -479,6 +644,10 @@
   .cta-checklist-link {
     align-items: center;
     text-align: center;
+  }
+
+  .cta-checklist-btn {
+    font-size: var(--font-size-lg);
   }
 
   .cta-calendar-inner {
@@ -516,6 +685,7 @@
   }
 
 
+
   /* ========================================================================
      13. CAROUSEL ARROW POSITIONING (injected by precision-interactions.js)
      Adjusts arrow placement for narrow viewports
@@ -542,11 +712,17 @@
 
   /* Increase tap targets for all interactive elements */
   .nav-link,
-  .btn-primary,
+  .btn-primary:not(.header-btn),
   .btn-ghost-service,
-  .footer-nav-link,
   .footer-legal-link {
     min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Footer nav links: smaller touch target to keep footer compact */
+  .footer-nav-link {
+    min-height: 32px;
     display: inline-flex;
     align-items: center;
   }
@@ -557,7 +733,8 @@
     .why-card:hover,
     .case-study-card:hover,
     .testimonial-card:hover,
-    .service-card:hover {
+    .service-card:hover,
+    .service-popular-wrapper:hover {
       transform: none;
       box-shadow: none;
     }

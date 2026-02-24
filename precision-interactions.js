@@ -48,21 +48,20 @@
         animation: precision-flash 0.35s ease forwards;
       }
 
-      /* Carousel nav row — sits below the track, centered */
+      /* Carousel nav row — prev on left, next on right */
       .carousel-nav {
         display: flex;
-        justify-content: center;
-        gap: 12px;
+        justify-content: space-between;
         margin-top: 16px;
-        padding: 4px 0;
+        padding: 4px 16px;
       }
 
       /* Carousel arrow buttons */
       .carousel-arrow {
         position: relative;
         z-index: 10;
-        width: 40px;
-        height: 40px;
+        width: 44px;
+        height: 44px;
         border-radius: 50%;
         border: 1px solid rgba(255,255,255,0.12);
         background: rgba(11,11,30,0.85);
@@ -80,7 +79,7 @@
         border-color: rgba(0,191,255,0.5);
         background: rgba(0,191,255,0.08);
       }
-      .carousel-arrow.is-hidden { opacity: 0; pointer-events: none; }
+      .carousel-arrow.is-hidden { visibility: hidden; pointer-events: none; }
       .carousel-arrow svg { display: block; }
 
       /* ROI trend arrow ↗ */
@@ -139,9 +138,19 @@
         background: rgba(255,255,255,0.06);
       }
       .mobile-nav-overlay .mobile-nav-link--cta {
-        color: #00BFFF;
-        border: 1px solid rgba(0,191,255,0.3);
+        background: #FFD166;
+        color: #0B0B1E;
+        border: none;
+        border-radius: 999px;
+        font-weight: 600;
+        box-shadow: 0 0 24px rgba(255,209,102,0.35);
         margin-top: 16px;
+      }
+      .mobile-nav-overlay .mobile-nav-link--cta:hover,
+      .mobile-nav-overlay .mobile-nav-link--cta:focus {
+        background: #FFD166;
+        color: #0B0B1E;
+        opacity: 0.92;
       }
       .mobile-nav-close {
         position: absolute;
@@ -466,13 +475,10 @@
 
     // Nav links (mirror from header)
     const NAV_LINKS = [
-      { text: 'Home',                   href: '#' },
-      { text: 'About Us',               href: '#why-precision' },
-      { text: 'Partners',               href: '#services' },
-      { text: 'Case Studies',           href: '#case-studies' },
-      { text: 'Testimonials',           href: '#testimonials' },
-      { text: 'ROI Calculator',         href: '#roi-calculator' },
-      { text: 'Book a Call',            href: '#cta-contact', cta: true },
+      { text: 'Home',       href: '#' },
+      { text: 'About Us',   href: '#why-precision' },
+      { text: 'Partners',   href: '#services' },
+      { text: 'Book a Call', href: '#cta-contact', cta: true },
     ];
 
     const navList = document.createElement('ul');
@@ -508,7 +514,13 @@
       hamburger.focus();
     }
 
-    hamburger.addEventListener('click', openMenu);
+    hamburger.addEventListener('click', function () {
+      if (overlay.classList.contains('is-open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
     closeBtn.addEventListener('click', closeMenu);
 
     // Close on overlay link click
@@ -557,12 +569,13 @@
       track.parentNode.insertBefore(wrapper, track);
       wrapper.appendChild(track);
 
-      // Create arrows and place them in a nav row below the wrapper
+      // Create arrows — prevBtn is NOT added to DOM yet (only injected on scroll)
       var prevBtn = createArrowBtn('prev', 'Previous');
       var nextBtn = createArrowBtn('next', 'Next');
+      var prevInNav = false;
       var nav = document.createElement('div');
       nav.className = 'carousel-nav';
-      nav.appendChild(prevBtn);
+      nav.style.justifyContent = 'flex-end'; // only next arrow initially
       nav.appendChild(nextBtn);
       wrapper.parentNode.insertBefore(nav, wrapper.nextSibling);
 
@@ -580,17 +593,31 @@
       /** Update arrow visibility based on scroll position */
       function updateArrows() {
         var atStart = track.scrollLeft <= 4;
-        var atEnd   = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+        var atEnd   = track.scrollLeft + track.clientWidth >= track.scrollWidth - 20;
 
-        prevBtn.classList.toggle('is-hidden', atStart);
-        nextBtn.classList.toggle('is-hidden', atEnd);
+        // Add prevBtn to DOM only when user has scrolled past start
+        if (!atStart && !prevInNav) {
+          nav.insertBefore(prevBtn, nextBtn);
+          prevInNav = true;
+        } else if (atStart && prevInNav) {
+          nav.removeChild(prevBtn);
+          prevInNav = false;
+        }
+
+        // Show/hide next arrow
+        nextBtn.style.display = atEnd ? 'none' : 'flex';
+
+        // Align nav based on which arrows are present
+        if (!prevInNav && !atEnd) {
+          nav.style.justifyContent = 'flex-end';       // first card: next → right
+        } else if (prevInNav && atEnd) {
+          nav.style.justifyContent = 'flex-start';     // last card: prev → left
+        } else {
+          nav.style.justifyContent = 'space-between';  // middle: both
+        }
       }
 
       track.addEventListener('scroll', updateArrows, { passive: true });
-      // Initial state
-      updateArrows();
-
-      // Re-check on resize
       window.addEventListener('resize', updateArrows, { passive: true });
     }
 

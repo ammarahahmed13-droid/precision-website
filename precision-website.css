@@ -28,6 +28,7 @@ body {
   color: var(--color-text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
   line-height: 1.5;
 }
 
@@ -654,6 +655,7 @@ button {
 @media (min-width: 1200px) {
   .hero-headline { font-size: var(--font-size-7xl); }
   .hero-subtext { font-size: var(--font-size-xl); }
+  .hero-inner { padding-left: var(--space-20); padding-right: var(--space-20); }
   .atmo-blob--hero-l { width: 900px; height: 900px; }
   .atmo-blob--hero-r { width: 1000px; height: 1000px; }
 }
