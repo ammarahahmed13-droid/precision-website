@@ -929,6 +929,9 @@ button {
   border-radius: var(--radius-xl);
   overflow: hidden;
   min-height: 420px;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
   --acc-color:        #22D3EE;
   --acc-color-bg:     rgba(34, 211, 238, 0.12);
   --acc-color-border: rgba(34, 211, 238, 0.22);
@@ -1013,7 +1016,7 @@ button {
   min-width: 0;
   position: relative;
   padding: var(--space-6);
-  padding-top: calc(var(--space-6) + 36px);
+  padding-top: calc(var(--space-4) + 36px);
   display: flex;
   align-items: stretch;
   gap: var(--space-5);
@@ -1030,8 +1033,8 @@ button {
   flex-direction: column;
   gap: 0;
 }
-.acc-panel-title  { margin-bottom: var(--space-3); }
-.acc-panel-desc   { margin-bottom: var(--space-6); }
+.acc-panel-title  { margin-bottom: var(--space-5); }
+.acc-panel-desc   { margin-bottom: var(--space-8); }
 
 .acc-panel-title {
   font-size: var(--font-size-4xl);
@@ -1115,14 +1118,14 @@ button {
 .acc-goal-card {
   width: 252px;
   flex-shrink: 0;
-  align-self: center;
+  align-self: flex-end;
   background: rgba(0, 0, 0, 0.45);
   border: 1px solid rgba(255, 255, 255, 0.10);
   border-radius: var(--radius-lg);
   padding: var(--space-5) var(--space-5);
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: var(--space-4);
 }
 
 .acc-goal-arrow-btn {
@@ -1202,7 +1205,9 @@ button {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-6);
-  width: 100%;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .case-study-card {
@@ -1352,7 +1357,9 @@ button {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card-sm);
   margin-top: var(--space-10);
-  width: 100%;
+  max-width: 1040px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .test-bar-avatars {
@@ -1410,19 +1417,22 @@ button {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-4);
-  width: 100%;
+  max-width: 1040px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .testimonial-card {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
-  padding: var(--space-6);
+  padding: var(--space-8) var(--space-6);
   background: var(--color-bg-surface);
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card-sm);
   transition: border-color 0.25s, transform 0.25s;
+  min-height: 320px;
 }
 .testimonial-card:hover {
   border-color: rgba(199, 21, 133, 0.2);
@@ -1562,26 +1572,27 @@ button {
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-card-md);
-  padding: var(--space-10);
-  width: 100%;
+  padding: var(--space-8);
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .roi-calculator-layout {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-10);
-  width: 100%;
+  gap: var(--space-8);
 }
 
 .roi-inputs-panel,
 .roi-results-panel {
   display: flex;
   flex-direction: column;
-  gap: var(--space-8);
+  gap: var(--space-6);
 }
 
 .roi-panel-title {
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
   letter-spacing: var(--letter-spacing-snug);
@@ -1614,7 +1625,7 @@ button {
 }
 
 .roi-current-value {
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-black);
   color: var(--color-text-primary);
   letter-spacing: var(--letter-spacing-snug);
@@ -1662,7 +1673,7 @@ button {
   letter-spacing: 0.1em;
 }
 .roi-baseline-value {
-  font-size: var(--font-size-5xl);
+  font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
   letter-spacing: var(--letter-spacing-tight);
@@ -1767,7 +1778,7 @@ button {
   letter-spacing: 0.1em;
 }
 .roi-maximum-value {
-  font-size: var(--font-size-5xl);
+  font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
   letter-spacing: var(--letter-spacing-tight);
@@ -1805,21 +1816,24 @@ button {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-5);
-  width: 100%;
-  align-items: start;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: stretch;
 }
 
 /* Wrapper for the popular card + floating badge above it */
 .service-popular-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  position: relative;
+  align-self: stretch;
 }
 
 .service-popular-badge {
-  align-self: center;
-  position: relative;
-  z-index: 2;
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
   padding: 5px 14px;
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
@@ -1828,8 +1842,16 @@ button {
   border-radius: var(--radius-pill);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-bottom: -14px;
   white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+}
+.service-popular-wrapper:hover .service-popular-badge {
+  background: #7B68EE;
+  color: #ffffff;
+}
+
+.service-popular-wrapper .service-card {
+  height: 100%;
 }
 
 .service-card {
@@ -1891,8 +1913,10 @@ button {
   display: flex;
   flex-direction: column;
   gap: var(--space-5);
-  padding: var(--space-8);
+  padding: var(--space-8) var(--space-6);
   flex: 1;
+  justify-content: flex-start;
+  min-height: 340px;
 }
 
 .service-card-title {
@@ -1963,9 +1987,6 @@ button {
 
 @media (min-width: 768px) {
   .services-grid { grid-template-columns: repeat(3, 1fr); }
-  /* Badge overlaps 14px into the card; shift side cards down so their tops align with the CRO Sprint card top */
-  .service-card--cyan,
-  .service-card--crimson { margin-top: 8px; }
 }
 
 /* Services CTA Banner */
@@ -1975,12 +1996,15 @@ button {
   justify-content: space-between;
   gap: var(--space-8);
   margin-top: var(--space-12);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 960px;
   padding-top: var(--space-10);
   border-top: 1px solid rgba(255,255,255,0.08);
 }
 
 .services-cta-text {
-  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
   line-height: 1.35;
@@ -2043,7 +2067,7 @@ button {
   grid-template-columns: 1fr;
   gap: var(--space-12);
   align-items: center;
-  max-width: 960px;
+  max-width: 840px;
   margin: 0 auto;
 }
 
@@ -2054,12 +2078,13 @@ button {
 
 .founder-photo-frame {
   position: relative;
-  width: 280px;
-  height: 380px;
+  width: 290px;
+  height: 420px;
   border-radius: var(--radius-xl);
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.08);
   flex-shrink: 0;
+  box-shadow: 0 0 60px rgba(0,191,255,0.13), 0 0 120px rgba(0,191,255,0.07);
 }
 
 .founder-photo-placeholder {
@@ -2135,23 +2160,20 @@ button {
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
-  max-width: 560px;
+  max-width: 480px;
 }
 
 .founder-bio {
   font-size: var(--font-size-base);
-  color: var(--color-text-secondary);
+  color: var(--color-text-tertiary);
   line-height: var(--line-height-normal);
 }
 
 .founder-stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-5) var(--space-8);
-  padding: var(--space-6);
-  background: rgba(21,21,46,0.6);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: var(--radius-lg);
+  gap: var(--space-8) var(--space-8);
+  padding: 0;
 }
 
 .founder-stat {
@@ -2164,7 +2186,7 @@ button {
 /* Numbers: white by default, color on hover */
 .founder-stat-value {
   font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-black);
+  font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
   letter-spacing: var(--letter-spacing-tight);
   transition: color 0.2s ease;
@@ -2183,13 +2205,13 @@ button {
 }
 
 @media (min-width: 768px) {
-  .founder-layout { grid-template-columns: auto minmax(0, 540px); gap: var(--space-12); }
+  .founder-layout { grid-template-columns: auto minmax(0, 460px); gap: var(--space-12); }
   .founder-photo-col { justify-content: flex-start; }
-  .founder-photo-frame { width: 320px; height: 420px; }
+  .founder-photo-frame { width: 320px; height: 460px; }
 }
 @media (min-width: 1200px) {
-  .founder-photo-frame { width: 360px; height: 460px; }
-  .founder-layout { gap: var(--space-16); }
+  .founder-photo-frame { width: 340px; height: 500px; }
+  .founder-layout { gap: var(--space-14); }
 }
 
 /* ==========================================================================
@@ -2240,12 +2262,15 @@ button {
   grid-template-columns: 1fr;
   gap: var(--space-10);
   align-items: start;
+  max-width: 920px;
+  margin: 0 auto;
 }
 
 .cta-content {
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
+  padding-top: var(--space-16);
 }
 
 .cta-benefits {
@@ -2289,6 +2314,12 @@ button {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: var(--radius-lg);
+  transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+}
+.cta-checklist-link:hover {
+  background: rgba(0,191,255,0.12);
+  border-color: rgba(0,191,255,0.45);
+  box-shadow: 0 0 32px rgba(0,191,255,0.18), 0 0 70px rgba(0,191,255,0.09);
 }
 .cta-checklist-label {
   font-size: var(--font-size-xs);
@@ -2341,7 +2372,10 @@ button {
 }
 
 @media (min-width: 768px) {
-  .cta-layout { grid-template-columns: 1fr 1.4fr; gap: var(--space-12); align-items: start; }
+  .cta-layout { grid-template-columns: 1fr 1.2fr; gap: var(--space-10); align-items: start; }
+}
+@media (min-width: 1200px) {
+  .cta-layout { grid-template-columns: 1fr 1.1fr; gap: var(--space-12); }
 }
 
 /* ==========================================================================
@@ -2401,11 +2435,12 @@ button {
 .footer-nav-list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-1);
 }
 
 .footer-nav-link {
   font-size: var(--font-size-md);
+  line-height: 1.4;
   color: var(--color-text-muted);
   transition: color 0.18s;
 }
