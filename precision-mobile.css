@@ -1,0 +1,607 @@
+/* ==========================================================================
+   PRECISION — MOBILE CSS OVERRIDES
+   Breakpoint: max-width 767px (below 768px tablet threshold)
+   Companion to precision-website.css and precision-tokens.css
+   ========================================================================== */
+
+/* ==========================================================================
+   LOGO MARQUEE — No pause on hover (override base CSS)
+   ========================================================================== */
+
+.logo-strip-wrapper:hover .logo-strip-track {
+  animation-play-state: running;
+}
+
+
+/* ==========================================================================
+   BACKGROUND ORB — Smaller on mobile
+   ========================================================================== */
+
+.precision-bg-orb {
+  position: fixed;
+  top: -10vh;
+  left: -10vw;
+  width: 60vw;
+  height: 60vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 191, 255, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.1;
+  will-change: transform, opacity;
+}
+
+@media (min-width: 768px) {
+  .precision-bg-orb {
+    width: 40vw;
+    height: 40vw;
+    top: -5vh;
+    left: -5vw;
+  }
+}
+
+/* Hero stats progress bar (injected by JS) */
+.hero-stats-progress-bar {
+  width: 100%;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--color-accent-cyan) 0%, var(--color-accent-purple) 100%);
+  opacity: 0.6;
+  will-change: opacity;
+}
+
+
+@media (max-width: 767px) {
+
+  /* ========================================================================
+     GLOBAL MOBILE ADJUSTMENTS
+     ======================================================================== */
+
+  .section-inner {
+    padding: var(--space-12) var(--space-4);
+  }
+
+  .section-heading {
+    font-size: var(--font-size-3xl);  /* 30px on mobile */
+  }
+
+  .section-subtext {
+    font-size: var(--font-size-md);
+  }
+
+  .btn-primary,
+  .btn-lg {
+    width: 100%;
+    justify-content: center;
+  }
+
+
+  /* ========================================================================
+     1. HEADER — Logo left, hamburger right, nav hidden
+     ======================================================================== */
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    padding: var(--space-3) var(--space-4);
+    gap: 0;
+  }
+
+  /* Logo stays left */
+  .header-logo {
+    flex: 1;
+  }
+
+  /* Desktop nav: hidden on mobile (replaced by overlay) */
+  .header-nav {
+    display: none;
+  }
+
+  /* Desktop "Book a Call" header button: hidden on mobile */
+  .header-btn {
+    display: none;
+  }
+
+  /* Hamburger: shown on mobile */
+  .header-hamburger {
+    display: flex;
+    margin-left: auto;
+  }
+
+
+  /* ========================================================================
+     2. HERO — Single column, reduced sizing
+     ======================================================================== */
+
+  .hero-section {
+    min-height: auto;
+    padding-top: var(--space-4);
+  }
+
+  .hero-inner {
+    flex-direction: column;
+    padding: var(--space-12) var(--space-4) var(--space-8);
+    gap: var(--space-8);
+    align-items: stretch;
+  }
+
+  .hero-headline {
+    font-size: var(--font-size-4xl);  /* 36px */
+    letter-spacing: -0.03em;
+  }
+
+  .hero-subtext {
+    font-size: var(--font-size-base);
+  }
+
+  .hero-cta-row {
+    flex-direction: column;
+  }
+
+  .hero-visual {
+    max-width: 100%;
+    padding-top: 44px;
+    padding-bottom: 52px;
+  }
+
+  .hero-stats-card {
+    max-width: 100%;
+  }
+
+  .stats-float-tag--strategy {
+    right: 0;
+  }
+
+  .stats-float-tag--analysis {
+    font-size: var(--font-size-xs);
+  }
+
+  .stats-metrics-row {
+    gap: var(--space-1);
+  }
+
+
+  /* ========================================================================
+     3. SOCIAL PROOF — Unchanged (marquee handles itself)
+     ======================================================================== */
+
+  .social-proof-section {
+    padding: var(--space-8) 0;
+  }
+
+  .logo-strip-fade {
+    width: 60px;
+  }
+
+
+  /* ========================================================================
+     4. WHY PRECISION — Horizontal scroll carousel on mobile
+     ======================================================================== */
+
+  .why-section .section-inner {
+    overflow: hidden;
+  }
+
+  /* Make the grid a horizontal scroll track */
+  .why-cards {
+    display: flex !important;           /* override grid */
+    flex-direction: row !important;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;              /* Firefox */
+    gap: var(--space-4);
+    padding: var(--space-2) var(--space-4) var(--space-4);
+    margin: 0 calc(-1 * var(--space-4)); /* bleed to edges */
+  }
+
+  .why-cards::-webkit-scrollbar {
+    display: none;                      /* Chrome/Safari */
+  }
+
+  .why-card {
+    flex: 0 0 84vw;                     /* ~84% viewport width per card */
+    max-width: 340px;
+    scroll-snap-align: start;
+    transform: none !important;         /* disable GSAP Y on mobile */
+  }
+
+  /* Featured card: same width as others on mobile */
+  .why-card--featured {
+    flex: 0 0 84vw;
+  }
+
+
+  /* ========================================================================
+     5. CONVERSION ACCELERATOR — Horizontal top tabs on mobile
+     ======================================================================== */
+
+  .accelerator-timeline {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: var(--space-2);
+  }
+
+  .accelerator-timeline::-webkit-scrollbar {
+    display: none;
+  }
+
+  .timeline-list {
+    flex-direction: row;
+    overflow-x: auto;
+    min-width: 0;
+    /* Override the min-width that forces horizontal scroll */
+    white-space: nowrap;
+    gap: var(--space-1);
+    padding: var(--space-3);
+  }
+
+  .timeline-step {
+    flex: 0 0 auto;
+    min-width: 110px;
+    padding: var(--space-3) var(--space-3);
+  }
+
+  .timeline-period {
+    font-size: 0.625rem; /* 10px */
+  }
+
+  .timeline-name {
+    font-size: var(--font-size-sm);
+  }
+
+  .accelerator-detail-card {
+    padding: var(--space-5);
+    gap: var(--space-4);
+  }
+
+  .detail-card-title {
+    font-size: var(--font-size-2xl);
+  }
+
+
+  /* ========================================================================
+     6. CASE STUDIES — Stacked vertically (no horizontal scroll)
+     ======================================================================== */
+
+  .case-studies-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-card-image {
+    height: 160px;
+  }
+
+  .cs-card-title {
+    font-size: var(--font-size-xl);
+  }
+
+
+  /* ========================================================================
+     7. TESTIMONIALS — Horizontal scroll carousel on mobile
+     ======================================================================== */
+
+  .testimonials-section .section-inner {
+    overflow: hidden;
+  }
+
+  .testimonials-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-4);
+  }
+
+  .test-bar-divider {
+    display: none;
+  }
+
+  .test-bar-cta-text {
+    text-align: center;
+  }
+
+  .testimonials-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: var(--space-4);
+    padding: var(--space-2) var(--space-4) var(--space-4);
+    margin: 0 calc(-1 * var(--space-4));
+  }
+
+  .testimonials-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .testimonial-card {
+    flex: 0 0 84vw;
+    max-width: 320px;
+    scroll-snap-align: start;
+    transform: none !important;
+  }
+
+  .testimonial-quote {
+    font-size: var(--font-size-sm);
+  }
+
+
+  /* ========================================================================
+     8. ROI CALCULATOR — Stacked top/bottom on mobile
+     ======================================================================== */
+
+  .roi-calculator-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .roi-inputs-panel,
+  .roi-results-panel {
+    padding: var(--space-5);
+  }
+
+  .roi-maximum-value {
+    font-size: var(--font-size-3xl);
+  }
+
+  .roi-cta {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .roi-scenario {
+    flex-wrap: wrap;
+  }
+
+  .roi-scenario-result {
+    align-items: flex-start;
+  }
+
+
+  /* ========================================================================
+     9. SERVICES / HOW WE WORK — Horizontal scroll carousel on mobile
+     ======================================================================== */
+
+  .services-section .section-inner {
+    overflow: hidden;
+  }
+
+  .services-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: var(--space-4);
+    padding: var(--space-2) var(--space-4) var(--space-4);
+    margin: 0 calc(-1 * var(--space-4));
+    align-items: stretch;
+  }
+
+  .services-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .service-card {
+    flex: 0 0 84vw;
+    max-width: 320px;
+    scroll-snap-align: start;
+    transform: none !important;
+  }
+
+  /* Featured card: same width on mobile */
+  .service-card--featured {
+    grid-column: auto;
+  }
+
+
+  /* ========================================================================
+     10. FOUNDER BIO — Single column on mobile
+     ======================================================================== */
+
+  .founder-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .founder-photo-col {
+    align-items: center;
+  }
+
+  .founder-photo-frame {
+    width: 220px;
+    height: 280px;
+  }
+
+  .founder-content-col .section-heading {
+    font-size: var(--font-size-3xl);
+    text-align: center;
+  }
+
+  .founder-content-col .section-label {
+    align-self: center;
+  }
+
+  .founder-quote {
+    font-size: var(--font-size-base);
+  }
+
+  .founder-bio {
+    font-size: var(--font-size-md);
+  }
+
+  .founder-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+    padding: var(--space-4);
+  }
+
+  .founder-stat-value {
+    font-size: var(--font-size-2xl);
+  }
+
+
+  /* ========================================================================
+     11. CTA / CONTACT — Single column on mobile
+     ======================================================================== */
+
+  .cta-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .cta-content .section-heading {
+    font-size: var(--font-size-3xl);
+    text-align: center;
+  }
+
+  .cta-content .section-label {
+    align-self: center;
+  }
+
+  .cta-subtext {
+    font-size: var(--font-size-base);
+    text-align: center;
+  }
+
+  .cta-benefits {
+    align-items: flex-start;
+  }
+
+  .cta-checklist-link {
+    align-items: center;
+    text-align: center;
+  }
+
+  .cta-calendar-inner {
+    min-height: 280px;
+    padding: var(--space-5);
+  }
+
+
+  /* ========================================================================
+     12. FOOTER — Single column on mobile
+     ======================================================================== */
+
+  .footer-inner {
+    padding: var(--space-10) var(--space-4) var(--space-6);
+    gap: var(--space-8);
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .footer-brand-col {
+    max-width: 100%;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: var(--space-2);
+    text-align: center;
+  }
+
+  .footer-legal-nav {
+    justify-content: center;
+  }
+
+
+  /* ========================================================================
+     13. CAROUSEL ARROW POSITIONING (injected by precision-interactions.js)
+     Adjusts arrow placement for narrow viewports
+     ======================================================================== */
+
+  .carousel-wrapper {
+    position: relative;
+    overflow: visible;
+  }
+
+  /* Arrows are in .carousel-nav below the track — no side positioning needed */
+
+  /* On very small screens (≤360px), hide nav — swipe only */
+  @media (max-width: 360px) {
+    .carousel-nav {
+      display: none;
+    }
+  }
+
+
+  /* ========================================================================
+     14. TOUCH INTERACTION IMPROVEMENTS
+     ======================================================================== */
+
+  /* Increase tap targets for all interactive elements */
+  .nav-link,
+  .btn-primary,
+  .btn-ghost-service,
+  .footer-nav-link,
+  .footer-legal-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Remove hover transforms on touch devices
+     (prevents stuck hover states on iOS) */
+  @media (hover: none) {
+    .why-card:hover,
+    .case-study-card:hover,
+    .testimonial-card:hover,
+    .service-card:hover {
+      transform: none;
+      box-shadow: none;
+    }
+
+    .btn-primary:hover {
+      transform: none;
+    }
+  }
+
+} /* end @media (max-width: 767px) */
+
+
+/* ==========================================================================
+   SMALL TABLET ADJUSTMENTS (768px – 1199px)
+   ========================================================================== */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+
+  .section-heading {
+    font-size: var(--font-size-4xl);
+  }
+
+  .hero-headline {
+    font-size: var(--font-size-5xl);
+  }
+
+  /* Conversion accelerator: keep timeline scrollable on tablet too */
+  .accelerator-timeline {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .accelerator-timeline::-webkit-scrollbar { display: none; }
+
+  /* Testimonials: 2-col on tablet */
+  .testimonials-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Services: 2-col on tablet, featured card full-width */
+  .services-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .service-card--featured {
+    grid-column: 1 / -1;
+  }
+
+}

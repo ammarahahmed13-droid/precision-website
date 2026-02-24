@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Precision Consulting Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="precision-tokens.css" />
+  <link rel="stylesheet" href="precision-website.css" />
+  <link rel="stylesheet" href="precision-mobile.css" />
+</head>
+<body>
+
+<!-- ============================================================
+     SECTION 1: HEADER / NAV
+     ============================================================ -->
+<header id="header" class="site-header" role="banner">
+  <div class="header-inner">
+
+    <a href="/" class="header-logo" aria-label="Precision Consulting Group home">
+      <!-- Replace svg below with exported Figma logo SVG when available -->
+      <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect x="2"  y="2"  width="18" height="18" rx="2.5" stroke="white" stroke-width="2" fill="none"/>
+        <rect x="12" y="12" width="18" height="18" rx="2.5" stroke="rgba(255,255,255,0.45)" stroke-width="2" fill="none"/>
+      </svg>
+      <span class="logo-text">Precision</span>
+    </a>
+
+    <nav class="header-nav" role="navigation" aria-label="Primary navigation">
+      <ul class="nav-list" role="list">
+        <li><a href="#" class="nav-link">Home</a></li>
+        <li><a href="#why-precision" class="nav-link">About Us</a></li>
+        <li><a href="#services" class="nav-link">Partners</a></li>
+      </ul>
+    </nav>
+
+    <a href="#cta-contact" class="btn-primary header-btn" role="button">Book a Call &rarr;</a>
+
+    <button class="header-hamburger" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+  </div>
+  <div class="header-glow-line" aria-hidden="true"></div>
+</header>
+
+
+<!-- ============================================================
+     SECTION 2: HERO / FIRST FOLD
+     ============================================================ -->
+<section id="hero" class="hero-section atmo-section" aria-labelledby="hero-headline">
+
+  <div class="atmo-blob atmo-blob--cyan atmo-blob--hero-l" aria-hidden="true"></div>
+  <div class="atmo-blob atmo-blob--purple atmo-blob--hero-r" aria-hidden="true"></div>
+  <div class="hero-grid-overlay" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+
+    <div class="hero-content">
+
+      <h1 class="hero-headline" id="hero-headline">
+        Same Traffic.<br />
+        <span class="gradient-text-hero">More Revenue.</span>
+      </h1>
+
+      <p class="hero-subtext">
+        We find the revenue hiding in your existing traffic without adding headcount or ad spend.
+        No gimmicks, just data-backed growth.
+      </p>
+
+      <div class="hero-cta-row">
+        <a href="#cta-contact" class="btn-primary btn-lg" role="button">Book a Call &rarr;</a>
+      </div>
+
+    </div>
+
+    <!-- Hero visual: chart card + floating tags -->
+    <div class="hero-visual" aria-label="Conversion performance metrics">
+
+      <!-- Floating tag: top-right (dark card) -->
+      <div class="stats-float-tag stats-float-tag--strategy" aria-hidden="true">
+        <div class="float-tag-icon float-tag-icon--target">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <!-- Outer ring -->
+            <circle cx="10" cy="10" r="9" stroke="#E03565" stroke-width="1.5"/>
+            <!-- Middle ring -->
+            <circle cx="10" cy="10" r="5.5" stroke="#E03565" stroke-width="1.5" opacity="0.65"/>
+            <!-- Center filled dot -->
+            <circle cx="10" cy="10" r="2.2" fill="#E03565"/>
+          </svg>
+        </div>
+        <div class="float-tag-text">
+          <span class="float-tag-label">Strategy</span>
+          <span class="float-tag-desc">Psychology-Driven</span>
+        </div>
+      </div>
+
+      <!-- Main chart card -->
+      <div class="hero-stats-card">
+        <div class="stats-card-header">
+          <div class="stats-card-header-left">
+            <span class="stats-card-title">Conversion Performance</span>
+            <span class="stats-card-period">Last 6 Months</span>
+          </div>
+          <span class="stats-card-growth-badge">+58% GROWTH</span>
+        </div>
+
+        <!-- CSS bar chart -->
+        <div class="stats-chart" aria-label="Bar chart: conversion performance grew +58% over 6 months">
+          <div class="stats-bars" aria-hidden="true">
+            <div class="stats-bar stats-bar--1"></div>
+            <div class="stats-bar stats-bar--2"></div>
+            <div class="stats-bar stats-bar--3"></div>
+            <div class="stats-bar stats-bar--4"></div>
+            <div class="stats-bar stats-bar--5"></div>
+            <div class="stats-bar stats-bar--6"></div>
+          </div>
+        </div>
+
+        <!-- Metrics row — inside card -->
+        <div class="stats-metrics-row" role="list">
+          <div class="stats-metric-pill" role="listitem">
+            <span class="metric-pill-label">CR Rate</span>
+            <span class="metric-pill-value">+40%</span>
+          </div>
+          <div class="stats-metric-pill" role="listitem">
+            <span class="metric-pill-label">AOV</span>
+            <span class="metric-pill-value">+35%</span>
+          </div>
+          <div class="stats-metric-pill" role="listitem">
+            <span class="metric-pill-label">Profit</span>
+            <span class="metric-pill-value">+58%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating tag: bottom-left (light card) -->
+      <div class="stats-float-tag stats-float-tag--analysis" aria-hidden="true">
+        <div class="float-tag-icon float-tag-icon--app">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <rect x="0.5" y="8.5"  width="3"   height="5"   rx="1" fill="#32D74B"/>
+            <rect x="5.5" y="5"    width="3"   height="8.5" rx="1" fill="#FFD60A"/>
+            <rect x="10.5" y="2"   width="3"   height="11.5" rx="1" fill="#FF453A"/>
+          </svg>
+        </div>
+        <div class="float-tag-text">
+          <span class="float-tag-label float-tag-label--dark">Analysis</span>
+          <span class="float-tag-desc float-tag-desc--dark">Data-Backed</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 3: SOCIAL PROOF / BRANDS SCROLL BAR
+     ============================================================ -->
+<section id="social-proof" class="social-proof-section" aria-label="Trusted by leading companies">
+  <div class="social-proof-inner">
+
+    <p class="social-proof-label">Trusted by Leaders from</p>
+
+    <div class="logo-strip-wrapper" aria-hidden="true">
+      <div class="logo-strip-fade logo-strip-fade--left"></div>
+      <div class="logo-strip-fade logo-strip-fade--right"></div>
+
+      <div class="logo-strip-track">
+        <!-- Set A -->
+        <div class="logo-strip-set">
+          <div class="brand-logo"><!-- image: foodpanda logo, white --><span class="brand-name">foodpanda</span></div>
+          <div class="brand-logo"><!-- image: Alibaba Group logo, white --><span class="brand-name">Alibaba Group</span></div>
+          <div class="brand-logo"><!-- image: Talabat logo, white --><span class="brand-name">Talabat</span></div>
+          <div class="brand-logo"><!-- image: Delivery Hero logo, white --><span class="brand-name">Delivery Hero</span></div>
+          <div class="brand-logo"><!-- image: Star Rapid logo, white --><span class="brand-name">Star Rapid</span></div>
+          <div class="brand-logo"><!-- image: Rask logo, white --><span class="brand-name">Rask</span></div>
+          <div class="brand-logo"><!-- image: Woodlands logo, white --><span class="brand-name">Woodlands</span></div>
+          <div class="brand-logo"><!-- image: Snapp Express logo, white --><span class="brand-name">Snapp Express</span></div>
+          <div class="brand-logo"><!-- image: Daraz logo, white --><span class="brand-name">Daraz</span></div>
+          <div class="brand-logo"><!-- image: Hungerstation logo, white --><span class="brand-name">Hungerstation</span></div>
+          <div class="brand-logo"><!-- image: Vuse logo, white --><span class="brand-name">Vuse</span></div>
+          <div class="brand-logo"><!-- image: InstaGopher logo, white --><span class="brand-name">InstaGopher</span></div>
+        </div>
+        <!-- Set B — duplicate for seamless loop -->
+        <div class="logo-strip-set" aria-hidden="true">
+          <div class="brand-logo"><span class="brand-name">foodpanda</span></div>
+          <div class="brand-logo"><span class="brand-name">Alibaba Group</span></div>
+          <div class="brand-logo"><span class="brand-name">Talabat</span></div>
+          <div class="brand-logo"><span class="brand-name">Delivery Hero</span></div>
+          <div class="brand-logo"><span class="brand-name">Star Rapid</span></div>
+          <div class="brand-logo"><span class="brand-name">Rask</span></div>
+          <div class="brand-logo"><span class="brand-name">Woodlands</span></div>
+          <div class="brand-logo"><span class="brand-name">Snapp Express</span></div>
+          <div class="brand-logo"><span class="brand-name">Daraz</span></div>
+          <div class="brand-logo"><span class="brand-name">Hungerstation</span></div>
+          <div class="brand-logo"><span class="brand-name">Vuse</span></div>
+          <div class="brand-logo"><span class="brand-name">InstaGopher</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 4: WHY PRECISION IS DIFFERENT
+     ============================================================ -->
+<section id="why-precision" class="why-section atmo-section" aria-labelledby="why-heading">
+
+  <div class="atmo-blob atmo-blob--violet atmo-blob--why-l" aria-hidden="true"></div>
+  <div class="atmo-blob atmo-blob--magenta atmo-blob--why-r" aria-hidden="true"></div>
+
+  <div class="section-inner">
+
+    <div class="section-header">
+      <div class="section-label section-label--text-line">
+        Methodology
+      </div>
+      <h2 class="section-heading" id="why-heading">
+        Why Precision is Different
+      </h2>
+      <p class="section-subtext">
+        We bring 10+ years of P&L ownership and commercial leadership, understanding not just
+        what to test, but why it matters to your bottom line.
+      </p>
+    </div>
+
+    <div class="why-cards" role="list">
+
+      <!-- Pillar 1: Meticulous Analysis -->
+      <article class="why-card" role="listitem">
+        <div class="why-card-icon-wrap why-card-icon-wrap--cyan" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <circle cx="11" cy="11" r="7.5" stroke="#22D3EE" stroke-width="2"/>
+            <path d="M17 17L22 22" stroke="#22D3EE" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="why-card-heading">
+          <h3 class="why-card-tag">Meticulous Analysis</h3>
+          <p class="why-card-title">We Find What Others Miss</p>
+        </div>
+        <p class="why-card-body">
+          Through our rigorous 'Deep Dive' approach, we uncover hidden opportunities that others
+          overlook. We look at actual user behavior, not just analytics dashboards.
+        </p>
+        <blockquote class="why-card-example">
+          One client's traffic looked healthy on paper. A behavior-layer analysis revealed their
+          highest-intent users were dropping off at a single friction point. Fixed in week two.
+        </blockquote>
+      </article>
+
+      <!-- Pillar 2: Tailored Strategies -->
+      <article class="why-card why-card--purple" role="listitem">
+        <div class="why-card-icon-wrap why-card-icon-wrap--purple" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" stroke="#A78BFA" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="why-card-heading">
+          <h3 class="why-card-tag">Tailored Strategies</h3>
+          <p class="why-card-title">Built for Your Business, Not a Template</p>
+        </div>
+        <p class="why-card-body">
+          Every business is unique. We craft strategies specifically tailored to your brand and
+          audience — from loyalty gamification to newsletter redesigns.
+        </p>
+        <blockquote class="why-card-example">
+          An 80% CTR lift came from a newsletter redesign. Not a new tool, not more budget.
+          Just a sharper understanding of what the audience actually responded to.
+        </blockquote>
+      </article>
+
+      <!-- Pillar 3: Data-Driven Decisions -->
+      <article class="why-card why-card--red" role="listitem">
+        <div class="why-card-icon-wrap why-card-icon-wrap--red" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect x="2"    y="14" width="5" height="8"  rx="1.5" fill="#F87171"/>
+            <rect x="9.5"  y="8"  width="5" height="14" rx="1.5" fill="#F87171" opacity="0.85"/>
+            <rect x="17"   y="3"  width="5" height="19" rx="1.5" fill="#F87171" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="why-card-heading">
+          <h3 class="why-card-tag">Data-Driven Decisions</h3>
+          <p class="why-card-title">Validated by Results, Not Guesswork</p>
+        </div>
+        <p class="why-card-body">
+          In the digital age, intuition alone isn't enough. Our recommendations are backed by
+          hard data and validated through structured experimentation.
+        </p>
+        <blockquote class="why-card-example">
+          Every recommendation we make comes with a hypothesis, a success metric, and a rollback
+          plan. You'll always know why we're testing something and what winning looks like before we start.
+        </blockquote>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 5: THE CONVERSION ACCELERATOR PROGRAM
+     ============================================================ -->
+<section id="conversion-accelerator" class="accelerator-section atmo-section" aria-labelledby="accelerator-heading">
+
+  <div class="atmo-blob atmo-blob--cyan atmo-blob--acc-l" aria-hidden="true"></div>
+  <div class="atmo-blob atmo-blob--purple atmo-blob--acc-r" aria-hidden="true"></div>
+
+  <div class="section-inner">
+
+    <div class="section-header">
+      <div class="section-label section-label--text-line">
+        Service Offering
+      </div>
+      <h2 class="section-heading" id="accelerator-heading">
+        The Conversion Accelerator Program
+      </h2>
+      <p class="section-subtext">
+        A proven 5-step systematic framework designed to bridge the gap between traffic and
+        revenue through strategic, psychology-driven experimentation.
+      </p>
+    </div>
+
+    <!-- Accelerator interactive layout: left sidebar + right panel -->
+    <div class="acc-wrapper" id="acc-wrapper">
+
+      <!-- Left sidebar: 5 phase nav items -->
+      <aside class="acc-sidebar">
+        <ul class="acc-sidebar-list" role="tablist" aria-label="Program phases">
+
+          <li class="acc-sidebar-item" role="tab" tabindex="0" aria-selected="true" data-acc-phase="0">
+            <div class="acc-sidebar-icon-wrap" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <circle cx="8" cy="8" r="5.5" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M12.5 12.5L16.5 16.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="acc-sidebar-text">
+              <span class="acc-sidebar-period">Month 1</span>
+              <span class="acc-sidebar-name">Deep Dive Audit</span>
+            </div>
+          </li>
+
+          <li class="acc-sidebar-item" role="tab" tabindex="-1" aria-selected="false" data-acc-phase="1">
+            <div class="acc-sidebar-icon-wrap" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M9 1.5L6.5 8H9.5L7 16.5L14.5 7.5H10.5L13 1.5H9Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+              </svg>
+            </div>
+            <div class="acc-sidebar-text">
+              <span class="acc-sidebar-period">Month 1–2</span>
+              <span class="acc-sidebar-name">Quick Fixes</span>
+            </div>
+          </li>
+
+          <li class="acc-sidebar-item" role="tab" tabindex="-1" aria-selected="false" data-acc-phase="2">
+            <div class="acc-sidebar-icon-wrap" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M12.5 2a2 2 0 012.5 2.5L4.5 14.5l-3 .5.5-3L12.5 2z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="acc-sidebar-text">
+              <span class="acc-sidebar-period">Months 2–4</span>
+              <span class="acc-sidebar-name">Experimentation</span>
+            </div>
+          </li>
+
+          <li class="acc-sidebar-item" role="tab" tabindex="-1" aria-selected="false" data-acc-phase="3">
+            <div class="acc-sidebar-icon-wrap" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <line x1="2.5" y1="5"  x2="15.5" y2="5"  stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <line x1="2.5" y1="9"  x2="15.5" y2="9"  stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <line x1="2.5" y1="13" x2="15.5" y2="13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <circle cx="6"  cy="5"  r="2.2" fill="currentColor"/>
+                <circle cx="12" cy="9"  r="2.2" fill="currentColor"/>
+                <circle cx="8"  cy="13" r="2.2" fill="currentColor"/>
+              </svg>
+            </div>
+            <div class="acc-sidebar-text">
+              <span class="acc-sidebar-period">Months 5–6</span>
+              <span class="acc-sidebar-name">Optimization</span>
+            </div>
+          </li>
+
+          <li class="acc-sidebar-item" role="tab" tabindex="-1" aria-selected="false" data-acc-phase="4">
+            <div class="acc-sidebar-icon-wrap" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <rect x="1.5" y="10"  width="3.5" height="6.5" rx="1" stroke="currentColor" stroke-width="1.6"/>
+                <rect x="7.25" y="6.5" width="3.5" height="10"  rx="1" stroke="currentColor" stroke-width="1.6"/>
+                <rect x="13"   y="2.5" width="3.5" height="14"  rx="1" stroke="currentColor" stroke-width="1.6"/>
+              </svg>
+            </div>
+            <div class="acc-sidebar-text">
+              <span class="acc-sidebar-period">Ongoing</span>
+              <span class="acc-sidebar-name">Scaling Playbook</span>
+            </div>
+          </li>
+
+        </ul>
+      </aside>
+
+      <!-- Right panel — content injected by JS -->
+      <div class="acc-panel-wrap" id="acc-panel-wrap" aria-live="polite">
+        <!-- populated by initAcceleratorTabs() in precision-interactions.js -->
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 6: CASE STUDIES
+     ============================================================ -->
+<section id="case-studies" class="case-studies-section atmo-section" aria-labelledby="case-studies-heading">
+
+  <div class="atmo-blob atmo-blob--purple atmo-blob--cs-l" aria-hidden="true"></div>
+  <div class="atmo-blob atmo-blob--violet atmo-blob--cs-r" aria-hidden="true"></div>
+
+  <div class="section-inner">
+
+    <div class="section-header">
+      <div class="section-label section-label--text-line">
+        Case Studies
+      </div>
+      <h2 class="section-heading" id="case-studies-heading">
+        Proven Results For <span class="gradient-text-heading">Leaders</span>
+      </h2>
+      <p class="section-subtext">
+        Different industries. Different problems. One approach.
+      </p>
+    </div>
+
+    <div class="case-studies-grid" role="list">
+
+      <!-- Case Study 1 -->
+      <article class="case-study-card cs-card--cyan" role="listitem" aria-labelledby="cs-1-title">
+        <div class="cs-card-top">
+          <div class="cs-card-icon cs-card-icon--cyan" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M6 2h8l2 4H4L6 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+              <rect x="2" y="6" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M7 10c0 1.657 1.343 3 3 3s3-1.343 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="cs-card-image">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80" alt="Food delivery rider on scooter" loading="lazy"/>
+          </div>
+        </div>
+        <div class="cs-card-body">
+          <div class="cs-tag-pill cs-tag-pill--cyan">+58% REVENUE GROWTH · FOOD DELIVERY · MARKETPLACE</div>
+          <h3 class="cs-card-title" id="cs-1-title">Fixing the Value Proposition Gap</h3>
+          <p class="cs-card-text">
+            A leading food delivery platform was losing grocery market share despite healthy traffic.
+            The problem wasn't their product. They were targeting the wrong users with the wrong message.
+            We reengineered the commercial approach from the ground up: new customer personas, redesigned
+            retention loops, and a conversion-led homepage, without increasing marketing spend.
+          </p>
+          <a href="#cta-contact" class="cs-card-link">
+            Reach Out For The Full Case Study
+            <span class="cs-card-arrow" aria-hidden="true"></span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Case Study 2 -->
+      <article class="case-study-card cs-card--purple" role="listitem" aria-labelledby="cs-2-title">
+        <div class="cs-card-top">
+          <div class="cs-card-icon cs-card-icon--purple" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M11 2L4 11h7l-2 7 9-9h-7l2-7Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="cs-card-image">
+            <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=700&q=80" alt="Warehouse operations with pallets" loading="lazy"/>
+          </div>
+        </div>
+        <div class="cs-card-body">
+          <div class="cs-tag-pill cs-tag-pill--purple">+35% UNIT ECONOMICS · Q-COMMERCE · OPERATIONS-LED GROWTH</div>
+          <h3 class="cs-card-title" id="cs-2-title">Scaling Revenue Without Adding Headcount</h3>
+          <p class="cs-card-text">
+            A multi-market q-commerce operator was growing fast but bleeding margin. We built the
+            commercial infrastructure to make scale profitable: a segmentation-based retention engine,
+            CX reengineering across digital and offline, and KPI-aligned planning that gave leadership
+            real visibility for the first time.
+          </p>
+          <a href="#cta-contact" class="cs-card-link">
+            Reach Out For The Full Case Study
+            <span class="cs-card-arrow" aria-hidden="true"></span>
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 7: TESTIMONIALS
+     ============================================================ -->
+<section id="testimonials" class="testimonials-section atmo-section" aria-labelledby="testimonials-heading">
+
+  <div class="atmo-blob atmo-blob--magenta atmo-blob--test-l" aria-hidden="true"></div>
+  <div class="atmo-blob atmo-blob--purple atmo-blob--test-r" aria-hidden="true"></div>
+
+  <div class="section-inner">
+
+    <div class="section-header">
+      <div class="section-label section-label--text-line">
+        Testimonials
+      </div>
+      <h2 class="section-heading" id="testimonials-heading">
+        Partnership that <span class="gradient-text-heading">Scales Revenue</span>
+      </h2>
+      <p class="section-subtext">
+        Hear from the industry leaders and founders who have achieved exceptional growth and
+        efficiency through our partnership.
+      </p>
+    </div>
+
+    <!-- Testimonial cards grid -->
+    <div class="testimonials-grid" role="list">
+
+      <article class="testimonial-card" role="listitem">
+        <div class="testimonial-stars testimonial-stars--magenta" aria-label="5 out of 5 stars">
+          <span class="star star--full">★</span><span class="star star--full">★</span><span class="star star--full">★</span><span class="star star--full">★</span><span class="star star--full">★</span>
+        </div>
+        <div class="testimonial-verified">
+          <span class="verified-dot" aria-hidden="true"></span>
+          Verified · May 2023
+        </div>
+        <blockquote class="testimonial-quote">
+          "Ammarah was simply awesome. I strongly recommend reaching her if you are facing issues
+          with UX Design. In 30 minutes we went through multiple issues and had a great discussion.
+          She is a perfect listener and could identify potential issues on the website in a few
+          seconds, straight after provide opinion on what the solution is. Pure expertise."
+        </blockquote>
+        <footer class="testimonial-footer">
+          <!-- image: Matej Suransky headshot avatar, 40px circle -->
+          <div class="testimonial-avatar" aria-hidden="true"></div>
+          <div class="testimonial-author">
+            <span class="author-name">Matej Suransky</span>
+            <span class="author-title">VP Marketing, StarRapid</span>
+          </div>
+        </footer>
+      </article>
+
+      <article class="testimonial-card" role="listitem">
+        <div class="testimonial-stars testimonial-stars--purple" aria-label="4.5 out of 5 stars">
+          <span class="star star--full">★</span><span class="star star--full">★</span><span class="star star--full">★</span><span class="star star--full">★</span><span class="star star--half">★</span>
+        </div>
+        <div class="testimonial-verified">
+          <span class="verified-dot" aria-hidden="true"></span>
+          Verified · May 2020
+        </div>
+        <blockquote class="testimonial-quote">
+          "I worked with Ammarah directly during a big tech migration after Daraz's acquisition
+          by Alibaba. She accomplished the end to end migration of several key business areas &
+          processes... Ammarah also helped set up and led the Guided Shopping team for the group
+          and improved overall platform search and guided GMV by almost 50%. She is a smart and
+          driven person and fun to work with!"
+        </blockquote>
+        <footer class="testimonial-footer">
+          <!-- image: Dr. Jonathan Doerr headshot avatar, 40px circle -->
+          <div class="testimonial-avatar" aria-hidden="true"></div>
+          <div class="testimonial-author">
+            <span class="author-name">Dr. Jonathan Doerr</span>
+            <span class="author-title">Senior VP disrupt.com / ex-Daraz CEO</span>
+          </div>
+        </footer>
+      </article>
+
+      <article class="testimonial-card" role="listitem">
+        <div class="testimonial-stars testimonial-stars--crimson" aria-label="5 out of 5 stars">
+          <span class="star star--full">★</span><span class="star star--full">★</span><span class="star star--full">★</span><span class="star star--full">★</span><span class="star star--full">★</span>
+        </div>
+        <div class="testimonial-verified">
+          <span class="verified-dot" aria-hidden="true"></span>
+          Verified · Jan 2026
+        </div>
+        <blockquote class="testimonial-quote">
+          "Ammarah is a GREAT mentor with vast experience who can help you move to the next step.
+          She can guide you on UI, UX and Positioning and show you her ways around Leadership
+          matters. She did 2-in-1 during our latest session, as she provided feedback on a new
+          brand, while showing me how I should be led in this matter."
+        </blockquote>
+        <footer class="testimonial-footer">
+          <!-- image: Spyros Tsoukalas headshot avatar, 40px circle -->
+          <div class="testimonial-avatar" aria-hidden="true"></div>
+          <div class="testimonial-author">
+            <span class="author-name">Spyros Tsoukalas</span>
+            <span class="author-title">Founder, Technology without Borders</span>
+          </div>
+        </footer>
+      </article>
+
+      <article class="testimonial-card" role="listitem">
+        <div class="testimonial-stars testimonial-stars--cyan" aria-label="5 out of 5 stars">
+          <span class="star star--full">★</span><span class="star star--full">★</span><span class="star star--full">★</span><span class="star star--full">★</span><span class="star star--full">★</span>
+        </div>
+        <div class="testimonial-verified">
+          <span class="verified-dot" aria-hidden="true"></span>
+          Verified · Jan 2022
+        </div>
+        <blockquote class="testimonial-quote">
+          "One of the best hiring decisions I have ever made. Has a natural proclivity for
+          identifying and using the right datasets to inform decisions. In her we found a great
+          proponent for improving the business' reliability to deliver results consistently.
+          Highly recommended!"
+        </blockquote>
+        <footer class="testimonial-footer">
+          <!-- image: Ibad Ahmed headshot avatar, 40px circle -->
+          <div class="testimonial-avatar" aria-hidden="true"></div>
+          <div class="testimonial-author">
+            <span class="author-name">Ibad Ahmed</span>
+            <span class="author-title">Director, Foodpanda</span>
+          </div>
+        </footer>
+      </article>
+
+      <article class="testimonial-card" role="listitem">
+        <div class="testimonial-stars testimonial-stars--lavender" aria-label="5 out of 5 stars">
+          <span class="star star--full">★</span><span class="star star--full">★</span><span class="star star--full">★</span><span class="star star--full">★</span><span class="star star--full">★</span>
+        </div>
+        <div class="testimonial-verified">
+          <span class="verified-dot" aria-hidden="true"></span>
+          Verified · Feb 2025
+        </div>
+        <blockquote class="testimonial-quote">
+          "Ammarah is one of the smartest and most driven professionals I've had the pleasure of
+          working with... What truly set her apart was her ability to collaborate seamlessly,
+          taking what was useful from regional initiatives and tailoring it effectively for the
+          local market. She also served as a crucial conduit to the local C-suite... Ammarah is
+          a powerhouse leader who makes a real difference."
+        </blockquote>
+        <footer class="testimonial-footer">
+          <!-- image: Alvin Tan headshot avatar, 40px circle -->
+          <div class="testimonial-avatar" aria-hidden="true"></div>
+          <div class="testimonial-author">
+            <span class="author-name">Alvin Tan</span>
+            <span class="author-title">AdTech &amp; Commercial Innovation, Delivery Hero</span>
+          </div>
+        </footer>
+      </article>
+
+      <article class="testimonial-card" role="listitem">
+        <div class="testimonial-stars testimonial-stars--coral" aria-label="5 out of 5 stars">
+          <span class="star star--full">★</span><span class="star star--full">★</span><span class="star star--full">★</span><span class="star star--full">★</span><span class="star star--full">★</span>
+        </div>
+        <div class="testimonial-verified">
+          <span class="verified-dot" aria-hidden="true"></span>
+          Verified · Sep 2025
+        </div>
+        <blockquote class="testimonial-quote">
+          "Ammarah is the mentor every founder dreams of finding. In 30 minutes, she delivered
+          spot-on insights that got me more clarity than 30 days of working alone. That's
+          exceptional mentorship. If you see an opening on her calendar, book it immediately."
+        </blockquote>
+        <footer class="testimonial-footer">
+          <!-- image: Deepanshu headshot avatar, 40px circle -->
+          <div class="testimonial-avatar" aria-hidden="true"></div>
+          <div class="testimonial-author">
+            <span class="author-name">Deepanshu</span>
+            <span class="author-title">Founder, Embergrit</span>
+          </div>
+        </footer>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 8: ROI CALCULATOR
+     ============================================================ -->
+<section id="roi-calculator" class="roi-section atmo-section" aria-labelledby="roi-heading">
+
+  <div class="atmo-blob atmo-blob--cyan atmo-blob--roi-l" aria-hidden="true"></div>
+  <div class="atmo-blob atmo-blob--crimson atmo-blob--roi-r" aria-hidden="true"></div>
+
+  <div class="section-inner">
+
+    <div class="section-header">
+      <div class="section-label section-label--cyan">
+        <span class="section-label-dot" aria-hidden="true"></span>
+        ROI Calculator
+      </div>
+      <h2 class="section-heading" id="roi-heading">
+        Calculate Your <span class="gradient-text-heading">Revenue Potential</span>
+      </h2>
+      <p class="section-subtext">
+        Configure your growth parameters below to see the impact of conversion optimization
+        on your monthly and annual revenue.
+      </p>
+    </div>
+
+    <div class="roi-calculator-layout">
+
+      <!-- Left: Inputs -->
+      <div class="roi-inputs-panel">
+        <h3 class="roi-panel-title">Configure Growth Parameters</h3>
+
+        <div class="roi-field">
+          <label class="roi-label" for="monthly-visitors">Monthly Visitors</label>
+          <div class="roi-input-row">
+            <span class="roi-current-value">100,000</span>
+            <div class="roi-range-labels">
+              <span>10k</span><span>500k</span><span>1M</span>
+            </div>
+          </div>
+          <input id="monthly-visitors" class="roi-range" type="range" min="10000" max="1000000" value="100000" step="10000" aria-label="Monthly visitors: 100,000" />
+        </div>
+
+        <div class="roi-field">
+          <label class="roi-label" for="conversion-rate">Conversion Rate (%)</label>
+          <div class="roi-input-row">
+            <span class="roi-current-value">1.5%</span>
+            <div class="roi-range-labels">
+              <span>0.1%</span><span>5.0%</span><span>10%</span>
+            </div>
+          </div>
+          <input id="conversion-rate" class="roi-range" type="range" min="0.1" max="10" value="1.5" step="0.1" aria-label="Conversion rate: 1.5%" />
+        </div>
+
+        <div class="roi-field">
+          <label class="roi-label" for="avg-order-value">Avg. Order Value ($)</label>
+          <div class="roi-input-row">
+            <span class="roi-current-value">$50</span>
+            <div class="roi-range-labels">
+              <span>$1</span><span>$500</span><span>$1k</span>
+            </div>
+          </div>
+          <input id="avg-order-value" class="roi-range" type="range" min="1" max="1000" value="50" step="1" aria-label="Average order value: $50" />
+        </div>
+
+        <div class="roi-baseline">
+          <span class="roi-baseline-label">Baseline Monthly Revenue</span>
+          <span class="roi-baseline-value">$75,000</span>
+        </div>
+      </div>
+
+      <!-- Right: Results -->
+      <div class="roi-results-panel">
+        <h3 class="roi-panel-title">Growth Scenarios</h3>
+        <p class="roi-panel-subtitle">Projected monthly revenue impact</p>
+
+        <div class="roi-scenarios" role="list">
+
+          <div class="roi-scenario" role="listitem">
+            <div class="roi-scenario-header">
+              <span class="roi-scenario-name">Conservative</span>
+              <span class="roi-scenario-desc">20% conversion improvement</span>
+            </div>
+            <div class="roi-scenario-result">
+              <span class="roi-scenario-label">Monthly Lift</span>
+              <span class="roi-scenario-value roi-scenario-value--cyan">+$15,000</span>
+              <span class="roi-trend-arrow" aria-hidden="true">↗</span>
+            </div>
+          </div>
+
+          <div class="roi-scenario" role="listitem">
+            <div class="roi-scenario-header">
+              <span class="roi-scenario-name">Achievable</span>
+              <span class="roi-scenario-desc">40% conversion improvement</span>
+            </div>
+            <div class="roi-scenario-result">
+              <span class="roi-scenario-label">Monthly Lift</span>
+              <span class="roi-scenario-value roi-scenario-value--purple">+$30,000</span>
+              <span class="roi-trend-arrow" aria-hidden="true">↗</span>
+            </div>
+          </div>
+
+          <div class="roi-scenario" role="listitem">
+            <div class="roi-scenario-header">
+              <span class="roi-scenario-name">Optimal</span>
+              <span class="roi-scenario-desc">40% CR + 35% AOV boost</span>
+            </div>
+            <div class="roi-scenario-result">
+              <span class="roi-scenario-label">Monthly Lift</span>
+              <span class="roi-scenario-value roi-scenario-value--magenta">+$66,750</span>
+              <span class="roi-trend-arrow" aria-hidden="true">↗</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="roi-maximum-card">
+          <span class="roi-maximum-label">Maximum Annual Potential</span>
+          <span class="roi-maximum-value gradient-text-roi">$801,000</span>
+        </div>
+
+        <a href="#cta-contact" class="btn-primary roi-cta" role="button">Book a Call</a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 9: SERVICES MENU / PARTNERSHIPS
+     ============================================================ -->
+<section id="services" class="services-section atmo-section" aria-labelledby="services-heading">
+
+  <div class="atmo-blob atmo-blob--purple atmo-blob--srv-l" aria-hidden="true"></div>
+  <div class="atmo-blob atmo-blob--violet atmo-blob--srv-r" aria-hidden="true"></div>
+
+  <div class="section-inner">
+
+    <div class="section-header">
+      <div class="section-label section-label--purple">
+        <span class="section-label-dot" aria-hidden="true"></span>
+        Partnerships
+      </div>
+      <h2 class="section-heading" id="services-heading">
+        How Do We <span class="gradient-text-heading">Work Together</span>
+      </h2>
+      <p class="section-subtext">
+        We offer tailored solutions based on your scale, resources, and growth objectives.
+      </p>
+    </div>
+
+    <div class="services-grid" role="list">
+
+      <!-- Service 1: The Deep Dive -->
+      <article class="service-card" role="listitem" aria-labelledby="service-1-title">
+        <div class="service-card-inner">
+          <h3 class="service-card-title" id="service-1-title">The Deep Dive</h3>
+          <div class="service-for-you">
+            <span class="service-for-label">For You If</span>
+            <p class="service-for-text">"You sense there's revenue leaking but don't know where"</p>
+          </div>
+          <div class="service-includes">
+            <span class="service-includes-label">What It Includes</span>
+            <ul class="service-list" aria-label="The Deep Dive includes">
+              <li class="service-list-item"><span class="service-check" aria-hidden="true"></span>Full audit</li>
+              <li class="service-list-item"><span class="service-check" aria-hidden="true"></span>User behavior analysis</li>
+              <li class="service-list-item"><span class="service-check" aria-hidden="true"></span>Quick-win roadmap</li>
+              <li class="service-list-item"><span class="service-check" aria-hidden="true"></span>Priority stack-ranked by impact</li>
+            </ul>
+          </div>
+        </div>
+        <div class="service-card-footer">
+          <a href="#cta-contact" class="btn-ghost-service" role="button">Learn More</a>
+        </div>
+      </article>
+
+      <!-- Service 2: The Conversion Accelerator (featured) -->
+      <article class="service-card service-card--featured" role="listitem" aria-labelledby="service-2-title">
+        <div class="service-card-inner">
+          <h3 class="service-card-title" id="service-2-title">The Conversion Accelerator</h3>
+          <div class="service-for-you">
+            <span class="service-for-label">For You If</span>
+            <p class="service-for-text">"You're ready to build a systematic growth engine"</p>
+          </div>
+          <div class="service-includes">
+            <span class="service-includes-label">What It Includes</span>
+            <ul class="service-list" aria-label="The Conversion Accelerator includes">
+              <li class="service-list-item"><span class="service-check" aria-hidden="true"></span>Full 5-phase program</li>
+              <li class="service-list-item"><span class="service-check" aria-hidden="true"></span>Ongoing experimentation</li>
+              <li class="service-list-item"><span class="service-check" aria-hidden="true"></span>Bi-weekly sessions</li>
+              <li class="service-list-item"><span class="service-check" aria-hidden="true"></span>Knowledge transfer</li>
+            </ul>
+          </div>
+        </div>
+        <div class="service-card-footer">
+          <a href="#cta-contact" class="btn-primary" role="button">Book a Call</a>
+        </div>
+      </article>
+
+      <!-- Service 3: The CRO Sprint (Most Popular) -->
+      <article class="service-card service-card--popular" role="listitem" aria-labelledby="service-3-title">
+        <div class="service-popular-badge" aria-label="Most Popular service">Most Popular</div>
+        <div class="service-card-inner">
+          <h3 class="service-card-title" id="service-3-title">The CRO Sprint</h3>
+          <div class="service-for-you">
+            <span class="service-for-label">For You If</span>
+            <p class="service-for-text">"You know the problem — you need someone to solve it"</p>
+          </div>
+          <div class="service-includes">
+            <span class="service-includes-label">What It Includes</span>
+            <ul class="service-list" aria-label="The CRO Sprint includes">
+              <li class="service-list-item"><span class="service-check" aria-hidden="true"></span>Audit + implementation</li>
+              <li class="service-list-item"><span class="service-check" aria-hidden="true"></span>2–3 A/B tests/month</li>
+              <li class="service-list-item"><span class="service-check" aria-hidden="true"></span>Monthly strategy calls</li>
+              <li class="service-list-item"><span class="service-check" aria-hidden="true"></span>3-month engagement</li>
+            </ul>
+          </div>
+        </div>
+        <div class="service-card-footer">
+          <a href="#cta-contact" class="btn-ghost-service" role="button">Learn More</a>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 10: FOUNDER BIO
+     ============================================================ -->
+<section id="founder-bio" class="founder-section atmo-section" aria-labelledby="founder-heading">
+
+  <div class="atmo-blob atmo-blob--cyan atmo-blob--founder-l" aria-hidden="true"></div>
+
+  <div class="section-inner">
+
+    <div class="founder-layout">
+
+      <!-- Left: Photo -->
+      <div class="founder-photo-col">
+        <div class="founder-photo-frame">
+          <!-- image: Ammarah Ahmed professional headshot, dark background, high quality portrait -->
+          <div class="founder-photo-placeholder" aria-label="Ammarah Ahmed photo"></div>
+          <div class="founder-photo-glow" aria-hidden="true"></div>
+        </div>
+        <div class="founder-credentials">
+          <span class="founder-name">Ammarah Ahmed</span>
+          <span class="founder-title">Founder &amp; Lead Strategist</span>
+        </div>
+      </div>
+
+      <!-- Right: Content -->
+      <div class="founder-content-col">
+
+        <div class="section-label section-label--cyan">
+          <span class="section-label-dot" aria-hidden="true"></span>
+          Meet the Founder
+        </div>
+
+        <h2 class="section-heading" id="founder-heading">
+          Your Partner in <span class="gradient-text-heading">Profitable Growth</span>
+        </h2>
+
+        <blockquote class="founder-quote">
+          "I've sat in the founder's seat, run the P&L, and led the team that had to hit
+          the number. That's a different lens than most consultants bring."
+        </blockquote>
+
+        <p class="founder-bio">
+          Before starting Precision, Ammarah spent 10+ years as a commercial operator, not a
+          consultant. She ran P&L and growth for business units at Delivery Hero (Talabat,
+          Foodpanda) and Alibaba Group, led teams of 200+ across 15 markets, and built the kind
+          of systems that survive beyond any single campaign. Her CRO work isn't theoretical.
+          It comes from having to answer to a board.
+        </p>
+
+        <div class="founder-stats" role="list" aria-label="Founder credentials">
+          <div class="founder-stat" role="listitem">
+            <span class="founder-stat-value">10+</span>
+            <span class="founder-stat-label">Operator, not consultant</span>
+          </div>
+          <div class="founder-stat" role="listitem">
+            <span class="founder-stat-value">200+</span>
+            <span class="founder-stat-label">Team members led</span>
+          </div>
+          <div class="founder-stat" role="listitem">
+            <span class="founder-stat-value">15</span>
+            <span class="founder-stat-label">Markets worked across</span>
+          </div>
+          <div class="founder-stat" role="listitem">
+            <span class="founder-stat-value">8</span>
+            <span class="founder-stat-label">Industries in the portfolio</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 11: CTA / CONTACT
+     ============================================================ -->
+<section id="cta-contact" class="cta-section atmo-section" aria-labelledby="cta-heading">
+
+  <div class="atmo-blob atmo-blob--magenta atmo-blob--cta-l" aria-hidden="true"></div>
+  <div class="atmo-blob atmo-blob--cyan atmo-blob--cta-r" aria-hidden="true"></div>
+
+  <div class="section-inner">
+
+    <div class="cta-layout">
+
+      <!-- Left: Text content -->
+      <div class="cta-content">
+
+        <div class="section-label section-label--magenta">
+          <span class="section-label-dot" aria-hidden="true"></span>
+          Contact
+        </div>
+
+        <h2 class="section-heading" id="cta-heading">
+          Ready to Scale <span class="gradient-text-heading">Your Revenue?</span>
+        </h2>
+
+        <p class="cta-subtext">
+          Book a complimentary 30-minute discovery call. We'll look at where your conversion
+          is leaking and what's worth fixing first.
+        </p>
+
+        <ul class="cta-benefits" aria-label="What you get on the discovery call">
+          <li class="cta-benefit-item">
+            <span class="cta-benefit-check" aria-hidden="true"></span>
+            No pitch, no pressure. Just structure.
+          </li>
+          <li class="cta-benefit-item">
+            <span class="cta-benefit-check" aria-hidden="true"></span>
+            Identify 3–5 quick wins for your site.
+          </li>
+          <li class="cta-benefit-item">
+            <span class="cta-benefit-check" aria-hidden="true"></span>
+            Clarity on your next growth moves.
+          </li>
+          <li class="cta-benefit-item">
+            <span class="cta-benefit-check" aria-hidden="true"></span>
+            Mutual fit focus for long-term ROI.
+          </li>
+        </ul>
+
+        <div class="cta-checklist-link">
+          <span class="cta-checklist-label">Prefer a quick guide?</span>
+          <a href="#" class="cta-checklist-btn" role="button">
+            Download our Free 10-Point CRO Checklist
+            <span class="cta-download-icon" aria-hidden="true"></span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Right: Calendar embed placeholder -->
+      <div class="cta-calendar">
+        <div class="cta-calendar-inner" aria-label="Booking calendar">
+          <!-- image: Calendly or booking calendar embed placeholder, dark themed -->
+          <div class="calendar-placeholder">
+            <span class="calendar-placeholder-icon" aria-hidden="true"></span>
+            <p class="calendar-placeholder-text">Schedule your 30-minute discovery call</p>
+            <a href="#" class="btn-primary btn-lg" role="button">Book a Call</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 12: FOOTER
+     ============================================================ -->
+<footer id="footer" class="site-footer" role="contentinfo">
+
+  <div class="footer-inner">
+
+    <!-- Top row -->
+    <div class="footer-top">
+
+      <!-- Brand col -->
+      <div class="footer-brand-col">
+        <a href="/" class="footer-logo" aria-label="Precision Consulting Group home">
+          <!-- image: Precision Consulting Group logo, white -->
+          <span class="footer-logo-text">Precision</span>
+        </a>
+        <p class="footer-tagline">
+          Psychology-driven CRO and Product UX/UI that transforms how customers experience
+          and convert on your platform.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <nav class="footer-nav-col" aria-label="Quick links">
+        <h3 class="footer-nav-title">Quick Links</h3>
+        <ul class="footer-nav-list" role="list">
+          <li><a href="#why-precision" class="footer-nav-link">About Us</a></li>
+          <li><a href="#conversion-accelerator" class="footer-nav-link">Conversion Accelerator</a></li>
+          <li><a href="#roi-calculator" class="footer-nav-link">ROI Calculator</a></li>
+          <li><a href="#case-studies" class="footer-nav-link">Case Studies</a></li>
+          <li><a href="#" class="footer-nav-link">FAQs</a></li>
+        </ul>
+      </nav>
+
+      <!-- Connect -->
+      <div class="footer-connect-col">
+        <h3 class="footer-nav-title">Connect</h3>
+        <ul class="footer-nav-list" role="list">
+          <li>
+            <a href="#" class="footer-nav-link footer-social-link" rel="noopener noreferrer" target="_blank">
+              <!-- image: LinkedIn icon, 16px, white -->
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href="#" class="footer-nav-link footer-social-link" rel="noopener noreferrer" target="_blank">
+              <!-- image: GrowthMentor icon/logo, 16px, white -->
+              GrowthMentor
+            </a>
+          </li>
+          <li>
+            <a href="mailto:hello@precisioncg.com" class="footer-nav-link footer-social-link">
+              <!-- image: email/envelope icon, 16px, white -->
+              Email
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        &copy; 2026 Precision Consulting Group LLC. All rights reserved.
+      </p>
+      <nav class="footer-legal-nav" aria-label="Legal links">
+        <a href="#" class="footer-legal-link">Privacy Policy</a>
+        <span class="footer-legal-sep" aria-hidden="true">·</span>
+        <a href="#" class="footer-legal-link">Terms of Service</a>
+      </nav>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- ============================================================
+     SCRIPTS — GSAP + Site JS
+     Load order: GSAP core → ScrollTrigger → animations → interactions
+     ============================================================ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="precision-animations.js"></script>
+<script src="precision-interactions.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,352 @@
+/* ==========================================================================
+   PRECISION CONSULTING GROUP — DESIGN TOKENS
+   Generated from Figma: "Precision Website New"
+   File Key: xZzQPRIKb0XygO7hMId6ZI
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+
+:root {
+
+  /* ==========================================================================
+     COLORS
+     ========================================================================== */
+
+  /* --- Backgrounds --- */
+  --color-bg-base:        #0B0B1E; /* deepest background, page base */
+  --color-bg-surface:     #15152E; /* card & section backgrounds */
+  --color-bg-elevated:    #0A0A1F; /* elevated surface / heading on light cards */
+
+  /* --- Background Tints (white overlays) --- */
+  --color-bg-tint-02:     rgba(255, 255, 255, 0.02);
+  --color-bg-tint-05:     rgba(255, 255, 255, 0.05);
+  --color-bg-tint-10:     rgba(255, 255, 255, 0.10);
+  --color-bg-surface-40:  rgba(21, 21, 46, 0.40);
+  --color-bg-surface-60:  rgba(21, 21, 46, 0.60);
+  --color-bg-surface-80:  rgba(21, 21, 46, 0.80);
+  --color-bg-base-80:     rgba(11, 11, 30, 0.80);
+
+  /* --- Text Scale --- */
+  --color-text-primary:   #FFFFFF; /* headings, primary body */
+  --color-text-secondary: #D1D5DC; /* secondary body text */
+  --color-text-tertiary:  #99A1AF; /* subtitles, captions */
+  --color-text-muted:     #6A7282; /* muted labels, meta */
+  --color-text-disabled:  #4A5565; /* disabled, copyright */
+
+  /* --- Accent: Cyan (Primary) --- */
+  --color-accent-cyan:        #00BFFF;
+  --color-accent-cyan-20:     rgba(0, 191, 255, 0.20);
+  --color-accent-cyan-10:     rgba(0, 191, 255, 0.10);
+  --color-accent-cyan-05:     rgba(0, 191, 255, 0.05);
+
+  /* --- Accent: Purple (Secondary) --- */
+  --color-accent-purple:      #7B68EE;
+  --color-accent-purple-10:   rgba(123, 104, 238, 0.10);
+  --color-accent-purple-05:   rgba(123, 104, 238, 0.05);
+
+  /* --- Accent: Medium Purple (Tertiary / Badge) --- */
+  --color-accent-violet:      #9370DB;
+  --color-accent-violet-05:   rgba(147, 112, 219, 0.05);
+
+  /* --- Accent: Magenta --- */
+  --color-accent-magenta:     #C71585;
+  --color-accent-magenta-05:  rgba(199, 21, 133, 0.05);
+
+  /* --- Accent: Crimson --- */
+  --color-accent-crimson:     #DC143C;
+  --color-accent-crimson-10:  rgba(220, 20, 60, 0.10);
+  --color-accent-crimson-05:  rgba(220, 20, 60, 0.05);
+
+  /* --- Accent: Coral --- */
+  --color-accent-coral:       #FF7F50;
+
+  /* --- Accent: Gold (Button Glow / Nav Active) --- */
+  --color-accent-gold:        #FFD166;
+
+  /* --- Accent: Lavender (Pill / Badge Background) --- */
+  --color-accent-lavender:    #DCD0FF;
+
+  /* --- Utility --- */
+  --color-black:  #000000;
+  --color-white:  #FFFFFF;
+
+
+  /* ==========================================================================
+     GRADIENTS
+     ========================================================================== */
+
+  /* Hero headline gradient — "More Revenue." (Cyan → Purple → Magenta, left to right) */
+  --gradient-hero-headline:
+    linear-gradient(
+      to right,
+      #00BFFF 0%,
+      #7B68EE 50%,
+      #C71585 100%
+    );
+
+  /* Section headings gradient — Case Studies, Testimonials, etc. (Cyan → Purple) */
+  --gradient-section-heading:
+    linear-gradient(
+      to bottom,
+      #00BFFF 0%,
+      #7B68EE 100%
+    );
+
+  /* ROI figure gradient — "$801,000" (Magenta → Coral) */
+  --gradient-roi-figure:
+    linear-gradient(
+      to bottom,
+      #C71585 0%,
+      #FF7F50 100%
+    );
+
+  /* Dark background fade — overlays and section transitions */
+  --gradient-dark-fade:
+    linear-gradient(
+      to bottom,
+      rgba(11, 11, 30, 1.00) 0%,
+      rgba(11, 11, 30, 0.50) 50%,
+      rgba(0,  0,  0,  0.00) 100%
+    );
+
+
+  /* ==========================================================================
+     TYPOGRAPHY
+     ========================================================================== */
+
+  --font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* --- Font Weights --- */
+  --font-weight-light:      300;
+  --font-weight-regular:    400;
+  --font-weight-medium:     500;
+  --font-weight-semibold:   600;
+  --font-weight-bold:       700;
+  --font-weight-black:      900;
+
+  /* --- Font Size Scale (px → rem at 16px base) --- */
+  --font-size-2xs:   0.5625rem;  /*  9px */
+  --font-size-xs:    0.625rem;   /* 10px */
+  --font-size-sm:    0.75rem;    /* 12px */
+  --font-size-md:    0.875rem;   /* 14px */
+  --font-size-base:  1rem;       /* 16px */
+  --font-size-lg:    1.125rem;   /* 18px */
+  --font-size-xl:    1.25rem;    /* 20px */
+  --font-size-2xl:   1.5rem;     /* 24px */
+  --font-size-3xl:   1.875rem;   /* 30px */
+  --font-size-4xl:   2.25rem;    /* 36px */
+  --font-size-5xl:   3rem;       /* 48px */
+  --font-size-6xl:   3.75rem;    /* 60px */
+  --font-size-7xl:   4.5rem;     /* 72px */
+
+  /* --- Line Heights --- */
+  --line-height-tight:    1.1;   /* large display headings (48px–72px) */
+  --line-height-snug:     1.2;   /* subheadings (30px–36px) */
+  --line-height-normal:   1.4;   /* body text (16px–24px) */
+  --line-height-relaxed:  1.6;   /* small text (12px–14px) */
+  --line-height-loose:    1.8;   /* captions, legal (9px–10px) */
+
+  /* --- Letter Spacing --- */
+  --letter-spacing-tight:   -0.04em;  /* 48px–72px display */
+  --letter-spacing-snug:    -0.02em;  /* 30px–36px */
+  --letter-spacing-normal:   0em;     /* body */
+  --letter-spacing-wide:     0.04em;  /* labels, caps, small tags */
+  --letter-spacing-wider:    0.08em;  /* overlines, badges */
+
+
+  /* ==========================================================================
+     SHADOWS
+     ========================================================================== */
+
+  /* --- Card Shadow System (2-layer) --- */
+  --shadow-card-sm:
+    0  4px  6px -4px rgba(0, 0, 0, 0.10),
+    0 10px 15px -3px rgba(0, 0, 0, 0.10);
+
+  --shadow-card-md:
+    0  4px  6px -4px rgba(0, 0, 0, 0.20),
+    0 10px 15px -3px rgba(0, 0, 0, 0.20);
+
+  --shadow-card-lg:
+    0  8px 10px -6px rgba(0, 0, 0, 0.10),
+    0 20px 25px -5px rgba(0, 0, 0, 0.10);
+
+  /* --- Large Float Shadow --- */
+  --shadow-float:
+    0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* --- Ambient Shadow --- */
+  --shadow-ambient:
+    0  0 20px 0px rgba(0, 0, 0, 0.30),
+    0  0 50px 0px rgba(0, 0, 0, 0.30);
+
+  /* --- Inner Depth Shadow --- */
+  --shadow-inner:
+    inset 0 2px 4px 0px rgba(0, 0, 0, 0.05);
+
+  /* --- White Border Glow (card edge highlight) --- */
+  --shadow-border-glow-sm:  0 0 0  1px rgba(255, 255, 255, 0.05);
+  --shadow-border-glow-md:  0 0 0  1px rgba(255, 255, 255, 0.10);
+  --shadow-border-glow-lg:  0 0 0  4px rgba(255, 255, 255, 0.05);
+
+  /* --- Icon Glow Shadows (per accent color, 2-layer) --- */
+  --shadow-glow-cyan:
+    0  4px  6px -4px rgba(  0, 191, 255, 0.20),
+    0 10px 15px -3px rgba(  0, 191, 255, 0.20);
+
+  --shadow-glow-purple:
+    0  4px  6px -4px rgba(123, 104, 238, 0.20),
+    0 10px 15px -3px rgba(123, 104, 238, 0.20);
+
+  --shadow-glow-violet:
+    0  4px  6px -4px rgba(147, 112, 219, 0.20),
+    0 10px 15px -3px rgba(147, 112, 219, 0.20),
+    0 25px 50px -12px rgba(147, 112, 219, 0.20);
+
+  --shadow-glow-magenta:
+    0  4px  6px -4px rgba(199,  21, 133, 0.20),
+    0 10px 15px -3px rgba(199,  21, 133, 0.20);
+
+  --shadow-glow-crimson:
+    0  4px  6px -4px rgba(220,  20,  60, 0.20),
+    0 10px 15px -3px rgba(220,  20,  60, 0.20);
+
+  --shadow-glow-coral:
+    0  4px  6px -4px rgba(255, 127,  80, 0.20),
+    0 10px 15px -3px rgba(255, 127,  80, 0.20);
+
+  /* --- Button / Nav Golden Glow --- */
+  --shadow-glow-gold-sm:
+    0 20px 40px  0px rgba(255, 209, 102, 0.15);
+
+  --shadow-glow-gold-md:
+    0 20px 50px  0px rgba(255, 209, 102, 0.15),
+    0 25px 50px -12px rgba(255, 209, 102, 0.20);
+
+  --shadow-glow-gold-lg:
+    0 20px 50px  0px rgba(255, 209, 102, 0.20),
+    0 25px 50px -12px rgba(255, 209, 102, 0.25);
+
+
+  /* ==========================================================================
+     BORDER RADIUS
+     ========================================================================== */
+
+  --radius-sm:   1rem;    /* 16px — small UI elements */
+  --radius-md:   1.5rem;  /* 24px — standard cards */
+  --radius-lg:   2rem;    /* 32px — medium cards */
+  --radius-xl:   2.5rem;  /* 40px — larger cards */
+  --radius-2xl:  3rem;    /* 48px — large containers */
+  --radius-3xl:  4rem;    /* 64px — extra large containers */
+  --radius-pill: 5rem;    /* 80px — pill shapes, blobs */
+
+
+  /* ==========================================================================
+     SPACING (8pt grid)
+     ========================================================================== */
+
+  --space-1:   0.25rem;  /*  4px */
+  --space-2:   0.5rem;   /*  8px */
+  --space-3:   0.75rem;  /* 12px */
+  --space-4:   1rem;     /* 16px */
+  --space-5:   1.25rem;  /* 20px */
+  --space-6:   1.5rem;   /* 24px */
+  --space-8:   2rem;     /* 32px */
+  --space-10:  2.5rem;   /* 40px */
+  --space-12:  3rem;     /* 48px */
+  --space-16:  4rem;     /* 64px */
+  --space-20:  5rem;     /* 80px */
+  --space-24:  6rem;     /* 96px */
+  --space-32:  8rem;     /* 128px */
+
+}
+
+
+/* ==========================================================================
+   ATMOSPHERIC GLOW EFFECTS
+   Reusable background blob / ambient glow classes
+   ========================================================================== */
+
+/* Base blob — position absolutely inside a relative container */
+.atmo-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.atmo-blob--cyan {
+  background: var(--color-accent-cyan);
+  opacity: 0.10;
+  filter: blur(160px);
+}
+
+.atmo-blob--purple {
+  background: var(--color-accent-purple);
+  opacity: 0.10;
+  filter: blur(200px);
+}
+
+.atmo-blob--violet {
+  background: var(--color-accent-violet);
+  opacity: 0.10;
+  filter: blur(240px);
+}
+
+.atmo-blob--magenta {
+  background: var(--color-accent-magenta);
+  opacity: 0.10;
+  filter: blur(200px);
+}
+
+.atmo-blob--crimson {
+  background: var(--color-accent-crimson);
+  opacity: 0.10;
+  filter: blur(160px);
+}
+
+/* Blob size presets */
+.atmo-blob--sm  { width: 300px;  height: 300px;  }
+.atmo-blob--md  { width: 500px;  height: 500px;  }
+.atmo-blob--lg  { width: 700px;  height: 700px;  }
+.atmo-blob--xl  { width: 900px;  height: 900px;  }
+.atmo-blob--2xl { width: 1200px; height: 1200px; }
+
+/* Convenience: section wrapper that clips blobs */
+.atmo-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ensure content sits above blobs */
+.atmo-section > *:not(.atmo-blob) {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ==========================================================================
+   GRADIENT TEXT UTILITY CLASSES
+   ========================================================================== */
+
+.gradient-text-hero {
+  display: inline-block; /* required: spans full two-line box for continuous gradient */
+  background: var(--gradient-hero-headline);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-heading {
+  background: var(--gradient-section-heading);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-roi {
+  background: var(--gradient-roi-figure);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
