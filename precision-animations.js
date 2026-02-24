@@ -232,59 +232,11 @@
 
 
   /* ============================================================
-     9. FOUNDER BIO — COUNT-UP STATS
-     Numbers count up from 0 to final value when section enters viewport
-     Colors: 10+ → cyan, 200+ → purple, 15 → magenta, 8 → coral
+     9. FOUNDER BIO — STATS
+     Numbers are static white; hover color is handled by CSS alone.
      ============================================================ */
-
-  const founderSection = document.getElementById('founder-bio');
-
-  if (founderSection && typeof ScrollTrigger !== 'undefined') {
-    // Stat config: selector order matches DOM order (10+, 200+, 15, 8)
-    const STAT_CONFIG = [
-      { target: 10,  suffix: '+', color: '#00BFFF' },  // Operator years
-      { target: 200, suffix: '+', color: '#7B68EE' },  // Team members
-      { target: 15,  suffix: '',  color: '#C71585' },  // Markets
-      { target: 8,   suffix: '',  color: '#FF7F50' },  // Industries
-    ];
-
-    const statValueEls = founderSection.querySelectorAll('.founder-stat-value');
-
-    ScrollTrigger.create({
-      trigger: founderSection,
-      start: 'top 70%',
-      once: true,
-      onEnter: function () {
-        statValueEls.forEach(function (el, i) {
-          const cfg = STAT_CONFIG[i];
-          if (!cfg) return;
-
-          // Override gradient with solid accent color during count
-          el.style.webkitTextFillColor = cfg.color;
-          el.style.backgroundImage     = 'none';
-          el.style.color               = cfg.color;
-
-          const counter = { val: 0 };
-
-          gsap.to(counter, {
-            val: cfg.target,
-            duration: prefersReducedMotion ? 0 : 2,
-            ease: 'power2.out',
-            onUpdate: function () {
-              el.textContent = Math.round(counter.val) + cfg.suffix;
-            },
-            onComplete: function () {
-              el.textContent = cfg.target + cfg.suffix;
-              // Restore gradient after count finishes
-              el.style.webkitTextFillColor = 'transparent';
-              el.style.backgroundImage     = '';
-              el.style.color               = '';
-            },
-          });
-        });
-      },
-    });
-  }
+  // (Count-up animation removed — stats display as static white text,
+  //  with per-stat accent colors applied on :hover via CSS classes)
 
 
   /* ============================================================
