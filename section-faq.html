@@ -80,7 +80,7 @@
   font-weight: 700;
   color: #FFFFFF !important;
   -webkit-text-fill-color: #FFFFFF !important;
-  margin: 0 0 56px 0;
+  margin: 0 0 20px 0;
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
@@ -90,6 +90,17 @@
   -webkit-text-fill-color: transparent !important;
   background-clip: text;
   display: inline;
+}
+
+.pcg-faq .faq-subtext {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #D1D5DC;
+  max-width: 640px;
+  margin: 0 auto 56px auto;
+  line-height: 1.5;
 }
 
 /* ── FAQ list ────────────────────────────────────────────── */
@@ -195,34 +206,58 @@
   color: #FFFFFF;
 }
 
-/* ── CTA below FAQ ───────────────────────────────────────── */
-.pcg-faq .faq-cta {
+/* ── "Still have questions?" gradient CTA card ───────────── */
+.pcg-faq .faq-cta-card {
+  margin-top: 56px;
+  padding: 48px 40px;
+  border-radius: 32px;
+  background: linear-gradient(135deg, rgba(0,191,255,0.12) 0%, rgba(123,104,238,0.12) 50%, rgba(199,21,133,0.10) 100%);
+  border: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  margin-top: 48px;
-  text-align: center;
+  gap: 16px;
 }
-.pcg-faq .faq-cta-text {
+.pcg-faq .faq-cta-card-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  letter-spacing: -0.02em;
+}
+.pcg-faq .faq-cta-card-text {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 400;
-  color: #6A7282;
+  color: #D1D5DC;
+  line-height: 1.55;
+  max-width: 480px;
 }
-.pcg-faq .faq-cta-link {
+.pcg-faq .faq-cta-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  padding: 14px 32px;
+  margin-top: 8px;
   font-family: 'Inter', sans-serif;
   font-size: 15px;
   font-weight: 600;
-  color: #00BFFF;
+  color: #0B0B1E;
+  border-radius: 80px;
+  background: #FFD166;
+  box-shadow: 0 0 24px rgba(255,209,102,0.35);
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
   text-decoration: none;
-  transition: opacity 0.18s ease;
 }
-.pcg-faq .faq-cta-link:hover {
-  opacity: 0.75;
+.pcg-faq .faq-cta-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 0 40px rgba(255,209,102,0.55);
 }
 
 /* ── Tablet (768px+) ─────────────────────────────────────── */
@@ -242,18 +277,33 @@
   .pcg-faq .faq-answer {
     padding: 0 32px 32px;
   }
+  .pcg-faq .faq-cta-card {
+    padding: 56px 48px;
+  }
+  .pcg-faq .faq-cta-card-heading {
+    font-size: 32px;
+  }
 }
 
 /* ── Desktop (1200px+) ───────────────────────────────────── */
 @media (min-width: 1200px) {
   .pcg-faq .faq-heading {
     font-size: 64px;
+  }
+  .pcg-faq .faq-subtext {
+    font-size: 20px;
     margin-bottom: 64px;
   }
   .pcg-faq .faq-question-text {
     font-size: 20px;
   }
   .pcg-faq .faq-answer-text {
+    font-size: 17px;
+  }
+  .pcg-faq .faq-cta-card-heading {
+    font-size: 36px;
+  }
+  .pcg-faq .faq-cta-card-text {
     font-size: 17px;
   }
 }
@@ -268,6 +318,10 @@
   }
   .pcg-faq .faq-heading {
     font-size: 36px;
+    margin-bottom: 16px;
+  }
+  .pcg-faq .faq-subtext {
+    font-size: 16px;
     margin-bottom: 40px;
   }
   .pcg-faq .faq-item {
@@ -297,8 +351,16 @@
   .pcg-faq .faq-list {
     gap: 10px;
   }
-  .pcg-faq .faq-cta {
-    margin-top: 36px;
+  .pcg-faq .faq-cta-card {
+    margin-top: 40px;
+    padding: 36px 24px;
+    border-radius: 24px;
+  }
+  .pcg-faq .faq-cta-card-heading {
+    font-size: 24px;
+  }
+  .pcg-faq .faq-cta-card-text {
+    font-size: 15px;
   }
 }
 </style>
@@ -312,11 +374,15 @@
   <div class="faq-inner">
 
     <!-- Section header -->
-    <div class="faq-label">FAQs</div>
+    <div class="faq-label">FAQ</div>
 
     <h2 class="faq-heading" id="faq-heading">
-      Questions? We've Got <span class="faq-gradient">Answers.</span>
+      Frequently Asked <span class="faq-gradient">Questions</span>
     </h2>
+
+    <p class="faq-subtext">
+      Common questions from founders and growth leaders looking to accelerate their revenue.
+    </p>
 
     <!-- FAQ accordion list -->
     <div class="faq-list" role="list">
@@ -335,10 +401,7 @@
           <div class="faq-answer">
             <div class="faq-answer-divider"></div>
             <div class="faq-answer-text">
-              Three key differences:<br /><br />
-              <strong>(1)</strong> I've owned P&amp;L and understand the pressure of hitting targets, not just running tests.<br /><br />
-              <strong>(2)</strong> I focus on psychology-driven optimization rooted in behavioral science, not just best practices.<br /><br />
-              <strong>(3)</strong> I work as a fractional growth partner, not a vendor — your success is my success.
+              Three key differences: <strong>(1)</strong> We've owned P&amp;L and understand the pressure of hitting targets, not just running tests; <strong>(2)</strong> We focus on psychology-driven optimization rooted in behavioral science, not just best practices; <strong>(3)</strong> We work as a fractional growth partner, not a vendor&mdash;your success is our success.
             </div>
           </div>
         </div>
@@ -358,7 +421,7 @@
           <div class="faq-answer">
             <div class="faq-answer-divider"></div>
             <div class="faq-answer-text">
-              Most clients see measurable improvements within the first <strong>30–60 days</strong>. Quick wins — like fixing checkout friction or improving above-the-fold clarity — can move the needle fast. Larger strategic initiatives typically show compounding gains over 90 days. Every engagement starts with a prioritized roadmap so you always know what's being tested and why.
+              Quick wins typically appear within the first 30 days from technical fixes and low-hanging fruit. Major impact from experimentation usually compounds between months 2&ndash;4. Our Foodpanda partner saw <strong>+58% revenue growth</strong> over 6 months.
             </div>
           </div>
         </div>
@@ -378,7 +441,7 @@
           <div class="faq-answer">
             <div class="faq-answer-divider"></div>
             <div class="faq-answer-text">
-              Not at all. I work with lean startups and enterprise teams alike. If you have a website and traffic, we can optimize. I'll plug into your existing analytics stack — GA4, Hotjar, Mixpanel, or whatever you use — and only recommend tools when they're truly needed. You don't need a dedicated CRO team; that's exactly the gap I fill as your fractional growth partner.
+              No. We work with your existing setup. If you have Google Analytics and some form of A/B testing capability (or we can help you set it up), we can start optimizing.
             </div>
           </div>
         </div>
@@ -398,7 +461,7 @@
           <div class="faq-answer">
             <div class="faq-answer-divider"></div>
             <div class="faq-answer-text">
-              That's more common than you'd think — and usually means the approach was surface-level. Most CRO programs fail because they chase best practices instead of diagnosing the real behavioral barriers on your site. I start with deep qualitative and quantitative research to understand <strong>why</strong> visitors aren't converting, then build hypotheses rooted in psychology. It's a fundamentally different methodology.
+              Most &ldquo;CRO&rdquo; is actually just random testing without strategy. We&rsquo;re different: we start with deep behavioral analysis, prioritize based on potential impact, and design experiments based on psychology, not hunches.
             </div>
           </div>
         </div>
@@ -418,7 +481,7 @@
           <div class="faq-answer">
             <div class="faq-answer-divider"></div>
             <div class="faq-answer-text">
-              I don't make guarantees on exact numbers — anyone who does is guessing. What I <strong>can</strong> guarantee is a rigorous, data-driven process and full transparency on what's working and what isn't. That said, my track record speaks for itself: clients consistently see <strong>20–40%+ improvements</strong> in conversion rates. Every engagement is structured around measurable KPIs so we both know exactly where we stand.
+              No one can ethically guarantee specific results in CRO because every business is different. What we <strong>can</strong> guarantee is how we work. We don&rsquo;t start with solutions. We start with your data. By the time we&rsquo;re done with the audit, you&rsquo;ll know exactly where your revenue is leaking and what it would take to fix it. Every recommendation is data-backed, every test has a clear hypothesis and success metric, and you&rsquo;ll have full visibility into the process from day one.
             </div>
           </div>
         </div>
@@ -426,11 +489,14 @@
 
     </div>
 
-    <!-- CTA below FAQ -->
-    <div class="faq-cta">
-      <p class="faq-cta-text">Still have questions?</p>
-      <a href="https://calendly.com/ammarah-bumx/30min" class="faq-cta-link">
-        Book a free discovery call &rarr;
+    <!-- "Still have questions?" gradient CTA card -->
+    <div class="faq-cta-card">
+      <h3 class="faq-cta-card-heading">Still have questions?</h3>
+      <p class="faq-cta-card-text">
+        We're here to help you understand how psychology-driven CRO can transform your P&amp;L.
+      </p>
+      <a href="https://calendly.com/ammarah-bumx/30min" class="faq-cta-btn" role="button">
+        Book a Call &rarr;
       </a>
     </div>
 

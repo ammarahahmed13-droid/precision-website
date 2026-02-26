@@ -49,7 +49,179 @@
 
 
 <!-- ============================================================
-     SECTION 2: FAQ
+     SECTION 2: HELP CENTER HERO
+     ============================================================ -->
+<style>
+/* ── Reset & Section ─────────────────────────────────────── */
+.pcg-faq-hero *,
+.pcg-faq-hero *::before,
+.pcg-faq-hero *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+.pcg-faq-hero {
+  width: 100%;
+  position: relative;
+  background: #0B0B1E;
+  padding: 100px 24px 60px;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+
+/* ── Atmospheric blobs ───────────────────────────────────── */
+.pcg-faq-hero .hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.pcg-faq-hero .hero-blob--cyan {
+  width: 500px; height: 500px;
+  top: -100px; left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(0,191,255,0.08) 0%, transparent 70%);
+  filter: blur(120px);
+}
+
+/* ── Inner container ─────────────────────────────────────── */
+.pcg-faq-hero .hero-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Badge ───────────────────────────────────────────────── */
+.pcg-faq-hero .hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 80px;
+  background: rgba(0,191,255,0.08);
+  border: 1px solid rgba(0,191,255,0.18);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #00BFFF;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.pcg-faq-hero .hero-badge svg {
+  width: 14px;
+  height: 14px;
+  color: #00BFFF;
+  flex-shrink: 0;
+}
+
+/* ── Heading ─────────────────────────────────────────────── */
+.pcg-faq-hero .hero-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 56px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+.pcg-faq-hero .hero-heading .hero-gradient {
+  background: linear-gradient(to right, #00BFFF 0%, #7B68EE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text;
+  display: inline;
+}
+
+/* ── Subtext ─────────────────────────────────────────────── */
+.pcg-faq-hero .hero-subtext {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #D1D5DC;
+  line-height: 1.55;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* ── Tablet (768px+) ─────────────────────────────────────── */
+@media (min-width: 768px) {
+  .pcg-faq-hero {
+    padding: 120px 40px 80px;
+  }
+  .pcg-faq-hero .hero-heading {
+    font-size: 64px;
+  }
+  .pcg-faq-hero .hero-subtext {
+    font-size: 20px;
+  }
+}
+
+/* ── Desktop (1200px+) ───────────────────────────────────── */
+@media (min-width: 1200px) {
+  .pcg-faq-hero .hero-heading {
+    font-size: 72px;
+  }
+  .pcg-faq-hero .hero-subtext {
+    font-size: 21px;
+  }
+}
+
+/* ── Mobile (<768px) ─────────────────────────────────────── */
+@media (max-width: 767px) {
+  .pcg-faq-hero {
+    padding: 72px 0 48px;
+  }
+  .pcg-faq-hero .hero-inner {
+    padding: 0 20px;
+  }
+  .pcg-faq-hero .hero-heading {
+    font-size: 40px;
+  }
+  .pcg-faq-hero .hero-subtext {
+    font-size: 16px;
+  }
+  .pcg-faq-hero .hero-badge {
+    font-size: 11px;
+    padding: 6px 14px;
+    margin-bottom: 24px;
+  }
+}
+</style>
+
+<section class="pcg-faq-hero" aria-labelledby="faq-hero-heading">
+
+  <!-- Atmospheric blob -->
+  <div class="hero-blob hero-blob--cyan" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+
+    <span class="hero-badge">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="8" cy="8" r="6.5" />
+        <line x1="8" y1="5" x2="8" y2="8.5" />
+        <circle cx="8" cy="11" r="0.5" fill="currentColor" stroke="none" />
+      </svg>
+      Help Center
+    </span>
+
+    <h1 class="hero-heading" id="faq-hero-heading">
+      Support &amp; <span class="hero-gradient">Insights</span>
+    </h1>
+
+    <p class="hero-subtext">
+      Everything you need to know about our CRO process, results, and how we help e-commerce brands scale.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ============================================================
+     SECTION 3: FAQ ACCORDION
      ============================================================ -->
 <style>
 /* ── Reset & Section ─────────────────────────────────────── */
@@ -127,7 +299,7 @@
   font-weight: 700;
   color: #FFFFFF !important;
   -webkit-text-fill-color: #FFFFFF !important;
-  margin: 0 0 56px 0;
+  margin: 0 0 20px 0;
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
@@ -137,6 +309,17 @@
   -webkit-text-fill-color: transparent !important;
   background-clip: text;
   display: inline;
+}
+
+.pcg-faq .faq-subtext {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #D1D5DC;
+  max-width: 640px;
+  margin: 0 auto 56px auto;
+  line-height: 1.5;
 }
 
 /* ── FAQ list ────────────────────────────────────────────── */
@@ -242,34 +425,58 @@
   color: #FFFFFF;
 }
 
-/* ── CTA below FAQ ───────────────────────────────────────── */
-.pcg-faq .faq-cta {
+/* ── "Still have questions?" gradient CTA card ───────────── */
+.pcg-faq .faq-cta-card {
+  margin-top: 56px;
+  padding: 48px 40px;
+  border-radius: 32px;
+  background: linear-gradient(135deg, rgba(0,191,255,0.12) 0%, rgba(123,104,238,0.12) 50%, rgba(199,21,133,0.10) 100%);
+  border: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  margin-top: 48px;
-  text-align: center;
+  gap: 16px;
 }
-.pcg-faq .faq-cta-text {
+.pcg-faq .faq-cta-card-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  letter-spacing: -0.02em;
+}
+.pcg-faq .faq-cta-card-text {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 400;
-  color: #6A7282;
+  color: #D1D5DC;
+  line-height: 1.55;
+  max-width: 480px;
 }
-.pcg-faq .faq-cta-link {
+.pcg-faq .faq-cta-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  padding: 14px 32px;
+  margin-top: 8px;
   font-family: 'Inter', sans-serif;
   font-size: 15px;
   font-weight: 600;
-  color: #00BFFF;
+  color: #0B0B1E;
+  border-radius: 80px;
+  background: #FFD166;
+  box-shadow: 0 0 24px rgba(255,209,102,0.35);
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
   text-decoration: none;
-  transition: opacity 0.18s ease;
 }
-.pcg-faq .faq-cta-link:hover {
-  opacity: 0.75;
+.pcg-faq .faq-cta-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 0 40px rgba(255,209,102,0.55);
 }
 
 /* ── Tablet (768px+) ─────────────────────────────────────── */
@@ -289,18 +496,33 @@
   .pcg-faq .faq-answer {
     padding: 0 32px 32px;
   }
+  .pcg-faq .faq-cta-card {
+    padding: 56px 48px;
+  }
+  .pcg-faq .faq-cta-card-heading {
+    font-size: 32px;
+  }
 }
 
 /* ── Desktop (1200px+) ───────────────────────────────────── */
 @media (min-width: 1200px) {
   .pcg-faq .faq-heading {
     font-size: 64px;
+  }
+  .pcg-faq .faq-subtext {
+    font-size: 20px;
     margin-bottom: 64px;
   }
   .pcg-faq .faq-question-text {
     font-size: 20px;
   }
   .pcg-faq .faq-answer-text {
+    font-size: 17px;
+  }
+  .pcg-faq .faq-cta-card-heading {
+    font-size: 36px;
+  }
+  .pcg-faq .faq-cta-card-text {
     font-size: 17px;
   }
 }
@@ -315,6 +537,10 @@
   }
   .pcg-faq .faq-heading {
     font-size: 36px;
+    margin-bottom: 16px;
+  }
+  .pcg-faq .faq-subtext {
+    font-size: 16px;
     margin-bottom: 40px;
   }
   .pcg-faq .faq-item {
@@ -344,8 +570,16 @@
   .pcg-faq .faq-list {
     gap: 10px;
   }
-  .pcg-faq .faq-cta {
-    margin-top: 36px;
+  .pcg-faq .faq-cta-card {
+    margin-top: 40px;
+    padding: 36px 24px;
+    border-radius: 24px;
+  }
+  .pcg-faq .faq-cta-card-heading {
+    font-size: 24px;
+  }
+  .pcg-faq .faq-cta-card-text {
+    font-size: 15px;
   }
 }
 </style>
@@ -359,11 +593,15 @@
   <div class="faq-inner">
 
     <!-- Section header -->
-    <div class="faq-label">FAQs</div>
+    <div class="faq-label">FAQ</div>
 
     <h2 class="faq-heading" id="faq-heading">
-      Questions? We've Got <span class="faq-gradient">Answers.</span>
+      Frequently Asked <span class="faq-gradient">Questions</span>
     </h2>
+
+    <p class="faq-subtext">
+      Common questions from founders and growth leaders looking to accelerate their revenue.
+    </p>
 
     <!-- FAQ accordion list -->
     <div class="faq-list" role="list">
@@ -382,10 +620,7 @@
           <div class="faq-answer">
             <div class="faq-answer-divider"></div>
             <div class="faq-answer-text">
-              Three key differences:<br /><br />
-              <strong>(1)</strong> I've owned P&amp;L and understand the pressure of hitting targets, not just running tests.<br /><br />
-              <strong>(2)</strong> I focus on psychology-driven optimization rooted in behavioral science, not just best practices.<br /><br />
-              <strong>(3)</strong> I work as a fractional growth partner, not a vendor — your success is my success.
+              Three key differences: <strong>(1)</strong> We've owned P&amp;L and understand the pressure of hitting targets, not just running tests; <strong>(2)</strong> We focus on psychology-driven optimization rooted in behavioral science, not just best practices; <strong>(3)</strong> We work as a fractional growth partner, not a vendor&mdash;your success is our success.
             </div>
           </div>
         </div>
@@ -405,7 +640,7 @@
           <div class="faq-answer">
             <div class="faq-answer-divider"></div>
             <div class="faq-answer-text">
-              Most clients see measurable improvements within the first <strong>30–60 days</strong>. Quick wins — like fixing checkout friction or improving above-the-fold clarity — can move the needle fast. Larger strategic initiatives typically show compounding gains over 90 days. Every engagement starts with a prioritized roadmap so you always know what's being tested and why.
+              Quick wins typically appear within the first 30 days from technical fixes and low-hanging fruit. Major impact from experimentation usually compounds between months 2&ndash;4. Our Foodpanda partner saw <strong>+58% revenue growth</strong> over 6 months.
             </div>
           </div>
         </div>
@@ -425,7 +660,7 @@
           <div class="faq-answer">
             <div class="faq-answer-divider"></div>
             <div class="faq-answer-text">
-              Not at all. I work with lean startups and enterprise teams alike. If you have a website and traffic, we can optimize. I'll plug into your existing analytics stack — GA4, Hotjar, Mixpanel, or whatever you use — and only recommend tools when they're truly needed. You don't need a dedicated CRO team; that's exactly the gap I fill as your fractional growth partner.
+              No. We work with your existing setup. If you have Google Analytics and some form of A/B testing capability (or we can help you set it up), we can start optimizing.
             </div>
           </div>
         </div>
@@ -445,7 +680,7 @@
           <div class="faq-answer">
             <div class="faq-answer-divider"></div>
             <div class="faq-answer-text">
-              That's more common than you'd think — and usually means the approach was surface-level. Most CRO programs fail because they chase best practices instead of diagnosing the real behavioral barriers on your site. I start with deep qualitative and quantitative research to understand <strong>why</strong> visitors aren't converting, then build hypotheses rooted in psychology. It's a fundamentally different methodology.
+              Most &ldquo;CRO&rdquo; is actually just random testing without strategy. We&rsquo;re different: we start with deep behavioral analysis, prioritize based on potential impact, and design experiments based on psychology, not hunches.
             </div>
           </div>
         </div>
@@ -465,7 +700,7 @@
           <div class="faq-answer">
             <div class="faq-answer-divider"></div>
             <div class="faq-answer-text">
-              I don't make guarantees on exact numbers — anyone who does is guessing. What I <strong>can</strong> guarantee is a rigorous, data-driven process and full transparency on what's working and what isn't. That said, my track record speaks for itself: clients consistently see <strong>20–40%+ improvements</strong> in conversion rates. Every engagement is structured around measurable KPIs so we both know exactly where we stand.
+              No one can ethically guarantee specific results in CRO because every business is different. What we <strong>can</strong> guarantee is how we work. We don&rsquo;t start with solutions. We start with your data. By the time we&rsquo;re done with the audit, you&rsquo;ll know exactly where your revenue is leaking and what it would take to fix it. Every recommendation is data-backed, every test has a clear hypothesis and success metric, and you&rsquo;ll have full visibility into the process from day one.
             </div>
           </div>
         </div>
@@ -473,349 +708,15 @@
 
     </div>
 
-    <!-- CTA below FAQ -->
-    <div class="faq-cta">
-      <p class="faq-cta-text">Still have questions?</p>
-      <a href="https://calendly.com/ammarah-bumx/30min" class="faq-cta-link">
-        Book a free discovery call &rarr;
+    <!-- "Still have questions?" gradient CTA card -->
+    <div class="faq-cta-card">
+      <h3 class="faq-cta-card-heading">Still have questions?</h3>
+      <p class="faq-cta-card-text">
+        We're here to help you understand how psychology-driven CRO can transform your P&amp;L.
+      </p>
+      <a href="https://calendly.com/ammarah-bumx/30min" class="faq-cta-btn" role="button">
+        Book a Call &rarr;
       </a>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ============================================================
-     SECTION 3: CTA / CONTACT
-     ============================================================ -->
-<style>
-/* ── Reset & Section ────────────────────────────────────── */
-.pcg-cta *,
-.pcg-cta *::before,
-.pcg-cta *::after {
-  margin: 0; padding: 0; box-sizing: border-box;
-}
-
-.pcg-cta {
-  width: 100%;
-  position: relative;
-  background: #0B0B1E;
-  padding: 80px 24px;
-  overflow: hidden;
-  font-family: 'Inter', sans-serif;
-}
-
-/* ── Atmospheric blobs ──────────────────────────────────── */
-.pcg-cta .cta-blob {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-}
-.pcg-cta .cta-blob--magenta {
-  width: 700px; height: 700px;
-  top: -100px; left: -200px;
-  background: radial-gradient(circle, rgba(199,21,133,0.12) 0%, transparent 70%);
-  filter: blur(140px);
-}
-.pcg-cta .cta-blob--cyan {
-  width: 600px; height: 600px;
-  bottom: -100px; right: -180px;
-  background: radial-gradient(circle, rgba(0,191,255,0.1) 0%, transparent 70%);
-  filter: blur(120px);
-}
-
-/* ── Inner container ────────────────────────────────────── */
-.pcg-cta .cta-inner {
-  max-width: 1120px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-/* ── Section header ─────────────────────────────────────── */
-.pcg-cta .cta-label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  color: #00BFFF;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin: 0 0 24px 0;
-}
-.pcg-cta .cta-label::before {
-  content: '';
-  display: block;
-  width: 28px;
-  height: 1.5px;
-  background: #00BFFF;
-  border-radius: 1px;
-  flex-shrink: 0;
-}
-
-.pcg-cta .cta-heading {
-  text-align: center;
-  font-family: 'Inter', sans-serif;
-  font-size: 48px;
-  font-weight: 700;
-  color: #FFFFFF !important;
-  -webkit-text-fill-color: #FFFFFF !important;
-  margin: 0 0 24px 0;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-.pcg-cta .cta-heading .cta-gradient {
-  background: linear-gradient(to right, #00BFFF 0%, #7B68EE 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text;
-  display: inline;
-}
-
-.pcg-cta .cta-subtext {
-  text-align: center;
-  font-family: 'Inter', sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  color: #D1D5DC;
-  max-width: 620px;
-  margin: 28px auto 72px auto;
-  line-height: 1.45;
-}
-
-/* ── Two-column layout ──────────────────────────────────── */
-.pcg-cta .cta-layout {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 40px;
-  align-items: start;
-  max-width: 920px;
-  margin: 0 auto;
-}
-
-/* ── Left column ────────────────────────────────────────── */
-.pcg-cta .cta-content {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  padding-top: 64px;
-}
-
-.pcg-cta .cta-benefits {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  list-style: none;
-}
-
-.pcg-cta .cta-benefit-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  color: #D1D5DC;
-}
-
-.pcg-cta .cta-benefit-check {
-  display: block;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: rgba(5, 15, 55, 0.55);
-  border: 1.5px solid rgba(0, 155, 230, 0.5);
-  flex-shrink: 0;
-  position: relative;
-}
-.pcg-cta .cta-benefit-check::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22' fill='none'%3E%3Cpath d='M6 11l3.5 3.5 6.5-7' stroke='%2300BFFF' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 16px no-repeat;
-}
-
-/* ── Checklist card ───────────────────────────────────────── */
-.pcg-cta .cta-checklist-link {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 20px 24px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 32px;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-}
-.pcg-cta .cta-checklist-link:hover {
-  background: rgba(0,191,255,0.12);
-  border-color: rgba(0,191,255,0.45);
-  box-shadow: 0 0 32px rgba(0,191,255,0.18), 0 0 70px rgba(0,191,255,0.09);
-}
-
-.pcg-cta .cta-checklist-label {
-  font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  font-weight: 600;
-  color: #6A7282;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.pcg-cta .cta-checklist-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: #00BFFF;
-  text-decoration: none;
-  transition: opacity 0.18s ease;
-}
-.pcg-cta .cta-checklist-btn:hover {
-  opacity: 0.75;
-}
-
-/* ── Right column: Calendly ─────────────────────────────── */
-.pcg-cta .cta-calendar {
-  width: 100%;
-  border-radius: 40px;
-  overflow: hidden;
-}
-.pcg-cta .cta-calendar .calendly-inline-widget {
-  border-radius: 40px;
-}
-
-/* ── Tablet (768px+) ────────────────────────────────────── */
-@media (min-width: 768px) {
-  .pcg-cta {
-    padding: 120px 40px;
-  }
-  .pcg-cta .cta-heading {
-    font-size: 64px;
-  }
-  .pcg-cta .cta-layout {
-    grid-template-columns: 1fr 1.2fr;
-    gap: 40px;
-  }
-}
-
-/* ── Desktop (1200px+) ──────────────────────────────────── */
-@media (min-width: 1200px) {
-  .pcg-cta .cta-heading {
-    font-size: 72px;
-  }
-  .pcg-cta .cta-subtext {
-    font-size: 21px;
-  }
-  .pcg-cta .cta-layout {
-    grid-template-columns: 1fr 1.1fr;
-    gap: 48px;
-  }
-}
-
-/* ── Mobile (<768px) ────────────────────────────────────── */
-@media (max-width: 767px) {
-  .pcg-cta {
-    padding: 60px 0;
-  }
-  .pcg-cta .cta-inner {
-    padding: 0 24px;
-  }
-  .pcg-cta .cta-heading {
-    font-size: 40px;
-  }
-  .pcg-cta .cta-subtext {
-    font-size: 18px;
-  }
-  .pcg-cta .cta-content {
-    padding-top: 0;
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-  .pcg-cta .cta-benefits {
-    align-items: flex-start;
-  }
-  .pcg-cta .cta-benefit-item {
-    font-size: 15px;
-  }
-  .pcg-cta .cta-checklist-link {
-    align-items: center;
-    text-align: center;
-  }
-  .pcg-cta .cta-checklist-btn {
-    font-size: 18px;
-  }
-  .pcg-cta .cta-calendar .calendly-inline-widget {
-    min-height: 280px !important;
-  }
-}
-</style>
-
-<section class="pcg-cta" id="cta-contact" aria-labelledby="cta-heading">
-
-  <!-- Atmospheric blobs -->
-  <div class="cta-blob cta-blob--magenta" aria-hidden="true"></div>
-  <div class="cta-blob cta-blob--cyan" aria-hidden="true"></div>
-
-  <div class="cta-inner">
-
-    <div class="cta-label">Contact</div>
-
-    <h2 class="cta-heading" id="cta-heading">
-      Ready to Scale <span class="cta-gradient">Your Revenue?</span>
-    </h2>
-
-    <p class="cta-subtext">
-      Book a complimentary 30-minute discovery call. We'll look at where your conversion
-      is leaking and what's worth fixing first.
-    </p>
-
-    <div class="cta-layout">
-
-      <!-- Left: Benefits + Checklist card -->
-      <div class="cta-content">
-
-        <ul class="cta-benefits" aria-label="What you get on the discovery call">
-          <li class="cta-benefit-item">
-            <span class="cta-benefit-check" aria-hidden="true"></span>
-            No pitch, no pressure. Just structure.
-          </li>
-          <li class="cta-benefit-item">
-            <span class="cta-benefit-check" aria-hidden="true"></span>
-            Identify 3–5 quick wins for your site.
-          </li>
-          <li class="cta-benefit-item">
-            <span class="cta-benefit-check" aria-hidden="true"></span>
-            Clarity on your next growth moves.
-          </li>
-          <li class="cta-benefit-item">
-            <span class="cta-benefit-check" aria-hidden="true"></span>
-            Mutual fit focus for long-term ROI.
-          </li>
-        </ul>
-
-        <div class="cta-checklist-link">
-          <span class="cta-checklist-label">Prefer a quick guide?</span>
-          <a href="#" class="cta-checklist-btn" role="button">
-            Download our Free 10-Point CRO Checklist &rarr;
-          </a>
-        </div>
-
-      </div>
-
-      <!-- Right: Calendly inline embed -->
-      <div class="cta-calendar" aria-label="Book a discovery call">
-        <div class="calendly-inline-widget"
-             data-url="https://calendly.com/ammarah-bumx/30min?hide_event_type_details=0&hide_gdpr_banner=1&primary_color=00bfff"
-             style="min-width:min(280px,100%);height:480px;"></div>
-      </div>
-
     </div>
 
   </div>
@@ -1085,8 +986,6 @@
      SCRIPTS
      ============================================================ -->
 <script src="precision-interactions.js"></script>
-<!-- Calendly inline widget script -->
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
 <!-- FAQ Accordion -->
 <script>
