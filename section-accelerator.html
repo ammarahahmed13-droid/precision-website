@@ -1,0 +1,645 @@
+<style>
+/* ===== CONVERSION ACCELERATOR SECTION ===== */
+.accelerator-section {
+  background: #0B0B1E;
+  padding: 80px 24px;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- Section Header --- */
+.acc-section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 48px;
+}
+
+.acc-section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #00BFFF;
+  margin-bottom: 20px;
+}
+.acc-section-label::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  background: #00BFFF;
+  vertical-align: middle;
+}
+
+.acc-section-heading {
+  font-size: 48px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  line-height: 1.1;
+  margin: 0 0 24px;
+  font-family: 'Inter', sans-serif;
+}
+
+.acc-gradient-text {
+  background: linear-gradient(to right, #00BFFF, #7B68EE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text;
+}
+
+.acc-section-subtext {
+  font-size: 20px;
+  color: #D1D5DC;
+  line-height: 1.45;
+  max-width: 820px;
+  margin: 28px auto 0;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+}
+
+/* --- Accelerator Wrapper --- */
+.acc-wrapper {
+  display: flex;
+  background: #15152E;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 440px;
+  max-width: 980px;
+  margin: 0 auto;
+  --acc-color: #22D3EE;
+  --acc-color-bg: rgba(34, 211, 238, 0.12);
+  --acc-color-border: rgba(34, 211, 238, 0.22);
+}
+
+/* --- Left Sidebar --- */
+.acc-sidebar {
+  width: 270px;
+  flex-shrink: 0;
+  padding: 24px 16px;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.acc-sidebar-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.acc-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.18s;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.acc-sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+.acc-sidebar-item--active {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.acc-sidebar-icon-wrap {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.05);
+  color: #6A7282;
+  transition: background 0.2s, color 0.2s;
+}
+.acc-sidebar-item--active .acc-sidebar-icon-wrap {
+  background: var(--acc-color-bg);
+  color: var(--acc-color);
+}
+
+.acc-sidebar-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.acc-sidebar-period {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6A7282;
+  line-height: 1;
+  transition: color 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+.acc-sidebar-item--active .acc-sidebar-period {
+  color: var(--acc-color);
+}
+
+.acc-sidebar-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #D1D5DC;
+  line-height: 1.2;
+  transition: color 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+.acc-sidebar-item--active .acc-sidebar-name {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+/* --- Right Panel --- */
+.acc-panel-wrap {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  padding: 28px;
+  padding-top: 64px;
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+}
+
+/* --- Panel main content --- */
+.acc-panel-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.acc-panel-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  line-height: 1.15;
+  margin: 0 0 16px;
+  font-family: 'Inter', sans-serif;
+}
+
+.acc-panel-badges {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.acc-panel-period-badge {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 50px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background: var(--acc-color-bg);
+  color: var(--acc-color);
+  border: 1px solid var(--acc-color-border);
+  font-family: 'Inter', sans-serif;
+}
+
+.acc-panel-phase-label {
+  font-size: 13px;
+  color: #6A7282;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  font-family: 'Inter', sans-serif;
+}
+
+.acc-panel-desc {
+  font-size: 18px;
+  color: #D1D5DC;
+  line-height: 1.5;
+  max-width: 500px;
+  margin: 0 0 24px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* --- Deliverables 2x2 Grid --- */
+.acc-deliverables {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  max-width: 520px;
+}
+
+.acc-deliverable {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #D1D5DC;
+  line-height: 1.35;
+  font-family: 'Inter', sans-serif;
+}
+
+.acc-deliverable-check {
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--acc-color-bg);
+  border: 1.5px solid var(--acc-color);
+}
+
+/* --- Phase Goal Card --- */
+.acc-goal-card {
+  width: 230px;
+  flex-shrink: 0;
+  align-self: flex-end;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.acc-goal-arrow-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--acc-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.acc-goal-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+
+.acc-goal-text {
+  font-size: 14px;
+  color: #7B7B8E;
+  line-height: 1.45;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+
+.acc-goal-progress {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.10);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: auto;
+}
+
+.acc-goal-progress-fill {
+  height: 100%;
+  width: 20%;
+  background: var(--acc-color);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* --- Responsive --- */
+@media (min-width: 768px) {
+  .acc-section-heading {
+    font-size: 64px;
+  }
+  .acc-section-subtext {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .acc-section-heading {
+    font-size: 72px;
+  }
+  .acc-section-subtext {
+    font-size: 21px;
+  }
+}
+
+@media (max-width: 767px) {
+  .accelerator-section {
+    padding: 60px 16px;
+  }
+  .acc-wrapper {
+    flex-direction: column;
+  }
+  .acc-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 12px;
+  }
+  .acc-sidebar-list {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 4px;
+    justify-content: center;
+  }
+  .acc-sidebar-item {
+    padding: 8px;
+    gap: 0;
+    flex: 0 0 auto;
+  }
+  .acc-sidebar-text {
+    display: none;
+  }
+  .acc-sidebar-icon-wrap {
+    width: 40px;
+    height: 40px;
+  }
+  .acc-panel-wrap {
+    flex-direction: column;
+    padding: 20px;
+    padding-top: 20px;
+  }
+  .acc-panel-badges {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-bottom: 12px;
+  }
+  .acc-panel-title {
+    font-size: 28px;
+  }
+  .acc-panel-desc {
+    font-size: 16px;
+  }
+  .acc-deliverables {
+    grid-template-columns: 1fr;
+  }
+  .acc-deliverable {
+    font-size: 15px;
+  }
+  .acc-goal-card {
+    width: 100%;
+  }
+  .acc-section-heading {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  .acc-section-subtext {
+    font-size: 18px;
+  }
+}
+</style>
+
+<section class="accelerator-section" id="conversion-accelerator">
+  <div class="acc-section-header">
+    <div class="acc-section-label">Growth Program</div>
+    <h2 class="acc-section-heading">The Conversion Accelerator <span class="acc-gradient-text">Program</span></h2>
+    <p class="acc-section-subtext">A proven 5-step systematic framework designed to bridge the gap between traffic and revenue through strategic, psychology-driven experimentation.</p>
+  </div>
+
+  <div class="acc-wrapper" id="acc-wrapper">
+    <aside class="acc-sidebar">
+      <ul class="acc-sidebar-list" role="tablist" aria-label="Program phases">
+
+        <li class="acc-sidebar-item" role="tab" tabindex="0" aria-selected="true" data-acc-phase="0">
+          <div class="acc-sidebar-icon-wrap" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="5.5" stroke="currentColor" stroke-width="1.8"/><path d="M12.5 12.5L16.5 16.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <div class="acc-sidebar-text">
+            <span class="acc-sidebar-period">Month 1</span>
+            <span class="acc-sidebar-name">Deep Dive Audit</span>
+          </div>
+        </li>
+
+        <li class="acc-sidebar-item" role="tab" tabindex="-1" aria-selected="false" data-acc-phase="1">
+          <div class="acc-sidebar-icon-wrap" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1.5L6.5 8H9.5L7 16.5L14.5 7.5H10.5L13 1.5H9Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" fill="none"/></svg>
+          </div>
+          <div class="acc-sidebar-text">
+            <span class="acc-sidebar-period">Month 1–2</span>
+            <span class="acc-sidebar-name">Quick Fixes</span>
+          </div>
+        </li>
+
+        <li class="acc-sidebar-item" role="tab" tabindex="-1" aria-selected="false" data-acc-phase="2">
+          <div class="acc-sidebar-icon-wrap" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M12.5 2a2 2 0 012.5 2.5L4.5 14.5l-3 .5.5-3L12.5 2z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="acc-sidebar-text">
+            <span class="acc-sidebar-period">Months 2–4</span>
+            <span class="acc-sidebar-name">Experimentation</span>
+          </div>
+        </li>
+
+        <li class="acc-sidebar-item" role="tab" tabindex="-1" aria-selected="false" data-acc-phase="3">
+          <div class="acc-sidebar-icon-wrap" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><line x1="2.5" y1="5" x2="15.5" y2="5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="2.5" y1="9" x2="15.5" y2="9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="2.5" y1="13" x2="15.5" y2="13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="6" cy="5" r="2.2" fill="currentColor"/><circle cx="12" cy="9" r="2.2" fill="currentColor"/><circle cx="8" cy="13" r="2.2" fill="currentColor"/></svg>
+          </div>
+          <div class="acc-sidebar-text">
+            <span class="acc-sidebar-period">Months 5–6</span>
+            <span class="acc-sidebar-name">Optimization</span>
+          </div>
+        </li>
+
+        <li class="acc-sidebar-item" role="tab" tabindex="-1" aria-selected="false" data-acc-phase="4">
+          <div class="acc-sidebar-icon-wrap" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1.5" y="10" width="3.5" height="6.5" rx="1" stroke="currentColor" stroke-width="1.6"/><rect x="7.25" y="6.5" width="3.5" height="10" rx="1" stroke="currentColor" stroke-width="1.6"/><rect x="13" y="2.5" width="3.5" height="14" rx="1" stroke="currentColor" stroke-width="1.6"/></svg>
+          </div>
+          <div class="acc-sidebar-text">
+            <span class="acc-sidebar-period">Ongoing</span>
+            <span class="acc-sidebar-name">Scaling Playbook</span>
+          </div>
+        </li>
+
+      </ul>
+    </aside>
+
+    <div class="acc-panel-wrap" id="acc-panel-wrap" aria-live="polite"></div>
+  </div>
+</section>
+
+<script>
+(function() {
+  var PHASES = [
+    {
+      phase: 'Phase 01', period: 'Month 1', title: 'Deep Dive Audit',
+      body: 'In-depth analysis of platform analytics, user behavior, and customer journey to identify high-impact opportunities.',
+      deliverables: ['Comprehensive audit report', 'User journey mapping', 'Competitive benchmarking', '90-day experimentation roadmap'],
+      goal: 'Accelerating your growth through prioritized, psychology-backed execution.',
+      color: '#22D3EE', colorBg: 'rgba(34,211,238,0.12)', colorBorder: 'rgba(34,211,238,0.22)'
+    },
+    {
+      phase: 'Phase 02', period: 'Month 1\u20132', title: 'Quick Fixes',
+      body: 'Rapid deployment of high-impact, low-effort wins identified in the audit \u2014 generating immediate conversion lift with minimal overhead.',
+      deliverables: ['Priority quick-win implementation', 'Copy & CTA optimisations', 'UX friction removal', 'Baseline A/B test setup'],
+      goal: 'Building early momentum and stakeholder confidence through fast, visible results.',
+      color: '#7C3AED', colorBg: 'rgba(124,58,237,0.12)', colorBorder: 'rgba(124,58,237,0.22)'
+    },
+    {
+      phase: 'Phase 03', period: 'Months 2\u20134', title: 'Experimentation',
+      body: 'Structured, hypothesis-driven A/B testing across your highest-impact conversion points, validated to statistical significance before scaling.',
+      deliverables: ['2\u20133 A/B tests per month', 'Statistical significance reporting', 'Winner documentation & rollout', 'Funnel-level conversion analysis'],
+      goal: 'Building a validated evidence base that makes every future growth decision data-backed.',
+      color: '#8B5CF6', colorBg: 'rgba(139,92,246,0.12)', colorBorder: 'rgba(139,92,246,0.22)'
+    },
+    {
+      phase: 'Phase 04', period: 'Months 5\u20136', title: 'Optimisation',
+      body: 'Scaling validated winners across the full funnel, introducing segment-based personalisation, and optimising the end-to-end customer journey.',
+      deliverables: ['Winning variant rollout at scale', 'Segment-based personalisation', 'Lifecycle & retention optimisation', 'Revenue-per-visitor benchmarking'],
+      goal: 'Compounding gains from every validated test into sustainable, measurable revenue growth.',
+      color: '#F97316', colorBg: 'rgba(249,115,22,0.12)', colorBorder: 'rgba(249,115,22,0.22)'
+    },
+    {
+      phase: 'Phase 05', period: 'Ongoing', title: 'Scaling Playbook',
+      body: 'A documented, repeatable growth system your team can run independently \u2014 with continued oversight, quarterly strategy reviews, and a living playbook.',
+      deliverables: ['Full growth playbook documentation', 'Team training & knowledge transfer', 'Quarterly strategy reviews', 'Performance benchmarking dashboard'],
+      goal: 'Building internal capability so your growth compounds long after our engagement ends.',
+      color: '#EC4899', colorBg: 'rgba(236,72,153,0.12)', colorBorder: 'rgba(236,72,153,0.22)'
+    }
+  ];
+
+  var wrapper = document.getElementById('acc-wrapper');
+  var sidebarItems = document.querySelectorAll('.acc-sidebar-item');
+  var panelWrap = document.getElementById('acc-panel-wrap');
+  if (!wrapper || !sidebarItems.length || !panelWrap) return;
+
+  var currentIndex = 0;
+  var autoTimer = null;
+  var pauseTimer = null;
+  var lastTapTime = 0;
+  var AUTO_INTERVAL = 3500;
+  var PAUSE_DURATION = 20000;
+
+  var arrowSVG = '<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M9 3l6 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  function renderPhase(index) {
+    var p = PHASES[index];
+    if (!p) return;
+
+    var checkSVG = '<svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5.5" stroke="' + p.color + '" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+    var cards = p.deliverables.map(function(d) {
+      return '<div class="acc-deliverable"><span class="acc-deliverable-check">' + checkSVG + '</span>' + d + '</div>';
+    }).join('');
+
+    panelWrap.innerHTML =
+      '<div class="acc-panel-badges">' +
+        '<span class="acc-panel-period-badge">' + p.period + '</span>' +
+        '<span class="acc-panel-phase-label">' + p.phase + '</span>' +
+      '</div>' +
+      '<div class="acc-panel-main">' +
+        '<h3 class="acc-panel-title">' + p.title + '</h3>' +
+        '<p class="acc-panel-desc">' + p.body + '</p>' +
+        '<div class="acc-deliverables">' + cards + '</div>' +
+      '</div>' +
+      '<div class="acc-goal-card">' +
+        '<div class="acc-goal-arrow-btn" aria-hidden="true">' + arrowSVG + '</div>' +
+        '<h4 class="acc-goal-title">Phase Goal</h4>' +
+        '<p class="acc-goal-text">' + p.goal + '</p>' +
+        '<div class="acc-goal-progress"><div class="acc-goal-progress-fill" style="width:' + ((index + 1) * 20) + '%"></div></div>' +
+      '</div>';
+
+    currentIndex = index;
+  }
+
+  function setColors(index) {
+    var p = PHASES[index];
+    if (!p) return;
+    wrapper.style.setProperty('--acc-color', p.color);
+    wrapper.style.setProperty('--acc-color-bg', p.colorBg);
+    wrapper.style.setProperty('--acc-color-border', p.colorBorder);
+  }
+
+  function setSidebarActive(index) {
+    sidebarItems.forEach(function(item, i) {
+      item.classList.toggle('acc-sidebar-item--active', i === index);
+      item.setAttribute('aria-selected', i === index ? 'true' : 'false');
+      item.setAttribute('tabindex', i === index ? '0' : '-1');
+    });
+  }
+
+  function switchToTab(index, animate) {
+    if (index === currentIndex) return;
+    setColors(index);
+    setSidebarActive(index);
+    if (animate) {
+      panelWrap.style.opacity = '0';
+      setTimeout(function() {
+        renderPhase(index);
+        panelWrap.style.opacity = '1';
+      }, 200);
+    } else {
+      renderPhase(index);
+    }
+  }
+
+  function startAutoPlay() {
+    stopAutoPlay();
+    autoTimer = setInterval(function() {
+      switchToTab((currentIndex + 1) % PHASES.length, true);
+    }, AUTO_INTERVAL);
+  }
+
+  function stopAutoPlay() {
+    if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+  }
+
+  function pauseAndResume() {
+    stopAutoPlay();
+    if (pauseTimer) clearTimeout(pauseTimer);
+    pauseTimer = setTimeout(startAutoPlay, PAUSE_DURATION);
+  }
+
+  function handleTap(index) {
+    var now = Date.now();
+    if (now - lastTapTime < 400) return;
+    lastTapTime = now;
+    switchToTab(index, true);
+    pauseAndResume();
+  }
+
+  sidebarItems.forEach(function(item, i) {
+    item.addEventListener('click', function(e) {
+      e.preventDefault();
+      handleTap(i);
+    });
+    item.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleTap(i);
+      }
+    });
+  });
+
+  panelWrap.style.transition = 'opacity 0.2s';
+  setColors(0);
+  setSidebarActive(0);
+  renderPhase(0);
+  startAutoPlay();
+})();
+</script>

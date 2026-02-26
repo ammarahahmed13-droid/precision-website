@@ -1,0 +1,451 @@
+<!-- ============================================================
+     PRECISION — FOUNDER BIO SECTION (Bricks Code Block)
+     Desktop: image left, content right  |  Mobile: stacked
+     ============================================================ -->
+
+<style>
+/* ── Reset & Section ────────────────────────────────────── */
+.pcg-founder *,
+.pcg-founder *::before,
+.pcg-founder *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+.pcg-founder {
+  width: 100%;
+  position: relative;
+  background: #0B0B1E;
+  padding: 80px 24px;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Atmospheric blobs ──────────────────────────────────── */
+.pcg-founder .fdr-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.pcg-founder .fdr-blob--cyan {
+  width: 700px; height: 700px;
+  top: -100px; right: -200px;
+  background: radial-gradient(circle, rgba(0,191,255,0.09) 0%, transparent 70%);
+  filter: blur(140px);
+}
+.pcg-founder .fdr-blob--purple {
+  width: 600px; height: 600px;
+  bottom: -80px; left: -150px;
+  background: radial-gradient(circle, rgba(123,104,238,0.09) 0%, transparent 70%);
+  filter: blur(130px);
+}
+
+/* ── Inner container ────────────────────────────────────── */
+.pcg-founder .fdr-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Section header (flat structure) ────────────────────── */
+.pcg-founder .fdr-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #00BFFF;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 24px 0;
+}
+.pcg-founder .fdr-label::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1.5px;
+  background: #00BFFF;
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+.pcg-founder .fdr-heading {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin: 0 0 24px 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.pcg-founder .fdr-heading .fdr-gradient {
+  background: linear-gradient(to right, #00BFFF 0%, #7B68EE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text;
+  display: inline;
+}
+
+.pcg-founder .fdr-quote {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: italic;
+  color: #D1D5DC;
+  max-width: 680px;
+  margin: 28px auto 72px auto;
+  line-height: 1.6;
+  border: none;
+}
+
+/* ── Two-column layout ──────────────────────────────────── */
+.pcg-founder .fdr-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+/* ── Photo column ───────────────────────────────────────── */
+.pcg-founder .fdr-photo-col {
+  display: flex;
+  justify-content: center;
+}
+
+.pcg-founder .fdr-photo-frame {
+  position: relative;
+  width: 290px;
+  height: 420px;
+  border-radius: 40px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  flex-shrink: 0;
+  box-shadow: 0 0 60px rgba(0,191,255,0.13), 0 0 120px rgba(0,191,255,0.07);
+}
+
+.pcg-founder .fdr-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pcg-founder .fdr-photo-glow {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 80px;
+  background: radial-gradient(ellipse, rgba(0,191,255,0.2) 0%, transparent 70%);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+/* ── Credential card overlay ────────────────────────────── */
+.pcg-founder .fdr-card-overlay {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 20px;
+  background: rgba(20, 10, 30, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 0 0 40px 40px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+.pcg-founder .fdr-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.pcg-founder .fdr-card-role {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: #00BFFF;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.pcg-founder .fdr-card-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.pcg-founder .fdr-linkedin {
+  display: flex;
+  flex-shrink: 0;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  align-self: flex-end;
+  margin-bottom: -16px;
+}
+.pcg-founder .fdr-linkedin:hover {
+  opacity: 0.85;
+}
+.pcg-founder .fdr-linkedin img {
+  width: 64px;
+  height: 64px;
+  display: block;
+  border-radius: 8px;
+}
+
+/* ── Content column ─────────────────────────────────────── */
+.pcg-founder .fdr-content-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 480px;
+}
+.pcg-founder .fdr-stats {
+  margin-top: 20px;
+}
+
+.pcg-founder .fdr-bio {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #99A1AF;
+  line-height: 1.6;
+}
+
+/* ── Stats grid ─────────────────────────────────────────── */
+.pcg-founder .fdr-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding: 0;
+  list-style: none;
+}
+
+.pcg-founder .fdr-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: default;
+}
+
+.pcg-founder .fdr-stat-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  transition: color 0.2s ease;
+}
+
+/* Accent colors on hover */
+.pcg-founder .fdr-stat--cyan:hover .fdr-stat-value { color: #00BFFF; }
+.pcg-founder .fdr-stat--purple:hover .fdr-stat-value { color: #7B68EE; }
+.pcg-founder .fdr-stat--orange:hover .fdr-stat-value { color: #FF7F50; }
+.pcg-founder .fdr-stat--pink:hover .fdr-stat-value { color: #C71585; }
+
+.pcg-founder .fdr-stat-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: #6A7282;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+}
+
+/* ── Tablet (768px+) ────────────────────────────────────── */
+@media (min-width: 768px) {
+  .pcg-founder {
+    padding: 120px 40px;
+  }
+  .pcg-founder .fdr-heading {
+    font-size: 64px;
+  }
+  .pcg-founder .fdr-quote {
+    font-size: 20px;
+  }
+  .pcg-founder .fdr-layout {
+    grid-template-columns: auto minmax(0, 460px);
+    gap: 48px;
+  }
+  .pcg-founder .fdr-photo-col {
+    justify-content: flex-start;
+  }
+  .pcg-founder .fdr-photo-frame {
+    width: 320px;
+    height: 460px;
+  }
+}
+
+/* ── Desktop (1200px+) ──────────────────────────────────── */
+@media (min-width: 1200px) {
+  .pcg-founder .fdr-heading {
+    font-size: 72px;
+  }
+  .pcg-founder .fdr-quote {
+    font-size: 21px;
+  }
+  .pcg-founder .fdr-photo-frame {
+    width: 340px;
+    height: 500px;
+  }
+  .pcg-founder .fdr-layout {
+    gap: 56px;
+  }
+}
+
+/* ── Mobile (<768px) ────────────────────────────────────── */
+@media (max-width: 767px) {
+  .pcg-founder {
+    padding: 60px 0;
+  }
+  .pcg-founder .fdr-inner {
+    padding: 0 24px;
+  }
+  .pcg-founder .fdr-heading {
+    font-size: 40px;
+  }
+  .pcg-founder .fdr-quote {
+    font-size: 16px;
+  }
+  .pcg-founder .fdr-layout {
+    gap: 32px;
+  }
+  .pcg-founder .fdr-photo-col {
+    align-items: center;
+  }
+  .pcg-founder .fdr-photo-frame {
+    width: 270px;
+    height: 360px;
+  }
+  .pcg-founder .fdr-content-col {
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .pcg-founder .fdr-bio {
+    font-size: 14px;
+    padding: 0 12px;
+  }
+  .pcg-founder .fdr-stats {
+    gap: 12px;
+    padding: 16px;
+  }
+  .pcg-founder .fdr-stat-value {
+    font-size: 24px;
+  }
+  .pcg-founder .fdr-linkedin img {
+    width: 52px;
+    height: 52px;
+  }
+}
+</style>
+
+<section class="pcg-founder" id="founder-bio" aria-labelledby="fdr-heading">
+
+  <!-- Atmospheric blobs -->
+  <div class="fdr-blob fdr-blob--cyan" aria-hidden="true"></div>
+  <div class="fdr-blob fdr-blob--purple" aria-hidden="true"></div>
+
+  <div class="fdr-inner">
+
+    <!-- Section header — flat structure, no wrapper div -->
+    <div class="fdr-label">Meet the Founder</div>
+
+    <h2 class="fdr-heading" id="fdr-heading">
+      Your Partner in <span class="fdr-gradient">Profitable Growth</span>
+    </h2>
+
+    <blockquote class="fdr-quote">
+      "Having owned the P&amp;L, felt the pressure of missing a number, and led the team that had to hit it, the stakes you're facing aren't abstract to me. I've lived them. That's what makes Precision your perfect partner for driving growth and results."
+    </blockquote>
+
+    <!-- Two-column layout: photo left, content right -->
+    <div class="fdr-layout">
+
+      <!-- Left: Photo with credential card -->
+      <div class="fdr-photo-col">
+        <div class="fdr-photo-frame">
+          <img
+            class="fdr-photo-img"
+            src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/founder-ammarah-ahmed-v2cropped.webp"
+            alt="Ammarah Ahmed — Founder & Lead Strategist at Precision Consulting Group"
+            loading="lazy"
+          />
+          <div class="fdr-photo-glow" aria-hidden="true"></div>
+          <div class="fdr-card-overlay" aria-hidden="true">
+            <div class="fdr-card-text">
+              <span class="fdr-card-role">Founder &amp; Lead Strategist</span>
+              <span class="fdr-card-name">Ammarah Ahmed</span>
+            </div>
+            <a
+              class="fdr-linkedin"
+              href="https://www.linkedin.com/in/ammarah-ahmed/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Ammarah Ahmed on LinkedIn"
+            >
+              <img
+                src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/icon-linkedin.svg"
+                alt=""
+                aria-hidden="true"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: bio + stats -->
+      <div class="fdr-content-col">
+
+        <p class="fdr-bio">
+          Before starting Precision, Ammarah spent 10+ years as a commercial operator, not a
+          consultant. She ran P&amp;L and growth for business units at Delivery Hero (Talabat,
+          Foodpanda) and Alibaba Group, led teams of 200+ across 15 markets, and built the kind
+          of systems that survive beyond any single campaign. Her CRO work isn't theoretical.
+          It comes from having to answer to a board.
+        </p>
+
+        <div class="fdr-stats" role="list" aria-label="Founder credentials">
+          <div class="fdr-stat fdr-stat--cyan" role="listitem">
+            <span class="fdr-stat-value">10+</span>
+            <span class="fdr-stat-label">Years as operator &amp; leader in corporates</span>
+          </div>
+          <div class="fdr-stat fdr-stat--purple" role="listitem">
+            <span class="fdr-stat-value">200+</span>
+            <span class="fdr-stat-label">Team members led</span>
+          </div>
+          <div class="fdr-stat fdr-stat--pink" role="listitem">
+            <span class="fdr-stat-value">15</span>
+            <span class="fdr-stat-label">Markets worked across</span>
+          </div>
+          <div class="fdr-stat fdr-stat--orange" role="listitem">
+            <span class="fdr-stat-value">8</span>
+            <span class="fdr-stat-label">Industries in the portfolio</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

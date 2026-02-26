@@ -1,0 +1,266 @@
+<!-- ============================================================
+     PRECISION — FOOTER SECTION (Bricks Code Block)
+     Desktop: 3-col grid  |  Mobile: stacked
+     ============================================================ -->
+
+<style>
+/* ── Reset & Footer ─────────────────────────────────────── */
+.pcg-footer *,
+.pcg-footer *::before,
+.pcg-footer *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+.pcg-footer {
+  width: 100%;
+  background: #0B0B1E;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Inner container ────────────────────────────────────── */
+.pcg-footer .ftr-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 64px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* ── Top row: 3-col grid ────────────────────────────────── */
+.pcg-footer .ftr-top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+/* ── Brand column ───────────────────────────────────────── */
+.pcg-footer .ftr-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 400px;
+}
+
+.pcg-footer .ftr-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.pcg-footer .ftr-logo-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+}
+
+.pcg-footer .ftr-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #6A7282;
+  line-height: 1.6;
+}
+
+/* ── Nav columns (Quick Links + Connect) ────────────────── */
+.pcg-footer .ftr-nav-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #99A1AF;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.pcg-footer .ftr-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  list-style: none;
+}
+
+.pcg-footer .ftr-nav-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #6A7282;
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+.pcg-footer .ftr-nav-link:hover {
+  color: #FFFFFF;
+}
+
+.pcg-footer .ftr-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── Bottom bar ─────────────────────────────────────────── */
+.pcg-footer .ftr-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.pcg-footer .ftr-copyright {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #4A5565;
+}
+
+.pcg-footer .ftr-legal-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pcg-footer .ftr-legal-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #4A5565;
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+.pcg-footer .ftr-legal-link:hover {
+  color: #6A7282;
+}
+
+.pcg-footer .ftr-legal-sep {
+  color: #4A5565;
+}
+
+/* ── Tablet (768px+) ────────────────────────────────────── */
+@media (min-width: 768px) {
+  .pcg-footer .ftr-inner {
+    padding: 64px 24px 32px;
+  }
+  .pcg-footer .ftr-top {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+  .pcg-footer .ftr-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* ── Desktop (1200px+) ──────────────────────────────────── */
+@media (min-width: 1200px) {
+  .pcg-footer .ftr-inner {
+    padding: 80px 32px 40px;
+  }
+}
+
+/* ── Mobile (<768px) ────────────────────────────────────── */
+@media (max-width: 767px) {
+  .pcg-footer .ftr-inner {
+    padding: 40px 16px 24px;
+    gap: 32px;
+  }
+  .pcg-footer .ftr-top {
+    gap: 32px;
+  }
+  .pcg-footer .ftr-brand {
+    max-width: 100%;
+  }
+  .pcg-footer .ftr-bottom {
+    text-align: center;
+    gap: 8px;
+  }
+  .pcg-footer .ftr-legal-nav {
+    justify-content: center;
+  }
+  .pcg-footer .ftr-nav-link {
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .pcg-footer .ftr-legal-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+</style>
+
+<footer class="pcg-footer" role="contentinfo">
+
+  <div class="ftr-inner">
+
+    <!-- Top row -->
+    <div class="ftr-top">
+
+      <!-- Brand column -->
+      <div class="ftr-brand">
+        <a href="/" class="ftr-logo" aria-label="Precision Consulting Group home">
+          <img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/precision-logo.svg" alt="" aria-hidden="true" width="32" height="32" />
+          <span class="ftr-logo-text">Precision</span>
+        </a>
+        <p class="ftr-tagline">
+          Psychology-driven CRO and Product UX/UI that transforms how customers experience
+          and convert on your platform.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <nav aria-label="Quick links">
+        <h3 class="ftr-nav-title">Quick Links</h3>
+        <ul class="ftr-nav-list" role="list">
+          <li><a href="#founder-bio" class="ftr-nav-link">About Us</a></li>
+          <li><a href="#conversion-accelerator" class="ftr-nav-link">Conversion Accelerator</a></li>
+          <li><a href="#roi-calculator" class="ftr-nav-link">ROI Calculator</a></li>
+          <li><a href="#case-studies" class="ftr-nav-link">Case Studies</a></li>
+          <li><a href="#" class="ftr-nav-link">FAQs</a></li>
+        </ul>
+      </nav>
+
+      <!-- Connect -->
+      <div>
+        <h3 class="ftr-nav-title">Connect</h3>
+        <ul class="ftr-nav-list" role="list">
+          <li>
+            <a href="https://www.linkedin.com/company/goprecision" class="ftr-nav-link ftr-social-link" rel="noopener noreferrer" target="_blank">
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href="#" class="ftr-nav-link ftr-social-link" rel="noopener noreferrer" target="_blank">
+              GrowthMentor
+            </a>
+          </li>
+          <li>
+            <a href="mailto:ammarah@goprecision.co" class="ftr-nav-link ftr-social-link">
+              Email
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="ftr-bottom">
+      <p class="ftr-copyright">
+        &copy; 2026 Precision Consulting Group LLC. All rights reserved.
+      </p>
+      <nav class="ftr-legal-nav" aria-label="Legal links">
+        <a href="#" class="ftr-legal-link">Privacy Policy</a>
+        <span class="ftr-legal-sep" aria-hidden="true">&middot;</span>
+        <a href="#" class="ftr-legal-link">Terms of Service</a>
+      </nav>
+    </div>
+
+  </div>
+
+</footer>

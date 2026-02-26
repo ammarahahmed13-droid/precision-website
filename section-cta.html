@@ -1,0 +1,342 @@
+<!-- ============================================================
+     PRECISION — CTA / CONTACT SECTION (Bricks Code Block)
+     Desktop: benefits left, Calendly right  |  Mobile: stacked
+     ============================================================ -->
+
+<style>
+/* ── Reset & Section ────────────────────────────────────── */
+.pcg-cta *,
+.pcg-cta *::before,
+.pcg-cta *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+.pcg-cta {
+  width: 100%;
+  position: relative;
+  background: #0B0B1E;
+  padding: 80px 24px;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Atmospheric blobs ──────────────────────────────────── */
+.pcg-cta .cta-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.pcg-cta .cta-blob--magenta {
+  width: 700px; height: 700px;
+  top: -100px; left: -200px;
+  background: radial-gradient(circle, rgba(199,21,133,0.12) 0%, transparent 70%);
+  filter: blur(140px);
+}
+.pcg-cta .cta-blob--cyan {
+  width: 600px; height: 600px;
+  bottom: -100px; right: -180px;
+  background: radial-gradient(circle, rgba(0,191,255,0.1) 0%, transparent 70%);
+  filter: blur(120px);
+}
+
+/* ── Inner container ────────────────────────────────────── */
+.pcg-cta .cta-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Section header (flat structure) ────────────────────── */
+.pcg-cta .cta-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #00BFFF;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 24px 0;
+}
+.pcg-cta .cta-label::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1.5px;
+  background: #00BFFF;
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+.pcg-cta .cta-heading {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin: 0 0 24px 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.pcg-cta .cta-heading .cta-gradient {
+  background: linear-gradient(to right, #00BFFF 0%, #7B68EE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text;
+  display: inline;
+}
+
+.pcg-cta .cta-subtext {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #D1D5DC;
+  max-width: 620px;
+  margin: 28px auto 72px auto;
+  line-height: 1.45;
+}
+
+/* ── Two-column layout ──────────────────────────────────── */
+.pcg-cta .cta-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: start;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+/* ── Left column: benefits + checklist ──────────────────── */
+.pcg-cta .cta-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 64px;
+}
+
+.pcg-cta .cta-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style: none;
+}
+
+.pcg-cta .cta-benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #D1D5DC;
+}
+
+.pcg-cta .cta-benefit-check {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(5, 15, 55, 0.55);
+  border: 1.5px solid rgba(0, 155, 230, 0.5);
+  flex-shrink: 0;
+  position: relative;
+}
+.pcg-cta .cta-benefit-check::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22' fill='none'%3E%3Cpath d='M6 11l3.5 3.5 6.5-7' stroke='%2300BFFF' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 16px no-repeat;
+}
+
+/* ── Checklist card ─────────────────────────────────────── */
+.pcg-cta .cta-checklist-link {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 24px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 32px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.pcg-cta .cta-checklist-link:hover {
+  background: rgba(0,191,255,0.12);
+  border-color: rgba(0,191,255,0.45);
+  box-shadow: 0 0 32px rgba(0,191,255,0.18), 0 0 70px rgba(0,191,255,0.09);
+}
+
+.pcg-cta .cta-checklist-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: #6A7282;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.pcg-cta .cta-checklist-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #00BFFF;
+  text-decoration: none;
+  transition: opacity 0.18s ease;
+}
+.pcg-cta .cta-checklist-btn:hover {
+  opacity: 0.75;
+}
+
+/* ── Right column: Calendly embed ───────────────────────── */
+.pcg-cta .cta-calendar {
+  width: 100%;
+  border-radius: 40px;
+  overflow: hidden;
+}
+.pcg-cta .cta-calendar .calendly-inline-widget {
+  border-radius: 40px;
+}
+
+/* ── Tablet (768px+) ────────────────────────────────────── */
+@media (min-width: 768px) {
+  .pcg-cta {
+    padding: 120px 40px;
+  }
+  .pcg-cta .cta-heading {
+    font-size: 64px;
+  }
+  .pcg-cta .cta-layout {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+  }
+}
+
+/* ── Desktop (1200px+) ──────────────────────────────────── */
+@media (min-width: 1200px) {
+  .pcg-cta .cta-heading {
+    font-size: 72px;
+  }
+  .pcg-cta .cta-subtext {
+    font-size: 21px;
+  }
+  .pcg-cta .cta-layout {
+    grid-template-columns: 1fr 1.1fr;
+    gap: 48px;
+  }
+}
+
+/* ── Mobile (<768px) ────────────────────────────────────── */
+@media (max-width: 767px) {
+  .pcg-cta {
+    padding: 60px 0;
+  }
+  .pcg-cta .cta-inner {
+    padding: 0 24px;
+  }
+  .pcg-cta .cta-heading {
+    font-size: 40px;
+  }
+  .pcg-cta .cta-subtext {
+    font-size: 18px;
+  }
+  .pcg-cta .cta-content {
+    padding-top: 0;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .pcg-cta .cta-benefits {
+    align-items: flex-start;
+  }
+  .pcg-cta .cta-benefit-item {
+    font-size: 15px;
+  }
+  .pcg-cta .cta-checklist-link {
+    align-items: center;
+    text-align: center;
+  }
+  .pcg-cta .cta-checklist-btn {
+    font-size: 18px;
+  }
+  .pcg-cta .cta-calendar .calendly-inline-widget {
+    min-height: 280px !important;
+  }
+}
+</style>
+
+<section class="pcg-cta" id="cta-contact" aria-labelledby="cta-heading">
+
+  <!-- Atmospheric blobs -->
+  <div class="cta-blob cta-blob--magenta" aria-hidden="true"></div>
+  <div class="cta-blob cta-blob--cyan" aria-hidden="true"></div>
+
+  <div class="cta-inner">
+
+    <!-- Section header — flat structure, no wrapper div -->
+    <div class="cta-label">Contact</div>
+
+    <h2 class="cta-heading" id="cta-heading">
+      Ready to Scale <span class="cta-gradient">Your Revenue?</span>
+    </h2>
+
+    <p class="cta-subtext">
+      Book a complimentary 30-minute discovery call. We'll look at where your conversion
+      is leaking and what's worth fixing first.
+    </p>
+
+    <!-- Two-column layout: benefits left, Calendly right -->
+    <div class="cta-layout">
+
+      <!-- Left: Benefits + Checklist card -->
+      <div class="cta-content">
+
+        <ul class="cta-benefits" aria-label="What you get on the discovery call">
+          <li class="cta-benefit-item">
+            <span class="cta-benefit-check" aria-hidden="true"></span>
+            No pitch, no pressure. Just structure.
+          </li>
+          <li class="cta-benefit-item">
+            <span class="cta-benefit-check" aria-hidden="true"></span>
+            Identify 3–5 quick wins for your site.
+          </li>
+          <li class="cta-benefit-item">
+            <span class="cta-benefit-check" aria-hidden="true"></span>
+            Clarity on your next growth moves.
+          </li>
+          <li class="cta-benefit-item">
+            <span class="cta-benefit-check" aria-hidden="true"></span>
+            Mutual fit focus for long-term ROI.
+          </li>
+        </ul>
+
+        <div class="cta-checklist-link">
+          <span class="cta-checklist-label">Prefer a quick guide?</span>
+          <a href="#" class="cta-checklist-btn" role="button">
+            Download our Free 10-Point CRO Checklist &rarr;
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Right: Calendly inline embed -->
+      <div class="cta-calendar" aria-label="Book a discovery call">
+        <div class="calendly-inline-widget"
+             data-url="https://calendly.com/ammarah-bumx/30min?hide_event_type_details=0&hide_gdpr_banner=1&primary_color=00bfff"
+             style="min-width:min(280px,100%);height:480px;"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Calendly external script -->
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
