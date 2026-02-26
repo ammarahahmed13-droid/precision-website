@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partners — Precision Consulting Group</title>
+  <meta name="description" content="Explore Precision's verified ecosystem partners. Exclusive perks, discounted rates, and priority support from the world's leading platforms." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="precision-tokens.css" />
+  <link rel="stylesheet" href="precision-website.css" />
+  <link rel="stylesheet" href="precision-mobile.css" />
+</head>
+<body>
+
+<!-- ============================================================
+     SECTION 1: HEADER / NAV
+     ============================================================ -->
+<header id="header" class="site-header" role="banner">
+  <div class="header-inner">
+
+    <a href="/" class="header-logo" aria-label="Precision Consulting Group home">
+      <img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/precision-logo.svg" alt="Precision" height="36" width="auto">
+    </a>
+
+    <nav class="header-nav" role="navigation" aria-label="Primary navigation">
+      <ul class="nav-list" role="list">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/#why-precision" class="nav-link">About Us</a></li>
+        <li><a href="/partners" class="nav-link nav-link--active">Partners</a></li>
+      </ul>
+    </nav>
+
+    <a href="https://calendly.com/ammarah-bumx/30min" class="btn-primary header-btn" role="button">
+      Book a Call
+      <img class="btn-icon" src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/icon-arrow-right.svg" alt="" aria-hidden="true">
+    </a>
+
+    <button class="header-hamburger" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+  </div>
+  <div class="header-glow-line" aria-hidden="true"></div>
+</header>
+
+
+<!-- ============================================================
+     SECTION 2: PARTNERS HERO
+     Badge · Heading · Subtext · 3 Value Proposition Cards
+     ============================================================ -->
+<style>
+/* ── Reset & Section ─────────────────────────────────────── */
+.pcg-partners-hero *,
+.pcg-partners-hero *::before,
+.pcg-partners-hero *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+.pcg-partners-hero {
+  width: 100%;
+  position: relative;
+  background: #0B0B1E;
+  padding: 100px 24px 80px;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Atmospheric blobs ───────────────────────────────────── */
+.pcg-partners-hero .ph-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.pcg-partners-hero .ph-blob--purple {
+  width: 700px; height: 700px;
+  top: -200px; left: -150px;
+  background: radial-gradient(circle, rgba(123,104,238,0.10) 0%, transparent 70%);
+  filter: blur(160px);
+}
+.pcg-partners-hero .ph-blob--cyan {
+  width: 600px; height: 600px;
+  bottom: -100px; right: -200px;
+  background: radial-gradient(circle, rgba(0,191,255,0.08) 0%, transparent 70%);
+  filter: blur(140px);
+}
+
+/* ── Inner container ─────────────────────────────────────── */
+.pcg-partners-hero .ph-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Hero header (centered) ──────────────────────────────── */
+.pcg-partners-hero .ph-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.pcg-partners-hero .ph-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border-radius: 80px;
+  background: rgba(123,104,238,0.10);
+  border: 1px solid rgba(123,104,238,0.25);
+  font-size: 12px;
+  font-weight: 600;
+  color: #9370DB;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+.pcg-partners-hero .ph-badge-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.pcg-partners-hero .ph-heading {
+  font-size: 60px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin: 0 0 24px 0;
+}
+.pcg-partners-hero .ph-heading-gradient {
+  background: linear-gradient(to right, #7B68EE 0%, #9370DB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pcg-partners-hero .ph-subtext {
+  font-size: 17px;
+  font-weight: 400;
+  color: #99A1AF;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ── 3 Cards grid ────────────────────────────────────────── */
+.pcg-partners-hero .ph-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.pcg-partners-hero .ph-card {
+  background: #15152E;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px;
+  padding: 36px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.pcg-partners-hero .ph-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Top edge glow per card */
+.pcg-partners-hero .ph-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  border-radius: 20px 20px 0 0;
+}
+.pcg-partners-hero .ph-card--cyan::before {
+  background: linear-gradient(to right, rgba(0,191,255,0.6), rgba(0,191,255,0));
+}
+.pcg-partners-hero .ph-card--cyan:hover {
+  box-shadow: 0 8px 30px rgba(0,191,255,0.10);
+}
+.pcg-partners-hero .ph-card--purple::before {
+  background: linear-gradient(to right, rgba(123,104,238,0.6), rgba(123,104,238,0));
+}
+.pcg-partners-hero .ph-card--purple:hover {
+  box-shadow: 0 8px 30px rgba(123,104,238,0.10);
+}
+.pcg-partners-hero .ph-card--magenta::before {
+  background: linear-gradient(to right, rgba(199,21,133,0.6), rgba(199,21,133,0));
+}
+.pcg-partners-hero .ph-card--magenta:hover {
+  box-shadow: 0 8px 30px rgba(199,21,133,0.10);
+}
+
+/* Card icon */
+.pcg-partners-hero .ph-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.pcg-partners-hero .ph-card--cyan .ph-card-icon {
+  background: rgba(0,191,255,0.12);
+}
+.pcg-partners-hero .ph-card--purple .ph-card-icon {
+  background: rgba(123,104,238,0.12);
+}
+.pcg-partners-hero .ph-card--magenta .ph-card-icon {
+  background: rgba(199,21,133,0.12);
+}
+.pcg-partners-hero .ph-card-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.pcg-partners-hero .ph-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.pcg-partners-hero .ph-card-desc {
+  font-size: 14px;
+  font-weight: 400;
+  color: #99A1AF;
+  line-height: 1.6;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .pcg-partners-hero {
+    padding: 80px 20px 60px;
+  }
+  .pcg-partners-hero .ph-header {
+    margin-bottom: 40px;
+  }
+  .pcg-partners-hero .ph-heading {
+    font-size: 36px;
+    letter-spacing: -0.02em;
+  }
+  .pcg-partners-hero .ph-subtext {
+    font-size: 15px;
+  }
+  .pcg-partners-hero .ph-cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .pcg-partners-hero .ph-card {
+    padding: 28px 22px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .pcg-partners-hero .ph-heading {
+    font-size: 48px;
+  }
+  .pcg-partners-hero .ph-cards {
+    gap: 20px;
+  }
+}
+</style>
+
+<section class="pcg-partners-hero" aria-labelledby="partners-hero-heading">
+
+  <!-- Atmospheric blobs -->
+  <div class="ph-blob ph-blob--purple" aria-hidden="true"></div>
+  <div class="ph-blob ph-blob--cyan" aria-hidden="true"></div>
+
+  <div class="ph-inner">
+
+    <!-- Hero header -->
+    <div class="ph-header">
+      <div class="ph-badge">
+        <!-- Shield / verified icon -->
+        <svg class="ph-badge-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M8 1L2 3.5V7.5C2 11.08 4.56 14.38 8 15.25C11.44 14.38 14 11.08 14 7.5V3.5L8 1Z" stroke="#9370DB" stroke-width="1.2" fill="none"/>
+          <path d="M5.5 8L7 9.5L10.5 6" stroke="#9370DB" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        Verified Ecosystem Partners
+      </div>
+      <h1 id="partners-hero-heading" class="ph-heading">
+        Growing Faster,<br>
+        <span class="ph-heading-gradient">Together.</span>
+      </h1>
+      <p class="ph-subtext">
+        We&rsquo;ve partnered with the world&rsquo;s leading platforms to provide our clients with
+        exclusive access, discounted rates, and priority support. Our partner network is curated
+        for high-growth e-commerce and marketplace founders.
+      </p>
+    </div>
+
+    <!-- 3 Value proposition cards -->
+    <div class="ph-cards" role="list">
+
+      <!-- Card 1: Exclusive Perks -->
+      <article class="ph-card ph-card--cyan" role="listitem">
+        <div class="ph-card-icon">
+          <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M11 2L12.5 8.5H19L13.75 12.5L15.25 19L11 15L6.75 19L8.25 12.5L3 8.5H9.5L11 2Z" stroke="#00BFFF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <h3 class="ph-card-title">Exclusive Perks</h3>
+        <p class="ph-card-desc">
+          Get access to credits and discounts on essential tools like GrowthMentor, Shopify, and more.
+        </p>
+      </article>
+
+      <!-- Card 2: Trusted Network -->
+      <article class="ph-card ph-card--purple" role="listitem">
+        <div class="ph-card-icon">
+          <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M16 8C16 10.21 14.21 12 12 12H10C7.79 12 6 10.21 6 8V7C6 4.79 7.79 3 10 3H12C14.21 3 16 4.79 16 7V8Z" stroke="#7B68EE" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M4 19C4 16.24 6.24 14 9 14H13C15.76 14 18 16.24 18 19V20H4V19Z" stroke="#7B68EE" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <h3 class="ph-card-title">Trusted Network</h3>
+        <p class="ph-card-desc">
+          We only partner with platforms that we personally use and recommend to our high-growth clients.
+        </p>
+      </article>
+
+      <!-- Card 3: Value First -->
+      <article class="ph-card ph-card--magenta" role="listitem">
+        <div class="ph-card-icon">
+          <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M19 7H3V18C3 18.55 3.45 19 4 19H18C18.55 19 19 18.55 19 18V7Z" stroke="#C71585" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M20 4H2V7H20V4Z" stroke="#C71585" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M11 4V19" stroke="#C71585" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+            <path d="M11 4L8 2" stroke="#C71585" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+            <path d="M11 4L14 2" stroke="#C71585" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <h3 class="ph-card-title">Value First</h3>
+        <p class="ph-card-desc">
+          Our mission is to democratize high-level growth insights for founders at every stage.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 3: GROWTHMENTOR PARTNERSHIP
+     2-column: info left · partnership card right
+     ============================================================ -->
+<style>
+/* ── Reset & Section ─────────────────────────────────────── */
+.pcg-partner-gm *,
+.pcg-partner-gm *::before,
+.pcg-partner-gm *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+.pcg-partner-gm {
+  width: 100%;
+  position: relative;
+  background: #0B0B1E;
+  padding: 80px 24px;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Atmospheric blobs ───────────────────────────────────── */
+.pcg-partner-gm .gm-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.pcg-partner-gm .gm-blob--cyan {
+  width: 600px; height: 600px;
+  top: -100px; left: -180px;
+  background: radial-gradient(circle, rgba(0,191,255,0.08) 0%, transparent 70%);
+  filter: blur(160px);
+}
+.pcg-partner-gm .gm-blob--purple {
+  width: 500px; height: 500px;
+  bottom: -120px; right: -160px;
+  background: radial-gradient(circle, rgba(123,104,238,0.08) 0%, transparent 70%);
+  filter: blur(140px);
+}
+
+/* ── Inner container ─────────────────────────────────────── */
+.pcg-partner-gm .gm-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── 2 Column layout ─────────────────────────────────────── */
+.pcg-partner-gm .gm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* ── Left column: content ────────────────────────────────── */
+.pcg-partner-gm .gm-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border-radius: 80px;
+  background: rgba(0,191,255,0.08);
+  border: 1px solid rgba(0,191,255,0.20);
+  font-size: 12px;
+  font-weight: 600;
+  color: #00BFFF;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.pcg-partner-gm .gm-badge-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.pcg-partner-gm .gm-heading {
+  font-size: 48px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  margin: 0 0 24px 0;
+}
+.pcg-partner-gm .gm-heading-gradient {
+  background: linear-gradient(to right, #00BFFF 0%, #7BB8EE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pcg-partner-gm .gm-desc {
+  font-size: 16px;
+  font-weight: 400;
+  color: #99A1AF;
+  line-height: 1.65;
+  margin-bottom: 32px;
+}
+.pcg-partner-gm .gm-desc strong {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/* ── Bullet points ───────────────────────────────────────── */
+.pcg-partner-gm .gm-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.pcg-partner-gm .gm-bullet {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.pcg-partner-gm .gm-bullet-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0,191,255,0.08);
+  border: 1px solid rgba(0,191,255,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.pcg-partner-gm .gm-bullet-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.pcg-partner-gm .gm-bullet-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pcg-partner-gm .gm-bullet-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.pcg-partner-gm .gm-bullet-desc {
+  font-size: 14px;
+  font-weight: 400;
+  color: #99A1AF;
+  line-height: 1.55;
+}
+
+/* ── CTA card ────────────────────────────────────────────── */
+.pcg-partner-gm .gm-cta-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 32px 28px;
+}
+
+.pcg-partner-gm .gm-cta-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+}
+
+.pcg-partner-gm .gm-cta-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #99A1AF;
+  line-height: 1.55;
+  margin-bottom: 24px;
+}
+.pcg-partner-gm .gm-cta-text a {
+  color: #00BFFF;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.pcg-partner-gm .gm-cta-text a:hover {
+  color: #33CFFF;
+}
+
+.pcg-partner-gm .gm-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0B0B1E;
+  background: #FFD166;
+  border: none;
+  border-radius: 80px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 0 24px rgba(255,209,102,0.30);
+  transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pcg-partner-gm .gm-cta-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 0 40px rgba(255,209,102,0.50);
+}
+
+/* ── Right column: partnership visual card ────────────────── */
+.pcg-partner-gm .gm-right {
+  position: relative;
+}
+
+/* "Free Session Included" floating badge */
+.pcg-partner-gm .gm-float-badge {
+  position: absolute;
+  top: -10px;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: #15152E;
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 80px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFFFFF;
+  z-index: 2;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.30);
+}
+.pcg-partner-gm .gm-float-badge-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #00BFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pcg-partner-gm .gm-float-badge-dot svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Main partnership card */
+.pcg-partner-gm .gm-partner-card {
+  background: #15152E;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 24px;
+  padding: 48px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Precision logo area */
+.pcg-partner-gm .gm-logo-precision {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.pcg-partner-gm .gm-logo-precision-icon {
+  width: 64px;
+  height: 64px;
+}
+.pcg-partner-gm .gm-logo-precision-text {
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* "Partnered with" divider */
+.pcg-partner-gm .gm-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 28px;
+}
+.pcg-partner-gm .gm-divider-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+}
+.pcg-partner-gm .gm-divider-text {
+  font-size: 10px;
+  font-weight: 600;
+  color: #6A7282;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* GrowthMentor logo */
+.pcg-partner-gm .gm-logo-gm {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+.pcg-partner-gm .gm-logo-gm-icon {
+  width: 28px;
+  height: 28px;
+}
+.pcg-partner-gm .gm-logo-gm-text {
+  font-size: 20px;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+}
+
+/* Stat pills row */
+.pcg-partner-gm .gm-stats {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.pcg-partner-gm .gm-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.pcg-partner-gm .gm-stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pcg-partner-gm .gm-stat-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.pcg-partner-gm .gm-stat-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #6A7282;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .pcg-partner-gm {
+    padding: 60px 20px;
+  }
+  .pcg-partner-gm .gm-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .pcg-partner-gm .gm-heading {
+    font-size: 32px;
+    letter-spacing: -0.02em;
+  }
+  .pcg-partner-gm .gm-float-badge {
+    position: relative;
+    top: 0;
+    right: 0;
+    margin-bottom: 16px;
+    display: inline-flex;
+  }
+  .pcg-partner-gm .gm-partner-card {
+    padding: 36px 24px 32px;
+    margin-top: 0;
+  }
+  .pcg-partner-gm .gm-stats {
+    gap: 12px;
+  }
+  .pcg-partner-gm .gm-cta-card {
+    padding: 24px 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .pcg-partner-gm .gm-heading {
+    font-size: 40px;
+  }
+  .pcg-partner-gm .gm-grid {
+    gap: 40px;
+  }
+}
+</style>
+
+<section class="pcg-partner-gm" aria-labelledby="gm-heading">
+
+  <!-- Atmospheric blobs -->
+  <div class="gm-blob gm-blob--cyan" aria-hidden="true"></div>
+  <div class="gm-blob gm-blob--purple" aria-hidden="true"></div>
+
+  <div class="gm-inner">
+    <div class="gm-grid">
+
+      <!-- Left column: content -->
+      <div class="gm-left">
+
+        <div class="gm-badge">
+          <svg class="gm-badge-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="8" cy="8" r="6.5" stroke="#00BFFF" stroke-width="1.2" fill="none"/>
+            <line x1="8" y1="3" x2="8" y2="13" stroke="#00BFFF" stroke-width="1.2"/>
+            <path d="M3 6.5Q5.5 5 8 5Q10.5 5 13 6.5" stroke="#00BFFF" stroke-width="1" fill="none"/>
+            <path d="M3 9.5Q5.5 11 8 11Q10.5 11 13 9.5" stroke="#00BFFF" stroke-width="1" fill="none"/>
+          </svg>
+          Exclusive Partnership Perk
+        </div>
+
+        <h2 id="gm-heading" class="gm-heading">
+          Precision x<br>
+          <span class="gm-heading-gradient">GrowthMentor</span>
+        </h2>
+
+        <p class="gm-desc">
+          At Precision, we don&rsquo;t believe in gatekeeping. Our mission is to
+          pass on as much free value as possible through our partnership with
+          <strong>GrowthMentor</strong>, recognized as one of the world&rsquo;s top
+          mentorship platforms for high-growth founders.
+        </p>
+
+        <!-- Bullet points -->
+        <div class="gm-bullets">
+
+          <div class="gm-bullet">
+            <div class="gm-bullet-icon">
+              <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M4 8L7 11L12 5" stroke="#00BFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="gm-bullet-content">
+              <span class="gm-bullet-title">Empowering Founders</span>
+              <span class="gm-bullet-desc">
+                Access the same high-level strategies used by unicorn growth
+                teams without the corporate price tag.
+              </span>
+            </div>
+          </div>
+
+          <div class="gm-bullet">
+            <div class="gm-bullet-icon">
+              <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M4 8L7 11L12 5" stroke="#00BFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="gm-bullet-content">
+              <span class="gm-bullet-title">Global Knowledge Access</span>
+              <span class="gm-bullet-desc">
+                Direct lines to 750+ top-vetted mentors across product, marketing,
+                and operations.
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CTA card -->
+        <div class="gm-cta-card">
+          <h3 class="gm-cta-title">Claim Your Free Session</h3>
+          <p class="gm-cta-text">
+            As part of our partnership, new users to GrowthMentor can avail a
+            <a href="#">free mentoring session</a> with any mentor of their choice.
+          </p>
+          <a href="#" class="gm-cta-btn">
+            Get Your Free Session
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="#0B0B1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Right column: partnership visual -->
+      <div class="gm-right">
+
+        <!-- Floating badge -->
+        <div class="gm-float-badge">
+          <span class="gm-float-badge-dot">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="8" cy="8" r="6.5" stroke="#FFFFFF" stroke-width="1.2" fill="none"/>
+              <line x1="8" y1="3" x2="8" y2="13" stroke="#FFFFFF" stroke-width="1.2"/>
+              <path d="M3 6.5Q5.5 5 8 5Q10.5 5 13 6.5" stroke="#FFFFFF" stroke-width="1" fill="none"/>
+              <path d="M3 9.5Q5.5 11 8 11Q10.5 11 13 9.5" stroke="#FFFFFF" stroke-width="1" fill="none"/>
+            </svg>
+          </span>
+          Free Session Included
+        </div>
+
+        <!-- Partnership card -->
+        <div class="gm-partner-card">
+
+          <!-- Precision logo -->
+          <div class="gm-logo-precision">
+            <svg class="gm-logo-precision-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="6" y="6" width="24" height="52" rx="2" stroke="#FFFFFF" stroke-width="2.5" fill="none"/>
+              <rect x="30" y="6" width="28" height="24" rx="2" stroke="#FFFFFF" stroke-width="2.5" fill="none"/>
+              <text x="32" y="46" font-family="Inter, sans-serif" font-size="28" font-weight="700" fill="#FFFFFF">P</text>
+            </svg>
+            <span class="gm-logo-precision-text">Precision</span>
+          </div>
+
+          <!-- Partnered with divider -->
+          <div class="gm-divider">
+            <span class="gm-divider-line"></span>
+            <span class="gm-divider-text">Partnered With</span>
+            <span class="gm-divider-line"></span>
+          </div>
+
+          <!-- GrowthMentor logo -->
+          <div class="gm-logo-gm">
+            <svg class="gm-logo-gm-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="2" y="2" width="24" height="24" rx="6" stroke="#FFFFFF" stroke-width="1.5" fill="none"/>
+              <circle cx="10" cy="12" r="3" stroke="#FFFFFF" stroke-width="1.2" fill="none"/>
+              <circle cx="18" cy="12" r="3" stroke="#FFFFFF" stroke-width="1.2" fill="none"/>
+              <path d="M7 20Q14 16 21 20" stroke="#FFFFFF" stroke-width="1.2" fill="none"/>
+            </svg>
+            <span class="gm-logo-gm-text">growthmentor</span>
+          </div>
+
+          <!-- Stat pills -->
+          <div class="gm-stats">
+
+            <div class="gm-stat">
+              <div class="gm-stat-icon">
+                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="10" cy="10" r="7.5" stroke="#99A1AF" stroke-width="1.2" fill="none"/>
+                  <line x1="10" y1="4" x2="10" y2="16" stroke="#99A1AF" stroke-width="1"/>
+                  <path d="M4 7.5Q7 6 10 6Q13 6 16 7.5" stroke="#99A1AF" stroke-width="0.8" fill="none"/>
+                  <path d="M4 12.5Q7 14 10 14Q13 14 16 12.5" stroke="#99A1AF" stroke-width="0.8" fill="none"/>
+                </svg>
+              </div>
+              <span class="gm-stat-label">Global</span>
+            </div>
+
+            <div class="gm-stat">
+              <div class="gm-stat-icon">
+                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="7" cy="8" r="3" stroke="#99A1AF" stroke-width="1.2" fill="none"/>
+                  <circle cx="13" cy="8" r="3" stroke="#99A1AF" stroke-width="1.2" fill="none"/>
+                  <path d="M3 17C3 14.5 5 13 7 13" stroke="#99A1AF" stroke-width="1.2" fill="none"/>
+                  <path d="M17 17C17 14.5 15 13 13 13" stroke="#99A1AF" stroke-width="1.2" fill="none"/>
+                </svg>
+              </div>
+              <span class="gm-stat-label">750+<br>Mentors</span>
+            </div>
+
+            <div class="gm-stat">
+              <div class="gm-stat-icon">
+                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M10 3L12 7.5H17L13 10.5L14.5 15L10 12L5.5 15L7 10.5L3 7.5H8L10 3Z" stroke="#99A1AF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+              </div>
+              <span class="gm-stat-label">Top Vetted</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 4: CTA BANNER
+     Horizontal: text left · button right
+     ============================================================ -->
+<style>
+/* ── Reset & Section ─────────────────────────────────────── */
+.pcg-partners-cta *,
+.pcg-partners-cta *::before,
+.pcg-partners-cta *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+.pcg-partners-cta {
+  width: 100%;
+  position: relative;
+  background: #0B0B1E;
+  padding: 0 24px 80px;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+.pcg-partners-cta .pcta-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Top border glow line */
+.pcg-partners-cta .pcta-bar {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 56px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.pcg-partners-cta .pcta-text {
+  font-size: 28px;
+  font-weight: 400;
+  color: #D1D5DC;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+.pcg-partners-cta .pcta-text-cyan {
+  color: #00BFFF;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+  font-weight: 500;
+}
+.pcg-partners-cta .pcta-text-magenta {
+  color: #C71585;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+  font-weight: 500;
+}
+
+.pcg-partners-cta .pcta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 36px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0B0B1E;
+  background: #FFD166;
+  border: none;
+  border-radius: 80px;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 0 24px rgba(255,209,102,0.30);
+  transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pcg-partners-cta .pcta-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 0 40px rgba(255,209,102,0.50);
+}
+.pcg-partners-cta .pcta-btn-arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #0B0B1E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pcg-partners-cta .pcta-btn-arrow svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .pcg-partners-cta {
+    padding: 0 20px 60px;
+  }
+  .pcg-partners-cta .pcta-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    padding-top: 40px;
+  }
+  .pcg-partners-cta .pcta-text {
+    font-size: 22px;
+  }
+  .pcg-partners-cta .pcta-btn {
+    padding: 16px 28px;
+    font-size: 15px;
+  }
+}
+</style>
+
+<section class="pcg-partners-cta" aria-label="Call to action">
+  <div class="pcta-inner">
+    <div class="pcta-bar">
+
+      <p class="pcta-text">
+        Ready to accelerate your <span class="pcta-text-cyan">conversion</span><br>
+        and <span class="pcta-text-magenta">revenue</span> growth?
+      </p>
+
+      <a href="https://calendly.com/ammarah-bumx/30min" class="pcta-btn" role="button">
+        Book a Call
+        <span class="pcta-btn-arrow" aria-hidden="true">
+          <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="#FFD166" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 5: FOOTER
+     ============================================================ -->
+<style>
+/* ── Reset & Footer ─────────────────────────────────────── */
+.pcg-footer *,
+.pcg-footer *::before,
+.pcg-footer *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+.pcg-footer {
+  width: 100%;
+  background: #0B0B1E;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-family: 'Inter', sans-serif;
+}
+
+.pcg-footer .ftr-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 64px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.pcg-footer .ftr-top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+.pcg-footer .ftr-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 400px;
+}
+
+.pcg-footer .ftr-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.pcg-footer .ftr-logo-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+}
+
+.pcg-footer .ftr-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #6A7282;
+  line-height: 1.6;
+}
+
+.pcg-footer .ftr-nav-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #99A1AF;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.pcg-footer .ftr-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  list-style: none;
+}
+
+.pcg-footer .ftr-nav-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #6A7282;
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+.pcg-footer .ftr-nav-link:hover {
+  color: #FFFFFF;
+}
+
+.pcg-footer .ftr-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pcg-footer .ftr-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.pcg-footer .ftr-copyright {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #4A5565;
+}
+
+.pcg-footer .ftr-legal-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pcg-footer .ftr-legal-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #4A5565;
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+.pcg-footer .ftr-legal-link:hover {
+  color: #6A7282;
+}
+
+.pcg-footer .ftr-legal-sep {
+  color: #4A5565;
+}
+
+@media (min-width: 768px) {
+  .pcg-footer .ftr-inner {
+    padding: 64px 24px 32px;
+  }
+  .pcg-footer .ftr-top {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+  .pcg-footer .ftr-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1200px) {
+  .pcg-footer .ftr-inner {
+    padding: 80px 32px 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .pcg-footer .ftr-inner {
+    padding: 40px 16px 24px;
+    gap: 32px;
+  }
+  .pcg-footer .ftr-top {
+    gap: 32px;
+  }
+  .pcg-footer .ftr-brand {
+    max-width: 100%;
+  }
+  .pcg-footer .ftr-bottom {
+    text-align: center;
+    gap: 8px;
+  }
+  .pcg-footer .ftr-legal-nav {
+    justify-content: center;
+  }
+  .pcg-footer .ftr-nav-link {
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .pcg-footer .ftr-legal-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+</style>
+
+<footer class="pcg-footer" role="contentinfo">
+
+  <div class="ftr-inner">
+
+    <!-- Top row -->
+    <div class="ftr-top">
+
+      <!-- Brand column -->
+      <div class="ftr-brand">
+        <a href="/" class="ftr-logo" aria-label="Precision Consulting Group home">
+          <img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/precision-logo.svg" alt="" aria-hidden="true" width="32" height="32" />
+          <span class="ftr-logo-text">Precision</span>
+        </a>
+        <p class="ftr-tagline">
+          Psychology-driven CRO and Product UX/UI that transforms how customers experience
+          and convert on your platform.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <nav aria-label="Quick links">
+        <h3 class="ftr-nav-title">Quick Links</h3>
+        <ul class="ftr-nav-list" role="list">
+          <li><a href="/#why-precision" class="ftr-nav-link">About Us</a></li>
+          <li><a href="/#conversion-accelerator" class="ftr-nav-link">Conversion Accelerator</a></li>
+          <li><a href="/#roi-calculator" class="ftr-nav-link">ROI Calculator</a></li>
+          <li><a href="/#case-studies" class="ftr-nav-link">Case Studies</a></li>
+          <li><a href="/faq" class="ftr-nav-link">FAQs</a></li>
+        </ul>
+      </nav>
+
+      <!-- Connect -->
+      <div>
+        <h3 class="ftr-nav-title">Connect</h3>
+        <ul class="ftr-nav-list" role="list">
+          <li>
+            <a href="https://www.linkedin.com/company/goprecision" class="ftr-nav-link ftr-social-link" rel="noopener noreferrer" target="_blank">
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href="#" class="ftr-nav-link ftr-social-link" rel="noopener noreferrer" target="_blank">
+              GrowthMentor
+            </a>
+          </li>
+          <li>
+            <a href="mailto:ammarah@goprecision.co" class="ftr-nav-link ftr-social-link">
+              Email
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="ftr-bottom">
+      <p class="ftr-copyright">
+        &copy; 2026 Precision Consulting Group LLC. All rights reserved.
+      </p>
+      <nav class="ftr-legal-nav" aria-label="Legal links">
+        <a href="#" class="ftr-legal-link">Privacy Policy</a>
+        <span class="ftr-legal-sep" aria-hidden="true">&middot;</span>
+        <a href="#" class="ftr-legal-link">Terms of Service</a>
+      </nav>
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<script src="precision-interactions.js"></script>
+
+</body>
+</html>
