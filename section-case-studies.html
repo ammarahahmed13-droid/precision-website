@@ -1,0 +1,413 @@
+<style>
+/* Prevent horizontal scrollbar from visible-overflow blobs */
+html { overflow-x: hidden; }
+/* Dark background on page body so no light gaps appear between sections */
+html, body { background-color: #0B0B1E !important; }
+
+/* ===== CASE STUDIES SECTION ===== */
+.cs-section {
+  background: #0B0B1E;
+  padding: 80px 24px;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  overflow: visible;
+}
+
+/* --- Atmosphere --- */
+.cs-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cs-blob--left {
+  width: 600px; height: 600px; top: -100px; left: -150px;
+  background: radial-gradient(circle, rgba(123,104,238,0.12) 0%, transparent 70%);
+  filter: blur(120px);
+}
+
+.cs-blob--right {
+  width: 500px; height: 500px; bottom: 0; right: 0;
+  background: radial-gradient(circle, rgba(147,112,219,0.1) 0%, transparent 70%);
+  filter: blur(100px);
+}
+
+/* --- Section Header --- */
+.cs-header {
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto 56px;
+  position: relative;
+  z-index: 1;
+}
+
+.cs-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #00BFFF;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 24px 0;
+}
+
+.cs-label::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1.5px;
+  background: #00BFFF;
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+.cs-heading {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin: 0 0 24px 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.cs-heading-gradient {
+  background: linear-gradient(to right, #00BFFF 0%, #7B68EE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text;
+  display: inline;
+}
+
+.cs-subtext {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #D1D5DC;
+  max-width: 820px;
+  margin: 28px auto 0;
+  line-height: 1.45;
+}
+
+/* --- Cards Grid --- */
+.cs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  max-width: 980px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Card --- */
+.cs-card {
+  display: flex;
+  flex-direction: column;
+  background: #15152E;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 32px;
+  overflow: hidden;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cs-card--cyan:hover {
+  border-color: rgba(0, 191, 255, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), 0 0 40px rgba(0, 191, 255, 0.10);
+  transform: translateY(-3px);
+}
+
+.cs-card--purple:hover {
+  border-color: rgba(139, 111, 238, 0.30);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), 0 0 40px rgba(139, 111, 238, 0.14);
+  transform: translateY(-3px);
+}
+
+/* --- Card Top: Icon + Image --- */
+.cs-card-top {
+  padding: 24px 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cs-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cs-card-icon--cyan {
+  background: rgba(0, 191, 255, 0.15);
+  color: #22D3EE;
+  border: 1px solid rgba(0, 191, 255, 0.25);
+}
+
+.cs-card-icon--purple {
+  background: rgba(124, 58, 237, 0.15);
+  color: #8B5CF6;
+  border: 1px solid rgba(124, 58, 237, 0.25);
+}
+
+.cs-card-image {
+  border-radius: 20px;
+  overflow: hidden;
+  height: 240px;
+}
+
+.cs-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.cs-card:hover .cs-card-image img {
+  transform: scale(1.05);
+}
+
+/* --- Card Body --- */
+.cs-card-body {
+  padding: 24px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.cs-tag-pill {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 5px 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border-radius: 80px;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+/* Pill colors via parent card (Bricks ignores .cs-tag-pill--cyan selectors) */
+.cs-card--cyan .cs-tag-pill {
+  color: #22D3EE;
+  background: rgba(0, 191, 255, 0.15);
+  border: 1.5px solid rgba(0, 191, 255, 0.40);
+}
+
+.cs-card--purple .cs-tag-pill {
+  color: #A78BFA;
+  background: rgba(124, 58, 237, 0.18);
+  border: 1.5px solid rgba(124, 58, 237, 0.35);
+}
+
+.cs-card-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.cs-card-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #D1D5DC;
+  line-height: 1.6;
+  flex: 1;
+  margin: 0;
+}
+
+.cs-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #00BFFF;
+  text-decoration: none;
+  margin-top: 4px;
+  transition: opacity 0.18s;
+}
+
+.cs-card-link:hover {
+  opacity: 0.75;
+}
+
+.cs-card--purple .cs-card-link {
+  color: #A78BFA;
+}
+
+.cs-card-arrow {
+  display: block;
+  width: 16px;
+  height: 16px;
+  transition: transform 0.18s;
+}
+
+.cs-card-link:hover .cs-card-arrow {
+  transform: translateX(3px);
+}
+
+/* --- Responsive --- */
+@media (max-width: 767px) {
+  .cs-section {
+    padding: 60px 16px;
+  }
+
+  .cs-heading {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+
+  .cs-subtext {
+    font-size: 18px;
+  }
+
+  .cs-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .cs-card:hover {
+    transform: none;
+  }
+
+  .cs-card-top {
+    padding: 20px 20px 0;
+  }
+
+  .cs-card-image {
+    height: 200px;
+  }
+
+  .cs-card-body {
+    padding: 20px 20px 24px;
+  }
+
+  .cs-tag-pill {
+    font-size: 8px;
+    padding: 5px 10px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .cs-card-title {
+    font-size: 19px;
+  }
+
+  .cs-card-text {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .cs-section {
+    padding: 120px 40px;
+  }
+
+  .cs-heading {
+    font-size: 64px;
+    white-space: nowrap;
+  }
+
+  .cs-subtext {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cs-heading {
+    font-size: 72px;
+  }
+
+  .cs-subtext {
+    font-size: 21px;
+  }
+}
+</style>
+
+<section id="case-studies" class="cs-section" aria-labelledby="cs-heading">
+
+  <div class="cs-blob cs-blob--left" aria-hidden="true"></div>
+  <div class="cs-blob cs-blob--right" aria-hidden="true"></div>
+
+  <div class="cs-header">
+    <p class="cs-label">Case Studies</p>
+    <h2 class="cs-heading" id="cs-heading">Proven Results For <span class="cs-heading-gradient">Leaders</span></h2>
+    <p class="cs-subtext">Different industries. Different problems. One approach.</p>
+  </div>
+
+  <div class="cs-grid" role="list">
+
+    <!-- Case Study 1 -->
+    <article class="cs-card cs-card--cyan" role="listitem" aria-labelledby="cs-1-title">
+      <div class="cs-card-top">
+        <div class="cs-card-icon cs-card-icon--cyan" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M6 2h8l2 4H4L6 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            <rect x="2" y="6" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M7 10c0 1.657 1.343 3 3 3s3-1.343 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="cs-card-image">
+          <img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/case-study-value-proposition.webp" alt="Food delivery marketplace case study" loading="lazy"/>
+        </div>
+      </div>
+      <div class="cs-card-body">
+        <div class="cs-tag-pill">+35% AVERAGE ORDER VALUE · FOOD DELIVERY · MARKETPLACE</div>
+        <h3 class="cs-card-title" id="cs-1-title">From Transactions to Bigger Baskets</h3>
+        <p class="cs-card-text">A high-traffic food delivery platform had strong order volume but was leaving money on every transaction. We identified the cart as the highest-leverage point in the funnel and rebuilt the logic around it: structured upsell prompts, a loyalty mechanic that rewarded order size, and a checkout flow redesigned to reduce drop-off at the point of highest intent.</p>
+        <a href="https://calendly.com/ammarah-bumx/30min" class="cs-card-link">
+          Reach Out For The Full Case Study
+          <svg class="cs-card-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#00BFFF" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- Case Study 2 -->
+    <article class="cs-card cs-card--purple" role="listitem" aria-labelledby="cs-2-title">
+      <div class="cs-card-top">
+        <div class="cs-card-icon cs-card-icon--purple" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M11 2L4 11h7l-2 7 9-9h-7l2-7Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="cs-card-image">
+          <img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/case-study-scaling-revenue.webp" alt="Q-commerce operations case study" loading="lazy"/>
+        </div>
+      </div>
+      <div class="cs-card-body">
+        <div class="cs-tag-pill">+35% UNIT ECONOMICS · Q-COMMERCE · OPERATIONS-LED GROWTH</div>
+        <h3 class="cs-card-title" id="cs-2-title">Scaling Revenue Without Adding Headcount</h3>
+        <p class="cs-card-text">A multi-market q-commerce operator was growing fast but bleeding margin. We built the commercial infrastructure to make scale profitable: a segmentation-based retention engine, CX reengineering across digital and offline, and KPI-aligned planning that gave leadership real visibility for the first time.</p>
+        <a href="https://calendly.com/ammarah-bumx/30min" class="cs-card-link">
+          Reach Out For The Full Case Study
+          <svg class="cs-card-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#A78BFA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </article>
+
+  </div>
+</section>

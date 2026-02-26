@@ -1,0 +1,127 @@
+<!-- ============================================================
+     PRECISION — HEADER / NAV BAR (Bricks Code Block)
+     Sticky header with logo, navigation, CTA, hamburger menu
+     ============================================================ -->
+
+<style>
+/* ---------- TOKENS (header-scoped) ---------- */
+:root {
+  --color-bg-base:        #0B0B1E;
+  --color-text-primary:   #FFFFFF;
+  --color-text-secondary: #D1D5DC;
+  --color-accent-cyan:    #00BFFF;
+  --color-accent-gold:    #FFD166;
+  --font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+  --font-size-sm:    0.75rem;
+  --font-size-md:    0.875rem;
+  --font-size-base:  1rem;
+  --font-size-lg:    1.125rem;
+  --letter-spacing-snug: -0.02em;
+  --radius-sm:   1rem;
+  --radius-pill: 5rem;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+}
+
+/* ---------- HEADER ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(11, 11, 30, 0.85);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  font-family: var(--font-family-base);
+}
+.header-glow-line {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 191, 255, 0.3) 30%, rgba(123, 104, 238, 0.3) 70%, transparent 100%);
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: 1280px; margin: 0 auto;
+  padding: var(--space-3) var(--space-6); gap: var(--space-6);
+}
+.header-logo { display: flex; align-items: center; gap: var(--space-2); text-decoration: none; flex-shrink: 0; }
+.header-logo img { height: 32px; width: auto; display: block; }
+.logo-text { font-size: var(--font-size-lg); font-weight: var(--font-weight-bold); color: var(--color-text-primary); letter-spacing: var(--letter-spacing-snug); }
+.header-nav { display: none; flex: 1; }
+.nav-list { display: flex; align-items: center; gap: var(--space-1); justify-content: center; list-style: none; margin: 0; padding: 0; }
+.nav-link { padding: var(--space-2) var(--space-3); font-size: var(--font-size-md); font-weight: var(--font-weight-medium); color: var(--color-text-secondary); border-radius: var(--radius-sm); transition: color 0.18s, background 0.18s; white-space: nowrap; text-decoration: none; }
+.nav-link:hover { color: var(--color-text-primary); background: rgba(255, 255, 255, 0.06); }
+
+/* ---------- CTA BUTTON ---------- */
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: var(--space-2); padding: var(--space-3) var(--space-6);
+  font-size: var(--font-size-md); font-weight: var(--font-weight-semibold);
+  color: #0B0B1E; border-radius: var(--radius-pill);
+  background: var(--color-accent-gold);
+  box-shadow: 0 0 24px rgba(255, 209, 102, 0.35);
+  border: none; cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap; text-decoration: none;
+  font-family: var(--font-family-base);
+}
+.btn-primary:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 0 40px rgba(255, 209, 102, 0.55); }
+.btn-primary .btn-icon { width: 16px; height: 16px; flex-shrink: 0; }
+.header-btn { display: none; }
+
+/* ---------- HAMBURGER ---------- */
+.header-hamburger {
+  display: flex; flex-direction: column; gap: 5px; justify-content: center;
+  width: 36px; height: 36px; background: transparent;
+  border: none; padding: 4px; border-radius: 8px; cursor: pointer;
+}
+.hamburger-line { display: block; height: 2px; width: 100%; background: var(--color-text-secondary); border-radius: 2px; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (min-width: 768px) {
+  .header-hamburger { display: none; }
+  .header-nav { display: flex; }
+  .header-btn { display: inline-flex; }
+  .header-inner { padding: var(--space-3) var(--space-8); }
+}
+@media (min-width: 1200px) {
+  .header-inner { padding: var(--space-4) var(--space-8); }
+  .nav-link { font-size: var(--font-size-base); }
+}
+</style>
+
+<header id="header" class="site-header" role="banner">
+  <div class="header-inner">
+
+    <a href="/" class="header-logo" aria-label="Precision Consulting Group home">
+  <img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/precision-logo.svg" alt="Precision" height="36" width="auto">
+</a>
+
+
+    <nav class="header-nav" role="navigation" aria-label="Primary navigation">
+      <ul class="nav-list" role="list">
+        <li><a href="#" class="nav-link">Home</a></li>
+        <li><a href="#why-precision" class="nav-link">About Us</a></li>
+        <li><a href="#services" class="nav-link">Partners</a></li>
+      </ul>
+    </nav>
+
+    <a href="https://calendly.com/ammarah-bumx/30min" class="btn-primary header-btn" role="button">
+      Book a Call
+      <img class="btn-icon" src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/icon-arrow-right.svg" alt="" aria-hidden="true">
+    </a>
+
+    <button class="header-hamburger" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+  </div>
+  <div class="header-glow-line" aria-hidden="true"></div>
+</header>

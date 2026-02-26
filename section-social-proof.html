@@ -1,0 +1,96 @@
+<!-- ============================================================
+     PRECISION — SOCIAL PROOF / LOGO MARQUEE (Bricks Code Block)
+     Infinite scroll of partner logos
+     ============================================================ -->
+
+<style>
+  .social-proof-section {
+    width: 100%;
+    padding: 48px 0;
+    background: #0B0B1A;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .social-proof-label {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #7B7B8E;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+    padding: 0 24px;
+  }
+
+  .social-proof-inner {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+    line-height: 0;
+  }
+
+  .logo-strip-track {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 0;
+    line-height: 0;
+    animation: marquee 60s linear infinite;
+  }
+
+  .social-proof-section:hover .logo-strip-track {
+    animation-play-state: paused;
+  }
+
+  .brand-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    height: 40px;
+    margin: 0 7rem 0 0;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+
+  .brand-logo:hover {
+    opacity: 1;
+  }
+
+  .brand-logo img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .brand-logo--foodpanda { height: 52px; }
+  .brand-logo--daraz { height: 52px; }
+  .brand-logo--growthmentor { height: 30px; }
+  .brand-logo--star-rapid { height: 28px; }
+  .brand-logo--bazaar { height: 56px; }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-33.333%); }
+  }
+
+  @media (min-width: 768px) {
+    .social-proof-label { font-size: 1.4rem; }
+    .brand-logo { height: 44px; margin: 0 8rem 0 0; }
+    .brand-logo--foodpanda { height: 58px; }
+    .brand-logo--daraz { height: 58px; }
+    .brand-logo--growthmentor { height: 34px; }
+    .brand-logo--star-rapid { height: 32px; }
+    .brand-logo--bazaar { height: 62px; }
+  }
+</style>
+
+<div class="social-proof-section">
+  <p class="social-proof-label">Trusted by Leaders From</p>
+  <div class="social-proof-inner"><div class="logo-strip-track"><div class="brand-logo"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-delivery-hero-scaled.png" alt="Delivery Hero" /></div><div class="brand-logo brand-logo--growthmentor"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-growthmentor.png" alt="GrowthMentor" /></div><div class="brand-logo"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-alibaba-group.png" alt="Alibaba Group" /></div><div class="brand-logo"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-petal.png" alt="Petal" /></div><div class="brand-logo"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-instagopher.png" alt="InstaGopher" /></div><div class="brand-logo"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-talabat-scaled.png" alt="Talabat" /></div><div class="brand-logo brand-logo--bazaar"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-bazaar.png" alt="Bazaar" /></div><div class="brand-logo"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-rask-scaled.png" alt="Rask" /></div><div class="brand-logo brand-logo--daraz"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-daraz.png" alt="Daraz" /></div><div class="brand-logo brand-logo--foodpanda"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-foodpanda.png" alt="Foodpanda" /></div><div class="brand-logo"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-weave-social-scaled.png" alt="Weave Social" /></div><div class="brand-logo"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-snapp-express-scaled.png" alt="Snapp Express" /></div><div class="brand-logo brand-logo--star-rapid"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-star-rapid-v2.png" alt="Star Rapid" /></div><div class="brand-logo"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-delivery-hero-scaled.png" alt="Delivery Hero" /></div><div class="brand-logo brand-logo--growthmentor"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-growthmentor.png" alt="GrowthMentor" /></div><div class="brand-logo"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-alibaba-group.png" alt="Alibaba Group" /></div><div class="brand-logo"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-petal.png" alt="Petal" /></div><div class="brand-logo"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-instagopher.png" alt="InstaGopher" /></div><div class="brand-logo"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-talabat-scaled.png" alt="Talabat" /></div><div class="brand-logo brand-logo--bazaar"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-bazaar.png" alt="Bazaar" /></div><div class="brand-logo"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-rask-scaled.png" alt="Rask" /></div><div class="brand-logo brand-logo--daraz"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-daraz.png" alt="Daraz" /></div><div class="brand-logo brand-logo--foodpanda"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-foodpanda.png" alt="Foodpanda" /></div><div class="brand-logo"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-weave-social-scaled.png" alt="Weave Social" /></div><div class="brand-logo"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-snapp-express-scaled.png" alt="Snapp Express" /></div><div class="brand-logo brand-logo--star-rapid"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-star-rapid-v2.png" alt="Star Rapid" /></div><div class="brand-logo"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-delivery-hero-scaled.png" alt="Delivery Hero" /></div><div class="brand-logo brand-logo--growthmentor"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-growthmentor.png" alt="GrowthMentor" /></div><div class="brand-logo"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-alibaba-group.png" alt="Alibaba Group" /></div><div class="brand-logo"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-petal.png" alt="Petal" /></div><div class="brand-logo"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-instagopher.png" alt="InstaGopher" /></div><div class="brand-logo"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-talabat-scaled.png" alt="Talabat" /></div><div class="brand-logo brand-logo--bazaar"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-bazaar.png" alt="Bazaar" /></div><div class="brand-logo"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-rask-scaled.png" alt="Rask" /></div><div class="brand-logo brand-logo--daraz"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-daraz.png" alt="Daraz" /></div><div class="brand-logo brand-logo--foodpanda"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-foodpanda.png" alt="Foodpanda" /></div><div class="brand-logo"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-weave-social-scaled.png" alt="Weave Social" /></div><div class="brand-logo"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-snapp-express-scaled.png" alt="Snapp Express" /></div><div class="brand-logo brand-logo--star-rapid"><img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-star-rapid-v2.png" alt="Star Rapid" /></div></div></div>
+</div>

@@ -35,7 +35,7 @@
   position: relative;
   background: #0B0B1E !important;
   padding: 100px 0 80px;
-  overflow: hidden !important;
+  overflow: visible !important;
   font-family: 'Inter', sans-serif;
   width: 100% !important;
   max-width: 100% !important;
@@ -56,7 +56,7 @@
 }
 .pcg-roi .roi-blob--crimson {
   width: 500px; height: 500px;
-  bottom: -100px; right: -150px;
+  bottom: -100px; right: 0;
   background: radial-gradient(circle, rgba(220,20,60,0.1) 0%, transparent 70%) !important;
   filter: blur(110px);
 }
@@ -825,5 +825,52 @@
   }
   applyMobileShade();
   window.addEventListener('resize', applyMobileShade);
+})();
+
+/* ── Bridge glow + Bricks wrapper cleanup ── */
+(function() {
+  'use strict';
+  var roi = document.querySelector('.pcg-roi');
+  if (!roi) return;
+
+  /* Strip borders, outlines, box-shadows from all Bricks wrappers
+     around both the ROI and testimonials sections so no hard lines appear */
+  function cleanWrappers(section) {
+    if (!section) return;
+    var el = section.parentElement;
+    while (el && el !== document.body && el !== document.documentElement) {
+      el.style.setProperty('border', 'none', 'important');
+      el.style.setProperty('box-shadow', 'none', 'important');
+      el.style.setProperty('outline', 'none', 'important');
+      el.style.setProperty('overflow', 'visible', 'important');
+      el = el.parentElement;
+    }
+  }
+  cleanWrappers(roi);
+  cleanWrappers(document.querySelector('.pcg-testimonials'));
+  cleanWrappers(document.querySelector('.pcg-services'));
+
+  /* Bridge glow on body to bypass all wrappers */
+  function placeGlow() {
+    var existing = document.getElementById('pcg-bridge-glow');
+    var rect = roi.getBoundingClientRect();
+    var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    var top = rect.top + scrollY - 220;
+
+    if (!existing) {
+      var glow = document.createElement('div');
+      glow.id = 'pcg-bridge-glow';
+      glow.setAttribute('aria-hidden', 'true');
+      glow.style.cssText = 'position:absolute;width:450px;height:450px;right:-50px;pointer-events:none;z-index:10;border-radius:50%;background:radial-gradient(circle,rgba(147,112,219,0.18) 0%,transparent 70%);filter:blur(100px);';
+      glow.style.top = top + 'px';
+      document.body.appendChild(glow);
+    } else {
+      existing.style.top = top + 'px';
+    }
+  }
+
+  placeGlow();
+  window.addEventListener('resize', placeGlow);
+  window.addEventListener('load', placeGlow);
 })();
 </script>
