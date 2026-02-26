@@ -1,0 +1,890 @@
+<!-- ============================================================
+     PRECISION — TESTIMONIALS SECTION (Bricks Code Block)
+     Desktop: 3×2 grid  |  Mobile: scroll-snap carousel
+     ============================================================ -->
+
+<style>
+/* ── Reset & Section ────────────────────────────────────── */
+.pcg-testimonials *,
+.pcg-testimonials *::before,
+.pcg-testimonials *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+.pcg-testimonials {
+  position: relative;
+  background: #0B0B1E;
+  padding: 100px 0 80px;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Atmospheric blobs ──────────────────────────────────── */
+.pcg-testimonials .tm-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+}
+.pcg-testimonials .tm-blob--magenta {
+  width: 420px; height: 420px;
+  background: #C71585;
+  top: -60px; left: -120px;
+}
+.pcg-testimonials .tm-blob--purple {
+  width: 380px; height: 380px;
+  background: #7B68EE;
+  bottom: -40px; right: -100px;
+}
+
+/* ── Inner container ────────────────────────────────────── */
+.pcg-testimonials .tm-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Section header ─────────────────────────────────────── */
+.pcg-testimonials .tm-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.pcg-testimonials .tm-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #00BFFF !important;
+  -webkit-text-fill-color: #00BFFF !important;
+  margin-bottom: 20px;
+}
+.pcg-testimonials .tm-label::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  background: #00BFFF;
+  border-radius: 1px;
+}
+
+.pcg-testimonials .tm-heading {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.12;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 18px;
+}
+.pcg-testimonials .tm-heading .tm-gradient {
+  background: linear-gradient(135deg, #00BFFF 0%, #7B68EE 50%, #A78BFA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text;
+}
+
+.pcg-testimonials .tm-subtext {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #D1D5DC !important;
+  -webkit-text-fill-color: #D1D5DC !important;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ── Carousel / Grid wrapper ────────────────────────────── */
+.pcg-testimonials .tm-carousel-wrap {
+  position: relative;
+}
+
+.pcg-testimonials .tm-carousel-viewport {
+  overflow: visible;
+  padding: 8px;
+  margin: -8px;
+}
+
+/* ── DESKTOP: 3-column grid (all 6 cards visible) ──────── */
+.pcg-testimonials .tm-carousel-track {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── Card ───────────────────────────────────────────────── */
+.pcg-testimonials .tm-card {
+  background: #15152E;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 36px 32px 32px;
+  display: grid !important;
+  grid-template-rows: auto auto 1fr auto !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: default;
+}
+
+/* ── Card hover effects (per accent) ────────────────────── */
+.pcg-testimonials .tm-card:hover {
+  transform: scale(1.02);
+}
+.pcg-testimonials .tm-card[data-accent="magenta"]:hover {
+  border-color: rgba(199, 21, 133, 0.35);
+  box-shadow: 0 4px 30px rgba(199, 21, 133, 0.12);
+}
+.pcg-testimonials .tm-card[data-accent="purple"]:hover {
+  border-color: rgba(123, 104, 238, 0.35);
+  box-shadow: 0 4px 30px rgba(123, 104, 238, 0.12);
+}
+.pcg-testimonials .tm-card[data-accent="crimson"]:hover {
+  border-color: rgba(224, 53, 101, 0.35);
+  box-shadow: 0 4px 30px rgba(224, 53, 101, 0.12);
+}
+.pcg-testimonials .tm-card[data-accent="cyan"]:hover {
+  border-color: rgba(0, 191, 255, 0.35);
+  box-shadow: 0 4px 30px rgba(0, 191, 255, 0.12);
+}
+.pcg-testimonials .tm-card[data-accent="lavender"]:hover {
+  border-color: rgba(167, 139, 250, 0.35);
+  box-shadow: 0 4px 30px rgba(167, 139, 250, 0.12);
+}
+.pcg-testimonials .tm-card[data-accent="coral"]:hover {
+  border-color: rgba(248, 113, 113, 0.35);
+  box-shadow: 0 4px 30px rgba(248, 113, 113, 0.12);
+}
+
+/* ── Stars (unicode approach — Bricks-safe) ─────────────── */
+.pcg-testimonials .tm-stars {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 1;
+}
+.pcg-testimonials .tm-star {
+  display: inline-block;
+}
+/* Per-accent star colors */
+.pcg-testimonials .tm-stars--magenta .tm-star {
+  color: #C71585 !important;
+  -webkit-text-fill-color: #C71585 !important;
+}
+.pcg-testimonials .tm-stars--purple .tm-star {
+  color: #7B68EE !important;
+  -webkit-text-fill-color: #7B68EE !important;
+}
+.pcg-testimonials .tm-stars--crimson .tm-star {
+  color: #E03565 !important;
+  -webkit-text-fill-color: #E03565 !important;
+}
+.pcg-testimonials .tm-stars--cyan .tm-star {
+  color: #00BFFF !important;
+  -webkit-text-fill-color: #00BFFF !important;
+}
+.pcg-testimonials .tm-stars--lavender .tm-star {
+  color: #A78BFA !important;
+  -webkit-text-fill-color: #A78BFA !important;
+}
+.pcg-testimonials .tm-stars--coral .tm-star {
+  color: #F87171 !important;
+  -webkit-text-fill-color: #F87171 !important;
+}
+/* Half star: clip to left 50% */
+.pcg-testimonials .tm-star--half {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  width: 0.52em;
+}
+
+/* ── Verified badge ─────────────────────────────────────── */
+.pcg-testimonials .tm-verified {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #7B7B8E !important;
+  -webkit-text-fill-color: #7B7B8E !important;
+  margin-bottom: 16px;
+}
+.pcg-testimonials .tm-verified-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #34D399;
+  flex-shrink: 0;
+}
+
+/* ── Quote ──────────────────────────────────────────────── */
+.pcg-testimonials .tm-quote {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.65;
+  color: #D1D5DC !important;
+  -webkit-text-fill-color: #D1D5DC !important;
+  margin-bottom: 0;
+  border: none;
+  padding: 0;
+}
+
+/* ── Card bottom wrapper (pushes divider+author to bottom) */
+.pcg-testimonials .tm-card-bottom {
+  align-self: end !important;
+  padding-top: 28px;
+}
+
+/* ── Divider line above author ─────────────────────────── */
+.pcg-testimonials .tm-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  margin-bottom: 20px;
+}
+
+/* ── Footer / Author ────────────────────────────────────── */
+.pcg-testimonials .tm-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.pcg-testimonials .tm-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+}
+.pcg-testimonials .tm-author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.pcg-testimonials .tm-author-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+.pcg-testimonials .tm-author-title {
+  font-size: 12px;
+  font-weight: 400;
+  color: #7B7B8E !important;
+  -webkit-text-fill-color: #7B7B8E !important;
+}
+
+/* ── Navigation arrows (hidden on desktop) ──────────────── */
+.pcg-testimonials .tm-nav {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+.pcg-testimonials .tm-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(21, 21, 46, 0.80);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  padding: 0;
+}
+.pcg-testimonials .tm-arrow:hover {
+  border-color: rgba(0, 191, 255, 0.4);
+  background: rgba(21, 21, 46, 0.95);
+}
+.pcg-testimonials .tm-arrow svg {
+  width: 16px;
+  height: 16px;
+  stroke: #D1D5DC;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.pcg-testimonials .tm-arrow--prev svg {
+  transform: rotate(180deg);
+}
+.pcg-testimonials .tm-arrow[disabled] {
+  display: none;
+}
+
+/* Dot indicators */
+.pcg-testimonials .tm-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pcg-testimonials .tm-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.3s ease, width 0.3s ease;
+}
+.pcg-testimonials .tm-dot.active {
+  width: 24px;
+  border-radius: 4px;
+  background: #00BFFF;
+}
+
+/* ── Social proof bar ───────────────────────────────────── */
+.pcg-testimonials .tm-proof-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 56px;
+  padding: 24px 32px;
+  background: rgba(21, 21, 46, 0.60);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  flex-wrap: wrap;
+}
+
+.pcg-testimonials .tm-proof-avatars {
+  display: flex;
+  align-items: center;
+}
+.pcg-testimonials .tm-proof-avatars img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #0B0B1E;
+  margin-left: -10px;
+  object-fit: cover;
+}
+.pcg-testimonials .tm-proof-avatars img:first-child {
+  margin-left: 0;
+}
+.pcg-testimonials .tm-proof-count {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #0B0B1E;
+  margin-left: -10px;
+  background: #00BFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+
+.pcg-testimonials .tm-proof-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pcg-testimonials .tm-proof-stars {
+  display: flex;
+  gap: 2px;
+  font-size: 14px;
+  line-height: 1;
+  color: #D4A843 !important;
+  -webkit-text-fill-color: #D4A843 !important;
+}
+.pcg-testimonials .tm-proof-score {
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+
+.pcg-testimonials .tm-proof-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #D1D5DC !important;
+  -webkit-text-fill-color: #D1D5DC !important;
+}
+
+.pcg-testimonials .tm-proof-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 36px;
+  background: #D4A843;
+  color: #0B0B1E !important;
+  -webkit-text-fill-color: #0B0B1E !important;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+  white-space: nowrap;
+}
+.pcg-testimonials .tm-proof-btn:hover {
+  background: #E0B44E;
+  transform: translateY(-1px);
+}
+
+/* ── Responsive: Desktop ────────────────────────────────── */
+@media (min-width: 1024px) {
+  .pcg-testimonials .tm-heading {
+    font-size: 72px;
+  }
+  .pcg-testimonials .tm-subtext {
+    font-size: 23px;
+  }
+  .pcg-testimonials .tm-quote {
+    font-size: 16px;
+  }
+}
+
+/* ── Responsive: Tablet ─────────────────────────────────── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .pcg-testimonials .tm-heading {
+    font-size: 64px;
+  }
+  .pcg-testimonials .tm-carousel-track {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+/* ── Responsive: Mobile (<768px) — native scroll-snap ──── */
+@media (max-width: 767px) {
+  .pcg-testimonials {
+    padding: 72px 0 60px;
+  }
+  .pcg-testimonials .tm-header {
+    margin-bottom: 40px;
+  }
+  .pcg-testimonials .tm-heading {
+    font-size: 38px;
+  }
+  .pcg-testimonials .tm-subtext {
+    font-size: 18px;
+  }
+
+  /* Viewport resets for mobile */
+  .pcg-testimonials .tm-carousel-viewport {
+    overflow: visible;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Native scroll-snap carousel */
+  .pcg-testimonials .tm-carousel-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .pcg-testimonials .tm-carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pcg-testimonials .tm-card {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    padding: 28px 24px 24px;
+  }
+  .pcg-testimonials .tm-card:hover {
+    transform: none;
+  }
+  .pcg-testimonials .tm-quote {
+    font-size: 14px;
+  }
+
+  /* Show nav arrows on mobile */
+  .pcg-testimonials .tm-nav {
+    display: flex;
+  }
+
+  /* Proof bar — no box on mobile */
+  .pcg-testimonials .tm-proof-bar {
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px 0 0;
+    text-align: center;
+    margin-top: 40px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .pcg-testimonials .tm-nav {
+    display: none;
+  }
+}
+</style>
+
+
+<section class="pcg-testimonials" id="testimonials" aria-labelledby="tm-heading">
+
+  <!-- Atmospheric blobs -->
+  <div class="tm-blob tm-blob--magenta" aria-hidden="true"></div>
+  <div class="tm-blob tm-blob--purple" aria-hidden="true"></div>
+
+  <div class="tm-inner">
+
+    <!-- Section header -->
+    <div class="tm-header">
+      <div class="tm-label">Testimonials</div>
+      <h2 class="tm-heading" id="tm-heading">
+        Partnership that <span class="tm-gradient">Scales Revenue</span>
+      </h2>
+      <p class="tm-subtext">
+        Hear from the industry leaders and founders who have achieved exceptional growth and
+        efficiency through our partnership.
+      </p>
+    </div>
+
+    <!-- Cards (Grid on desktop, Carousel on mobile) -->
+    <div class="tm-carousel-wrap">
+      <div class="tm-carousel-viewport" id="tmCarouselViewport">
+        <div class="tm-carousel-track" id="tmCarouselTrack">
+
+          <!-- Card 1: Matej Suransky -->
+          <article class="tm-card" data-accent="magenta">
+            <div class="tm-stars tm-stars--magenta" aria-label="5 out of 5 stars">
+              <span class="tm-star">&#9733;</span><span class="tm-star">&#9733;</span><span class="tm-star">&#9733;</span><span class="tm-star">&#9733;</span><span class="tm-star">&#9733;</span>
+            </div>
+            <div class="tm-verified">
+              <span class="tm-verified-dot" aria-hidden="true"></span>
+              Verified &middot; May 2023
+            </div>
+            <blockquote class="tm-quote">
+              &ldquo;Ammarah was simply awesome. I strongly recommend reaching her if you are facing issues
+              with UX Design. In 30 minutes we went through multiple issues and had a great discussion.
+              She is a perfect listener and could identify potential issues on the website in a few
+              seconds, straight after provide opinion on what the solution is. Pure expertise.&rdquo;
+            </blockquote>
+            <div class="tm-card-bottom">
+              <div class="tm-divider" aria-hidden="true"></div>
+              <footer class="tm-footer">
+              <img class="tm-avatar" src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/avatar-matej-suransky.webp" alt="Matej Suransky" width="42" height="42" loading="lazy">
+              <div class="tm-author-info">
+                <span class="tm-author-name">Matej Suransky</span>
+                <span class="tm-author-title">VP Marketing, StarRapid</span>
+              </div>
+            </footer>
+            </div>
+          </article>
+
+          <!-- Card 2: Dr. Jonathan Doerr -->
+          <article class="tm-card" data-accent="purple">
+            <div class="tm-stars tm-stars--purple" aria-label="4.5 out of 5 stars">
+              <span class="tm-star">&#9733;</span><span class="tm-star">&#9733;</span><span class="tm-star">&#9733;</span><span class="tm-star">&#9733;</span><span class="tm-star tm-star--half">&#9733;</span>
+            </div>
+            <div class="tm-verified">
+              <span class="tm-verified-dot" aria-hidden="true"></span>
+              Verified &middot; May 2020
+            </div>
+            <blockquote class="tm-quote">
+              &ldquo;I worked with Ammarah directly during a big tech migration after Daraz&rsquo;s acquisition
+              by Alibaba. She accomplished the end to end migration of several key business areas &amp;
+              processes&hellip; Ammarah also helped set up and led the Guided Shopping team for the group
+              and improved overall platform search and guided GMV by almost 50%. She is a smart and
+              driven person and fun to work with!&rdquo;
+            </blockquote>
+            <div class="tm-card-bottom">
+              <div class="tm-divider" aria-hidden="true"></div>
+              <footer class="tm-footer">
+              <img class="tm-avatar" src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/avatar-jonathan-doerr.webp" alt="Dr. Jonathan Doerr" width="42" height="42" loading="lazy">
+              <div class="tm-author-info">
+                <span class="tm-author-name">Dr. Jonathan Doerr</span>
+                <span class="tm-author-title">Senior VP disrupt.com / ex-Daraz CEO</span>
+              </div>
+            </footer>
+            </div>
+          </article>
+
+          <!-- Card 3: Spyros Tsoukalas -->
+          <article class="tm-card" data-accent="crimson">
+            <div class="tm-stars tm-stars--crimson" aria-label="5 out of 5 stars">
+              <span class="tm-star">&#9733;</span><span class="tm-star">&#9733;</span><span class="tm-star">&#9733;</span><span class="tm-star">&#9733;</span><span class="tm-star">&#9733;</span>
+            </div>
+            <div class="tm-verified">
+              <span class="tm-verified-dot" aria-hidden="true"></span>
+              Verified &middot; Jan 2026
+            </div>
+            <blockquote class="tm-quote">
+              &ldquo;Ammarah is a GREAT mentor with vast experience who can help you move to the next step.
+              She can guide you on UI, UX and Positioning and show you her ways around Leadership
+              matters. She did 2-in-1 during our latest session, as she provided feedback on a new
+              brand, while showing me how I should be led in this matter.&rdquo;
+            </blockquote>
+            <div class="tm-card-bottom">
+              <div class="tm-divider" aria-hidden="true"></div>
+              <footer class="tm-footer">
+              <img class="tm-avatar" src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/avatar-spyros-tsoukalas.webp" alt="Spyros Tsoukalas" width="42" height="42" loading="lazy">
+              <div class="tm-author-info">
+                <span class="tm-author-name">Spyros Tsoukalas</span>
+                <span class="tm-author-title">Founder, Technology without Borders</span>
+              </div>
+            </footer>
+            </div>
+          </article>
+
+          <!-- Card 4: Ibad Ahmed -->
+          <article class="tm-card" data-accent="cyan">
+            <div class="tm-stars tm-stars--cyan" aria-label="5 out of 5 stars">
+              <span class="tm-star">&#9733;</span><span class="tm-star">&#9733;</span><span class="tm-star">&#9733;</span><span class="tm-star">&#9733;</span><span class="tm-star">&#9733;</span>
+            </div>
+            <div class="tm-verified">
+              <span class="tm-verified-dot" aria-hidden="true"></span>
+              Verified &middot; Jan 2022
+            </div>
+            <blockquote class="tm-quote">
+              &ldquo;One of the best hiring decisions I have ever made. Has a natural proclivity for
+              identifying and using the right datasets to inform decisions. In her we found a great
+              proponent for improving the business&rsquo; reliability to deliver results consistently.
+              Highly recommended!&rdquo;
+            </blockquote>
+            <div class="tm-card-bottom">
+              <div class="tm-divider" aria-hidden="true"></div>
+              <footer class="tm-footer">
+              <img class="tm-avatar" src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/avatar-ibad-ahmed.webp" alt="Ibad Ahmed" width="42" height="42" loading="lazy">
+              <div class="tm-author-info">
+                <span class="tm-author-name">Ibad Ahmed</span>
+                <span class="tm-author-title">Director, Foodpanda</span>
+              </div>
+            </footer>
+            </div>
+          </article>
+
+          <!-- Card 5: Alvin Tan -->
+          <article class="tm-card" data-accent="lavender">
+            <div class="tm-stars tm-stars--lavender" aria-label="5 out of 5 stars">
+              <span class="tm-star">&#9733;</span><span class="tm-star">&#9733;</span><span class="tm-star">&#9733;</span><span class="tm-star">&#9733;</span><span class="tm-star">&#9733;</span>
+            </div>
+            <div class="tm-verified">
+              <span class="tm-verified-dot" aria-hidden="true"></span>
+              Verified &middot; Feb 2025
+            </div>
+            <blockquote class="tm-quote">
+              &ldquo;Ammarah is one of the smartest and most driven professionals I&rsquo;ve had the pleasure of
+              working with&hellip; What truly set her apart was her ability to collaborate seamlessly,
+              taking what was useful from regional initiatives and tailoring it effectively for the
+              local market. She also served as a crucial conduit to the local C-suite&hellip; Ammarah is
+              a powerhouse leader who makes a real difference.&rdquo;
+            </blockquote>
+            <div class="tm-card-bottom">
+              <div class="tm-divider" aria-hidden="true"></div>
+              <footer class="tm-footer">
+              <img class="tm-avatar" src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/avatar-alvin-tan.webp" alt="Alvin Tan" width="42" height="42" loading="lazy">
+              <div class="tm-author-info">
+                <span class="tm-author-name">Alvin Tan</span>
+                <span class="tm-author-title">AdTech &amp; Commercial Innovation, Delivery Hero</span>
+              </div>
+            </footer>
+            </div>
+          </article>
+
+          <!-- Card 6: Deepanshu -->
+          <article class="tm-card" data-accent="coral">
+            <div class="tm-stars tm-stars--coral" aria-label="5 out of 5 stars">
+              <span class="tm-star">&#9733;</span><span class="tm-star">&#9733;</span><span class="tm-star">&#9733;</span><span class="tm-star">&#9733;</span><span class="tm-star">&#9733;</span>
+            </div>
+            <div class="tm-verified">
+              <span class="tm-verified-dot" aria-hidden="true"></span>
+              Verified &middot; Sep 2025
+            </div>
+            <blockquote class="tm-quote">
+              &ldquo;Ammarah is the mentor every founder dreams of finding. In 30 minutes, she delivered
+              spot-on insights that got me more clarity than 30 days of working alone. That&rsquo;s
+              exceptional mentorship. If you see an opening on her calendar, book it immediately.&rdquo;
+            </blockquote>
+            <div class="tm-card-bottom">
+              <div class="tm-divider" aria-hidden="true"></div>
+              <footer class="tm-footer">
+              <img class="tm-avatar" src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/avatar-deepanshu.webp" alt="Deepanshu" width="42" height="42" loading="lazy">
+              <div class="tm-author-info">
+                <span class="tm-author-name">Deepanshu</span>
+                <span class="tm-author-title">Founder, Embergrit</span>
+              </div>
+            </footer>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Navigation (mobile only — hidden on desktop via CSS) -->
+      <div class="tm-nav" id="tmNav">
+        <button class="tm-arrow tm-arrow--prev" id="tmPrev" aria-label="Previous testimonial" disabled>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <div class="tm-dots" id="tmDots"></div>
+        <button class="tm-arrow tm-arrow--next" id="tmNext" aria-label="Next testimonial">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Social proof bar -->
+    <div class="tm-proof-bar" aria-label="Overall rating summary">
+      <div class="tm-proof-avatars">
+        <img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/avatar-matej-suransky.webp" alt="" width="36" height="36" loading="lazy">
+        <img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/avatar-jonathan-doerr.webp" alt="" width="36" height="36" loading="lazy">
+        <img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/avatar-spyros-tsoukalas.webp" alt="" width="36" height="36" loading="lazy">
+        <img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/avatar-ibad-ahmed.webp" alt="" width="36" height="36" loading="lazy">
+        <img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/avatar-alvin-tan.webp" alt="" width="36" height="36" loading="lazy">
+        <span class="tm-proof-count">+75</span>
+      </div>
+      <div class="tm-proof-rating">
+        <div class="tm-proof-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <span class="tm-proof-score">4.9/5</span>
+      </div>
+      <p class="tm-proof-text">Join 80+ founders who have accelerated their growth</p>
+      <a href="#cta-contact" class="tm-proof-btn" role="button">Book a Call &rarr;</a>
+    </div>
+
+  </div>
+</section>
+
+
+<script>
+(function() {
+  'use strict';
+
+  var track = document.getElementById('tmCarouselTrack');
+  var prevBtn = document.getElementById('tmPrev');
+  var nextBtn = document.getElementById('tmNext');
+  var dotsWrap = document.getElementById('tmDots');
+  var cards = track.querySelectorAll('.tm-card');
+  var totalCards = cards.length;
+  var currentIndex = 0;
+  var isMobile = false;
+  var scrollGap = 20;
+
+  function checkMobile() {
+    return window.innerWidth < 768;
+  }
+
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    for (var i = 0; i < totalCards; i++) {
+      var dot = document.createElement('button');
+      dot.className = 'tm-dot' + (i === currentIndex ? ' active' : '');
+      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      dot.dataset.index = i;
+      dot.addEventListener('click', function() {
+        goTo(parseInt(this.dataset.index, 10));
+      });
+      dotsWrap.appendChild(dot);
+    }
+  }
+
+  function updateDots() {
+    var dots = dotsWrap.querySelectorAll('.tm-dot');
+    for (var i = 0; i < dots.length; i++) {
+      dots[i].className = 'tm-dot' + (i === currentIndex ? ' active' : '');
+    }
+  }
+
+  function updateArrows() {
+    if (currentIndex <= 0) {
+      prevBtn.setAttribute('disabled', '');
+    } else {
+      prevBtn.removeAttribute('disabled');
+    }
+    if (currentIndex >= totalCards - 1) {
+      nextBtn.setAttribute('disabled', '');
+    } else {
+      nextBtn.removeAttribute('disabled');
+    }
+  }
+
+  function goTo(index) {
+    index = Math.max(0, Math.min(index, totalCards - 1));
+    currentIndex = index;
+    var cardW = cards[0].offsetWidth;
+    var scrollTarget = index * (cardW + scrollGap);
+    track.scrollTo({ left: scrollTarget, behavior: 'smooth' });
+    updateDots();
+    updateArrows();
+  }
+
+  /* Detect which card is active from native scroll position */
+  var scrollTimer;
+  function onTrackScroll() {
+    if (!isMobile) return;
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(function() {
+      var scrollLeft = track.scrollLeft;
+      var cardW = cards[0].offsetWidth;
+      var newIndex = Math.round(scrollLeft / (cardW + scrollGap));
+      newIndex = Math.max(0, Math.min(newIndex, totalCards - 1));
+      if (newIndex !== currentIndex) {
+        currentIndex = newIndex;
+        updateDots();
+        updateArrows();
+      }
+    }, 60);
+  }
+
+  function recalc() {
+    var wasMobile = isMobile;
+    isMobile = checkMobile();
+
+    if (isMobile) {
+      buildDots();
+      updateArrows();
+      /* If switching from desktop, reset scroll */
+      if (!wasMobile) {
+        track.scrollLeft = 0;
+        currentIndex = 0;
+      }
+    } else {
+      track.scrollLeft = 0;
+      currentIndex = 0;
+    }
+  }
+
+  prevBtn.addEventListener('click', function() {
+    goTo(currentIndex - 1);
+  });
+
+  nextBtn.addEventListener('click', function() {
+    goTo(currentIndex + 1);
+  });
+
+  /* Listen to native scroll events to sync dots/arrows */
+  track.addEventListener('scroll', onTrackScroll, { passive: true });
+
+  /* Init — run immediately + delayed (Bricks may render late) */
+  recalc();
+  setTimeout(recalc, 300);
+
+  /* Resize handler with debounce */
+  var resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(recalc, 150);
+  });
+})();
+</script>

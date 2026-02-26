@@ -1,0 +1,829 @@
+<!-- ============================================================
+     PRECISION — ROI CALCULATOR SECTION (Bricks Code Block)
+     Desktop: 2-column layout  |  Mobile: stacked
+     Interactive sliders → live revenue calculations
+     ============================================================ -->
+
+<style>
+/* ── Reset & Section ────────────────────────────────────── */
+.pcg-roi *,
+.pcg-roi *::before,
+.pcg-roi *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+/* Kill ALL Bricks-injected borders/backgrounds/padding on inner elements */
+.pcg-roi div,
+.pcg-roi span,
+.pcg-roi label,
+.pcg-roi p,
+.pcg-roi h3,
+.pcg-roi section,
+.pcg-roi article,
+.pcg-roi footer,
+.pcg-roi header {
+  border: none !important;
+  background: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+  min-width: 0 !important;
+  overflow: visible !important;
+}
+
+.pcg-roi {
+  position: relative;
+  background: #0B0B1E !important;
+  padding: 100px 0 80px;
+  overflow: hidden !important;
+  font-family: 'Inter', sans-serif;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* ── Atmospheric blobs ──────────────────────────────────── */
+.pcg-roi .roi-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.pcg-roi .roi-blob--cyan {
+  width: 600px; height: 600px;
+  top: -100px; left: -180px;
+  background: radial-gradient(circle, rgba(0,191,255,0.1) 0%, transparent 70%) !important;
+  filter: blur(110px);
+}
+.pcg-roi .roi-blob--crimson {
+  width: 500px; height: 500px;
+  bottom: -100px; right: -150px;
+  background: radial-gradient(circle, rgba(220,20,60,0.1) 0%, transparent 70%) !important;
+  filter: blur(110px);
+}
+
+/* ── Inner container ────────────────────────────────────── */
+.pcg-roi .roi-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Section header ─────────────────────────────────────── */
+.pcg-roi .roi-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.pcg-roi .roi-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #00BFFF !important;
+  -webkit-text-fill-color: #00BFFF !important;
+  margin-bottom: 20px;
+}
+.pcg-roi .roi-label::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  background: #00BFFF !important;
+  border-radius: 1px;
+}
+
+.pcg-roi .roi-heading {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.12;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 18px;
+}
+.pcg-roi .roi-heading .roi-gradient {
+  background: linear-gradient(to right, #00BFFF 0%, #7B68EE 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+  display: inline !important;
+}
+
+.pcg-roi .roi-subtext {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #D1D5DC !important;
+  -webkit-text-fill-color: #D1D5DC !important;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ── Calculator card ────────────────────────────────────── */
+.pcg-roi .roi-card {
+  background: #0F0F24 !important;
+  background-color: #0F0F24 !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  border-radius: 32px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.25) !important;
+  padding: 32px;
+  max-width: 960px;
+  margin: 0 auto;
+  overflow: visible !important;
+  width: 100% !important;
+}
+
+.pcg-roi .roi-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+/* ── Panels ─────────────────────────────────────────────── */
+.pcg-roi .roi-inputs-panel,
+.pcg-roi .roi-results-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.pcg-roi .roi-panel-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  letter-spacing: -0.01em;
+}
+
+.pcg-roi .roi-panel-subtitle {
+  font-size: 16px;
+  color: #D1D5DC !important;
+  -webkit-text-fill-color: #D1D5DC !important;
+  margin-top: -16px;
+}
+
+/* ── Slider fields ──────────────────────────────────────── */
+.pcg-roi .roi-field {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pcg-roi .roi-input-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pcg-roi .roi-field-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #7B7B8E !important;
+  -webkit-text-fill-color: #7B7B8E !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.pcg-roi .roi-current-value {
+  font-size: 24px;
+  font-weight: 900;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  letter-spacing: -0.01em;
+}
+
+/* ── Range slider ───────────────────────────────────────── */
+.pcg-roi .roi-range {
+  width: 100%;
+  height: 4px;
+  appearance: none;
+  -webkit-appearance: none;
+  background: linear-gradient(to right, #00BFFF 15%, rgba(255,255,255,0.1) 15%) !important;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  border: none !important;
+  box-shadow: none !important;
+}
+.pcg-roi .roi-range::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #00BFFF;
+  box-shadow: 0 0 12px rgba(0,191,255,0.5);
+  cursor: pointer;
+  border: none;
+}
+.pcg-roi .roi-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #00BFFF;
+  box-shadow: 0 0 12px rgba(0,191,255,0.5);
+  cursor: pointer;
+  border: none;
+}
+.pcg-roi .roi-range::-moz-range-track {
+  height: 4px;
+  border: none;
+  background: transparent;
+}
+
+.pcg-roi .roi-range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+.pcg-roi .roi-range-labels span {
+  color: #7B7B8E !important;
+  -webkit-text-fill-color: #7B7B8E !important;
+}
+
+/* ── Baseline ───────────────────────────────────────────── */
+.pcg-roi .roi-baseline {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.07) !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-radius: 0 !important;
+  text-align: left !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: 0 !important;
+}
+.pcg-roi .roi-baseline-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #7B7B8E !important;
+  -webkit-text-fill-color: #7B7B8E !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: left !important;
+}
+.pcg-roi .roi-baseline-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  letter-spacing: -0.02em;
+  text-align: left !important;
+}
+
+/* ── Scenarios ──────────────────────────────────────────── */
+.pcg-roi .roi-scenarios {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pcg-roi .roi-scenario {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: rgba(255,255,255,0.03) !important;
+  border: 1px solid rgba(255,255,255,0.07) !important;
+  border-radius: 12px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  cursor: default;
+}
+.pcg-roi .roi-scenario:hover {
+  background: rgba(255,255,255,0.07) !important;
+  border-color: rgba(255,255,255,0.14) !important;
+}
+
+.pcg-roi .roi-scenario-pill {
+  width: 8px;
+  height: 44px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: height 0.2s ease, transform 0.2s ease;
+}
+.pcg-roi .roi-scenario:hover .roi-scenario-pill {
+  height: 54px;
+  transform: scaleX(1.15);
+}
+.pcg-roi .roi-scenario-pill--purple  { background: #7B68EE !important; }
+.pcg-roi .roi-scenario-pill--magenta { background: #C71585 !important; }
+.pcg-roi .roi-scenario-pill--coral   { background: #F87171 !important; }
+
+.pcg-roi .roi-scenario-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden !important;
+}
+.pcg-roi .roi-scenario-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+.pcg-roi .roi-scenario-desc {
+  font-size: 14px;
+  color: #D1D5DC !important;
+  -webkit-text-fill-color: #D1D5DC !important;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+
+.pcg-roi .roi-scenario-result {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.pcg-roi .roi-scenario-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #7B7B8E !important;
+  -webkit-text-fill-color: #7B7B8E !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.pcg-roi .roi-scenario-value-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pcg-roi .roi-scenario-value {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+.pcg-roi .roi-scenario-value--purple {
+  color: #7B68EE !important;
+  -webkit-text-fill-color: #7B68EE !important;
+}
+.pcg-roi .roi-scenario-value--magenta {
+  color: #C71585 !important;
+  -webkit-text-fill-color: #C71585 !important;
+}
+.pcg-roi .roi-scenario-value--coral {
+  color: #F87171 !important;
+  -webkit-text-fill-color: #F87171 !important;
+}
+
+/* Trend arrow SVGs */
+.pcg-roi .roi-trend-arrow {
+  display: inline-flex;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.pcg-roi .roi-trend-arrow svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ── Maximum annual ─────────────────────────────────────── */
+.pcg-roi .roi-maximum-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.07) !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-radius: 0 !important;
+  text-align: left !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: 0 !important;
+}
+.pcg-roi .roi-maximum-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #7B7B8E !important;
+  -webkit-text-fill-color: #7B7B8E !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: left !important;
+}
+.pcg-roi .roi-maximum-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  letter-spacing: -0.02em;
+  text-align: left !important;
+}
+
+/* ── Flash animation ────────────────────────────────────── */
+@keyframes roi-flash {
+  0%   { opacity: 1; }
+  30%  { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+.pcg-roi .roi-value-flash {
+  animation: roi-flash 0.35s ease forwards;
+}
+
+/* ── Responsive: tablet ─────────────────────────────────── */
+@media (min-width: 768px) {
+  .pcg-roi .roi-heading {
+    font-size: 48px;
+  }
+}
+
+/* ── Desktop: vertical separator between columns ────────── */
+@media (min-width: 1200px) {
+  .pcg-roi .roi-heading {
+    font-size: 64px;
+  }
+  .pcg-roi .roi-layout {
+    grid-template-columns: 1fr 1px 1fr;
+    align-items: stretch;
+  }
+  .pcg-roi .roi-layout-divider {
+    width: 1px !important;
+    background: rgba(255,255,255,0.07) !important;
+    align-self: stretch;
+  }
+  .pcg-roi .roi-inputs-panel,
+  .pcg-roi .roi-results-panel {
+    padding: 0 !important;
+    background: transparent !important;
+    border-radius: 0;
+  }
+}
+
+/* ── Mobile/tablet: horizontal separator ── */
+@media (max-width: 1199px) {
+  .pcg-roi .roi-layout-divider {
+    display: none !important;
+  }
+  .pcg-roi .roi-inputs-panel {
+    padding: 0 !important;
+  }
+}
+
+/* ── Mobile tweaks ──────────────────────────────────────── */
+@media (max-width: 767px) {
+  .pcg-roi {
+    padding: 72px 0 56px;
+  }
+  .pcg-roi .roi-inner {
+    padding: 0 16px;
+  }
+  .pcg-roi .roi-card {
+    padding: 24px 20px;
+    border-radius: 28px;
+  }
+  .pcg-roi .roi-layout {
+    gap: 24px;
+  }
+  .pcg-roi .roi-subtext {
+    font-size: 18px;
+  }
+  .pcg-roi .roi-panel-title {
+    font-size: 20px;
+  }
+  .pcg-roi .roi-current-value {
+    font-size: 22px;
+  }
+  .pcg-roi .roi-scenario {
+    gap: 10px;
+    padding: 12px 14px;
+  }
+  .pcg-roi .roi-scenario-pill {
+    height: 36px;
+    width: 6px;
+  }
+  .pcg-roi .roi-scenario-name {
+    font-size: 14px;
+  }
+  .pcg-roi .roi-scenario-desc {
+    font-size: 12px;
+  }
+  .pcg-roi .roi-scenario-label {
+    font-size: 10px;
+  }
+  .pcg-roi .roi-scenario-value {
+    font-size: 16px;
+  }
+  .pcg-roi .roi-baseline-value,
+  .pcg-roi .roi-maximum-value {
+    font-size: 28px;
+  }
+}
+</style>
+
+<section class="pcg-roi" aria-labelledby="roi-calc-heading">
+
+  <!-- Atmospheric blobs -->
+  <div class="roi-blob roi-blob--cyan" aria-hidden="true"></div>
+  <div class="roi-blob roi-blob--crimson" aria-hidden="true"></div>
+
+  <div class="roi-inner">
+
+    <!-- Section header -->
+    <div class="roi-header">
+      <div class="roi-label">ROI Calculator</div>
+      <h2 class="roi-heading" id="roi-calc-heading">
+        Calculate Your <span class="roi-gradient">Revenue Potential</span>
+      </h2>
+      <p class="roi-subtext">
+        Configure your growth parameters below to see the impact of conversion optimization on your monthly and annual revenue.
+      </p>
+    </div>
+
+    <!-- Calculator card -->
+    <div class="roi-card">
+      <div class="roi-layout">
+
+        <!-- Left: Inputs -->
+        <div class="roi-inputs-panel">
+          <h3 class="roi-panel-title">Configure Growth Parameters</h3>
+
+          <div class="roi-field">
+            <div class="roi-input-row">
+              <label class="roi-field-label" for="pcg-monthly-visitors">Monthly Visitors</label>
+              <span class="roi-current-value" data-slider="visitors">100k</span>
+            </div>
+            <input id="pcg-monthly-visitors" class="roi-range" type="range"
+                   min="10000" max="1000000" value="100000" step="10000"
+                   aria-label="Monthly visitors: 100,000" />
+            <div class="roi-range-labels">
+              <span>10k</span><span>500k</span><span>1M</span>
+            </div>
+          </div>
+
+          <div class="roi-field">
+            <div class="roi-input-row">
+              <label class="roi-field-label" for="pcg-conversion-rate">Conversion Rate (%)</label>
+              <span class="roi-current-value" data-slider="cr">1.5%</span>
+            </div>
+            <input id="pcg-conversion-rate" class="roi-range" type="range"
+                   min="0.1" max="10" value="1.5" step="0.1"
+                   aria-label="Conversion rate: 1.5%" />
+            <div class="roi-range-labels">
+              <span>0.1%</span><span>5.0%</span><span>10%</span>
+            </div>
+          </div>
+
+          <div class="roi-field">
+            <div class="roi-input-row">
+              <label class="roi-field-label" for="pcg-avg-order-value">Avg. Order Value ($)</label>
+              <span class="roi-current-value" data-slider="aov">$50</span>
+            </div>
+            <input id="pcg-avg-order-value" class="roi-range" type="range"
+                   min="1" max="1000" value="50" step="1"
+                   aria-label="Average order value: $50" />
+            <div class="roi-range-labels">
+              <span>$1</span><span>$500</span><span>$1k</span>
+            </div>
+          </div>
+
+          <div class="roi-baseline">
+            <span class="roi-baseline-label">Baseline Monthly Revenue</span>
+            <span class="roi-baseline-value">$75,000</span>
+          </div>
+        </div>
+
+        <!-- Divider between panels -->
+        <div class="roi-layout-divider" aria-hidden="true"></div>
+
+        <!-- Right: Results -->
+        <div class="roi-results-panel">
+          <h3 class="roi-panel-title">Growth Scenarios</h3>
+          <p class="roi-panel-subtitle">Projected monthly revenue impact</p>
+
+          <div class="roi-scenarios" role="list">
+
+            <div class="roi-scenario" role="listitem">
+              <div class="roi-scenario-pill roi-scenario-pill--purple"></div>
+              <div class="roi-scenario-header">
+                <span class="roi-scenario-name">Conservative</span>
+                <span class="roi-scenario-desc">20% conversion improvement</span>
+              </div>
+              <div class="roi-scenario-result">
+                <span class="roi-scenario-label">Monthly Lift</span>
+                <div class="roi-scenario-value-row">
+                  <span class="roi-scenario-value roi-scenario-value--purple">+$15,000</span>
+                  <span class="roi-trend-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="#7B68EE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="roi-scenario" role="listitem">
+              <div class="roi-scenario-pill roi-scenario-pill--magenta"></div>
+              <div class="roi-scenario-header">
+                <span class="roi-scenario-name">Achievable</span>
+                <span class="roi-scenario-desc">40% conversion improvement</span>
+              </div>
+              <div class="roi-scenario-result">
+                <span class="roi-scenario-label">Monthly Lift</span>
+                <div class="roi-scenario-value-row">
+                  <span class="roi-scenario-value roi-scenario-value--magenta">+$30,000</span>
+                  <span class="roi-trend-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="#C71585" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="roi-scenario" role="listitem">
+              <div class="roi-scenario-pill roi-scenario-pill--coral"></div>
+              <div class="roi-scenario-header">
+                <span class="roi-scenario-name">Optimal</span>
+                <span class="roi-scenario-desc">40% CR + 35% AOV boost</span>
+              </div>
+              <div class="roi-scenario-result">
+                <span class="roi-scenario-label">Monthly Lift</span>
+                <div class="roi-scenario-value-row">
+                  <span class="roi-scenario-value roi-scenario-value--coral">+$66,750</span>
+                  <span class="roi-trend-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="#F87171" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="roi-maximum-card">
+            <span class="roi-maximum-label">Maximum Annual Potential</span>
+            <span class="roi-maximum-value">$801,000</span>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+(function() {
+  'use strict';
+
+  var root = document.querySelector('.pcg-roi');
+  if (!root) return;
+
+  var visitorsInput = root.querySelector('#pcg-monthly-visitors');
+  var crInput       = root.querySelector('#pcg-conversion-rate');
+  var aovInput      = root.querySelector('#pcg-avg-order-value');
+
+  if (!visitorsInput || !crInput || !aovInput) return;
+
+  // Display elements for current slider values
+  var visitorsDisplay = root.querySelector('[data-slider="visitors"]');
+  var crDisplay       = root.querySelector('[data-slider="cr"]');
+  var aovDisplay      = root.querySelector('[data-slider="aov"]');
+
+  // Output elements
+  var baselineEl     = root.querySelector('.roi-baseline-value');
+  var conservativeEl = root.querySelector('.roi-scenario-value--purple');
+  var achievableEl   = root.querySelector('.roi-scenario-value--magenta');
+  var optimalEl      = root.querySelector('.roi-scenario-value--coral');
+  var maxAnnualEl    = root.querySelector('.roi-maximum-value');
+
+  /** Format number as $1,234,567 */
+  function formatCurrency(n) {
+    return '$' + Math.round(n).toLocaleString('en-US');
+  }
+
+  /** Format number with commas */
+  function formatNum(n) {
+    return Math.round(n).toLocaleString('en-US');
+  }
+
+  /** Brief flash animation on value update */
+  function flashUpdate(el) {
+    el.classList.remove('roi-value-flash');
+    void el.offsetWidth; // force reflow
+    el.classList.add('roi-value-flash');
+  }
+
+  /** Update the visual fill gradient of a range input */
+  function updateSliderFill(input) {
+    var min = parseFloat(input.min);
+    var max = parseFloat(input.max);
+    var val = parseFloat(input.value);
+    var pct = ((val - min) / (max - min)) * 100;
+    input.style.setProperty('background',
+      'linear-gradient(to right, #00BFFF ' + pct + '%, rgba(255,255,255,0.1) ' + pct + '%)', 'important');
+  }
+
+  /** Run all calculations and update DOM */
+  function calculate() {
+    var v   = parseFloat(visitorsInput.value);
+    var cr  = parseFloat(crInput.value) / 100;
+    var aov = parseFloat(aovInput.value);
+
+    // Slider display labels
+    if (visitorsDisplay) {
+      visitorsDisplay.textContent = v >= 1000000
+        ? '1M'
+        : v >= 1000
+        ? (v / 1000).toFixed(0) + 'k'
+        : v.toString();
+    }
+    if (crDisplay) {
+      crDisplay.textContent = parseFloat(crInput.value).toFixed(1) + '%';
+    }
+    if (aovDisplay) {
+      aovDisplay.textContent = '$' + formatNum(aov);
+    }
+
+    // Core calculations
+    var baseline     = v * cr * aov;
+    var conservative = baseline * 0.20;                    // 20% CR improvement
+    var achievable   = baseline * 0.40;                    // 40% CR improvement
+    var optimalBase  = v * (cr * 1.40) * (aov * 1.35);    // 40% CR + 35% AOV
+    var optimal      = optimalBase - baseline;
+    var maxAnnual    = optimal * 12;
+
+    // Update outputs with flash animation
+    function updateEl(el, value) {
+      if (!el) return;
+      var newText = formatCurrency(value);
+      if (el.textContent !== newText) {
+        el.textContent = newText;
+        flashUpdate(el);
+      }
+    }
+
+    function updateLift(el, value) {
+      if (!el) return;
+      var newText = '+' + formatCurrency(value);
+      if (el.textContent !== newText) {
+        el.textContent = newText;
+        flashUpdate(el);
+      }
+    }
+
+    updateEl(baselineEl, baseline);
+    updateLift(conservativeEl, conservative);
+    updateLift(achievableEl, achievable);
+    updateLift(optimalEl, optimal);
+    updateEl(maxAnnualEl, maxAnnual);
+
+    // Refresh slider fills
+    updateSliderFill(visitorsInput);
+    updateSliderFill(crInput);
+    updateSliderFill(aovInput);
+  }
+
+  // Attach event listeners
+  [visitorsInput, crInput, aovInput].forEach(function(input) {
+    input.addEventListener('input', calculate);
+    updateSliderFill(input); // initial fill
+  });
+
+  // Run once on init to populate outputs
+  calculate();
+
+  // Force seamless shade split on mobile/tablet
+  function applyMobileShade() {
+    var resultsPanel = root.querySelector('.roi-results-panel');
+    if (!resultsPanel) return;
+    if (window.innerWidth < 1200) {
+      var isMobile = window.innerWidth < 768;
+      var padSide = isMobile ? '20px' : '32px';
+      var padBtm  = isMobile ? '24px' : '32px';
+      var radius  = isMobile ? '28px' : '32px';
+      // Extend results panel to card edges with negative margins
+      resultsPanel.style.setProperty('background', '#1A1A36', 'important');
+      resultsPanel.style.setProperty('background-color', '#1A1A36', 'important');
+      resultsPanel.style.setProperty('margin-left', '-' + padSide, 'important');
+      resultsPanel.style.setProperty('margin-right', '-' + padSide, 'important');
+      resultsPanel.style.setProperty('margin-bottom', '-' + padBtm, 'important');
+      resultsPanel.style.setProperty('padding', padBtm + ' ' + padSide, 'important');
+      // Only round bottom corners to match card shape
+      resultsPanel.style.setProperty('border-radius', '0 0 ' + radius + ' ' + radius, 'important');
+    } else {
+      resultsPanel.style.removeProperty('background');
+      resultsPanel.style.removeProperty('background-color');
+      resultsPanel.style.removeProperty('margin-left');
+      resultsPanel.style.removeProperty('margin-right');
+      resultsPanel.style.removeProperty('margin-bottom');
+      resultsPanel.style.removeProperty('padding');
+      resultsPanel.style.removeProperty('border-radius');
+    }
+  }
+  applyMobileShade();
+  window.addEventListener('resize', applyMobileShade);
+})();
+</script>
