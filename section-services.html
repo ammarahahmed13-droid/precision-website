@@ -1,0 +1,738 @@
+<!-- ============================================================
+     PRECISION — SERVICES SECTION (Bricks Code Block)
+     Desktop: 3-col grid  |  Mobile: scroll-snap carousel
+     ============================================================ -->
+
+<style>
+/* ── Reset & Section ────────────────────────────────────── */
+.pcg-services *,
+.pcg-services *::before,
+.pcg-services *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+.pcg-services {
+  width: 100%;
+  position: relative;
+  background: #0B0B1E;
+  padding: 80px 24px;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Atmospheric blobs ──────────────────────────────────── */
+.pcg-services .srv-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.pcg-services .srv-blob--purple {
+  width: 600px; height: 600px;
+  top: 0; left: -180px;
+  background: radial-gradient(circle, rgba(123,104,238,0.12) 0%, transparent 70%);
+  filter: blur(130px);
+}
+.pcg-services .srv-blob--violet {
+  width: 600px; height: 600px;
+  bottom: 0; right: -180px;
+  background: radial-gradient(circle, rgba(147,112,219,0.1) 0%, transparent 70%);
+  filter: blur(110px);
+}
+
+/* ── Inner container ────────────────────────────────────── */
+.pcg-services .srv-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Section header ─────────────────────────────────────── */
+.pcg-services .srv-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #00BFFF;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 24px 0;
+}
+.pcg-services .srv-label::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1.5px;
+  background: #00BFFF;
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+.pcg-services .srv-heading {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin: 0 0 24px 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.pcg-services .srv-heading .srv-gradient {
+  background: linear-gradient(to right, #00BFFF 0%, #7B68EE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text;
+  display: inline;
+}
+
+.pcg-services .srv-subtext {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #D1D5DC;
+  max-width: 820px;
+  margin: 28px auto 72px auto;
+  line-height: 1.45;
+}
+
+/* ── Cards grid ─────────────────────────────────────────── */
+.pcg-services .srv-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+/* ── Card base ──────────────────────────────────────────── */
+.pcg-services .srv-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #15152E;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -4px rgba(0,0,0,0.20), 0 10px 15px -3px rgba(0,0,0,0.20);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  flex: 1;
+}
+.pcg-services .srv-card:hover {
+  transform: scale(1.03);
+}
+
+/* ── Cyan card — The Deep Dive ──────────────────────────── */
+.pcg-services .srv-card--cyan { border-color: rgba(0,191,255,0.12); }
+.pcg-services .srv-card--cyan:hover {
+  border-color: rgba(0,191,255,0.3);
+  box-shadow: 0 4px 6px -4px rgba(0,0,0,0.20), 0 10px 15px -3px rgba(0,0,0,0.20), 0 0 40px rgba(0,191,255,0.10);
+}
+.pcg-services .srv-card--cyan .srv-for-label { color: #00BFFF !important; -webkit-text-fill-color: #00BFFF !important; }
+.pcg-services .srv-card--cyan .srv-includes-label { color: #00BFFF !important; -webkit-text-fill-color: #00BFFF !important; }
+
+/* ── Popular card — The CRO Sprint ──────────────────────── */
+.pcg-services .srv-popular-wrap {
+  position: relative;
+  align-self: stretch;
+  transition: transform 0.3s ease;
+}
+.pcg-services .srv-popular-wrap:hover {
+  transform: scale(1.03);
+}
+
+.pcg-services .srv-popular-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  padding: 5px 14px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #14082a;
+  background: #ffffff;
+  border-radius: 80px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.pcg-services .srv-popular-wrap:hover .srv-popular-badge {
+  background: #7B68EE;
+  color: #ffffff;
+}
+.pcg-services .srv-popular-wrap:hover .srv-card {
+  transform: none;
+}
+.pcg-services .srv-popular-wrap .srv-card {
+  height: 100%;
+}
+
+.pcg-services .srv-card--popular {
+  background: #EDE9FF;
+  border-color: rgba(123,104,238,0.2);
+  box-shadow: 0 4px 32px rgba(123,104,238,0.18);
+}
+.pcg-services .srv-card--popular:hover {
+  border-color: rgba(123,104,238,0.4);
+}
+.pcg-services .srv-card--popular .srv-card-title {
+  color: #14082a !important;
+  -webkit-text-fill-color: #14082a !important;
+}
+.pcg-services .srv-card--popular .srv-for-label { color: #7B68EE !important; -webkit-text-fill-color: #7B68EE !important; }
+.pcg-services .srv-card--popular .srv-for-text { color: #3d3060 !important; -webkit-text-fill-color: #3d3060 !important; }
+.pcg-services .srv-card--popular .srv-includes-label { color: #7B68EE !important; -webkit-text-fill-color: #7B68EE !important; }
+.pcg-services .srv-card--popular .srv-list-item { color: #3d3060 !important; -webkit-text-fill-color: #3d3060 !important; }
+.pcg-services .srv-card--popular .srv-check {
+  background: rgba(123,104,238,0.12);
+  border-color: rgba(123,104,238,0.3);
+}
+.pcg-services .srv-card--popular .srv-check::after {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none'%3E%3Cpath d='M4.5 9l3 3 6-6.5' stroke='%237B68EE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px no-repeat;
+}
+
+/* ── Crimson card — The Conversion Accelerator ──────────── */
+.pcg-services .srv-card--crimson { border-color: rgba(220,20,60,0.12); }
+.pcg-services .srv-card--crimson:hover {
+  border-color: rgba(220,20,60,0.3);
+  box-shadow: 0 4px 6px -4px rgba(0,0,0,0.20), 0 10px 15px -3px rgba(0,0,0,0.20), 0 0 40px rgba(220,20,60,0.10);
+}
+.pcg-services .srv-card--crimson .srv-for-label { color: #DC143C !important; -webkit-text-fill-color: #DC143C !important; }
+.pcg-services .srv-card--crimson .srv-includes-label { color: #DC143C !important; -webkit-text-fill-color: #DC143C !important; }
+.pcg-services .srv-card--crimson .srv-check {
+  background: rgba(220,20,60,0.1);
+  border-color: rgba(220,20,60,0.25);
+}
+.pcg-services .srv-card--crimson .srv-check::after {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none'%3E%3Cpath d='M4.5 9l3 3 6-6.5' stroke='%23DC143C' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px no-repeat;
+}
+
+/* ── Card inner content ─────────────────────────────────── */
+.pcg-services .srv-card-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 36px 32px;
+  flex: 1;
+  justify-content: flex-start;
+  min-height: 340px;
+}
+
+.pcg-services .srv-card-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  min-height: 50px;
+}
+
+.pcg-services .srv-for-you {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.pcg-services .srv-for-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  color: #00BFFF;
+}
+.pcg-services .srv-for-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #D1D5DC;
+  line-height: 1.6;
+}
+
+.pcg-services .srv-includes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pcg-services .srv-includes-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  color: #00BFFF;
+}
+
+.pcg-services .srv-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+}
+.pcg-services .srv-list-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #D1D5DC;
+}
+
+.pcg-services .srv-check {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(0,191,255,0.10);
+  border: 1px solid rgba(0,191,255,0.25);
+  flex-shrink: 0;
+  position: relative;
+}
+.pcg-services .srv-check::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none'%3E%3Cpath d='M4.5 9l3 3 6-6.5' stroke='%2300BFFF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px no-repeat;
+}
+
+/* ── CTA Banner ─────────────────────────────────────────── */
+.pcg-services .srv-cta-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  margin-top: 48px;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.pcg-services .srv-cta-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  line-height: 1.35;
+}
+
+.pcg-services .srv-cta-highlight--cyan {
+  color: #00BFFF !important;
+  -webkit-text-fill-color: #00BFFF !important;
+  text-decoration: underline;
+  text-decoration-color: rgba(0,191,255,0.45);
+  text-underline-offset: 5px;
+}
+
+.pcg-services .srv-cta-highlight--magenta {
+  color: #FF2D78 !important;
+  -webkit-text-fill-color: #FF2D78 !important;
+  text-decoration: underline;
+  text-decoration-color: rgba(255,45,120,0.45);
+  text-underline-offset: 5px;
+}
+
+.pcg-services .srv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 40px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  color: #0B0B1E;
+  background: #FFD166;
+  border: none;
+  border-radius: 80px;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 24px rgba(255,209,102,0.35);
+  flex-shrink: 0;
+}
+.pcg-services .srv-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 0 40px rgba(255,209,102,0.55);
+}
+
+/* ── Carousel arrows (mobile) ───────────────────────────── */
+.pcg-services .srv-carousel-nav {
+  display: none;
+}
+
+.pcg-services .srv-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(21,21,46,0.80);
+  cursor: pointer;
+  padding: 0;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  flex-shrink: 0;
+}
+.pcg-services .srv-arrow:hover {
+  border-color: rgba(255,255,255,0.25);
+  background: rgba(21,21,46,0.95);
+}
+.pcg-services .srv-arrow svg {
+  display: block;
+}
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Mobile (<768) ──────────────────────────────────────── */
+@media (max-width: 767px) {
+  .pcg-services {
+    padding: 60px 0;
+  }
+
+  .pcg-services .srv-inner {
+    max-width: 100%;
+    padding: 0 24px;
+    overflow: hidden;
+  }
+
+  .pcg-services .srv-heading {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+
+  .pcg-services .srv-subtext {
+    font-size: 18px;
+    margin-bottom: 48px;
+  }
+
+  .pcg-services .srv-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 7vw;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 16px;
+    padding: 18px 7vw 16px;
+    margin: 0 -24px;
+    width: calc(100% + 48px);
+    max-width: none;
+  }
+  .pcg-services .srv-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pcg-services .srv-card,
+  .pcg-services .srv-popular-wrap {
+    flex: 0 0 86vw;
+    max-width: none;
+    scroll-snap-align: start;
+    min-width: 0;
+  }
+  .pcg-services .srv-popular-wrap .srv-card {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .pcg-services .srv-card-title {
+    min-height: unset;
+    font-size: 19px;
+  }
+  .pcg-services .srv-card-inner {
+    padding: 28px 24px;
+  }
+  .pcg-services .srv-for-text {
+    font-size: 15px;
+  }
+  .pcg-services .srv-list-item {
+    font-size: 15px;
+  }
+
+  /* Disable scale hover on mobile */
+  .pcg-services .srv-card:hover,
+  .pcg-services .srv-popular-wrap:hover {
+    transform: none;
+  }
+
+  .pcg-services .srv-carousel-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+    padding: 4px 24px;
+  }
+
+  .pcg-services .srv-cta-banner {
+    padding-left: 16px;
+    gap: 16px;
+  }
+  .pcg-services .srv-cta-text {
+    font-size: 16px;
+  }
+}
+
+/* ── Very small screens — hide arrows, swipe only ───────── */
+@media (max-width: 360px) {
+  .pcg-services .srv-carousel-nav {
+    display: none;
+  }
+}
+
+/* ── Tablet+ (768+) ─────────────────────────────────────── */
+@media (min-width: 768px) {
+  .pcg-services {
+    padding: 120px 40px;
+  }
+
+  .pcg-services .srv-heading {
+    font-size: 64px;
+  }
+
+  .pcg-services .srv-subtext {
+    font-size: 20px;
+  }
+
+  .pcg-services .srv-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+}
+
+/* ── Desktop (1024+) ────────────────────────────────────── */
+@media (min-width: 1024px) {
+  .pcg-services .srv-heading {
+    font-size: 72px;
+  }
+
+  .pcg-services .srv-subtext {
+    font-size: 21px;
+  }
+}
+</style>
+
+<section class="pcg-services" aria-labelledby="srv-heading">
+
+  <div class="srv-blob srv-blob--purple" aria-hidden="true"></div>
+  <div class="srv-blob srv-blob--violet" aria-hidden="true"></div>
+
+  <div class="srv-inner">
+
+    <!-- Section header -->
+    <p class="srv-label">Services</p>
+    <h2 class="srv-heading" id="srv-heading">
+      How Do We <span class="srv-gradient">Work Together</span>
+    </h2>
+    <p class="srv-subtext">
+      We offer tailored solutions based on your scale, resources, and growth objectives.
+    </p>
+
+    <!-- Cards grid / carousel track -->
+    <div class="srv-grid" id="srv-track">
+
+      <!-- Card 1: The Deep Dive -->
+      <article class="srv-card srv-card--cyan" role="listitem">
+        <div class="srv-card-inner">
+          <h3 class="srv-card-title">The Deep Dive</h3>
+          <div class="srv-for-you">
+            <span class="srv-for-label">For You If</span>
+            <p class="srv-for-text">"You sense there's revenue leaking but don't know where"</p>
+          </div>
+          <div class="srv-includes">
+            <span class="srv-includes-label">What It Includes</span>
+            <ul class="srv-list">
+              <li class="srv-list-item"><span class="srv-check" aria-hidden="true"></span>Full audit</li>
+              <li class="srv-list-item"><span class="srv-check" aria-hidden="true"></span>User behavior analysis</li>
+              <li class="srv-list-item"><span class="srv-check" aria-hidden="true"></span>Quick-win roadmap</li>
+              <li class="srv-list-item"><span class="srv-check" aria-hidden="true"></span>Priority stack-ranked by impact</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2: The CRO Sprint (Most Popular) -->
+      <div class="srv-popular-wrap" role="listitem">
+        <div class="srv-popular-badge" aria-label="Most Popular service">Most Popular</div>
+        <article class="srv-card srv-card--popular">
+          <div class="srv-card-inner">
+            <h3 class="srv-card-title">The CRO Sprint</h3>
+            <div class="srv-for-you">
+              <span class="srv-for-label">For You If</span>
+              <p class="srv-for-text">"You know the problem — you need someone to solve it"</p>
+            </div>
+            <div class="srv-includes">
+              <span class="srv-includes-label">What It Includes</span>
+              <ul class="srv-list">
+                <li class="srv-list-item"><span class="srv-check" aria-hidden="true"></span>Audit + implementation</li>
+                <li class="srv-list-item"><span class="srv-check" aria-hidden="true"></span>2–3 A/B tests/month</li>
+                <li class="srv-list-item"><span class="srv-check" aria-hidden="true"></span>Monthly strategy calls</li>
+                <li class="srv-list-item"><span class="srv-check" aria-hidden="true"></span>3-month engagement</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Card 3: The Conversion Accelerator -->
+      <article class="srv-card srv-card--crimson" role="listitem">
+        <div class="srv-card-inner">
+          <h3 class="srv-card-title">The Conversion Accelerator</h3>
+          <div class="srv-for-you">
+            <span class="srv-for-label">For You If</span>
+            <p class="srv-for-text">"You're ready to build a systematic growth engine"</p>
+          </div>
+          <div class="srv-includes">
+            <span class="srv-includes-label">What It Includes</span>
+            <ul class="srv-list">
+              <li class="srv-list-item"><span class="srv-check" aria-hidden="true"></span>Full 5-phase program</li>
+              <li class="srv-list-item"><span class="srv-check" aria-hidden="true"></span>Ongoing experimentation</li>
+              <li class="srv-list-item"><span class="srv-check" aria-hidden="true"></span>Bi-weekly sessions</li>
+              <li class="srv-list-item"><span class="srv-check" aria-hidden="true"></span>Knowledge transfer</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Mobile carousel arrows -->
+    <div class="srv-carousel-nav" id="srv-nav" aria-label="Service cards navigation">
+      <!-- Arrows injected by JS -->
+    </div>
+
+    <!-- CTA Banner -->
+    <div class="srv-cta-banner">
+      <p class="srv-cta-text">
+        Ready to bridge the gap between <span class="srv-cta-highlight--cyan">traffic</span><br>
+        and <span class="srv-cta-highlight--magenta">revenue</span>?
+      </p>
+      <a href="#contact" class="srv-btn">
+        Book a Call
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <circle cx="10" cy="10" r="10" fill="#0B0B1E"/>
+          <path d="M7 10h6M10 7l3 3-3 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function() {
+  var track = document.getElementById('srv-track');
+  var nav   = document.getElementById('srv-nav');
+  if (!track || !nav) return;
+
+  var mq = window.matchMedia('(max-width: 767px)');
+  var prevBtn = null;
+  var nextBtn = null;
+  var built = false;
+
+  function createArrow(direction, label) {
+    var btn = document.createElement('button');
+    btn.setAttribute('type', 'button');
+    btn.setAttribute('aria-label', label);
+    btn.className = 'srv-arrow srv-arrow--' + direction;
+    var chevron = direction === 'prev'
+      ? '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3l-5 5 5 5" stroke="#D1D5DC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+      : '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="#D1D5DC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    btn.innerHTML = chevron;
+    return btn;
+  }
+
+  function buildCarousel() {
+    if (built) return;
+    built = true;
+
+    prevBtn = createArrow('prev', 'Previous service');
+    nextBtn = createArrow('next', 'Next service');
+
+    nav.style.justifyContent = 'flex-end';
+    nav.appendChild(nextBtn);
+
+    prevBtn.addEventListener('click', function() { scrollByCard(-1); });
+    nextBtn.addEventListener('click', function() { scrollByCard(1); });
+
+    track.addEventListener('scroll', updateArrows, { passive: true });
+    window.addEventListener('resize', updateArrows, { passive: true });
+    updateArrows();
+  }
+
+  function scrollByCard(dir) {
+    var cards = track.children;
+    if (!cards.length) return;
+    var cardWidth = cards[0].getBoundingClientRect().width;
+    var gap = parseFloat(getComputedStyle(track).gap) || 16;
+    track.scrollBy({ left: dir * (cardWidth + gap), behavior: 'smooth' });
+  }
+
+  function updateArrows() {
+    if (!prevBtn || !nextBtn) return;
+
+    var scrollLeft = track.scrollLeft;
+    var maxScroll  = track.scrollWidth - track.clientWidth;
+    var atStart    = scrollLeft <= 2;
+    var atEnd      = scrollLeft >= maxScroll - 2;
+
+    if (!atStart && !prevBtn.parentNode) {
+      nav.insertBefore(prevBtn, nextBtn);
+    } else if (atStart && prevBtn.parentNode) {
+      nav.removeChild(prevBtn);
+    }
+
+    nextBtn.style.display = atEnd ? 'none' : 'flex';
+
+    var hasPrev = !!prevBtn.parentNode;
+    var hasNext = nextBtn.style.display !== 'none';
+
+    if (hasPrev && hasNext) {
+      nav.style.justifyContent = 'center';
+    } else if (hasPrev && !hasNext) {
+      nav.style.justifyContent = 'flex-start';
+    } else {
+      nav.style.justifyContent = 'flex-end';
+    }
+  }
+
+  function handleMQ(e) {
+    if (e.matches) {
+      buildCarousel();
+      nav.style.display = '';
+    } else {
+      nav.style.display = 'none';
+    }
+  }
+
+  if (mq.matches) {
+    buildCarousel();
+  }
+
+  if (mq.addEventListener) {
+    mq.addEventListener('change', handleMQ);
+  } else {
+    mq.addListener(handleMQ);
+  }
+})();
+</script>
