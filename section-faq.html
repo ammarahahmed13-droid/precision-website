@@ -60,26 +60,25 @@
   gap: 8px;
   padding: 8px 18px;
   border-radius: 80px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,191,255,0.08);
+  border: 1px solid rgba(0,191,255,0.18);
   font-family: 'Inter', sans-serif;
   font-size: 13px;
   font-weight: 600;
-  color: #FFFFFF;
+  color: #00BFFF;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 28px;
 }
-.pcg-faq .faq-hero-badge svg {
+.pcg-faq .faq-hero-badge img {
   width: 16px;
   height: 16px;
-  color: #FFFFFF;
   flex-shrink: 0;
 }
 .pcg-faq .faq-hero-heading {
   font-family: 'Inter', sans-serif;
   font-size: 56px;
-  font-weight: 800;
+  font-weight: 700;
   color: #FFFFFF !important;
   -webkit-text-fill-color: #FFFFFF !important;
   line-height: 1.08;
@@ -292,7 +291,7 @@
   box-shadow: 0 0 40px rgba(255,209,102,0.55);
 }
 
-/* ── Tablet (768px+) ─────────────────────────────────────── */
+/* ── Tablet / Desktop (768px+) — all FAQs fully expanded ── */
 @media (min-width: 768px) {
   .pcg-faq {
     padding: 120px 40px;
@@ -306,11 +305,29 @@
   .pcg-faq .faq-section-heading {
     font-size: 56px;
   }
+  /* Force all answers visible */
+  .pcg-faq .faq-answer-wrapper {
+    max-height: none !important;
+    overflow: visible;
+    transition: none;
+  }
+  /* Hide toggle chevron */
+  .pcg-faq .faq-toggle {
+    display: none;
+  }
+  /* Remove button behavior — not clickable on desktop */
   .pcg-faq .faq-question {
     padding: 28px 32px;
+    cursor: default;
+    pointer-events: none;
   }
   .pcg-faq .faq-question-text {
     font-size: 19px;
+  }
+  /* All items styled as open */
+  .pcg-faq .faq-item {
+    border-color: rgba(0,191,255,0.20);
+    box-shadow: 0 0 30px rgba(0,191,255,0.06);
   }
   .pcg-faq .faq-answer {
     padding: 0 32px 32px;
@@ -430,11 +447,7 @@
     <!-- Hero section -->
     <div class="faq-hero">
       <div class="faq-hero-badge">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="8" cy="8" r="6.5" />
-          <line x1="8" y1="7" x2="8" y2="11.5" />
-          <circle cx="8" cy="5" r="0.5" fill="currentColor" stroke="none" />
-        </svg>
+        <img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/icon-help-center.svg" alt="" aria-hidden="true" />
         HELP CENTER
       </div>
       <h1 class="faq-hero-heading">
@@ -575,27 +588,66 @@
 </section>
 
 <script>
-/* ── FAQ Accordion ───────────────────────────────────────── */
+/* ── FAQ Accordion (mobile only, <768px) ─────────────────── */
 (function () {
   'use strict';
 
+  var MOBILE_BP = 768;
   var items = document.querySelectorAll('.pcg-faq .faq-item');
 
-  /* Set initial max-height for any pre-opened items */
-  items.forEach(function (item) {
-    if (item.classList.contains('is-open')) {
+  function isMobile() {
+    return window.innerWidth < MOBILE_BP;
+  }
+
+  /* Set up mobile accordion state */
+  function initMobile() {
+    items.forEach(function (item) {
       var wrapper = item.querySelector('.faq-answer-wrapper');
       var answer = item.querySelector('.faq-answer');
-      wrapper.style.maxHeight = answer.scrollHeight + 'px';
+      if (item.classList.contains('is-open')) {
+        wrapper.style.maxHeight = answer.scrollHeight + 'px';
+        wrapper.setAttribute('aria-hidden', 'false');
+        item.querySelector('.faq-question').setAttribute('aria-expanded', 'true');
+      } else {
+        wrapper.style.maxHeight = '0';
+        wrapper.setAttribute('aria-hidden', 'true');
+        item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  /* Reset for desktop — CSS handles visibility via max-height:none */
+  function initDesktop() {
+    items.forEach(function (item) {
+      var wrapper = item.querySelector('.faq-answer-wrapper');
+      wrapper.style.maxHeight = '';
+      wrapper.setAttribute('aria-hidden', 'false');
+      item.querySelector('.faq-question').setAttribute('aria-expanded', 'true');
+    });
+  }
+
+  /* Initialize based on current viewport */
+  if (isMobile()) { initMobile(); } else { initDesktop(); }
+
+  /* Re-initialize on resize crossing the breakpoint */
+  var wasMobile = isMobile();
+  window.addEventListener('resize', function () {
+    var nowMobile = isMobile();
+    if (nowMobile !== wasMobile) {
+      wasMobile = nowMobile;
+      if (nowMobile) { initMobile(); } else { initDesktop(); }
     }
   });
 
+  /* Click handler — only works on mobile */
   items.forEach(function (item) {
     var btn = item.querySelector('.faq-question');
     var wrapper = item.querySelector('.faq-answer-wrapper');
     var answer = item.querySelector('.faq-answer');
 
     btn.addEventListener('click', function () {
+      if (!isMobile()) return; /* no-op on desktop */
+
       var isOpen = item.classList.contains('is-open');
 
       /* Close all other items first */
