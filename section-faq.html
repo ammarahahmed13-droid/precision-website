@@ -1,0 +1,487 @@
+<!-- ============================================================
+     PRECISION — FAQ SECTION (Bricks Code Block)
+     Accordion-style frequently asked questions
+     Desktop: centered max-width  |  Mobile: full-width stacked
+     ============================================================ -->
+
+<style>
+/* ── Reset & Section ─────────────────────────────────────── */
+.pcg-faq *,
+.pcg-faq *::before,
+.pcg-faq *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+.pcg-faq {
+  width: 100%;
+  position: relative;
+  background: #0B0B1E;
+  padding: 80px 24px;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Atmospheric blobs ───────────────────────────────────── */
+.pcg-faq .faq-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.pcg-faq .faq-blob--cyan {
+  width: 650px; height: 650px;
+  top: -120px; right: -200px;
+  background: radial-gradient(circle, rgba(0,191,255,0.10) 0%, transparent 70%);
+  filter: blur(140px);
+}
+.pcg-faq .faq-blob--purple {
+  width: 550px; height: 550px;
+  bottom: -80px; left: -180px;
+  background: radial-gradient(circle, rgba(123,104,238,0.10) 0%, transparent 70%);
+  filter: blur(120px);
+}
+
+/* ── Inner container ─────────────────────────────────────── */
+.pcg-faq .faq-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Section header ──────────────────────────────────────── */
+.pcg-faq .faq-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #00BFFF;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 24px 0;
+}
+.pcg-faq .faq-label::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1.5px;
+  background: #00BFFF;
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+.pcg-faq .faq-heading {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin: 0 0 56px 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.pcg-faq .faq-heading .faq-gradient {
+  background: linear-gradient(to right, #00BFFF 0%, #7B68EE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text;
+  display: inline;
+}
+
+/* ── FAQ list ────────────────────────────────────────────── */
+.pcg-faq .faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── FAQ item ────────────────────────────────────────────── */
+.pcg-faq .faq-item {
+  background: #15152E;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.pcg-faq .faq-item:hover {
+  border-color: rgba(0,191,255,0.15);
+}
+.pcg-faq .faq-item.is-open {
+  border-color: rgba(0,191,255,0.20);
+  box-shadow: 0 0 30px rgba(0,191,255,0.06);
+}
+
+/* ── Question row ────────────────────────────────────────── */
+.pcg-faq .faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 28px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+}
+
+.pcg-faq .faq-question-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+/* ── Toggle icon ─────────────────────────────────────────── */
+.pcg-faq .faq-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0,191,255,0.08);
+  border: 1px solid rgba(0,191,255,0.20);
+  flex-shrink: 0;
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+.pcg-faq .faq-toggle svg {
+  width: 16px;
+  height: 16px;
+  color: #00BFFF;
+  transition: transform 0.3s ease;
+}
+.pcg-faq .faq-item.is-open .faq-toggle {
+  background: rgba(0,191,255,0.14);
+  border-color: rgba(0,191,255,0.35);
+}
+.pcg-faq .faq-item.is-open .faq-toggle svg {
+  transform: rotate(45deg);
+}
+
+/* ── Answer panel ────────────────────────────────────────── */
+.pcg-faq .faq-answer-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.pcg-faq .faq-answer {
+  padding: 0 28px 28px;
+}
+.pcg-faq .faq-answer-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+  margin: 0 0 20px 0;
+}
+.pcg-faq .faq-answer-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #D1D5DC;
+  line-height: 1.65;
+}
+.pcg-faq .faq-answer-text strong {
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+/* ── CTA below FAQ ───────────────────────────────────────── */
+.pcg-faq .faq-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 48px;
+  text-align: center;
+}
+.pcg-faq .faq-cta-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #6A7282;
+}
+.pcg-faq .faq-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #00BFFF;
+  text-decoration: none;
+  transition: opacity 0.18s ease;
+}
+.pcg-faq .faq-cta-link:hover {
+  opacity: 0.75;
+}
+
+/* ── Tablet (768px+) ─────────────────────────────────────── */
+@media (min-width: 768px) {
+  .pcg-faq {
+    padding: 120px 40px;
+  }
+  .pcg-faq .faq-heading {
+    font-size: 56px;
+  }
+  .pcg-faq .faq-question {
+    padding: 28px 32px;
+  }
+  .pcg-faq .faq-question-text {
+    font-size: 19px;
+  }
+  .pcg-faq .faq-answer {
+    padding: 0 32px 32px;
+  }
+}
+
+/* ── Desktop (1200px+) ───────────────────────────────────── */
+@media (min-width: 1200px) {
+  .pcg-faq .faq-heading {
+    font-size: 64px;
+    margin-bottom: 64px;
+  }
+  .pcg-faq .faq-question-text {
+    font-size: 20px;
+  }
+  .pcg-faq .faq-answer-text {
+    font-size: 17px;
+  }
+}
+
+/* ── Mobile (<768px) ─────────────────────────────────────── */
+@media (max-width: 767px) {
+  .pcg-faq {
+    padding: 60px 0;
+  }
+  .pcg-faq .faq-inner {
+    padding: 0 20px;
+  }
+  .pcg-faq .faq-heading {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+  .pcg-faq .faq-item {
+    border-radius: 20px;
+  }
+  .pcg-faq .faq-question {
+    padding: 20px 20px;
+    gap: 12px;
+  }
+  .pcg-faq .faq-question-text {
+    font-size: 16px;
+  }
+  .pcg-faq .faq-toggle {
+    width: 32px;
+    height: 32px;
+  }
+  .pcg-faq .faq-toggle svg {
+    width: 14px;
+    height: 14px;
+  }
+  .pcg-faq .faq-answer {
+    padding: 0 20px 20px;
+  }
+  .pcg-faq .faq-answer-text {
+    font-size: 15px;
+  }
+  .pcg-faq .faq-list {
+    gap: 10px;
+  }
+  .pcg-faq .faq-cta {
+    margin-top: 36px;
+  }
+}
+</style>
+
+<section class="pcg-faq" id="faq" aria-labelledby="faq-heading">
+
+  <!-- Atmospheric blobs -->
+  <div class="faq-blob faq-blob--cyan" aria-hidden="true"></div>
+  <div class="faq-blob faq-blob--purple" aria-hidden="true"></div>
+
+  <div class="faq-inner">
+
+    <!-- Section header -->
+    <div class="faq-label">FAQs</div>
+
+    <h2 class="faq-heading" id="faq-heading">
+      Questions? We've Got <span class="faq-gradient">Answers.</span>
+    </h2>
+
+    <!-- FAQ accordion list -->
+    <div class="faq-list" role="list">
+
+      <!-- FAQ 1 -->
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
+          <span class="faq-question-text">How is Precision different from other CRO agencies?</span>
+          <span class="faq-toggle" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="8" y1="3" x2="8" y2="13" />
+              <line x1="3" y1="8" x2="13" y2="8" />
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer-wrapper" id="faq-answer-1" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <div class="faq-answer-divider"></div>
+            <div class="faq-answer-text">
+              Three key differences:<br /><br />
+              <strong>(1)</strong> I've owned P&amp;L and understand the pressure of hitting targets, not just running tests.<br /><br />
+              <strong>(2)</strong> I focus on psychology-driven optimization rooted in behavioral science, not just best practices.<br /><br />
+              <strong>(3)</strong> I work as a fractional growth partner, not a vendor — your success is my success.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
+          <span class="faq-question-text">How quickly will I see results?</span>
+          <span class="faq-toggle" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="8" y1="3" x2="8" y2="13" />
+              <line x1="3" y1="8" x2="13" y2="8" />
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer-wrapper" id="faq-answer-2" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <div class="faq-answer-divider"></div>
+            <div class="faq-answer-text">
+              Most clients see measurable improvements within the first <strong>30–60 days</strong>. Quick wins — like fixing checkout friction or improving above-the-fold clarity — can move the needle fast. Larger strategic initiatives typically show compounding gains over 90 days. Every engagement starts with a prioritized roadmap so you always know what's being tested and why.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
+          <span class="faq-question-text">Do I need a large team or specific tools?</span>
+          <span class="faq-toggle" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="8" y1="3" x2="8" y2="13" />
+              <line x1="3" y1="8" x2="13" y2="8" />
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer-wrapper" id="faq-answer-3" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <div class="faq-answer-divider"></div>
+            <div class="faq-answer-text">
+              Not at all. I work with lean startups and enterprise teams alike. If you have a website and traffic, we can optimize. I'll plug into your existing analytics stack — GA4, Hotjar, Mixpanel, or whatever you use — and only recommend tools when they're truly needed. You don't need a dedicated CRO team; that's exactly the gap I fill as your fractional growth partner.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
+          <span class="faq-question-text">What if I've already tried CRO and it didn't work?</span>
+          <span class="faq-toggle" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="8" y1="3" x2="8" y2="13" />
+              <line x1="3" y1="8" x2="13" y2="8" />
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer-wrapper" id="faq-answer-4" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <div class="faq-answer-divider"></div>
+            <div class="faq-answer-text">
+              That's more common than you'd think — and usually means the approach was surface-level. Most CRO programs fail because they chase best practices instead of diagnosing the real behavioral barriers on your site. I start with deep qualitative and quantitative research to understand <strong>why</strong> visitors aren't converting, then build hypotheses rooted in psychology. It's a fundamentally different methodology.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
+          <span class="faq-question-text">Can you guarantee specific results?</span>
+          <span class="faq-toggle" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="8" y1="3" x2="8" y2="13" />
+              <line x1="3" y1="8" x2="13" y2="8" />
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer-wrapper" id="faq-answer-5" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <div class="faq-answer-divider"></div>
+            <div class="faq-answer-text">
+              I don't make guarantees on exact numbers — anyone who does is guessing. What I <strong>can</strong> guarantee is a rigorous, data-driven process and full transparency on what's working and what isn't. That said, my track record speaks for itself: clients consistently see <strong>20–40%+ improvements</strong> in conversion rates. Every engagement is structured around measurable KPIs so we both know exactly where we stand.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA below FAQ -->
+    <div class="faq-cta">
+      <p class="faq-cta-text">Still have questions?</p>
+      <a href="https://calendly.com/ammarah-bumx/30min" class="faq-cta-link">
+        Book a free discovery call &rarr;
+      </a>
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+/* ── FAQ Accordion ───────────────────────────────────────── */
+(function () {
+  'use strict';
+
+  var items = document.querySelectorAll('.pcg-faq .faq-item');
+
+  items.forEach(function (item) {
+    var btn = item.querySelector('.faq-question');
+    var wrapper = item.querySelector('.faq-answer-wrapper');
+    var answer = item.querySelector('.faq-answer');
+
+    btn.addEventListener('click', function () {
+      var isOpen = item.classList.contains('is-open');
+
+      /* Close all other items first */
+      items.forEach(function (otherItem) {
+        if (otherItem !== item && otherItem.classList.contains('is-open')) {
+          otherItem.classList.remove('is-open');
+          var otherBtn = otherItem.querySelector('.faq-question');
+          var otherWrapper = otherItem.querySelector('.faq-answer-wrapper');
+          otherBtn.setAttribute('aria-expanded', 'false');
+          otherWrapper.setAttribute('aria-hidden', 'true');
+          otherWrapper.style.maxHeight = '0';
+        }
+      });
+
+      /* Toggle current item */
+      if (isOpen) {
+        item.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        wrapper.setAttribute('aria-hidden', 'true');
+        wrapper.style.maxHeight = '0';
+      } else {
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+        wrapper.setAttribute('aria-hidden', 'false');
+        wrapper.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+})();
+</script>

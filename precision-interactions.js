@@ -478,6 +478,7 @@
       { text: 'Home',       href: '#' },
       { text: 'About Us',   href: '#why-precision' },
       { text: 'Partners',   href: '#services' },
+      { text: 'FAQs',       href: '/faq' },
       { text: 'Book a Call', href: '#cta-contact', cta: true },
     ];
 

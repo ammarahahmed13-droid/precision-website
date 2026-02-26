@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQs — Precision Consulting Group</title>
+  <meta name="description" content="Frequently asked questions about Precision Consulting Group's CRO and UX/UI optimization services." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="precision-tokens.css" />
+  <link rel="stylesheet" href="precision-website.css" />
+  <link rel="stylesheet" href="precision-mobile.css" />
+</head>
+<body>
+
+<!-- ============================================================
+     SECTION 1: HEADER / NAV
+     ============================================================ -->
+<header id="header" class="site-header" role="banner">
+  <div class="header-inner">
+
+    <a href="/" class="header-logo" aria-label="Precision Consulting Group home">
+      <img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/precision-logo.svg" alt="Precision" height="36" width="auto">
+    </a>
+
+    <nav class="header-nav" role="navigation" aria-label="Primary navigation">
+      <ul class="nav-list" role="list">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/#why-precision" class="nav-link">About Us</a></li>
+        <li><a href="/#services" class="nav-link">Partners</a></li>
+        <li><a href="/faq" class="nav-link" aria-current="page">FAQs</a></li>
+      </ul>
+    </nav>
+
+    <a href="https://calendly.com/ammarah-bumx/30min" class="btn-primary header-btn" role="button">
+      Book a Call
+      <img class="btn-icon" src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/icon-arrow-right.svg" alt="" aria-hidden="true">
+    </a>
+
+    <button class="header-hamburger" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+  </div>
+  <div class="header-glow-line" aria-hidden="true"></div>
+</header>
+
+
+<!-- ============================================================
+     SECTION 2: FAQ
+     ============================================================ -->
+<style>
+/* ── Reset & Section ─────────────────────────────────────── */
+.pcg-faq *,
+.pcg-faq *::before,
+.pcg-faq *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+.pcg-faq {
+  width: 100%;
+  position: relative;
+  background: #0B0B1E;
+  padding: 80px 24px;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Atmospheric blobs ───────────────────────────────────── */
+.pcg-faq .faq-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.pcg-faq .faq-blob--cyan {
+  width: 650px; height: 650px;
+  top: -120px; right: -200px;
+  background: radial-gradient(circle, rgba(0,191,255,0.10) 0%, transparent 70%);
+  filter: blur(140px);
+}
+.pcg-faq .faq-blob--purple {
+  width: 550px; height: 550px;
+  bottom: -80px; left: -180px;
+  background: radial-gradient(circle, rgba(123,104,238,0.10) 0%, transparent 70%);
+  filter: blur(120px);
+}
+
+/* ── Inner container ─────────────────────────────────────── */
+.pcg-faq .faq-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Section header ──────────────────────────────────────── */
+.pcg-faq .faq-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #00BFFF;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 24px 0;
+}
+.pcg-faq .faq-label::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1.5px;
+  background: #00BFFF;
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+.pcg-faq .faq-heading {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin: 0 0 56px 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.pcg-faq .faq-heading .faq-gradient {
+  background: linear-gradient(to right, #00BFFF 0%, #7B68EE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text;
+  display: inline;
+}
+
+/* ── FAQ list ────────────────────────────────────────────── */
+.pcg-faq .faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── FAQ item ────────────────────────────────────────────── */
+.pcg-faq .faq-item {
+  background: #15152E;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.pcg-faq .faq-item:hover {
+  border-color: rgba(0,191,255,0.15);
+}
+.pcg-faq .faq-item.is-open {
+  border-color: rgba(0,191,255,0.20);
+  box-shadow: 0 0 30px rgba(0,191,255,0.06);
+}
+
+/* ── Question row ────────────────────────────────────────── */
+.pcg-faq .faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 28px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+}
+
+.pcg-faq .faq-question-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+/* ── Toggle icon ─────────────────────────────────────────── */
+.pcg-faq .faq-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0,191,255,0.08);
+  border: 1px solid rgba(0,191,255,0.20);
+  flex-shrink: 0;
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+.pcg-faq .faq-toggle svg {
+  width: 16px;
+  height: 16px;
+  color: #00BFFF;
+  transition: transform 0.3s ease;
+}
+.pcg-faq .faq-item.is-open .faq-toggle {
+  background: rgba(0,191,255,0.14);
+  border-color: rgba(0,191,255,0.35);
+}
+.pcg-faq .faq-item.is-open .faq-toggle svg {
+  transform: rotate(45deg);
+}
+
+/* ── Answer panel ────────────────────────────────────────── */
+.pcg-faq .faq-answer-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.pcg-faq .faq-answer {
+  padding: 0 28px 28px;
+}
+.pcg-faq .faq-answer-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+  margin: 0 0 20px 0;
+}
+.pcg-faq .faq-answer-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #D1D5DC;
+  line-height: 1.65;
+}
+.pcg-faq .faq-answer-text strong {
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+/* ── CTA below FAQ ───────────────────────────────────────── */
+.pcg-faq .faq-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 48px;
+  text-align: center;
+}
+.pcg-faq .faq-cta-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #6A7282;
+}
+.pcg-faq .faq-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #00BFFF;
+  text-decoration: none;
+  transition: opacity 0.18s ease;
+}
+.pcg-faq .faq-cta-link:hover {
+  opacity: 0.75;
+}
+
+/* ── Tablet (768px+) ─────────────────────────────────────── */
+@media (min-width: 768px) {
+  .pcg-faq {
+    padding: 120px 40px;
+  }
+  .pcg-faq .faq-heading {
+    font-size: 56px;
+  }
+  .pcg-faq .faq-question {
+    padding: 28px 32px;
+  }
+  .pcg-faq .faq-question-text {
+    font-size: 19px;
+  }
+  .pcg-faq .faq-answer {
+    padding: 0 32px 32px;
+  }
+}
+
+/* ── Desktop (1200px+) ───────────────────────────────────── */
+@media (min-width: 1200px) {
+  .pcg-faq .faq-heading {
+    font-size: 64px;
+    margin-bottom: 64px;
+  }
+  .pcg-faq .faq-question-text {
+    font-size: 20px;
+  }
+  .pcg-faq .faq-answer-text {
+    font-size: 17px;
+  }
+}
+
+/* ── Mobile (<768px) ─────────────────────────────────────── */
+@media (max-width: 767px) {
+  .pcg-faq {
+    padding: 60px 0;
+  }
+  .pcg-faq .faq-inner {
+    padding: 0 20px;
+  }
+  .pcg-faq .faq-heading {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+  .pcg-faq .faq-item {
+    border-radius: 20px;
+  }
+  .pcg-faq .faq-question {
+    padding: 20px 20px;
+    gap: 12px;
+  }
+  .pcg-faq .faq-question-text {
+    font-size: 16px;
+  }
+  .pcg-faq .faq-toggle {
+    width: 32px;
+    height: 32px;
+  }
+  .pcg-faq .faq-toggle svg {
+    width: 14px;
+    height: 14px;
+  }
+  .pcg-faq .faq-answer {
+    padding: 0 20px 20px;
+  }
+  .pcg-faq .faq-answer-text {
+    font-size: 15px;
+  }
+  .pcg-faq .faq-list {
+    gap: 10px;
+  }
+  .pcg-faq .faq-cta {
+    margin-top: 36px;
+  }
+}
+</style>
+
+<section class="pcg-faq" id="faq" aria-labelledby="faq-heading">
+
+  <!-- Atmospheric blobs -->
+  <div class="faq-blob faq-blob--cyan" aria-hidden="true"></div>
+  <div class="faq-blob faq-blob--purple" aria-hidden="true"></div>
+
+  <div class="faq-inner">
+
+    <!-- Section header -->
+    <div class="faq-label">FAQs</div>
+
+    <h2 class="faq-heading" id="faq-heading">
+      Questions? We've Got <span class="faq-gradient">Answers.</span>
+    </h2>
+
+    <!-- FAQ accordion list -->
+    <div class="faq-list" role="list">
+
+      <!-- FAQ 1 -->
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
+          <span class="faq-question-text">How is Precision different from other CRO agencies?</span>
+          <span class="faq-toggle" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="8" y1="3" x2="8" y2="13" />
+              <line x1="3" y1="8" x2="13" y2="8" />
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer-wrapper" id="faq-answer-1" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <div class="faq-answer-divider"></div>
+            <div class="faq-answer-text">
+              Three key differences:<br /><br />
+              <strong>(1)</strong> I've owned P&amp;L and understand the pressure of hitting targets, not just running tests.<br /><br />
+              <strong>(2)</strong> I focus on psychology-driven optimization rooted in behavioral science, not just best practices.<br /><br />
+              <strong>(3)</strong> I work as a fractional growth partner, not a vendor — your success is my success.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
+          <span class="faq-question-text">How quickly will I see results?</span>
+          <span class="faq-toggle" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="8" y1="3" x2="8" y2="13" />
+              <line x1="3" y1="8" x2="13" y2="8" />
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer-wrapper" id="faq-answer-2" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <div class="faq-answer-divider"></div>
+            <div class="faq-answer-text">
+              Most clients see measurable improvements within the first <strong>30–60 days</strong>. Quick wins — like fixing checkout friction or improving above-the-fold clarity — can move the needle fast. Larger strategic initiatives typically show compounding gains over 90 days. Every engagement starts with a prioritized roadmap so you always know what's being tested and why.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
+          <span class="faq-question-text">Do I need a large team or specific tools?</span>
+          <span class="faq-toggle" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="8" y1="3" x2="8" y2="13" />
+              <line x1="3" y1="8" x2="13" y2="8" />
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer-wrapper" id="faq-answer-3" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <div class="faq-answer-divider"></div>
+            <div class="faq-answer-text">
+              Not at all. I work with lean startups and enterprise teams alike. If you have a website and traffic, we can optimize. I'll plug into your existing analytics stack — GA4, Hotjar, Mixpanel, or whatever you use — and only recommend tools when they're truly needed. You don't need a dedicated CRO team; that's exactly the gap I fill as your fractional growth partner.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
+          <span class="faq-question-text">What if I've already tried CRO and it didn't work?</span>
+          <span class="faq-toggle" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="8" y1="3" x2="8" y2="13" />
+              <line x1="3" y1="8" x2="13" y2="8" />
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer-wrapper" id="faq-answer-4" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <div class="faq-answer-divider"></div>
+            <div class="faq-answer-text">
+              That's more common than you'd think — and usually means the approach was surface-level. Most CRO programs fail because they chase best practices instead of diagnosing the real behavioral barriers on your site. I start with deep qualitative and quantitative research to understand <strong>why</strong> visitors aren't converting, then build hypotheses rooted in psychology. It's a fundamentally different methodology.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
+          <span class="faq-question-text">Can you guarantee specific results?</span>
+          <span class="faq-toggle" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="8" y1="3" x2="8" y2="13" />
+              <line x1="3" y1="8" x2="13" y2="8" />
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer-wrapper" id="faq-answer-5" role="region" aria-hidden="true">
+          <div class="faq-answer">
+            <div class="faq-answer-divider"></div>
+            <div class="faq-answer-text">
+              I don't make guarantees on exact numbers — anyone who does is guessing. What I <strong>can</strong> guarantee is a rigorous, data-driven process and full transparency on what's working and what isn't. That said, my track record speaks for itself: clients consistently see <strong>20–40%+ improvements</strong> in conversion rates. Every engagement is structured around measurable KPIs so we both know exactly where we stand.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA below FAQ -->
+    <div class="faq-cta">
+      <p class="faq-cta-text">Still have questions?</p>
+      <a href="https://calendly.com/ammarah-bumx/30min" class="faq-cta-link">
+        Book a free discovery call &rarr;
+      </a>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ============================================================
+     SECTION 3: CTA / CONTACT
+     ============================================================ -->
+<style>
+/* ── Reset & Section ────────────────────────────────────── */
+.pcg-cta *,
+.pcg-cta *::before,
+.pcg-cta *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+.pcg-cta {
+  width: 100%;
+  position: relative;
+  background: #0B0B1E;
+  padding: 80px 24px;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Atmospheric blobs ──────────────────────────────────── */
+.pcg-cta .cta-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.pcg-cta .cta-blob--magenta {
+  width: 700px; height: 700px;
+  top: -100px; left: -200px;
+  background: radial-gradient(circle, rgba(199,21,133,0.12) 0%, transparent 70%);
+  filter: blur(140px);
+}
+.pcg-cta .cta-blob--cyan {
+  width: 600px; height: 600px;
+  bottom: -100px; right: -180px;
+  background: radial-gradient(circle, rgba(0,191,255,0.1) 0%, transparent 70%);
+  filter: blur(120px);
+}
+
+/* ── Inner container ────────────────────────────────────── */
+.pcg-cta .cta-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Section header ─────────────────────────────────────── */
+.pcg-cta .cta-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #00BFFF;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 24px 0;
+}
+.pcg-cta .cta-label::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1.5px;
+  background: #00BFFF;
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+.pcg-cta .cta-heading {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin: 0 0 24px 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.pcg-cta .cta-heading .cta-gradient {
+  background: linear-gradient(to right, #00BFFF 0%, #7B68EE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text;
+  display: inline;
+}
+
+.pcg-cta .cta-subtext {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #D1D5DC;
+  max-width: 620px;
+  margin: 28px auto 72px auto;
+  line-height: 1.45;
+}
+
+/* ── Two-column layout ──────────────────────────────────── */
+.pcg-cta .cta-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: start;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+/* ── Left column ────────────────────────────────────────── */
+.pcg-cta .cta-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 64px;
+}
+
+.pcg-cta .cta-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style: none;
+}
+
+.pcg-cta .cta-benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #D1D5DC;
+}
+
+.pcg-cta .cta-benefit-check {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(5, 15, 55, 0.55);
+  border: 1.5px solid rgba(0, 155, 230, 0.5);
+  flex-shrink: 0;
+  position: relative;
+}
+.pcg-cta .cta-benefit-check::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22' fill='none'%3E%3Cpath d='M6 11l3.5 3.5 6.5-7' stroke='%2300BFFF' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 16px no-repeat;
+}
+
+/* ── Checklist card ───────────────────────────────────────── */
+.pcg-cta .cta-checklist-link {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 24px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 32px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.pcg-cta .cta-checklist-link:hover {
+  background: rgba(0,191,255,0.12);
+  border-color: rgba(0,191,255,0.45);
+  box-shadow: 0 0 32px rgba(0,191,255,0.18), 0 0 70px rgba(0,191,255,0.09);
+}
+
+.pcg-cta .cta-checklist-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: #6A7282;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.pcg-cta .cta-checklist-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #00BFFF;
+  text-decoration: none;
+  transition: opacity 0.18s ease;
+}
+.pcg-cta .cta-checklist-btn:hover {
+  opacity: 0.75;
+}
+
+/* ── Right column: Calendly ─────────────────────────────── */
+.pcg-cta .cta-calendar {
+  width: 100%;
+  border-radius: 40px;
+  overflow: hidden;
+}
+.pcg-cta .cta-calendar .calendly-inline-widget {
+  border-radius: 40px;
+}
+
+/* ── Tablet (768px+) ────────────────────────────────────── */
+@media (min-width: 768px) {
+  .pcg-cta {
+    padding: 120px 40px;
+  }
+  .pcg-cta .cta-heading {
+    font-size: 64px;
+  }
+  .pcg-cta .cta-layout {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+  }
+}
+
+/* ── Desktop (1200px+) ──────────────────────────────────── */
+@media (min-width: 1200px) {
+  .pcg-cta .cta-heading {
+    font-size: 72px;
+  }
+  .pcg-cta .cta-subtext {
+    font-size: 21px;
+  }
+  .pcg-cta .cta-layout {
+    grid-template-columns: 1fr 1.1fr;
+    gap: 48px;
+  }
+}
+
+/* ── Mobile (<768px) ────────────────────────────────────── */
+@media (max-width: 767px) {
+  .pcg-cta {
+    padding: 60px 0;
+  }
+  .pcg-cta .cta-inner {
+    padding: 0 24px;
+  }
+  .pcg-cta .cta-heading {
+    font-size: 40px;
+  }
+  .pcg-cta .cta-subtext {
+    font-size: 18px;
+  }
+  .pcg-cta .cta-content {
+    padding-top: 0;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .pcg-cta .cta-benefits {
+    align-items: flex-start;
+  }
+  .pcg-cta .cta-benefit-item {
+    font-size: 15px;
+  }
+  .pcg-cta .cta-checklist-link {
+    align-items: center;
+    text-align: center;
+  }
+  .pcg-cta .cta-checklist-btn {
+    font-size: 18px;
+  }
+  .pcg-cta .cta-calendar .calendly-inline-widget {
+    min-height: 280px !important;
+  }
+}
+</style>
+
+<section class="pcg-cta" id="cta-contact" aria-labelledby="cta-heading">
+
+  <!-- Atmospheric blobs -->
+  <div class="cta-blob cta-blob--magenta" aria-hidden="true"></div>
+  <div class="cta-blob cta-blob--cyan" aria-hidden="true"></div>
+
+  <div class="cta-inner">
+
+    <div class="cta-label">Contact</div>
+
+    <h2 class="cta-heading" id="cta-heading">
+      Ready to Scale <span class="cta-gradient">Your Revenue?</span>
+    </h2>
+
+    <p class="cta-subtext">
+      Book a complimentary 30-minute discovery call. We'll look at where your conversion
+      is leaking and what's worth fixing first.
+    </p>
+
+    <div class="cta-layout">
+
+      <!-- Left: Benefits + Checklist card -->
+      <div class="cta-content">
+
+        <ul class="cta-benefits" aria-label="What you get on the discovery call">
+          <li class="cta-benefit-item">
+            <span class="cta-benefit-check" aria-hidden="true"></span>
+            No pitch, no pressure. Just structure.
+          </li>
+          <li class="cta-benefit-item">
+            <span class="cta-benefit-check" aria-hidden="true"></span>
+            Identify 3–5 quick wins for your site.
+          </li>
+          <li class="cta-benefit-item">
+            <span class="cta-benefit-check" aria-hidden="true"></span>
+            Clarity on your next growth moves.
+          </li>
+          <li class="cta-benefit-item">
+            <span class="cta-benefit-check" aria-hidden="true"></span>
+            Mutual fit focus for long-term ROI.
+          </li>
+        </ul>
+
+        <div class="cta-checklist-link">
+          <span class="cta-checklist-label">Prefer a quick guide?</span>
+          <a href="#" class="cta-checklist-btn" role="button">
+            Download our Free 10-Point CRO Checklist &rarr;
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Right: Calendly inline embed -->
+      <div class="cta-calendar" aria-label="Book a discovery call">
+        <div class="calendly-inline-widget"
+             data-url="https://calendly.com/ammarah-bumx/30min?hide_event_type_details=0&hide_gdpr_banner=1&primary_color=00bfff"
+             style="min-width:min(280px,100%);height:480px;"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ============================================================
+     SECTION 4: FOOTER
+     ============================================================ -->
+<style>
+/* ── Reset & Footer ─────────────────────────────────────── */
+.pcg-footer *,
+.pcg-footer *::before,
+.pcg-footer *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+.pcg-footer {
+  width: 100%;
+  background: #0B0B1E;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-family: 'Inter', sans-serif;
+}
+
+.pcg-footer .ftr-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 64px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.pcg-footer .ftr-top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+.pcg-footer .ftr-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 400px;
+}
+
+.pcg-footer .ftr-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.pcg-footer .ftr-logo-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+}
+
+.pcg-footer .ftr-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #6A7282;
+  line-height: 1.6;
+}
+
+.pcg-footer .ftr-nav-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #99A1AF;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.pcg-footer .ftr-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  list-style: none;
+}
+
+.pcg-footer .ftr-nav-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #6A7282;
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+.pcg-footer .ftr-nav-link:hover {
+  color: #FFFFFF;
+}
+
+.pcg-footer .ftr-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pcg-footer .ftr-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.pcg-footer .ftr-copyright {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #4A5565;
+}
+
+.pcg-footer .ftr-legal-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pcg-footer .ftr-legal-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #4A5565;
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+.pcg-footer .ftr-legal-link:hover {
+  color: #6A7282;
+}
+
+.pcg-footer .ftr-legal-sep {
+  color: #4A5565;
+}
+
+@media (min-width: 768px) {
+  .pcg-footer .ftr-inner {
+    padding: 64px 24px 32px;
+  }
+  .pcg-footer .ftr-top {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+  .pcg-footer .ftr-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1200px) {
+  .pcg-footer .ftr-inner {
+    padding: 80px 32px 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .pcg-footer .ftr-inner {
+    padding: 40px 16px 24px;
+    gap: 32px;
+  }
+  .pcg-footer .ftr-top {
+    gap: 32px;
+  }
+  .pcg-footer .ftr-brand {
+    max-width: 100%;
+  }
+  .pcg-footer .ftr-bottom {
+    text-align: center;
+    gap: 8px;
+  }
+  .pcg-footer .ftr-legal-nav {
+    justify-content: center;
+  }
+  .pcg-footer .ftr-nav-link {
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .pcg-footer .ftr-legal-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+</style>
+
+<footer class="pcg-footer" role="contentinfo">
+
+  <div class="ftr-inner">
+
+    <!-- Top row -->
+    <div class="ftr-top">
+
+      <!-- Brand column -->
+      <div class="ftr-brand">
+        <a href="/" class="ftr-logo" aria-label="Precision Consulting Group home">
+          <img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/precision-logo.svg" alt="" aria-hidden="true" width="32" height="32" />
+          <span class="ftr-logo-text">Precision</span>
+        </a>
+        <p class="ftr-tagline">
+          Psychology-driven CRO and Product UX/UI that transforms how customers experience
+          and convert on your platform.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <nav aria-label="Quick links">
+        <h3 class="ftr-nav-title">Quick Links</h3>
+        <ul class="ftr-nav-list" role="list">
+          <li><a href="/#why-precision" class="ftr-nav-link">About Us</a></li>
+          <li><a href="/#conversion-accelerator" class="ftr-nav-link">Conversion Accelerator</a></li>
+          <li><a href="/#roi-calculator" class="ftr-nav-link">ROI Calculator</a></li>
+          <li><a href="/#case-studies" class="ftr-nav-link">Case Studies</a></li>
+          <li><a href="/faq" class="ftr-nav-link">FAQs</a></li>
+        </ul>
+      </nav>
+
+      <!-- Connect -->
+      <div>
+        <h3 class="ftr-nav-title">Connect</h3>
+        <ul class="ftr-nav-list" role="list">
+          <li>
+            <a href="https://www.linkedin.com/company/goprecision" class="ftr-nav-link ftr-social-link" rel="noopener noreferrer" target="_blank">
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href="#" class="ftr-nav-link ftr-social-link" rel="noopener noreferrer" target="_blank">
+              GrowthMentor
+            </a>
+          </li>
+          <li>
+            <a href="mailto:ammarah@goprecision.co" class="ftr-nav-link ftr-social-link">
+              Email
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="ftr-bottom">
+      <p class="ftr-copyright">
+        &copy; 2026 Precision Consulting Group LLC. All rights reserved.
+      </p>
+      <nav class="ftr-legal-nav" aria-label="Legal links">
+        <a href="#" class="ftr-legal-link">Privacy Policy</a>
+        <span class="ftr-legal-sep" aria-hidden="true">&middot;</span>
+        <a href="#" class="ftr-legal-link">Terms of Service</a>
+      </nav>
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<script src="precision-interactions.js"></script>
+<!-- Calendly inline widget script -->
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+<!-- FAQ Accordion -->
+<script>
+(function () {
+  'use strict';
+
+  var items = document.querySelectorAll('.pcg-faq .faq-item');
+
+  items.forEach(function (item) {
+    var btn = item.querySelector('.faq-question');
+    var wrapper = item.querySelector('.faq-answer-wrapper');
+    var answer = item.querySelector('.faq-answer');
+
+    btn.addEventListener('click', function () {
+      var isOpen = item.classList.contains('is-open');
+
+      /* Close all other items first */
+      items.forEach(function (otherItem) {
+        if (otherItem !== item && otherItem.classList.contains('is-open')) {
+          otherItem.classList.remove('is-open');
+          var otherBtn = otherItem.querySelector('.faq-question');
+          var otherWrapper = otherItem.querySelector('.faq-answer-wrapper');
+          otherBtn.setAttribute('aria-expanded', 'false');
+          otherWrapper.setAttribute('aria-hidden', 'true');
+          otherWrapper.style.maxHeight = '0';
+        }
+      });
+
+      /* Toggle current item */
+      if (isOpen) {
+        item.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        wrapper.setAttribute('aria-hidden', 'true');
+        wrapper.style.maxHeight = '0';
+      } else {
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+        wrapper.setAttribute('aria-hidden', 'false');
+        wrapper.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
