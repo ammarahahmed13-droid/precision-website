@@ -49,179 +49,7 @@
 
 
 <!-- ============================================================
-     SECTION 2: HELP CENTER HERO
-     ============================================================ -->
-<style>
-/* ── Reset & Section ─────────────────────────────────────── */
-.pcg-faq-hero *,
-.pcg-faq-hero *::before,
-.pcg-faq-hero *::after {
-  margin: 0; padding: 0; box-sizing: border-box;
-}
-
-.pcg-faq-hero {
-  width: 100%;
-  position: relative;
-  background: #0B0B1E;
-  padding: 100px 24px 60px;
-  overflow: hidden;
-  font-family: 'Inter', sans-serif;
-  text-align: center;
-}
-
-/* ── Atmospheric blobs ───────────────────────────────────── */
-.pcg-faq-hero .hero-blob {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-}
-.pcg-faq-hero .hero-blob--cyan {
-  width: 500px; height: 500px;
-  top: -100px; left: 50%;
-  transform: translateX(-50%);
-  background: radial-gradient(circle, rgba(0,191,255,0.08) 0%, transparent 70%);
-  filter: blur(120px);
-}
-
-/* ── Inner container ─────────────────────────────────────── */
-.pcg-faq-hero .hero-inner {
-  max-width: 720px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-/* ── Badge ───────────────────────────────────────────────── */
-.pcg-faq-hero .hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 18px;
-  border-radius: 80px;
-  background: rgba(0,191,255,0.08);
-  border: 1px solid rgba(0,191,255,0.18);
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  color: #00BFFF;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 28px;
-}
-.pcg-faq-hero .hero-badge svg {
-  width: 14px;
-  height: 14px;
-  color: #00BFFF;
-  flex-shrink: 0;
-}
-
-/* ── Heading ─────────────────────────────────────────────── */
-.pcg-faq-hero .hero-heading {
-  font-family: 'Inter', sans-serif;
-  font-size: 56px;
-  font-weight: 700;
-  color: #FFFFFF !important;
-  -webkit-text-fill-color: #FFFFFF !important;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  margin-bottom: 20px;
-}
-.pcg-faq-hero .hero-heading .hero-gradient {
-  background: linear-gradient(to right, #00BFFF 0%, #7B68EE 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text;
-  display: inline;
-}
-
-/* ── Subtext ─────────────────────────────────────────────── */
-.pcg-faq-hero .hero-subtext {
-  font-family: 'Inter', sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  color: #D1D5DC;
-  line-height: 1.55;
-  max-width: 560px;
-  margin: 0 auto;
-}
-
-/* ── Tablet (768px+) ─────────────────────────────────────── */
-@media (min-width: 768px) {
-  .pcg-faq-hero {
-    padding: 120px 40px 80px;
-  }
-  .pcg-faq-hero .hero-heading {
-    font-size: 64px;
-  }
-  .pcg-faq-hero .hero-subtext {
-    font-size: 20px;
-  }
-}
-
-/* ── Desktop (1200px+) ───────────────────────────────────── */
-@media (min-width: 1200px) {
-  .pcg-faq-hero .hero-heading {
-    font-size: 72px;
-  }
-  .pcg-faq-hero .hero-subtext {
-    font-size: 21px;
-  }
-}
-
-/* ── Mobile (<768px) ─────────────────────────────────────── */
-@media (max-width: 767px) {
-  .pcg-faq-hero {
-    padding: 72px 0 48px;
-  }
-  .pcg-faq-hero .hero-inner {
-    padding: 0 20px;
-  }
-  .pcg-faq-hero .hero-heading {
-    font-size: 40px;
-  }
-  .pcg-faq-hero .hero-subtext {
-    font-size: 16px;
-  }
-  .pcg-faq-hero .hero-badge {
-    font-size: 11px;
-    padding: 6px 14px;
-    margin-bottom: 24px;
-  }
-}
-</style>
-
-<section class="pcg-faq-hero" aria-labelledby="faq-hero-heading">
-
-  <!-- Atmospheric blob -->
-  <div class="hero-blob hero-blob--cyan" aria-hidden="true"></div>
-
-  <div class="hero-inner">
-
-    <span class="hero-badge">
-      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="8" cy="8" r="6.5" />
-        <line x1="8" y1="5" x2="8" y2="8.5" />
-        <circle cx="8" cy="11" r="0.5" fill="currentColor" stroke="none" />
-      </svg>
-      Help Center
-    </span>
-
-    <h1 class="hero-heading" id="faq-hero-heading">
-      Support &amp; <span class="hero-gradient">Insights</span>
-    </h1>
-
-    <p class="hero-subtext">
-      Everything you need to know about our CRO process, results, and how we help e-commerce brands scale.
-    </p>
-
-  </div>
-
-</section>
-
-
-<!-- ============================================================
-     SECTION 3: FAQ ACCORDION
+     SECTION 2: FAQ (Hero + Accordion + CTA)
      ============================================================ -->
 <style>
 /* ── Reset & Section ─────────────────────────────────────── */
@@ -268,31 +96,63 @@
   z-index: 1;
 }
 
-/* ── Section header ──────────────────────────────────────── */
-.pcg-faq .faq-label {
-  display: flex;
+/* ── Hero section ────────────────────────────────────────── */
+.pcg-faq .faq-hero {
+  text-align: center;
+  margin-bottom: 80px;
+}
+.pcg-faq .faq-hero-badge {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 80px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
   font-family: 'Inter', sans-serif;
   font-size: 13px;
   font-weight: 600;
-  color: #00BFFF;
-  letter-spacing: 0.12em;
+  color: #FFFFFF;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin: 0 0 24px 0;
+  margin-bottom: 28px;
 }
-.pcg-faq .faq-label::before {
-  content: '';
-  display: block;
-  width: 28px;
-  height: 1.5px;
-  background: #00BFFF;
-  border-radius: 1px;
+.pcg-faq .faq-hero-badge svg {
+  width: 16px;
+  height: 16px;
+  color: #FFFFFF;
   flex-shrink: 0;
 }
+.pcg-faq .faq-hero-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 56px;
+  font-weight: 800;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin: 0 0 24px 0;
+}
+.pcg-faq .faq-hero-heading .faq-hero-gradient {
+  background: linear-gradient(to right, #00BFFF 0%, #7BB8EE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text;
+  display: inline;
+}
+.pcg-faq .faq-hero-subtext {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #D1D5DC;
+  line-height: 1.55;
+  max-width: 580px;
+  margin: 0 auto;
+}
 
-.pcg-faq .faq-heading {
+/* ── Section header ──────────────────────────────────────── */
+
+.pcg-faq .faq-section-heading {
   text-align: center;
   font-family: 'Inter', sans-serif;
   font-size: 48px;
@@ -303,7 +163,7 @@
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
-.pcg-faq .faq-heading .faq-gradient {
+.pcg-faq .faq-section-heading .faq-gradient {
   background: linear-gradient(to right, #00BFFF 0%, #7B68EE 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent !important;
@@ -311,7 +171,7 @@
   display: inline;
 }
 
-.pcg-faq .faq-subtext {
+.pcg-faq .faq-section-subtext {
   text-align: center;
   font-family: 'Inter', sans-serif;
   font-size: 18px;
@@ -484,7 +344,13 @@
   .pcg-faq {
     padding: 120px 40px;
   }
-  .pcg-faq .faq-heading {
+  .pcg-faq .faq-hero-heading {
+    font-size: 64px;
+  }
+  .pcg-faq .faq-hero {
+    margin-bottom: 100px;
+  }
+  .pcg-faq .faq-section-heading {
     font-size: 56px;
   }
   .pcg-faq .faq-question {
@@ -506,10 +372,16 @@
 
 /* ── Desktop (1200px+) ───────────────────────────────────── */
 @media (min-width: 1200px) {
-  .pcg-faq .faq-heading {
+  .pcg-faq .faq-hero-heading {
+    font-size: 72px;
+  }
+  .pcg-faq .faq-hero-subtext {
+    font-size: 20px;
+  }
+  .pcg-faq .faq-section-heading {
     font-size: 64px;
   }
-  .pcg-faq .faq-subtext {
+  .pcg-faq .faq-section-subtext {
     font-size: 20px;
     margin-bottom: 64px;
   }
@@ -535,11 +407,21 @@
   .pcg-faq .faq-inner {
     padding: 0 20px;
   }
-  .pcg-faq .faq-heading {
+  .pcg-faq .faq-hero {
+    margin-bottom: 56px;
+  }
+  .pcg-faq .faq-hero-heading {
+    font-size: 40px;
+    margin-bottom: 18px;
+  }
+  .pcg-faq .faq-hero-subtext {
+    font-size: 16px;
+  }
+  .pcg-faq .faq-section-heading {
     font-size: 36px;
     margin-bottom: 16px;
   }
-  .pcg-faq .faq-subtext {
+  .pcg-faq .faq-section-subtext {
     font-size: 16px;
     margin-bottom: 40px;
   }
@@ -592,14 +474,12 @@
 
   <div class="faq-inner">
 
-    <!-- Section header -->
-    <div class="faq-label">FAQ</div>
-
-    <h2 class="faq-heading" id="faq-heading">
+    <!-- FAQ section header -->
+    <h2 class="faq-section-heading" id="faq-heading">
       Frequently Asked <span class="faq-gradient">Questions</span>
     </h2>
 
-    <p class="faq-subtext">
+    <p class="faq-section-subtext">
       Common questions from founders and growth leaders looking to accelerate their revenue.
     </p>
 
