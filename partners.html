@@ -577,6 +577,7 @@
   width: 16px;
   height: 16px;
   flex-shrink: 0;
+  filter: brightness(0) saturate(100%) invert(63%) sepia(82%) saturate(2156%) hue-rotate(162deg) brightness(101%) contrast(104%);
 }
 
 .pcg-partner-gm .gm-heading {
@@ -588,10 +589,8 @@
   margin: 0 0 24px 0;
 }
 .pcg-partner-gm .gm-heading-gradient {
-  background: linear-gradient(to right, #00BFFF 0%, #7BB8EE 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #9B8AFB;
+  -webkit-text-fill-color: #9B8AFB;
 }
 
 .pcg-partner-gm .gm-desc {
@@ -621,20 +620,21 @@
 }
 
 .pcg-partner-gm .gm-bullet-icon {
-  width: 36px;
-  height: 36px;
+  display: block;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  background: rgba(0,191,255,0.08);
-  border: 1px solid rgba(0,191,255,0.18);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: rgba(5, 15, 55, 0.55);
+  border: 1.5px solid rgba(0, 155, 230, 0.5);
   flex-shrink: 0;
+  position: relative;
   margin-top: 2px;
 }
-.pcg-partner-gm .gm-bullet-icon svg {
-  width: 16px;
-  height: 16px;
+.pcg-partner-gm .gm-bullet-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22' fill='none'%3E%3Cpath d='M6 11l3.5 3.5 6.5-7' stroke='%2300BFFF' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 16px no-repeat;
 }
 
 .pcg-partner-gm .gm-bullet-content {
@@ -696,18 +696,18 @@
   font-size: 15px;
   font-weight: 600;
   color: #0B0B1E;
-  background: #FFD166;
+  background: #00BFFF;
   border: none;
   border-radius: 80px;
   cursor: pointer;
   text-decoration: none;
-  box-shadow: 0 0 24px rgba(255,209,102,0.30);
+  box-shadow: 0 0 24px rgba(0,191,255,0.30);
   transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 .pcg-partner-gm .gm-cta-btn:hover {
   opacity: 0.92;
   transform: translateY(-1px);
-  box-shadow: 0 0 40px rgba(255,209,102,0.50);
+  box-shadow: 0 0 40px rgba(0,191,255,0.50);
 }
 
 /* ── Right column: partnership visual card ────────────────── */
@@ -724,14 +724,14 @@
   align-items: center;
   gap: 10px;
   padding: 10px 20px;
-  background: #15152E;
-  border: 1px solid rgba(255,255,255,0.10);
+  background: #FFFFFF;
+  border: 1px solid rgba(0,0,0,0.06);
   border-radius: 80px;
   font-size: 14px;
   font-weight: 600;
-  color: #FFFFFF;
+  color: #0B0B1E;
   z-index: 2;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.30);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
 }
 .pcg-partner-gm .gm-float-badge-dot {
   width: 32px;
@@ -746,6 +746,7 @@
 .pcg-partner-gm .gm-float-badge-dot img {
   width: 16px;
   height: 16px;
+  filter: brightness(0) invert(1);
 }
 
 /* Main partnership card */
@@ -807,18 +808,13 @@
 .pcg-partner-gm .gm-logo-gm {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
   margin-bottom: 36px;
 }
 .pcg-partner-gm .gm-logo-gm-icon {
-  width: 28px;
-  height: 28px;
-}
-.pcg-partner-gm .gm-logo-gm-text {
-  font-size: 20px;
-  font-weight: 600;
-  color: #FFFFFF;
-  letter-spacing: -0.01em;
+  height: 32px;
+  width: auto;
+  object-fit: contain;
 }
 
 /* Stat pills row */
@@ -872,16 +868,23 @@
     font-size: 32px;
     letter-spacing: -0.02em;
   }
+  .pcg-partner-gm .gm-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .pcg-partner-gm .gm-float-badge {
     position: relative;
     top: 0;
     right: 0;
-    margin-bottom: 16px;
+    margin-bottom: -18px;
+    z-index: 2;
     display: inline-flex;
   }
   .pcg-partner-gm .gm-partner-card {
     padding: 36px 24px 32px;
     margin-top: 0;
+    width: 100%;
   }
   .pcg-partner-gm .gm-stats {
     gap: 12px;
@@ -934,11 +937,7 @@
         <div class="gm-bullets">
 
           <div class="gm-bullet">
-            <div class="gm-bullet-icon">
-              <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M4 8L7 11L12 5" stroke="#00BFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
+            <span class="gm-bullet-icon" aria-hidden="true"></span>
             <div class="gm-bullet-content">
               <span class="gm-bullet-title">Empowering Founders</span>
               <span class="gm-bullet-desc">
@@ -949,11 +948,7 @@
           </div>
 
           <div class="gm-bullet">
-            <div class="gm-bullet-icon">
-              <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M4 8L7 11L12 5" stroke="#00BFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
+            <span class="gm-bullet-icon" aria-hidden="true"></span>
             <div class="gm-bullet-content">
               <span class="gm-bullet-title">Global Knowledge Access</span>
               <span class="gm-bullet-desc">
@@ -1011,8 +1006,7 @@
 
           <!-- GrowthMentor logo -->
           <div class="gm-logo-gm">
-            <img class="gm-logo-gm-icon" src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-growthmentor.png" alt="GrowthMentor" height="28">
-            <span class="gm-logo-gm-text">growthmentor</span>
+            <img class="gm-logo-gm-icon" src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-growthmentor.png" alt="GrowthMentor" height="32">
           </div>
 
           <!-- Stat pills -->
