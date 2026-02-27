@@ -571,7 +571,7 @@
   color: #00BFFF;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 .pcg-partner-gm .gm-badge-icon {
   width: 16px;
@@ -677,14 +677,6 @@
   color: #99A1AF;
   line-height: 1.55;
   margin-bottom: 24px;
-}
-.pcg-partner-gm .gm-cta-text a {
-  color: #00BFFF;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-.pcg-partner-gm .gm-cta-text a:hover {
-  color: #33CFFF;
 }
 
 .pcg-partner-gm .gm-cta-btn {
@@ -869,15 +861,22 @@
   .pcg-partner-gm .gm-left {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .pcg-partner-gm .gm-badge {
-    margin-bottom: 36px;
+    align-items: flex-start;
+    text-align: left;
   }
   .pcg-partner-gm .gm-heading {
+    text-align: center;
+    align-self: center;
+  }
+  .pcg-partner-gm .gm-badge {
+    align-self: center;
+    margin-bottom: 20px;
+  }
+  .pcg-partner-gm .gm-left .gm-heading {
     font-size: 32px;
     letter-spacing: -0.02em;
+    text-align: center;
+    align-self: center;
   }
   .pcg-partner-gm .gm-right {
     display: flex;
@@ -909,10 +908,7 @@
   }
   .pcg-partner-gm .gm-cta-card {
     padding: 24px 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%;
   }
 }
 
@@ -987,9 +983,9 @@
           <h3 class="gm-cta-title">Claim Your Free Session</h3>
           <p class="gm-cta-text">
             As part of our partnership, new users to GrowthMentor can avail a
-            <a href="#">free mentoring session</a> with any mentor of their choice.
+            free mentoring session with any mentor of their choice.
           </p>
-          <a href="#" class="gm-cta-btn">
+          <a href="https://app.growthmentor.com/search?ref=61028f2fb9" class="gm-cta-btn" target="_blank" rel="noopener noreferrer">
             Get Your Free Session
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="#0B0B1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
