@@ -40,6 +40,18 @@
   background: radial-gradient(circle, rgba(123,104,238,0.10) 0%, transparent 70%);
   filter: blur(120px);
 }
+.pcg-faq .faq-blob--magenta {
+  width: 450px; height: 450px;
+  top: 45%; left: -120px;
+  background: radial-gradient(circle, rgba(199,21,133,0.06) 0%, transparent 70%);
+  filter: blur(130px);
+}
+.pcg-faq .faq-blob--cyan-lower {
+  width: 400px; height: 400px;
+  bottom: 18%; right: -100px;
+  background: radial-gradient(circle, rgba(0,191,255,0.06) 0%, transparent 70%);
+  filter: blur(120px);
+}
 
 /* ── Inner container ─────────────────────────────────────── */
 .pcg-faq .faq-inner {
@@ -103,7 +115,6 @@
 }
 
 /* ── Section header ──────────────────────────────────────── */
-
 .pcg-faq .faq-section-heading {
   text-align: center;
   font-family: 'Inter', sans-serif;
@@ -237,6 +248,90 @@
   color: #FFFFFF;
 }
 
+/* ── "Prefer a quick guide?" download card ───────────────── */
+.pcg-faq .faq-guide-card {
+  margin-top: 48px;
+  padding: 32px 28px;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  transition: border-color 0.3s ease;
+}
+.pcg-faq .faq-guide-card:hover {
+  border-color: rgba(0,191,255,0.15);
+}
+
+.pcg-faq .faq-guide-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: rgba(0,191,255,0.10);
+  border: 1px solid rgba(0,191,255,0.20);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.pcg-faq .faq-guide-icon-wrap svg {
+  width: 24px;
+  height: 24px;
+  color: #00BFFF;
+}
+
+.pcg-faq .faq-guide-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.pcg-faq .faq-guide-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.pcg-faq .faq-guide-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #99A1AF;
+  line-height: 1.55;
+}
+
+.pcg-faq .faq-guide-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0B0B1E;
+  background: #00BFFF;
+  border-radius: 80px;
+  text-decoration: none;
+  box-shadow: 0 0 20px rgba(0,191,255,0.25);
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+  border: none;
+  cursor: pointer;
+}
+.pcg-faq .faq-guide-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 0 36px rgba(0,191,255,0.45);
+}
+.pcg-faq .faq-guide-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
 /* ── "Still have questions?" gradient CTA card ───────────── */
 .pcg-faq .faq-cta-card {
   margin-top: 56px;
@@ -274,7 +369,7 @@
   padding: 14px 32px;
   margin-top: 8px;
   font-family: 'Inter', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   color: #0B0B1E;
   border-radius: 80px;
@@ -291,6 +386,18 @@
   box-shadow: 0 0 40px rgba(255,209,102,0.55);
 }
 
+/* ── Calendly embed ──────────────────────────────────────── */
+.pcg-faq .faq-calendly {
+  margin-top: 48px;
+}
+.pcg-faq .faq-calendly-wrap {
+  border-radius: 32px;
+  overflow: hidden;
+}
+.pcg-faq .faq-calendly-wrap .calendly-inline-widget {
+  border-radius: 32px;
+}
+
 /* ── Tablet / Desktop (768px+) — all FAQs fully expanded ── */
 @media (min-width: 768px) {
   .pcg-faq {
@@ -303,7 +410,7 @@
     margin-bottom: 100px;
   }
   .pcg-faq .faq-section-heading {
-    font-size: 56px;
+    font-size: 64px;
   }
   /* Force all answers visible */
   .pcg-faq .faq-answer-wrapper {
@@ -332,6 +439,11 @@
   .pcg-faq .faq-answer {
     padding: 0 32px 32px;
   }
+  /* Guide card */
+  .pcg-faq .faq-guide-card {
+    padding: 36px 32px;
+  }
+  /* CTA card */
   .pcg-faq .faq-cta-card {
     padding: 56px 48px;
   }
@@ -342,30 +454,84 @@
 
 /* ── Desktop (1200px+) ───────────────────────────────────── */
 @media (min-width: 1200px) {
+  /* Widen inner so "Frequently Asked Questions" fits one line */
+  .pcg-faq .faq-inner {
+    max-width: 1100px;
+  }
+  /* Keep FAQ items, guide card, CTA, and Calendly at 880px */
+  .pcg-faq .faq-list,
+  .pcg-faq .faq-guide-card,
+  .pcg-faq .faq-cta-card,
+  .pcg-faq .faq-calendly {
+    max-width: 880px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* Restore specific top margins lost by margin-left/right: auto */
+  .pcg-faq .faq-guide-card {
+    margin-top: 48px;
+  }
+  .pcg-faq .faq-cta-card {
+    margin-top: 56px;
+  }
+  .pcg-faq .faq-calendly {
+    margin-top: 48px;
+  }
   .pcg-faq .faq-hero-heading {
     font-size: 72px;
   }
   .pcg-faq .faq-hero-subtext {
-    font-size: 20px;
+    font-size: 21px;
   }
   .pcg-faq .faq-section-heading {
-    font-size: 64px;
+    font-size: 72px;
   }
   .pcg-faq .faq-section-subtext {
-    font-size: 20px;
+    font-size: 21px;
     margin-bottom: 64px;
   }
   .pcg-faq .faq-question-text {
     font-size: 20px;
   }
   .pcg-faq .faq-answer-text {
-    font-size: 17px;
+    font-size: 16px;
   }
+  /* Guide card — larger on desktop */
+  .pcg-faq .faq-guide-card {
+    padding: 48px 40px;
+    gap: 32px;
+    border-radius: 28px;
+  }
+  .pcg-faq .faq-guide-icon-wrap {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+  }
+  .pcg-faq .faq-guide-icon-wrap svg {
+    width: 28px;
+    height: 28px;
+  }
+  .pcg-faq .faq-guide-heading {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+  .pcg-faq .faq-guide-text {
+    font-size: 16px;
+  }
+  .pcg-faq .faq-guide-btn {
+    padding: 14px 32px;
+    font-size: 16px;
+  }
+  /* CTA card */
   .pcg-faq .faq-cta-card-heading {
     font-size: 36px;
   }
   .pcg-faq .faq-cta-card-text {
-    font-size: 17px;
+    font-size: 16px;
+  }
+  /* Calendly */
+  .pcg-faq .faq-calendly-wrap .calendly-inline-widget {
+    height: 560px;
   }
 }
 
@@ -384,15 +550,11 @@
     font-size: 40px;
     margin-bottom: 18px;
   }
-  .pcg-faq .faq-hero-subtext {
-    font-size: 16px;
-  }
   .pcg-faq .faq-section-heading {
-    font-size: 36px;
+    font-size: 40px;
     margin-bottom: 16px;
   }
   .pcg-faq .faq-section-subtext {
-    font-size: 16px;
     margin-bottom: 40px;
   }
   .pcg-faq .faq-item {
@@ -422,6 +584,27 @@
   .pcg-faq .faq-list {
     gap: 14px;
   }
+  /* Guide card — stacked on mobile */
+  .pcg-faq .faq-guide-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 28px 24px;
+    gap: 20px;
+    margin-top: 36px;
+    border-radius: 20px;
+  }
+  .pcg-faq .faq-guide-heading {
+    font-size: 18px;
+  }
+  .pcg-faq .faq-guide-text {
+    font-size: 14px;
+  }
+  .pcg-faq .faq-guide-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 24px;
+  }
+  /* CTA card */
   .pcg-faq .faq-cta-card {
     margin-top: 40px;
     padding: 36px 24px;
@@ -433,6 +616,17 @@
   .pcg-faq .faq-cta-card-text {
     font-size: 15px;
   }
+  /* Calendly */
+  .pcg-faq .faq-calendly {
+    margin-top: 36px;
+  }
+  .pcg-faq .faq-calendly-wrap {
+    border-radius: 24px;
+  }
+  .pcg-faq .faq-calendly-wrap .calendly-inline-widget {
+    min-height: 280px !important;
+    border-radius: 24px;
+  }
 }
 </style>
 
@@ -441,6 +635,8 @@
   <!-- Atmospheric blobs -->
   <div class="faq-blob faq-blob--cyan" aria-hidden="true"></div>
   <div class="faq-blob faq-blob--purple" aria-hidden="true"></div>
+  <div class="faq-blob faq-blob--magenta" aria-hidden="true"></div>
+  <div class="faq-blob faq-blob--cyan-lower" aria-hidden="true"></div>
 
   <div class="faq-inner">
 
@@ -572,6 +768,29 @@
 
     </div>
 
+    <!-- "Prefer a quick guide?" download card -->
+    <div class="faq-guide-card">
+      <div class="faq-guide-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+      </div>
+      <div class="faq-guide-content">
+        <h3 class="faq-guide-heading">Prefer a Quick Guide?</h3>
+        <p class="faq-guide-text">
+          Download our free CRO checklist&mdash;a concise breakdown of the key optimizations that drive measurable revenue growth.
+        </p>
+      </div>
+      <a href="#" class="faq-guide-btn" download>
+        Download Free Guide
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 8h10M8 3l5 5-5 5"/>
+        </svg>
+      </a>
+    </div>
+
     <!-- "Still have questions?" gradient CTA card -->
     <div class="faq-cta-card">
       <h3 class="faq-cta-card-heading">Still have questions?</h3>
@@ -583,12 +802,38 @@
       </a>
     </div>
 
+    <!-- Calendly inline embed -->
+    <div class="faq-calendly">
+      <div class="faq-calendly-wrap" aria-label="Book a discovery call">
+        <div class="calendly-inline-widget" id="faq-calendly-embed"
+             data-url="https://calendly.com/ammarah-bumx/30min?hide_event_type_details=0&hide_gdpr_banner=1&primary_color=00bfff"
+             style="min-width:min(280px,100%);height:480px;"></div>
+      </div>
+    </div>
+
   </div>
 
 </section>
 
+<!-- Calendly: load script + force immediate init (no lazy scroll) -->
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script>
-/* ── FAQ Accordion (mobile only, <768px) ─────────────────── */
+(function() {
+  var calendlyUrl = 'https://calendly.com/ammarah-bumx/30min?hide_event_type_details=0&hide_gdpr_banner=1&primary_color=00bfff';
+  var target = document.getElementById('faq-calendly-embed');
+  function init() {
+    if (window.Calendly && target) {
+      Calendly.initInlineWidget({ url: calendlyUrl, parentElement: target });
+    } else {
+      setTimeout(init, 150);
+    }
+  }
+  init();
+})();
+</script>
+
+<!-- FAQ Accordion (mobile only, <768px) -->
+<script>
 (function () {
   'use strict';
 
