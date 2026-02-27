@@ -27,7 +27,7 @@
     <nav class="header-nav" role="navigation" aria-label="Primary navigation">
       <ul class="nav-list" role="list">
         <li><a href="/" class="nav-link">Home</a></li>
-        <li><a href="/#why-precision" class="nav-link">About Us</a></li>
+        <li><a href="/#founder-bio" class="nav-link">About Us</a></li>
         <li><a href="/partners" class="nav-link nav-link--active">Partners</a></li>
       </ul>
     </nav>
@@ -64,7 +64,7 @@
   width: 100%;
   position: relative;
   background: #0B0B1E;
-  padding: 100px 24px 80px;
+  padding: 120px 24px 80px;
   overflow: hidden;
   font-family: 'Inter', sans-serif;
 }
@@ -111,7 +111,7 @@
   border-radius: 80px;
   background: rgba(123,104,238,0.10);
   border: 1px solid rgba(123,104,238,0.25);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   color: #FFFFFF;
   letter-spacing: 0.08em;
@@ -126,9 +126,10 @@
 }
 
 .pcg-partners-hero .ph-heading {
-  font-size: 60px;
+  font-size: 48px;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
   line-height: 1.08;
   letter-spacing: -0.03em;
   margin: 0 0 24px 0;
@@ -136,14 +137,14 @@
 .pcg-partners-hero .ph-heading-gradient {
   background: linear-gradient(to right, #00BFFF 0%, #7B68EE 50%, #C71585 100%);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent !important;
   background-clip: text;
 }
 
 .pcg-partners-hero .ph-subtext {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 400;
-  color: #99A1AF;
+  color: #D1D5DC;
   line-height: 1.6;
   max-width: 680px;
   margin: 0 auto;
@@ -208,12 +209,15 @@
 .pcg-partners-hero .ph-card--cyan .ph-card-icon img {
   filter: brightness(0) saturate(100%) invert(63%) sepia(82%) saturate(2156%) hue-rotate(162deg) brightness(101%) contrast(104%);
 }
+.pcg-partners-hero .ph-card--purple .ph-card-icon img {
+  filter: brightness(0) saturate(100%) invert(55%) sepia(52%) saturate(2218%) hue-rotate(218deg) brightness(100%) contrast(93%);
+}
 .pcg-partners-hero .ph-card--magenta .ph-card-icon img {
   filter: brightness(0) saturate(100%) invert(15%) sepia(95%) saturate(6932%) hue-rotate(316deg) brightness(92%) contrast(98%);
 }
 
 .pcg-partners-hero .ph-card-title {
-  font-size: 18px;
+  font-size: 21px;
   font-weight: 600;
   color: #FFFFFF;
   margin-bottom: 10px;
@@ -221,9 +225,9 @@
 }
 
 .pcg-partners-hero .ph-card-desc {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
-  color: #99A1AF;
+  color: #D1D5DC;
   line-height: 1.6;
 }
 
@@ -259,7 +263,7 @@
 /* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 767px) {
   .pcg-partners-hero {
-    padding: 80px 0 24px;
+    padding: 60px 0 24px;
   }
   .pcg-partners-hero .ph-inner {
     padding: 0 20px;
@@ -269,10 +273,13 @@
     margin-bottom: 40px;
   }
   .pcg-partners-hero .ph-heading {
-    font-size: 36px;
+    font-size: 40px;
     letter-spacing: -0.02em;
   }
-  .pcg-partners-hero .ph-subtext {
+  .pcg-partners-hero .ph-card-title {
+    font-size: 19px;
+  }
+  .pcg-partners-hero .ph-card-desc {
     font-size: 15px;
   }
   .pcg-partners-hero .ph-cards {
@@ -320,12 +327,28 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1199px) {
   .pcg-partners-hero .ph-heading {
-    font-size: 48px;
+    font-size: 64px;
+  }
+  .pcg-partners-hero .ph-subtext {
+    font-size: 20px;
   }
   .pcg-partners-hero .ph-cards {
     gap: 20px;
+  }
+}
+
+/* ── Desktop (1200px+) ───────────────────────────────────── */
+@media (min-width: 1200px) {
+  .pcg-partners-hero {
+    padding: 120px 32px 80px;
+  }
+  .pcg-partners-hero .ph-heading {
+    font-size: 72px;
+  }
+  .pcg-partners-hero .ph-subtext {
+    font-size: 21px;
   }
 }
 </style>
@@ -516,7 +539,7 @@
   width: 100%;
   position: relative;
   background: #0B0B1E;
-  padding: 60px 24px 80px;
+  padding: 120px 24px;
   overflow: hidden;
   font-family: 'Inter', sans-serif;
 }
@@ -566,7 +589,7 @@
   border-radius: 80px;
   background: rgba(0,191,255,0.08);
   border: 1px solid rgba(0,191,255,0.20);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   color: #00BFFF;
   letter-spacing: 0.08em;
@@ -583,20 +606,21 @@
 .pcg-partner-gm .gm-heading {
   font-size: 48px;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
   line-height: 1.12;
   letter-spacing: -0.03em;
   margin: 0 0 24px 0;
 }
 .pcg-partner-gm .gm-heading-gradient {
   color: #9B8AFB;
-  -webkit-text-fill-color: #9B8AFB;
+  -webkit-text-fill-color: #9B8AFB !important;
 }
 
 .pcg-partner-gm .gm-desc {
   font-size: 16px;
   font-weight: 400;
-  color: #99A1AF;
+  color: #D1D5DC;
   line-height: 1.65;
   margin-bottom: 32px;
 }
@@ -650,9 +674,9 @@
 }
 
 .pcg-partner-gm .gm-bullet-desc {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 400;
-  color: #99A1AF;
+  color: #D1D5DC;
   line-height: 1.55;
 }
 
@@ -672,9 +696,9 @@
 }
 
 .pcg-partner-gm .gm-cta-text {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
-  color: #99A1AF;
+  color: #D1D5DC;
   line-height: 1.55;
   margin-bottom: 24px;
 }
@@ -685,7 +709,7 @@
   gap: 10px;
   padding: 14px 32px;
   font-family: 'Inter', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   color: #0B0B1E;
   background: #00BFFF;
@@ -852,7 +876,7 @@
 /* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 767px) {
   .pcg-partner-gm {
-    padding: 8px 20px 60px;
+    padding: 60px 20px;
   }
   .pcg-partner-gm .gm-grid {
     grid-template-columns: 1fr;
@@ -873,10 +897,16 @@
     margin-bottom: 20px;
   }
   .pcg-partner-gm .gm-left .gm-heading {
-    font-size: 32px;
+    font-size: 40px;
     letter-spacing: -0.02em;
     text-align: center;
     align-self: center;
+  }
+  .pcg-partner-gm .gm-bullet-desc {
+    font-size: 14px;
+  }
+  .pcg-partner-gm .gm-cta-text {
+    font-size: 15px;
   }
   .pcg-partner-gm .gm-right {
     display: flex;
@@ -916,12 +946,25 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1199px) {
   .pcg-partner-gm .gm-heading {
-    font-size: 40px;
+    font-size: 64px;
   }
   .pcg-partner-gm .gm-grid {
     gap: 40px;
+  }
+}
+
+/* ── Desktop (1200px+) ───────────────────────────────────── */
+@media (min-width: 1200px) {
+  .pcg-partner-gm {
+    padding: 120px 32px;
+  }
+  .pcg-partner-gm .gm-heading {
+    font-size: 72px;
+  }
+  .pcg-partner-gm .gm-desc {
+    font-size: 17px;
   }
 }
 </style>
@@ -1276,11 +1319,12 @@
       <nav aria-label="Quick links">
         <h3 class="ftr-nav-title">Quick Links</h3>
         <ul class="ftr-nav-list" role="list">
-          <li><a href="/#why-precision" class="ftr-nav-link">About Us</a></li>
+          <li><a href="/#founder-bio" class="ftr-nav-link">About Us</a></li>
           <li><a href="/#conversion-accelerator" class="ftr-nav-link">Conversion Accelerator</a></li>
           <li><a href="/#roi-calculator" class="ftr-nav-link">ROI Calculator</a></li>
           <li><a href="/#case-studies" class="ftr-nav-link">Case Studies</a></li>
           <li><a href="/faq" class="ftr-nav-link">FAQs</a></li>
+          <li><a href="/partners" class="ftr-nav-link">Partners</a></li>
         </ul>
       </nav>
 
@@ -1294,7 +1338,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="ftr-nav-link ftr-social-link" rel="noopener noreferrer" target="_blank">
+            <a href="https://app.growthmentor.com/search?ref=61028f2fb9" class="ftr-nav-link ftr-social-link" rel="noopener noreferrer" target="_blank">
               GrowthMentor
             </a>
           </li>

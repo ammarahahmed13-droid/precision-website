@@ -1,0 +1,583 @@
+<!-- ============================================================
+     PRECISION — GROWTHMENTOR PARTNERSHIP (Bricks Code Block)
+     2-column: info left · partnership card right
+     Header & Footer are Bricks Templates — NOT included here
+     ============================================================ -->
+
+<style>
+/* ── Reset & Section ─────────────────────────────────────── */
+.pcg-partner-gm *,
+.pcg-partner-gm *::before,
+.pcg-partner-gm *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+.pcg-partner-gm {
+  width: 100%;
+  position: relative;
+  background: #0B0B1E;
+  padding: 120px 24px;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Atmospheric blobs ───────────────────────────────────── */
+.pcg-partner-gm .gm-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.pcg-partner-gm .gm-blob--cyan {
+  width: 600px; height: 600px;
+  top: -100px; left: -180px;
+  background: radial-gradient(circle, rgba(0,191,255,0.08) 0%, transparent 70%);
+  filter: blur(160px);
+}
+.pcg-partner-gm .gm-blob--purple {
+  width: 500px; height: 500px;
+  bottom: -120px; right: -160px;
+  background: radial-gradient(circle, rgba(123,104,238,0.08) 0%, transparent 70%);
+  filter: blur(140px);
+}
+
+/* ── Inner container ─────────────────────────────────────── */
+.pcg-partner-gm .gm-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── 2 Column layout ─────────────────────────────────────── */
+.pcg-partner-gm .gm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* ── Left column: content ────────────────────────────────── */
+.pcg-partner-gm .gm-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border-radius: 80px;
+  background: rgba(0,191,255,0.08);
+  border: 1px solid rgba(0,191,255,0.20);
+  font-size: 13px;
+  font-weight: 600;
+  color: #00BFFF;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.pcg-partner-gm .gm-badge-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  filter: brightness(0) saturate(100%) invert(63%) sepia(82%) saturate(2156%) hue-rotate(162deg) brightness(101%) contrast(104%);
+}
+
+.pcg-partner-gm .gm-heading {
+  font-size: 48px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  margin: 0 0 24px 0;
+}
+.pcg-partner-gm .gm-heading-gradient {
+  color: #9B8AFB;
+  -webkit-text-fill-color: #9B8AFB !important;
+}
+
+.pcg-partner-gm .gm-desc {
+  font-size: 16px;
+  font-weight: 400;
+  color: #D1D5DC;
+  line-height: 1.65;
+  margin-bottom: 32px;
+}
+.pcg-partner-gm .gm-desc strong {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/* ── Bullet points ───────────────────────────────────────── */
+.pcg-partner-gm .gm-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.pcg-partner-gm .gm-bullet {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.pcg-partner-gm .gm-bullet-icon {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(5, 15, 55, 0.55);
+  border: 1.5px solid rgba(0, 155, 230, 0.5);
+  flex-shrink: 0;
+  position: relative;
+  margin-top: 2px;
+}
+.pcg-partner-gm .gm-bullet-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22' fill='none'%3E%3Cpath d='M6 11l3.5 3.5 6.5-7' stroke='%2300BFFF' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 16px no-repeat;
+}
+
+.pcg-partner-gm .gm-bullet-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pcg-partner-gm .gm-bullet-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.pcg-partner-gm .gm-bullet-desc {
+  font-size: 15px;
+  font-weight: 400;
+  color: #D1D5DC;
+  line-height: 1.55;
+}
+
+/* ── CTA card ────────────────────────────────────────────── */
+.pcg-partner-gm .gm-cta-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 32px 28px;
+}
+
+.pcg-partner-gm .gm-cta-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+}
+
+.pcg-partner-gm .gm-cta-text {
+  font-size: 16px;
+  font-weight: 400;
+  color: #D1D5DC;
+  line-height: 1.55;
+  margin-bottom: 24px;
+}
+
+.pcg-partner-gm .gm-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0B0B1E;
+  background: #00BFFF;
+  border: none;
+  border-radius: 80px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 0 24px rgba(0,191,255,0.30);
+  transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pcg-partner-gm .gm-cta-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 0 40px rgba(0,191,255,0.50);
+}
+
+/* ── Right column: partnership visual card ────────────────── */
+.pcg-partner-gm .gm-right {
+  position: relative;
+}
+
+/* "Free Session Included" floating badge */
+.pcg-partner-gm .gm-float-badge {
+  position: absolute;
+  top: -10px;
+  right: -24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 80px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0B0B1E;
+  z-index: 2;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+.pcg-partner-gm .gm-float-badge-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #00BFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pcg-partner-gm .gm-float-badge-dot svg,
+.pcg-partner-gm .gm-float-badge-dot img {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1);
+}
+
+/* Main partnership card */
+.pcg-partner-gm .gm-partner-card {
+  background: #15152E;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 24px;
+  padding: 48px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Precision logo area */
+.pcg-partner-gm .gm-logo-precision {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.pcg-partner-gm .gm-logo-precision-icon {
+  width: 76px;
+  height: 76px;
+}
+.pcg-partner-gm .gm-logo-precision-text {
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* "Partnered with" divider */
+.pcg-partner-gm .gm-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 28px;
+}
+.pcg-partner-gm .gm-divider-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+}
+.pcg-partner-gm .gm-divider-text {
+  font-size: 10px;
+  font-weight: 600;
+  color: #6A7282;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* GrowthMentor logo */
+.pcg-partner-gm .gm-logo-gm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+.pcg-partner-gm .gm-logo-gm-icon {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Stat pills row */
+.pcg-partner-gm .gm-stats {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  width: 100%;
+}
+
+.pcg-partner-gm .gm-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.pcg-partner-gm .gm-stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pcg-partner-gm .gm-stat-icon svg,
+.pcg-partner-gm .gm-stat-icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.pcg-partner-gm .gm-stat-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #6A7282;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+}
+
+/* ── Mobile (<768px) ─────────────────────────────────────── */
+@media (max-width: 767px) {
+  .pcg-partner-gm {
+    padding: 60px 20px;
+  }
+  .pcg-partner-gm .gm-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .pcg-partner-gm .gm-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .pcg-partner-gm .gm-heading {
+    font-size: 40px;
+    letter-spacing: -0.02em;
+    text-align: center;
+    align-self: center;
+  }
+  .pcg-partner-gm .gm-badge {
+    align-self: center;
+    margin-bottom: 20px;
+  }
+  .pcg-partner-gm .gm-bullet-desc {
+    font-size: 14px;
+  }
+  .pcg-partner-gm .gm-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .pcg-partner-gm .gm-float-badge {
+    position: relative;
+    top: 0;
+    right: 0;
+    margin-bottom: -14px;
+    z-index: 2;
+    display: inline-flex;
+    padding: 7px 14px;
+    font-size: 12px;
+    gap: 8px;
+  }
+  .pcg-partner-gm .gm-float-badge .gm-float-badge-dot {
+    width: 26px;
+    height: 26px;
+  }
+  .pcg-partner-gm .gm-partner-card {
+    padding: 36px 24px 32px;
+    margin-top: 0;
+    width: 100%;
+  }
+  .pcg-partner-gm .gm-stats {
+    gap: 12px;
+  }
+  .pcg-partner-gm .gm-cta-card {
+    padding: 24px 20px;
+    width: 100%;
+    text-align: center;
+  }
+  .pcg-partner-gm .gm-cta-btn {
+    justify-content: center;
+  }
+  .pcg-partner-gm .gm-cta-text {
+    font-size: 15px;
+  }
+}
+
+/* ── Tablet (768px–1199px) ───────────────────────────────── */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .pcg-partner-gm .gm-heading {
+    font-size: 64px;
+  }
+  .pcg-partner-gm .gm-grid {
+    gap: 40px;
+  }
+}
+
+/* ── Desktop (1200px+) ───────────────────────────────────── */
+@media (min-width: 1200px) {
+  .pcg-partner-gm {
+    padding: 120px 32px;
+  }
+  .pcg-partner-gm .gm-heading {
+    font-size: 72px;
+  }
+  .pcg-partner-gm .gm-desc {
+    font-size: 17px;
+  }
+}
+</style>
+
+<section class="pcg-partner-gm" aria-labelledby="gm-heading">
+
+  <!-- Atmospheric blobs -->
+  <div class="gm-blob gm-blob--cyan" aria-hidden="true"></div>
+  <div class="gm-blob gm-blob--purple" aria-hidden="true"></div>
+
+  <div class="gm-inner">
+    <div class="gm-grid">
+
+      <!-- Left column: content -->
+      <div class="gm-left">
+
+        <div class="gm-badge">
+          <img class="gm-badge-icon" src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/icon-value.svg" alt="" aria-hidden="true">
+          Exclusive Partnership Perk
+        </div>
+
+        <h2 id="gm-heading" class="gm-heading">
+          Precision x<br>
+          <span class="gm-heading-gradient">GrowthMentor</span>
+        </h2>
+
+        <p class="gm-desc">
+          At Precision, we don&rsquo;t believe in gatekeeping. Our mission is to
+          pass on as much free value as possible through our partnership with
+          <strong>GrowthMentor</strong>, recognized as one of the world&rsquo;s top
+          mentorship platforms for high-growth founders.
+        </p>
+
+        <!-- Bullet points -->
+        <div class="gm-bullets">
+
+          <div class="gm-bullet">
+            <span class="gm-bullet-icon" aria-hidden="true"></span>
+            <div class="gm-bullet-content">
+              <span class="gm-bullet-title">Empowering Founders</span>
+              <span class="gm-bullet-desc">
+                Access the same high-level strategies used by unicorn growth
+                teams without the corporate price tag.
+              </span>
+            </div>
+          </div>
+
+          <div class="gm-bullet">
+            <span class="gm-bullet-icon" aria-hidden="true"></span>
+            <div class="gm-bullet-content">
+              <span class="gm-bullet-title">Global Knowledge Access</span>
+              <span class="gm-bullet-desc">
+                Direct lines to 750+ top-vetted mentors across product, marketing,
+                and operations.
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CTA card -->
+        <div class="gm-cta-card">
+          <h3 class="gm-cta-title">Claim Your Free Session</h3>
+          <p class="gm-cta-text">
+            As part of our partnership, new users to GrowthMentor can avail a
+            free mentoring session with any mentor of their choice.
+          </p>
+          <a href="https://app.growthmentor.com/search?ref=61028f2fb9" class="gm-cta-btn" target="_blank" rel="noopener noreferrer">
+            Get Your Free Session
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="#0B0B1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Right column: partnership visual -->
+      <div class="gm-right">
+
+        <!-- Floating badge -->
+        <div class="gm-float-badge">
+          <span class="gm-float-badge-dot">
+            <img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/icon-value.svg" alt="" aria-hidden="true" width="16" height="16">
+          </span>
+          Free Session Included
+        </div>
+
+        <!-- Partnership card -->
+        <div class="gm-partner-card">
+
+          <!-- Precision logo -->
+          <div class="gm-logo-precision">
+            <img class="gm-logo-precision-icon" src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/precision-logo.svg" alt="Precision" width="64" height="64">
+            <span class="gm-logo-precision-text">Precision</span>
+          </div>
+
+          <!-- Partnered with divider -->
+          <div class="gm-divider">
+            <span class="gm-divider-line"></span>
+            <span class="gm-divider-text">Partnered With</span>
+            <span class="gm-divider-line"></span>
+          </div>
+
+          <!-- GrowthMentor logo -->
+          <div class="gm-logo-gm">
+            <img class="gm-logo-gm-icon" src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/logo-growthmentor.png" alt="GrowthMentor" height="32">
+          </div>
+
+          <!-- Stat pills -->
+          <div class="gm-stats">
+
+            <div class="gm-stat">
+              <div class="gm-stat-icon">
+                <img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/icon-global.svg" alt="" aria-hidden="true" width="20" height="20">
+              </div>
+              <span class="gm-stat-label">Global</span>
+            </div>
+
+            <div class="gm-stat">
+              <div class="gm-stat-icon">
+                <img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/icon-people.svg" alt="" aria-hidden="true" width="20" height="20">
+              </div>
+              <span class="gm-stat-label">750+<br>Mentors</span>
+            </div>
+
+            <div class="gm-stat">
+              <div class="gm-stat-icon">
+                <img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/icon-trophy.svg" alt="" aria-hidden="true" width="20" height="20">
+              </div>
+              <span class="gm-stat-label">Top Vetted</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
