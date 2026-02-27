@@ -113,7 +113,7 @@
   border: 1px solid rgba(123,104,238,0.25);
   font-size: 12px;
   font-weight: 600;
-  color: #9370DB;
+  color: #FFFFFF;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 32px;
@@ -134,7 +134,7 @@
   margin: 0 0 24px 0;
 }
 .pcg-partners-hero .ph-heading-gradient {
-  background: linear-gradient(to right, #7B68EE 0%, #9370DB 100%);
+  background: linear-gradient(to right, #00BFFF 0%, #7B68EE 50%, #C71585 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -169,28 +169,28 @@
   transform: translateY(-4px);
 }
 
-/* Top edge glow per card */
+/* Left edge glow per card */
 .pcg-partners-hero .ph-card::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  border-radius: 20px 20px 0 0;
+  top: 0; left: 0; bottom: 0;
+  width: 2px;
+  border-radius: 20px 0 0 20px;
 }
 .pcg-partners-hero .ph-card--cyan::before {
-  background: linear-gradient(to right, rgba(0,191,255,0.6), rgba(0,191,255,0));
+  background: linear-gradient(to bottom, rgba(0,191,255,0.6), rgba(0,191,255,0));
 }
 .pcg-partners-hero .ph-card--cyan:hover {
   box-shadow: 0 8px 30px rgba(0,191,255,0.10);
 }
 .pcg-partners-hero .ph-card--purple::before {
-  background: linear-gradient(to right, rgba(123,104,238,0.6), rgba(123,104,238,0));
+  background: linear-gradient(to bottom, rgba(123,104,238,0.6), rgba(123,104,238,0));
 }
 .pcg-partners-hero .ph-card--purple:hover {
   box-shadow: 0 8px 30px rgba(123,104,238,0.10);
 }
 .pcg-partners-hero .ph-card--magenta::before {
-  background: linear-gradient(to right, rgba(199,21,133,0.6), rgba(199,21,133,0));
+  background: linear-gradient(to bottom, rgba(199,21,133,0.6), rgba(199,21,133,0));
 }
 .pcg-partners-hero .ph-card--magenta:hover {
   box-shadow: 0 8px 30px rgba(199,21,133,0.10);
@@ -220,6 +220,13 @@
   width: 22px;
   height: 22px;
 }
+/* Tint external SVG icons to match card accent colors */
+.pcg-partners-hero .ph-card--cyan .ph-card-icon img {
+  filter: brightness(0) saturate(100%) invert(63%) sepia(82%) saturate(2156%) hue-rotate(162deg) brightness(101%) contrast(104%);
+}
+.pcg-partners-hero .ph-card--magenta .ph-card-icon img {
+  filter: brightness(0) saturate(100%) invert(15%) sepia(95%) saturate(6932%) hue-rotate(316deg) brightness(92%) contrast(98%);
+}
 
 .pcg-partners-hero .ph-card-title {
   font-size: 18px;
@@ -236,10 +243,43 @@
   line-height: 1.6;
 }
 
+/* ── Carousel arrows (mobile) ───────────────────────────── */
+.pcg-partners-hero .ph-carousel-nav {
+  display: none;
+}
+
+.pcg-partners-hero .ph-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(11,11,30,0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+  padding: 0;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  flex-shrink: 0;
+}
+.pcg-partners-hero .ph-arrow:hover {
+  border-color: rgba(0,191,255,0.5);
+  background: rgba(0,191,255,0.08);
+}
+.pcg-partners-hero .ph-arrow svg {
+  display: block;
+}
+
 /* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 767px) {
   .pcg-partners-hero {
-    padding: 80px 20px 60px;
+    padding: 80px 0 60px;
+  }
+  .pcg-partners-hero .ph-inner {
+    padding: 0 20px;
+    overflow: hidden;
   }
   .pcg-partners-hero .ph-header {
     margin-bottom: 40px;
@@ -252,11 +292,47 @@
     font-size: 15px;
   }
   .pcg-partners-hero .ph-cards {
-    grid-template-columns: 1fr;
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 7vw;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
     gap: 16px;
+    padding: 18px 7vw 16px;
+    margin: 0 -20px;
+    width: calc(100% + 40px);
+    max-width: none;
+  }
+  .pcg-partners-hero .ph-cards::-webkit-scrollbar {
+    display: none;
   }
   .pcg-partners-hero .ph-card {
+    flex: 0 0 86vw;
+    max-width: none;
+    scroll-snap-align: start;
+    min-width: 0;
     padding: 28px 22px;
+  }
+  /* Disable hover lift on mobile */
+  .pcg-partners-hero .ph-card:hover {
+    transform: none;
+  }
+  .pcg-partners-hero .ph-carousel-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+    padding: 4px 20px;
+  }
+}
+
+/* ── Very small screens — hide arrows, swipe only ───────── */
+@media (max-width: 360px) {
+  .pcg-partners-hero .ph-carousel-nav {
+    display: none;
   }
 }
 
@@ -296,7 +372,7 @@
     </div>
 
     <!-- 3 Value proposition cards -->
-    <div class="ph-cards" role="list">
+    <div class="ph-cards" id="ph-track" role="list">
 
       <!-- Card 1: Exclusive Perks -->
       <article class="ph-card ph-card--cyan" role="listitem">
@@ -333,8 +409,111 @@
 
     </div>
 
+    <!-- Mobile carousel arrows -->
+    <div class="ph-carousel-nav" id="ph-nav" aria-label="Partner cards navigation">
+      <!-- Arrows injected by JS -->
+    </div>
+
   </div>
 </section>
+
+<script>
+(function() {
+  var track = document.getElementById('ph-track');
+  var nav   = document.getElementById('ph-nav');
+  if (!track || !nav) return;
+
+  var mq = window.matchMedia('(max-width: 767px)');
+  var prevBtn = null;
+  var nextBtn = null;
+  var built = false;
+
+  function createArrow(direction, label) {
+    var btn = document.createElement('button');
+    btn.setAttribute('type', 'button');
+    btn.setAttribute('aria-label', label);
+    btn.className = 'ph-arrow ph-arrow--' + direction;
+    var chevron = direction === 'prev'
+      ? '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="#D1D5DC" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+      : '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="#D1D5DC" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    btn.innerHTML = chevron;
+    return btn;
+  }
+
+  function buildCarousel() {
+    if (built) return;
+    built = true;
+
+    prevBtn = createArrow('prev', 'Previous card');
+    nextBtn = createArrow('next', 'Next card');
+
+    nav.style.justifyContent = 'flex-end';
+    nav.appendChild(nextBtn);
+
+    prevBtn.addEventListener('click', function() { scrollByCard(-1); });
+    nextBtn.addEventListener('click', function() { scrollByCard(1); });
+
+    track.addEventListener('scroll', updateArrows, { passive: true });
+    window.addEventListener('resize', updateArrows, { passive: true });
+    updateArrows();
+  }
+
+  function scrollByCard(dir) {
+    var cards = track.children;
+    if (!cards.length) return;
+    var cardWidth = cards[0].getBoundingClientRect().width;
+    var gap = parseFloat(getComputedStyle(track).gap) || 16;
+    track.scrollBy({ left: dir * (cardWidth + gap), behavior: 'smooth' });
+  }
+
+  function updateArrows() {
+    if (!prevBtn || !nextBtn) return;
+
+    var scrollLeft = track.scrollLeft;
+    var maxScroll  = track.scrollWidth - track.clientWidth;
+    var atStart    = scrollLeft <= 2;
+    var atEnd      = scrollLeft >= maxScroll - 2;
+
+    if (!atStart && !prevBtn.parentNode) {
+      nav.insertBefore(prevBtn, nextBtn);
+    } else if (atStart && prevBtn.parentNode) {
+      nav.removeChild(prevBtn);
+    }
+
+    nextBtn.style.display = atEnd ? 'none' : 'flex';
+
+    var hasPrev = !!prevBtn.parentNode;
+    var hasNext = nextBtn.style.display !== 'none';
+
+    if (hasPrev && hasNext) {
+      nav.style.justifyContent = 'center';
+    } else if (hasPrev && !hasNext) {
+      nav.style.justifyContent = 'flex-start';
+    } else {
+      nav.style.justifyContent = 'flex-end';
+    }
+  }
+
+  function handleMQ(e) {
+    if (e.matches) {
+      buildCarousel();
+      nav.style.display = '';
+    } else {
+      nav.style.display = 'none';
+    }
+  }
+
+  if (mq.matches) {
+    buildCarousel();
+  }
+
+  if (mq.addEventListener) {
+    mq.addEventListener('change', handleMQ);
+  } else {
+    mq.addListener(handleMQ);
+  }
+})();
+</script>
 
 
 <!-- ============================================================
