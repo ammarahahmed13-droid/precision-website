@@ -860,11 +860,20 @@
 /* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 767px) {
   .pcg-partner-gm {
-    padding: 60px 20px;
+    padding: 40px 20px 60px;
   }
   .pcg-partner-gm .gm-grid {
     grid-template-columns: 1fr;
     gap: 48px;
+  }
+  .pcg-partner-gm .gm-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .pcg-partner-gm .gm-badge {
+    margin-bottom: 36px;
   }
   .pcg-partner-gm .gm-heading {
     font-size: 32px;
