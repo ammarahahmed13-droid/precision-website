@@ -7,7 +7,7 @@
   .social-proof-section {
     width: 100%;
     padding: 48px 0;
-    background: #0B0B1A;
+    background: #0B0B1E;
     overflow: hidden;
     position: relative;
   }
@@ -42,8 +42,9 @@
     animation: marquee 60s linear infinite;
   }
 
-  .social-proof-section:hover .logo-strip-track {
-    animation-play-state: paused;
+  .social-proof-section {
+    pointer-events: none;
+    user-select: none;
   }
 
   .brand-logo {
@@ -52,13 +53,8 @@
     justify-content: center;
     vertical-align: middle;
     height: 40px;
-    margin: 0 7rem 0 0;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
-  }
-
-  .brand-logo:hover {
-    opacity: 1;
+    margin: 0 9rem 0 0;
+    opacity: 0.85;
   }
 
   .brand-logo img {
@@ -81,7 +77,7 @@
 
   @media (min-width: 768px) {
     .social-proof-label { font-size: 1.4rem; }
-    .brand-logo { height: 44px; margin: 0 8rem 0 0; }
+    .brand-logo { height: 44px; margin: 0 10rem 0 0; }
     .brand-logo--foodpanda { height: 58px; }
     .brand-logo--daraz { height: 58px; }
     .brand-logo--growthmentor { height: 34px; }

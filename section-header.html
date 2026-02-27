@@ -4,41 +4,13 @@
      ============================================================ -->
 
 <style>
-/* ---------- TOKENS (header-scoped) ---------- */
-:root {
-  --color-bg-base:        #0B0B1E;
-  --color-text-primary:   #FFFFFF;
-  --color-text-secondary: #D1D5DC;
-  --color-accent-cyan:    #00BFFF;
-  --color-accent-gold:    #FFD166;
-  --font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-weight-medium:   500;
-  --font-weight-semibold: 600;
-  --font-weight-bold:     700;
-  --font-size-sm:    0.75rem;
-  --font-size-md:    0.875rem;
-  --font-size-base:  1rem;
-  --font-size-lg:    1.125rem;
-  --letter-spacing-snug: -0.02em;
-  --radius-sm:   1rem;
-  --radius-pill: 5rem;
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.25rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
-  --space-10: 2.5rem;
-}
-
 /* ---------- HEADER ---------- */
 .site-header {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(11, 11, 30, 0.85);
+  position: relative; top: 0; z-index: 9999;
+  background: rgba(11, 11, 30, 0.92);
   backdrop-filter: blur(20px) saturate(160%);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
-  font-family: var(--font-family-base);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 .header-glow-line {
   position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
@@ -47,81 +19,242 @@
 .header-inner {
   display: flex; align-items: center; justify-content: space-between;
   max-width: 1280px; margin: 0 auto;
-  padding: var(--space-3) var(--space-6); gap: var(--space-6);
+  padding: 14px 24px; gap: 32px;
 }
-.header-logo { display: flex; align-items: center; gap: var(--space-2); text-decoration: none; flex-shrink: 0; }
-.header-logo img { height: 32px; width: auto; display: block; }
-.logo-text { font-size: var(--font-size-lg); font-weight: var(--font-weight-bold); color: var(--color-text-primary); letter-spacing: var(--letter-spacing-snug); }
-.header-nav { display: none; flex: 1; }
-.nav-list { display: flex; align-items: center; gap: var(--space-1); justify-content: center; list-style: none; margin: 0; padding: 0; }
-.nav-link { padding: var(--space-2) var(--space-3); font-size: var(--font-size-md); font-weight: var(--font-weight-medium); color: var(--color-text-secondary); border-radius: var(--radius-sm); transition: color 0.18s, background 0.18s; white-space: nowrap; text-decoration: none; }
-.nav-link:hover { color: var(--color-text-primary); background: rgba(255, 255, 255, 0.06); }
+.header-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+.header-logo img { height: 36px; width: auto; display: block; }
+.header-logo-text {
+  font-size: 18px; font-weight: 700;
+  color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;
+  letter-spacing: -0.02em; font-family: 'Inter', sans-serif;
+}
+.header-right { display: none !important; align-items: center; gap: 32px; }
+.header-nav { display: flex; }
+.nav-list { display: flex; align-items: center; gap: 8px; justify-content: center; list-style: none; margin: 0; padding: 0; }
+.nav-link {
+  padding: 10px 18px; font-size: 15px; font-weight: 500;
+  color: #D1D5DC !important; -webkit-text-fill-color: #D1D5DC !important;
+  border-radius: 12px; transition: color 0.18s, background 0.18s, -webkit-text-fill-color 0.18s;
+  white-space: nowrap; text-decoration: none; font-family: 'Inter', sans-serif;
+}
+.nav-link:hover {
+  color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;
+  background: rgba(255, 255, 255, 0.06);
+}
 
 /* ---------- CTA BUTTON ---------- */
-.btn-primary {
-  display: inline-flex; align-items: center; justify-content: center;
-  gap: var(--space-2); padding: var(--space-3) var(--space-6);
-  font-size: var(--font-size-md); font-weight: var(--font-weight-semibold);
-  color: #0B0B1E; border-radius: var(--radius-pill);
-  background: var(--color-accent-gold);
+.header-btn {
+  display: none !important; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 28px; font-size: 15px; font-weight: 600;
+  color: #0B0B1E !important; -webkit-text-fill-color: #0B0B1E !important;
+  border-radius: 80px; background: #FFD166 !important;
   box-shadow: 0 0 24px rgba(255, 209, 102, 0.35);
-  border: none; cursor: pointer;
-  transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
-  white-space: nowrap; text-decoration: none;
-  font-family: var(--font-family-base);
+  border: none; cursor: pointer; transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap; text-decoration: none; font-family: 'Inter', sans-serif;
 }
-.btn-primary:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 0 40px rgba(255, 209, 102, 0.55); }
-.btn-primary .btn-icon { width: 16px; height: 16px; flex-shrink: 0; }
-.header-btn { display: none; }
+.header-btn:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 0 40px rgba(255, 209, 102, 0.55); }
+.header-btn .btn-icon { width: 16px; height: 16px; flex-shrink: 0; }
 
 /* ---------- HAMBURGER ---------- */
-.header-hamburger {
+.pcg-menu-trigger {
   display: flex; flex-direction: column; gap: 5px; justify-content: center;
   width: 36px; height: 36px; background: transparent;
   border: none; padding: 4px; border-radius: 8px; cursor: pointer;
 }
-.hamburger-line { display: block; height: 2px; width: 100%; background: var(--color-text-secondary); border-radius: 2px; }
+.pcg-menu-trigger span { display: block; height: 2px; width: 100%; background: #D1D5DC; border-radius: 2px; }
 
 /* ---------- RESPONSIVE ---------- */
 @media (min-width: 768px) {
-  .header-hamburger { display: none; }
-  .header-nav { display: flex; }
-  .header-btn { display: inline-flex; }
-  .header-inner { padding: var(--space-3) var(--space-8); }
+  .pcg-menu-trigger { display: none !important; }
+  .header-right { display: flex !important; }
+  .header-btn { display: inline-flex !important; }
+  .header-inner { padding: 14px 32px; }
 }
 @media (min-width: 1200px) {
-  .header-inner { padding: var(--space-4) var(--space-8); }
-  .nav-link { font-size: var(--font-size-base); }
+  .header-inner { padding: 16px 48px; }
+  .nav-link { font-size: 16px; padding: 10px 20px; }
+  .header-logo img { height: 40px; }
+  .header-btn { padding: 14px 32px; font-size: 16px; }
 }
 </style>
 
 <header id="header" class="site-header" role="banner">
   <div class="header-inner">
-
     <a href="/" class="header-logo" aria-label="Precision Consulting Group home">
-  <img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/precision-logo.svg" alt="Precision" height="36" width="auto">
-</a>
-
-
-    <nav class="header-nav" role="navigation" aria-label="Primary navigation">
-      <ul class="nav-list" role="list">
-        <li><a href="#" class="nav-link">Home</a></li>
-        <li><a href="#why-precision" class="nav-link">About Us</a></li>
-        <li><a href="#services" class="nav-link">Partners</a></li>
-      </ul>
-    </nav>
-
-    <a href="https://calendly.com/ammarah-bumx/30min" class="btn-primary header-btn" role="button">
-      Book a Call
-      <img class="btn-icon" src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/icon-arrow-right.svg" alt="" aria-hidden="true">
+      <img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/precision-logo.svg" alt="Precision" height="40" width="auto">
+      <span class="header-logo-text">Precision</span>
     </a>
-
-    <button class="header-hamburger" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-nav">
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-    </button>
-
+    <div class="header-right">
+      <nav class="header-nav" role="navigation" aria-label="Primary navigation">
+        <ul class="nav-list" role="list">
+          <li><a href="https://goprecision.co" class="nav-link">Home</a></li>
+          <li><a href="#founder-bio" class="nav-link">About Us</a></li>
+          <li><a href="#services" class="nav-link">Partners</a></li>
+        </ul>
+      </nav>
+      <a href="https://calendly.com/ammarah-bumx/30min" class="header-btn" role="button">
+        Book a Call
+        <img class="btn-icon" src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/icon-arrow-right.svg" alt="" aria-hidden="true">
+      </a>
+    </div>
+    <div class="pcg-menu-trigger" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
   </div>
   <div class="header-glow-line" aria-hidden="true"></div>
 </header>
+
+<script>
+(function() {
+  var header = document.querySelector('.site-header');
+  var trigger = document.querySelector('.pcg-menu-trigger');
+  var headerRight = document.querySelector('.header-right');
+  var headerBtn = document.querySelector('.header-btn');
+
+  /* ── FIX STICKY: clear overflow + containing-block triggers on
+     EVERY ancestor of the header. position:sticky breaks if ANY
+     ancestor has overflow other than visible, or creates a
+     containing block via transform/filter/will-change/contain. ── */
+  if (header) {
+    var ancestor = header.parentElement;
+    while (ancestor && ancestor !== document.documentElement) {
+      ancestor.style.setProperty('overflow', 'visible', 'important');
+      ancestor.style.setProperty('transform', 'none', 'important');
+      ancestor.style.setProperty('filter', 'none', 'important');
+      ancestor.style.setProperty('will-change', 'auto', 'important');
+      ancestor.style.setProperty('contain', 'none', 'important');
+      ancestor.style.setProperty('perspective', 'none', 'important');
+      ancestor = ancestor.parentElement;
+    }
+  }
+
+  /* ── Enforce z-index and overflow on the header ── */
+  if (header) {
+    header.style.setProperty('z-index', '9999', 'important');
+    header.style.setProperty('overflow', 'visible', 'important');
+  }
+
+  /* ── FIX HORIZONTAL SCROLL: clip each sibling section ──
+     Each section uses overflow:clip in its own CSS, but this is
+     a safety net that catches any section we missed.
+     IMPORTANT: skip the header AND any Bricks wrapper that
+     contains the header — clipping those hides the header. */
+  var brxContent = document.getElementById('brx-content');
+  if (brxContent) {
+    var sections = brxContent.children;
+    for (var i = 0; i < sections.length; i++) {
+      var isHeaderOrWrapper = (sections[i] === header) ||
+                              (header && sections[i].contains && sections[i].contains(header));
+      if (!isHeaderOrWrapper) {
+        sections[i].style.setProperty('overflow', 'clip', 'important');
+        sections[i].style.setProperty('max-width', '100%', 'important');
+      }
+    }
+    brxContent.style.setProperty('padding-top', '0', 'important');
+    brxContent.style.setProperty('margin-top', '0', 'important');
+  }
+
+  /* ── FIX PADDING: clear top spacing on html + body ──
+     Desktop (≥783px): admin bar is position:fixed — KEEP html margin-top
+       so content sits below the fixed admin bar.
+     Mobile (<783px): admin bar is position:absolute (scrolls away) — clear
+       html margin-top to avoid a gap; the sticky header uses a dynamic top
+       offset instead (see applyResponsive). */
+  if (window.innerWidth < 783) {
+    document.documentElement.style.setProperty('margin-top', '0', 'important');
+  }
+  document.documentElement.style.setProperty('padding-top', '0', 'important');
+  document.body.style.setProperty('padding-top', '0', 'important');
+  document.body.style.setProperty('margin-top', '0', 'important');
+
+  /* ================================================================
+     FULL-SCREEN MOBILE NAV — covers the entire viewport.
+     Contains its own header bar (logo + close), centered nav links,
+     and CTA button. Matches the Figma design reference.
+     This replaces the previous side-panel that caused horizontal
+     scroll issues.
+     ================================================================ */
+  var navOverlay = document.createElement('div');
+  navOverlay.style.cssText = 'display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:100000;background:#0B0B1E;flex-direction:column;font-family:Inter,system-ui,-apple-system,sans-serif;overflow-y:auto;overflow-x:hidden;';
+  navOverlay.innerHTML = ''
+    /* ── Header bar inside overlay ── */
+    + '<div style="display:flex;align-items:center;justify-content:space-between;padding:14px 24px;flex-shrink:0">'
+    +   '<a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0" aria-label="Home">'
+    +     '<img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/precision-logo.svg" alt="Precision" style="display:block;height:36px;width:auto;max-height:36px">'
+    +     '<span style="font-size:18px;font-weight:700;color:#FFFFFF;-webkit-text-fill-color:#FFFFFF;letter-spacing:-0.02em;font-family:Inter,sans-serif">Precision</span>'
+    +   '</a>'
+    +   '<button class="nav-close-btn" aria-label="Close menu" style="width:36px;height:36px;background:transparent;border:none;cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center">'
+    +     '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#D1D5DC" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>'
+    +   '</button>'
+    + '</div>'
+    /* ── Glow line ── */
+    + '<div style="height:1px;background:linear-gradient(90deg,transparent 0%,rgba(0,191,255,0.3) 30%,rgba(123,104,238,0.3) 70%,transparent 100%);flex-shrink:0" aria-hidden="true"></div>'
+    /* ── Centered nav links + CTA ── */
+    + '<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;gap:12px;padding:40px 24px">'
+    +   '<a href="https://goprecision.co" class="mob-nav-link" style="padding:14px 20px;font-size:22px;font-weight:500;color:#FFFFFF;-webkit-text-fill-color:#FFFFFF;text-decoration:none;font-family:Inter,sans-serif">Home</a>'
+    +   '<a href="#founder-bio" class="mob-nav-link" style="padding:14px 20px;font-size:22px;font-weight:500;color:#FFFFFF;-webkit-text-fill-color:#FFFFFF;text-decoration:none;font-family:Inter,sans-serif">About Us</a>'
+    +   '<a href="#services" class="mob-nav-link" style="padding:14px 20px;font-size:22px;font-weight:500;color:#FFFFFF;-webkit-text-fill-color:#FFFFFF;text-decoration:none;font-family:Inter,sans-serif">Partners</a>'
+    +   '<a href="https://calendly.com/ammarah-bumx/30min" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:20px;padding:16px 36px;font-size:18px;font-weight:600;color:#0B0B1E;-webkit-text-fill-color:#0B0B1E;border-radius:80px;background:#FFD166;box-shadow:0 0 24px rgba(255,209,102,0.35);border:none;cursor:pointer;text-decoration:none;font-family:Inter,sans-serif">'
+    +     'Book a Call'
+    +     '<img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/icon-arrow-right.svg" alt="" width="18" height="18" style="flex-shrink:0">'
+    +   '</a>'
+    + '</div>';
+  document.body.appendChild(navOverlay);
+
+  var closeBtn = navOverlay.querySelector('.nav-close-btn');
+  var navLinks = navOverlay.querySelectorAll('a[href^="#"]');
+
+  function openNav() {
+    navOverlay.style.display = 'flex';
+    document.body.style.setProperty('overflow-y', 'hidden', 'important');
+  }
+
+  function closeNav() {
+    navOverlay.style.display = 'none';
+    document.body.style.removeProperty('overflow-y');
+  }
+
+  closeBtn.addEventListener('click', closeNav);
+  for (var i = 0; i < navLinks.length; i++) {
+    navLinks[i].addEventListener('click', closeNav);
+  }
+
+  /* ── Original hamburger trigger in the HTML header ── */
+  if (trigger) trigger.addEventListener('click', openNav);
+
+  /* ── Responsive toggle ── */
+  var stickyScrollHandler = null;
+  function applyResponsive() {
+    /* Clean up previous scroll handler (avoids duplicates on resize) */
+    if (stickyScrollHandler) {
+      window.removeEventListener('scroll', stickyScrollHandler);
+      stickyScrollHandler = null;
+    }
+
+    if (window.innerWidth >= 768) {
+      /* Desktop: header scrolls with page (NOT sticky) — NO changes here */
+      if (header) {
+        header.style.removeProperty('display');
+        header.style.setProperty('position', 'relative', 'important');
+        header.style.removeProperty('top');
+        header.style.removeProperty('margin-bottom');
+      }
+      closeNav();
+      if (headerRight) headerRight.style.setProperty('display', 'flex', 'important');
+      if (headerBtn) headerBtn.style.setProperty('display', 'inline-flex', 'important');
+      if (trigger) trigger.style.setProperty('display', 'none', 'important');
+    } else {
+      /* Mobile: sticky header */
+      if (header) {
+        header.style.setProperty('position', 'sticky', 'important');
+        header.style.setProperty('top', '0', 'important');
+      }
+      if (headerRight) headerRight.style.setProperty('display', 'none', 'important');
+      if (headerBtn) headerBtn.style.setProperty('display', 'none', 'important');
+      if (trigger) trigger.style.setProperty('display', 'flex', 'important');
+    }
+  }
+  applyResponsive();
+  window.addEventListener('resize', applyResponsive);
+})();
+</script>

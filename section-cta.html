@@ -318,7 +318,7 @@
 
         <div class="cta-checklist-link">
           <span class="cta-checklist-label">Prefer a quick guide?</span>
-          <a href="#" class="cta-checklist-btn" role="button">
+          <a href="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/Precisions-CRO-Checklist.pdf" class="cta-checklist-btn" download="Precisions-CRO-Checklist.pdf">
             Download our Free 10-Point CRO Checklist &rarr;
           </a>
         </div>
@@ -327,7 +327,7 @@
 
       <!-- Right: Calendly inline embed -->
       <div class="cta-calendar" aria-label="Book a discovery call">
-        <div class="calendly-inline-widget"
+        <div class="calendly-inline-widget" id="calendly-embed"
              data-url="https://calendly.com/ammarah-bumx/30min?hide_event_type_details=0&hide_gdpr_banner=1&primary_color=00bfff"
              style="min-width:min(280px,100%);height:480px;"></div>
       </div>
@@ -338,5 +338,19 @@
 
 </section>
 
-<!-- Calendly external script -->
+<!-- Calendly: load script + force immediate init (no lazy scroll) -->
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script>
+(function() {
+  var calendlyUrl = 'https://calendly.com/ammarah-bumx/30min?hide_event_type_details=0&hide_gdpr_banner=1&primary_color=00bfff';
+  var target = document.getElementById('calendly-embed');
+  function init() {
+    if (window.Calendly && target) {
+      Calendly.initInlineWidget({ url: calendlyUrl, parentElement: target });
+    } else {
+      setTimeout(init, 150);
+    }
+  }
+  init();
+})();
+</script>
