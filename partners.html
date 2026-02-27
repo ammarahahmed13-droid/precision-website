@@ -516,7 +516,7 @@
   width: 100%;
   position: relative;
   background: #0B0B1E;
-  padding: 80px 24px;
+  padding: 40px 24px 80px;
   overflow: hidden;
   font-family: 'Inter', sans-serif;
 }
@@ -852,7 +852,7 @@
 /* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 767px) {
   .pcg-partner-gm {
-    padding: 40px 20px 60px;
+    padding: 24px 20px 60px;
   }
   .pcg-partner-gm .gm-grid {
     grid-template-columns: 1fr;
@@ -1061,146 +1061,6 @@
   </div>
 </section>
 
-
-<!-- ============================================================
-     SECTION 4: CTA BANNER
-     Horizontal: text left · button right
-     ============================================================ -->
-<style>
-/* ── Reset & Section ─────────────────────────────────────── */
-.pcg-partners-cta *,
-.pcg-partners-cta *::before,
-.pcg-partners-cta *::after {
-  margin: 0; padding: 0; box-sizing: border-box;
-}
-
-.pcg-partners-cta {
-  width: 100%;
-  position: relative;
-  background: #0B0B1E;
-  padding: 0 24px 80px;
-  overflow: hidden;
-  font-family: 'Inter', sans-serif;
-}
-
-.pcg-partners-cta .pcta-inner {
-  max-width: 1120px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-/* Top border glow line */
-.pcg-partners-cta .pcta-bar {
-  border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 56px 0 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-}
-
-.pcg-partners-cta .pcta-text {
-  font-size: 28px;
-  font-weight: 400;
-  color: #D1D5DC;
-  line-height: 1.4;
-  letter-spacing: -0.01em;
-}
-.pcg-partners-cta .pcta-text-cyan {
-  color: #00BFFF;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-thickness: 2px;
-  font-weight: 500;
-}
-.pcg-partners-cta .pcta-text-magenta {
-  color: #C71585;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-thickness: 2px;
-  font-weight: 500;
-}
-
-.pcg-partners-cta .pcta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 18px 36px;
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  color: #0B0B1E;
-  background: #FFD166;
-  border: none;
-  border-radius: 80px;
-  cursor: pointer;
-  text-decoration: none;
-  white-space: nowrap;
-  box-shadow: 0 0 24px rgba(255,209,102,0.30);
-  transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-}
-.pcg-partners-cta .pcta-btn:hover {
-  opacity: 0.92;
-  transform: translateY(-1px);
-  box-shadow: 0 0 40px rgba(255,209,102,0.50);
-}
-.pcg-partners-cta .pcta-btn-arrow {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #0B0B1E;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.pcg-partners-cta .pcta-btn-arrow svg {
-  width: 14px;
-  height: 14px;
-}
-
-/* ── Responsive ──────────────────────────────────────────── */
-@media (max-width: 767px) {
-  .pcg-partners-cta {
-    padding: 0 20px 60px;
-  }
-  .pcg-partners-cta .pcta-bar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 28px;
-    padding-top: 40px;
-  }
-  .pcg-partners-cta .pcta-text {
-    font-size: 22px;
-  }
-  .pcg-partners-cta .pcta-btn {
-    padding: 16px 28px;
-    font-size: 15px;
-  }
-}
-</style>
-
-<section class="pcg-partners-cta" aria-label="Call to action">
-  <div class="pcta-inner">
-    <div class="pcta-bar">
-
-      <p class="pcta-text">
-        Ready to accelerate your <span class="pcta-text-cyan">conversion</span><br>
-        and <span class="pcta-text-magenta">revenue</span> growth?
-      </p>
-
-      <a href="https://calendly.com/ammarah-bumx/30min" class="pcta-btn" role="button">
-        Book a Call
-        <span class="pcta-btn-arrow" aria-hidden="true">
-          <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="#FFD166" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-      </a>
-
-    </div>
-  </div>
-</section>
 
 
 <!-- ============================================================
