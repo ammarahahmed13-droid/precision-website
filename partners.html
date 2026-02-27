@@ -103,28 +103,6 @@
   margin-bottom: 64px;
 }
 
-.pcg-partners-hero .ph-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 18px;
-  border-radius: 80px;
-  background: rgba(123,104,238,0.10);
-  border: 1px solid rgba(123,104,238,0.25);
-  font-size: 13px;
-  font-weight: 600;
-  color: #FFFFFF;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 32px;
-}
-
-.pcg-partners-hero .ph-badge-icon {
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-}
-
 .pcg-partners-hero .ph-heading {
   font-size: 48px;
   font-weight: 700;
@@ -363,10 +341,6 @@
 
     <!-- Hero header -->
     <div class="ph-header">
-      <div class="ph-badge">
-        <img class="ph-badge-icon" src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/icon-verified.svg" alt="" aria-hidden="true">
-        Verified Ecosystem Partners
-      </div>
       <h1 id="partners-hero-heading" class="ph-heading">
         Growing Faster,<br>
         <span class="ph-heading-gradient">Together.</span>
@@ -572,12 +546,27 @@
   z-index: 1;
 }
 
-/* ── 2 Column layout ─────────────────────────────────────── */
+/* ── Grid layout ─────────────────────────────────────────── */
 .pcg-partner-gm .gm-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 64px;
+  column-gap: 64px;
+  row-gap: 40px;
   align-items: start;
+}
+.pcg-partner-gm .gm-left {
+  grid-column: 1;
+  grid-row: 1;
+}
+.pcg-partner-gm .gm-right {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  align-self: center;
+  position: relative;
+}
+.pcg-partner-gm .gm-cta-card {
+  grid-column: 1;
+  grid-row: 2;
 }
 
 /* ── Left column: content ────────────────────────────────── */
@@ -634,7 +623,6 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  margin-bottom: 40px;
 }
 
 .pcg-partner-gm .gm-bullet {
@@ -727,9 +715,6 @@
 }
 
 /* ── Right column: partnership visual card ────────────────── */
-.pcg-partner-gm .gm-right {
-  position: relative;
-}
 
 /* "Free Session Included" floating badge */
 .pcg-partner-gm .gm-float-badge {
@@ -873,45 +858,54 @@
   text-transform: uppercase;
 }
 
-/* ── Responsive ──────────────────────────────────────────── */
+/* ── Mobile (<768px) ─────────────────────────────────────── */
 @media (max-width: 767px) {
   .pcg-partner-gm {
     padding: 60px 20px;
   }
   .pcg-partner-gm .gm-grid {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 32px;
   }
+  /* Reset grid positioning for mobile single-col flow */
   .pcg-partner-gm .gm-left {
+    grid-column: auto;
+    grid-row: auto;
+    order: 1;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
   }
-  .pcg-partner-gm .gm-heading {
+  .pcg-partner-gm .gm-right {
+    grid-column: auto;
+    grid-row: auto;
+    order: 2;
+    align-self: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .pcg-partner-gm .gm-cta-card {
+    grid-column: auto;
+    grid-row: auto;
+    order: 3;
+    padding: 24px 20px;
+    width: 100%;
     text-align: center;
-    align-self: center;
   }
-  .pcg-partner-gm .gm-badge {
-    align-self: center;
-    margin-bottom: 20px;
-  }
-  .pcg-partner-gm .gm-left .gm-heading {
+  .pcg-partner-gm .gm-heading {
     font-size: 40px;
     letter-spacing: -0.02em;
     text-align: center;
     align-self: center;
   }
+  .pcg-partner-gm .gm-badge {
+    align-self: center;
+    margin-bottom: 28px;
+  }
   .pcg-partner-gm .gm-bullet-desc {
     font-size: 14px;
-  }
-  .pcg-partner-gm .gm-cta-text {
-    font-size: 15px;
-  }
-  .pcg-partner-gm .gm-right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
   .pcg-partner-gm .gm-float-badge {
     position: relative;
@@ -936,22 +930,21 @@
   .pcg-partner-gm .gm-stats {
     gap: 12px;
   }
-  .pcg-partner-gm .gm-cta-card {
-    padding: 24px 20px;
-    width: 100%;
-    text-align: center;
-  }
   .pcg-partner-gm .gm-cta-btn {
     justify-content: center;
   }
+  .pcg-partner-gm .gm-cta-text {
+    font-size: 15px;
+  }
 }
 
+/* ── Tablet (768px–1199px) ───────────────────────────────── */
 @media (min-width: 768px) and (max-width: 1199px) {
   .pcg-partner-gm .gm-heading {
     font-size: 64px;
   }
   .pcg-partner-gm .gm-grid {
-    gap: 40px;
+    column-gap: 40px;
   }
 }
 
@@ -1025,21 +1018,6 @@
 
         </div>
 
-        <!-- CTA card -->
-        <div class="gm-cta-card">
-          <h3 class="gm-cta-title">Claim Your Free Session</h3>
-          <p class="gm-cta-text">
-            As part of our partnership, new users to GrowthMentor can avail a
-            free mentoring session with any mentor of their choice.
-          </p>
-          <a href="https://app.growthmentor.com/search?ref=61028f2fb9" class="gm-cta-btn" target="_blank" rel="noopener noreferrer">
-            Get Your Free Session
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="#0B0B1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-        </div>
-
       </div>
 
       <!-- Right column: partnership visual -->
@@ -1102,6 +1080,21 @@
 
         </div>
 
+      </div>
+
+      <!-- CTA card (separate grid child for mobile reordering) -->
+      <div class="gm-cta-card">
+        <h3 class="gm-cta-title">Claim Your Free Session</h3>
+        <p class="gm-cta-text">
+          As part of our partnership, new users to GrowthMentor can avail a
+          free mentoring session with any mentor of their choice.
+        </p>
+        <a href="https://app.growthmentor.com/search?ref=61028f2fb9" class="gm-cta-btn" target="_blank" rel="noopener noreferrer">
+          Get Your Free Session
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="#0B0B1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
 
     </div>
