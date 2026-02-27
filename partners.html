@@ -169,30 +169,12 @@
   transform: translateY(-4px);
 }
 
-/* Left edge glow per card — subtle short wash */
-.pcg-partners-hero .ph-card::before {
-  content: '';
-  position: absolute;
-  top: 20px; left: 0;
-  width: 1.5px;
-  height: 48px;
-  border-radius: 0 1px 1px 0;
-  filter: blur(1px);
-}
-.pcg-partners-hero .ph-card--cyan::before {
-  background: linear-gradient(to bottom, rgba(0,191,255,0.35), rgba(0,191,255,0));
-}
+/* Hover glow per card */
 .pcg-partners-hero .ph-card--cyan:hover {
   box-shadow: 0 8px 30px rgba(0,191,255,0.10);
 }
-.pcg-partners-hero .ph-card--purple::before {
-  background: linear-gradient(to bottom, rgba(123,104,238,0.35), rgba(123,104,238,0));
-}
 .pcg-partners-hero .ph-card--purple:hover {
   box-shadow: 0 8px 30px rgba(123,104,238,0.10);
-}
-.pcg-partners-hero .ph-card--magenta::before {
-  background: linear-gradient(to bottom, rgba(199,21,133,0.35), rgba(199,21,133,0));
 }
 .pcg-partners-hero .ph-card--magenta:hover {
   box-shadow: 0 8px 30px rgba(199,21,133,0.10);
