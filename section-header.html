@@ -1,6 +1,7 @@
 <!-- ============================================================
-     PRECISION — HEADER / NAV BAR (Bricks Code Block)
-     Sticky header with logo, navigation, CTA, hamburger menu
+     PRECISION — HEADER / NAV BAR (Bricks Template)
+     Sticky on mobile, scrolls on desktop
+     Nuclear option: header moved to <body> root to escape Bricks wrappers
      ============================================================ -->
 
 <style>
@@ -110,41 +111,48 @@
   var trigger = document.querySelector('.pcg-menu-trigger');
   var headerRight = document.querySelector('.header-right');
   var headerBtn = document.querySelector('.header-btn');
+  if (!header) return;
 
-  /* ── FIX STICKY: clear overflow + containing-block triggers on
-     EVERY ancestor of the header. position:sticky breaks if ANY
-     ancestor has overflow other than visible, or creates a
-     containing block via transform/filter/will-change/contain. ── */
-  if (header) {
-    var ancestor = header.parentElement;
-    while (ancestor && ancestor !== document.documentElement) {
-      ancestor.style.setProperty('overflow', 'visible', 'important');
-      ancestor.style.setProperty('transform', 'none', 'important');
-      ancestor.style.setProperty('filter', 'none', 'important');
-      ancestor.style.setProperty('will-change', 'auto', 'important');
-      ancestor.style.setProperty('contain', 'none', 'important');
-      ancestor.style.setProperty('perspective', 'none', 'important');
-      ancestor = ancestor.parentElement;
-    }
+  /* ================================================================
+     NUCLEAR OPTION: Move header to <body> root.
+     Bricks wraps Code Block output in multiple parent divs that
+     break position:sticky (overflow, transform, contain, etc.).
+     Moving the header to body escapes ALL Bricks wrappers.
+     ================================================================ */
+  document.body.insertBefore(header, document.body.firstChild);
+
+  /* Re-query trigger inside header after DOM move */
+  trigger = header.querySelector('.pcg-menu-trigger');
+  headerRight = header.querySelector('.header-right');
+  headerBtn = header.querySelector('.header-btn');
+
+  /* ── JS-enforce critical styles (Bricks overrides CSS !important) ── */
+  header.style.setProperty('background', 'rgba(11,11,30,0.92)', 'important');
+  header.style.setProperty('backdrop-filter', 'blur(20px) saturate(160%)', 'important');
+  header.style.setProperty('-webkit-backdrop-filter', 'blur(20px) saturate(160%)', 'important');
+  header.style.setProperty('z-index', '9999', 'important');
+  header.style.setProperty('overflow', 'visible', 'important');
+  header.style.setProperty('width', '100%', 'important');
+
+  /* ── Clear overflow + containing-block triggers on ancestors ── */
+  var ancestor = header.parentElement;
+  while (ancestor && ancestor !== document.documentElement) {
+    ancestor.style.setProperty('overflow', 'visible', 'important');
+    ancestor.style.setProperty('transform', 'none', 'important');
+    ancestor.style.setProperty('filter', 'none', 'important');
+    ancestor.style.setProperty('will-change', 'auto', 'important');
+    ancestor.style.setProperty('contain', 'none', 'important');
+    ancestor.style.setProperty('perspective', 'none', 'important');
+    ancestor = ancestor.parentElement;
   }
 
-  /* ── Enforce z-index and overflow on the header ── */
-  if (header) {
-    header.style.setProperty('z-index', '9999', 'important');
-    header.style.setProperty('overflow', 'visible', 'important');
-  }
-
-  /* ── FIX HORIZONTAL SCROLL: clip each sibling section ──
-     Each section uses overflow:clip in its own CSS, but this is
-     a safety net that catches any section we missed.
-     IMPORTANT: skip the header AND any Bricks wrapper that
-     contains the header — clipping those hides the header. */
+  /* ── FIX HORIZONTAL SCROLL: clip each sibling section ── */
   var brxContent = document.getElementById('brx-content');
   if (brxContent) {
     var sections = brxContent.children;
     for (var i = 0; i < sections.length; i++) {
       var isHeaderOrWrapper = (sections[i] === header) ||
-                              (header && sections[i].contains && sections[i].contains(header));
+                              (sections[i].contains && sections[i].contains(header));
       if (!isHeaderOrWrapper) {
         sections[i].style.setProperty('overflow', 'clip', 'important');
         sections[i].style.setProperty('max-width', '100%', 'important');
@@ -154,12 +162,11 @@
     brxContent.style.setProperty('margin-top', '0', 'important');
   }
 
-  /* ── FIX PADDING: clear top spacing on html + body ──
+  /* ── FIX PADDING: admin bar handling ──
      Desktop (≥783px): admin bar is position:fixed — KEEP html margin-top
-       so content sits below the fixed admin bar.
      Mobile (<783px): admin bar is position:absolute (scrolls away) — clear
-       html margin-top to avoid a gap; the sticky header uses a dynamic top
-       offset instead (see applyResponsive). */
+       html margin-top to avoid a gap */
+  var adminBar = document.getElementById('wpadminbar');
   if (window.innerWidth < 783) {
     document.documentElement.style.setProperty('margin-top', '0', 'important');
   }
@@ -168,16 +175,11 @@
   document.body.style.setProperty('margin-top', '0', 'important');
 
   /* ================================================================
-     FULL-SCREEN MOBILE NAV — covers the entire viewport.
-     Contains its own header bar (logo + close), centered nav links,
-     and CTA button. Matches the Figma design reference.
-     This replaces the previous side-panel that caused horizontal
-     scroll issues.
+     FULL-SCREEN MOBILE NAV
      ================================================================ */
   var navOverlay = document.createElement('div');
   navOverlay.style.cssText = 'display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:100000;background:#0B0B1E;flex-direction:column;font-family:Inter,system-ui,-apple-system,sans-serif;overflow-y:auto;overflow-x:hidden;';
   navOverlay.innerHTML = ''
-    /* ── Header bar inside overlay ── */
     + '<div style="display:flex;align-items:center;justify-content:space-between;padding:14px 24px;flex-shrink:0">'
     +   '<a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0" aria-label="Home">'
     +     '<img src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/precision-logo.svg" alt="Precision" style="display:block;height:36px;width:auto;max-height:36px">'
@@ -187,9 +189,7 @@
     +     '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#D1D5DC" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>'
     +   '</button>'
     + '</div>'
-    /* ── Glow line ── */
     + '<div style="height:1px;background:linear-gradient(90deg,transparent 0%,rgba(0,191,255,0.3) 30%,rgba(123,104,238,0.3) 70%,transparent 100%);flex-shrink:0" aria-hidden="true"></div>'
-    /* ── Centered nav links + CTA ── */
     + '<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;gap:12px;padding:40px 24px">'
     +   '<a href="https://goprecision.co" class="mob-nav-link" style="padding:14px 20px;font-size:22px;font-weight:500;color:#FFFFFF;-webkit-text-fill-color:#FFFFFF;text-decoration:none;font-family:Inter,sans-serif">Home</a>'
     +   '<a href="/#founder-bio" class="mob-nav-link" style="padding:14px 20px;font-size:22px;font-weight:500;color:#FFFFFF;-webkit-text-fill-color:#FFFFFF;text-decoration:none;font-family:Inter,sans-serif">About Us</a>'
@@ -202,7 +202,7 @@
   document.body.appendChild(navOverlay);
 
   var closeBtn = navOverlay.querySelector('.nav-close-btn');
-  var navLinks = navOverlay.querySelectorAll('a[href^="#"]');
+  var mobNavLinks = navOverlay.querySelectorAll('.mob-nav-link');
 
   function openNav() {
     navOverlay.style.display = 'flex';
@@ -215,40 +215,26 @@
   }
 
   closeBtn.addEventListener('click', closeNav);
-  for (var i = 0; i < navLinks.length; i++) {
-    navLinks[i].addEventListener('click', closeNav);
+  for (var i = 0; i < mobNavLinks.length; i++) {
+    mobNavLinks[i].addEventListener('click', closeNav);
   }
 
-  /* ── Original hamburger trigger in the HTML header ── */
   if (trigger) trigger.addEventListener('click', openNav);
 
   /* ── Responsive toggle ── */
-  var stickyScrollHandler = null;
   function applyResponsive() {
-    /* Clean up previous scroll handler (avoids duplicates on resize) */
-    if (stickyScrollHandler) {
-      window.removeEventListener('scroll', stickyScrollHandler);
-      stickyScrollHandler = null;
-    }
-
     if (window.innerWidth >= 768) {
-      /* Desktop: header scrolls with page (NOT sticky) — NO changes here */
-      if (header) {
-        header.style.removeProperty('display');
-        header.style.setProperty('position', 'relative', 'important');
-        header.style.removeProperty('top');
-        header.style.removeProperty('margin-bottom');
-      }
-      closeNav();
+      /* Desktop: header scrolls with page (NOT sticky) */
+      header.style.setProperty('position', 'relative', 'important');
+      header.style.removeProperty('top');
       if (headerRight) headerRight.style.setProperty('display', 'flex', 'important');
       if (headerBtn) headerBtn.style.setProperty('display', 'inline-flex', 'important');
       if (trigger) trigger.style.setProperty('display', 'none', 'important');
+      closeNav();
     } else {
       /* Mobile: sticky header */
-      if (header) {
-        header.style.setProperty('position', 'sticky', 'important');
-        header.style.setProperty('top', '0', 'important');
-      }
+      header.style.setProperty('position', 'sticky', 'important');
+      header.style.setProperty('top', '0', 'important');
       if (headerRight) headerRight.style.setProperty('display', 'none', 'important');
       if (headerBtn) headerBtn.style.setProperty('display', 'none', 'important');
       if (trigger) trigger.style.setProperty('display', 'flex', 'important');
