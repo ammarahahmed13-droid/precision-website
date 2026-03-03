@@ -529,9 +529,10 @@
   .pcg-faq .faq-cta-card-text {
     font-size: 16px;
   }
-  /* Calendly */
-  .pcg-faq .faq-calendly-wrap .calendly-inline-widget {
-    height: 560px;
+  /* Calendly — constrain width on desktop */
+  .pcg-faq .faq-calendly-wrap {
+    max-width: 520px;
+    margin: 0 auto;
   }
 }
 
@@ -770,13 +771,13 @@
 
     <!-- "Prefer a quick guide?" download card -->
     <div class="faq-guide-card">
-      <div class="faq-guide-icon-wrap">
+      <a href="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/02/Precisions-CRO-Checklist.pdf" class="faq-guide-icon-wrap" download="Precisions-CRO-Checklist.pdf" aria-label="Download CRO Checklist">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
           <polyline points="7 10 12 15 17 10"/>
           <line x1="12" y1="15" x2="12" y2="3"/>
         </svg>
-      </div>
+      </a>
       <div class="faq-guide-content">
         <h3 class="faq-guide-heading">Prefer a Quick Guide?</h3>
         <p class="faq-guide-text">
