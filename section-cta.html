@@ -328,6 +328,7 @@
       <!-- Right: Calendly inline embed (lazy-loaded) -->
       <div class="cta-calendar" aria-label="Book a discovery call">
         <div class="calendly-inline-widget" id="calendly-embed"
+             data-url="https://calendly.com/ammarah-bumx/30min?hide_event_type_details=0&hide_gdpr_banner=1&primary_color=00bfff"
              style="min-width:min(280px,100%);height:480px;"></div>
       </div>
 
@@ -340,9 +341,8 @@
 <!-- Calendly: lazy-load widget.js only when CTA section enters viewport -->
 <script>
 (function() {
-  var target = document.getElementById('calendly-embed');
-  if (!target) return;
-  var url = 'https://calendly.com/ammarah-bumx/30min?hide_event_type_details=0&hide_gdpr_banner=1&primary_color=00bfff';
+  var el = document.getElementById('calendly-embed');
+  if (!el) return;
   var loaded = false;
 
   function load() {
@@ -350,18 +350,13 @@
     loaded = true;
     var s = document.createElement('script');
     s.src = 'https://assets.calendly.com/assets/external/widget.js';
-    s.onload = function() {
-      if (window.Calendly) {
-        Calendly.initInlineWidget({ url: url, parentElement: target });
-      }
-    };
     document.head.appendChild(s);
   }
 
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function(entries, obs) {
       if (entries[0].isIntersecting) { load(); obs.disconnect(); }
-    }, { rootMargin: '200px' }).observe(target);
+    }, { rootMargin: '400px 0px' }).observe(el);
   } else {
     load();
   }
