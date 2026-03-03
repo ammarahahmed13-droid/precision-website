@@ -599,7 +599,7 @@
 
           <div class="roi-baseline">
             <span class="roi-baseline-label">Current Annual Revenue</span>
-            <span class="roi-baseline-value">$900,000</span>
+            <span class="roi-baseline-value">$900K</span>
           </div>
         </div>
 
@@ -662,7 +662,7 @@
 
           <div class="roi-maximum-card">
             <span class="roi-maximum-label">Potential Annual Revenue</span>
-            <span class="roi-maximum-value">$1,701,000</span>
+            <span class="roi-maximum-value">$1.7M</span>
           </div>
 
         </div>
@@ -699,9 +699,16 @@
   var optimalEl      = root.querySelector('.roi-scenario-value--coral');
   var maxAnnualEl    = root.querySelector('.roi-maximum-value');
 
-  /** Format number as $1,234,567 */
+  /** Format number as $1.7 Mil or $750K */
   function formatCurrency(n) {
-    return '$' + Math.round(n).toLocaleString('en-US');
+    n = Math.round(n);
+    if (n >= 1000000) {
+      return '$' + (n / 1000000).toFixed(1) + 'M';
+    }
+    if (n >= 1000) {
+      return '$' + (n / 1000).toFixed(0) + 'K';
+    }
+    return '$' + n.toLocaleString('en-US');
   }
 
   /** Format number with commas */
