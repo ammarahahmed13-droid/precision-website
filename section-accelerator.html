@@ -72,9 +72,6 @@
   min-height: 440px;
   max-width: 980px;
   margin: 0 auto;
-  --acc-color: #22D3EE;
-  --acc-color-bg: rgba(34, 211, 238, 0.12);
-  --acc-color-border: rgba(34, 211, 238, 0.22);
 }
 
 /* --- Left Sidebar --- */
@@ -125,8 +122,7 @@
   transition: background 0.2s;
 }
 .acc-sidebar-item--active .acc-sidebar-icon-wrap {
-  background: var(--acc-color-bg);
-  color: var(--acc-color);
+  /* colors handled by JS inline styles */
 }
 
 .acc-sidebar-text {
@@ -147,7 +143,7 @@
   font-family: 'Inter', sans-serif;
 }
 .acc-sidebar-item--active .acc-sidebar-period {
-  color: var(--acc-color);
+  /* color handled by JS inline styles */
 }
 
 .acc-sidebar-name {
@@ -211,10 +207,9 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
-  background: var(--acc-color-bg);
-  color: var(--acc-color);
-  border: 1px solid var(--acc-color-border);
+  border-radius: 50px;
   font-family: 'Inter', sans-serif;
+  /* background, color, border handled by JS inline styles */
 }
 
 .acc-panel-phase-label {
@@ -267,8 +262,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--acc-color-bg);
-  border: 1.5px solid var(--acc-color);
+  /* background and border handled by JS inline styles */
+}
+.acc-deliverable-check svg {
+  width: 14px;
+  height: 14px;
+  display: block;
+  flex-shrink: 0;
 }
 
 /* --- Phase Goal Card --- */
@@ -289,11 +289,11 @@
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: var(--acc-color);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  /* background handled by JS inline styles */
 }
 
 .acc-goal-title {
@@ -324,8 +324,8 @@
 .acc-goal-progress-fill {
   height: 100%;
   width: 20%;
-  background: var(--acc-color);
   border-radius: 2px;
+  /* background handled by JS inline styles */
   transition: width 0.3s ease;
 }
 
@@ -544,12 +544,12 @@
     var checkSVG = '<svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5.5" stroke="' + p.color + '" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
     var cards = p.deliverables.map(function(d) {
-      return '<div class="acc-deliverable"><span class="acc-deliverable-check">' + checkSVG + '</span>' + d + '</div>';
+      return '<div class="acc-deliverable"><span class="acc-deliverable-check" style="background:' + p.colorBg + ';border:1.5px solid ' + p.color + '">' + checkSVG + '</span>' + d + '</div>';
     }).join('');
 
     panelWrap.innerHTML =
       '<div class="acc-panel-badges">' +
-        '<span class="acc-panel-period-badge">' + p.period + '</span>' +
+        '<span class="acc-panel-period-badge" style="background:' + p.colorBg + ';color:' + p.color + ';border:1px solid ' + p.colorBorder + '">' + p.period + '</span>' +
         '<span class="acc-panel-phase-label">' + p.phase + '</span>' +
       '</div>' +
       '<div class="acc-panel-main">' +
@@ -558,34 +558,39 @@
         '<div class="acc-deliverables">' + cards + '</div>' +
       '</div>' +
       '<div class="acc-goal-card">' +
-        '<div class="acc-goal-arrow-btn" aria-hidden="true">' + arrowSVG + '</div>' +
+        '<div class="acc-goal-arrow-btn" style="background:' + p.color + '" aria-hidden="true">' + arrowSVG + '</div>' +
         '<h4 class="acc-goal-title">Phase Goal</h4>' +
         '<p class="acc-goal-text">' + p.goal + '</p>' +
-        '<div class="acc-goal-progress"><div class="acc-goal-progress-fill" style="width:' + ((index + 1) * 20) + '%"></div></div>' +
+        '<div class="acc-goal-progress"><div class="acc-goal-progress-fill" style="width:' + ((index + 1) * 20) + '%;background:' + p.color + '"></div></div>' +
       '</div>';
 
     currentIndex = index;
   }
 
-  function setColors(index) {
-    var p = PHASES[index];
-    if (!p) return;
-    wrapper.style.setProperty('--acc-color', p.color);
-    wrapper.style.setProperty('--acc-color-bg', p.colorBg);
-    wrapper.style.setProperty('--acc-color-border', p.colorBorder);
-  }
 
   function setSidebarActive(index) {
+    var p = PHASES[index];
     sidebarItems.forEach(function(item, i) {
-      item.classList.toggle('acc-sidebar-item--active', i === index);
-      item.setAttribute('aria-selected', i === index ? 'true' : 'false');
-      item.setAttribute('tabindex', i === index ? '0' : '-1');
+      var isActive = i === index;
+      item.classList.toggle('acc-sidebar-item--active', isActive);
+      item.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      item.setAttribute('tabindex', isActive ? '0' : '-1');
+      var iconWrap = item.querySelector('.acc-sidebar-icon-wrap');
+      var period = item.querySelector('.acc-sidebar-period');
+      if (isActive && p) {
+        iconWrap.style.background = p.colorBg;
+        iconWrap.style.color = p.color;
+        if (period) period.style.color = p.color;
+      } else {
+        iconWrap.style.background = '';
+        iconWrap.style.color = '';
+        if (period) period.style.color = '';
+      }
     });
   }
 
   function switchToTab(index, animate) {
     if (index === currentIndex) return;
-    setColors(index);
     setSidebarActive(index);
     if (animate) {
       panelWrap.style.opacity = '0';
@@ -637,7 +642,6 @@
   });
 
   panelWrap.style.transition = 'opacity 0.2s';
-  setColors(0);
   setSidebarActive(0);
   renderPhase(0);
   startAutoPlay();
