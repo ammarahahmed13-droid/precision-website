@@ -72,6 +72,9 @@
   min-height: 440px;
   max-width: 980px;
   margin: 0 auto;
+  --acc-color: #22D3EE;
+  --acc-color-bg: rgba(34, 211, 238, 0.12);
+  --acc-color-border: rgba(34, 211, 238, 0.22);
 }
 
 /* --- Left Sidebar --- */
@@ -122,7 +125,8 @@
   transition: background 0.2s;
 }
 .acc-sidebar-item--active .acc-sidebar-icon-wrap {
-  /* colors handled by JS inline styles */
+  background: var(--acc-color-bg);
+  color: var(--acc-color);
 }
 
 .acc-sidebar-text {
@@ -139,11 +143,11 @@
   letter-spacing: 0.08em;
   color: #9CA3AF;
   line-height: 1;
-  transition: none;
+  transition: color 0.01s;
   font-family: 'Inter', sans-serif;
 }
 .acc-sidebar-item--active .acc-sidebar-period {
-  /* color handled by JS inline styles */
+  color: var(--acc-color);
 }
 
 .acc-sidebar-name {
@@ -151,7 +155,7 @@
   font-weight: 600;
   color: #D1D5DC;
   line-height: 1.2;
-  transition: none;
+  transition: color 0.01s;
   font-family: 'Inter', sans-serif;
 }
 .acc-sidebar-item--active .acc-sidebar-name {
@@ -207,9 +211,10 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
-  border-radius: 50px;
+  background: var(--acc-color-bg);
+  color: var(--acc-color);
+  border: 1px solid var(--acc-color-border);
   font-family: 'Inter', sans-serif;
-  /* background, color, border handled by JS inline styles */
 }
 
 .acc-panel-phase-label {
@@ -262,7 +267,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background and border handled by JS inline styles */
+  background: var(--acc-color-bg);
+  border: 1.5px solid var(--acc-color);
 }
 .acc-deliverable-check svg {
   width: 14px;
@@ -289,11 +295,11 @@
   width: 48px;
   height: 48px;
   border-radius: 12px;
+  background: var(--acc-color);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  /* background handled by JS inline styles */
 }
 
 .acc-goal-title {
@@ -324,8 +330,8 @@
 .acc-goal-progress-fill {
   height: 100%;
   width: 20%;
+  background: var(--acc-color);
   border-radius: 2px;
-  /* background handled by JS inline styles */
   transition: width 0.3s ease;
 }
 
@@ -544,12 +550,12 @@
     var checkSVG = '<svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5.5" stroke="' + p.color + '" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
     var cards = p.deliverables.map(function(d) {
-      return '<div class="acc-deliverable"><span class="acc-deliverable-check" style="background:' + p.colorBg + ';border:1.5px solid ' + p.color + '">' + checkSVG + '</span>' + d + '</div>';
+      return '<div class="acc-deliverable"><span class="acc-deliverable-check">' + checkSVG + '</span>' + d + '</div>';
     }).join('');
 
     panelWrap.innerHTML =
       '<div class="acc-panel-badges">' +
-        '<span class="acc-panel-period-badge" style="background:' + p.colorBg + ';color:' + p.color + ';border:1px solid ' + p.colorBorder + '">' + p.period + '</span>' +
+        '<span class="acc-panel-period-badge">' + p.period + '</span>' +
         '<span class="acc-panel-phase-label">' + p.phase + '</span>' +
       '</div>' +
       '<div class="acc-panel-main">' +
@@ -558,15 +564,22 @@
         '<div class="acc-deliverables">' + cards + '</div>' +
       '</div>' +
       '<div class="acc-goal-card">' +
-        '<div class="acc-goal-arrow-btn" style="background:' + p.color + '" aria-hidden="true">' + arrowSVG + '</div>' +
+        '<div class="acc-goal-arrow-btn" aria-hidden="true">' + arrowSVG + '</div>' +
         '<h4 class="acc-goal-title">Phase Goal</h4>' +
         '<p class="acc-goal-text">' + p.goal + '</p>' +
-        '<div class="acc-goal-progress"><div class="acc-goal-progress-fill" style="width:' + ((index + 1) * 20) + '%;background:' + p.color + '"></div></div>' +
+        '<div class="acc-goal-progress"><div class="acc-goal-progress-fill" style="width:' + ((index + 1) * 20) + '%"></div></div>' +
       '</div>';
 
     currentIndex = index;
   }
 
+  function setColors(index) {
+    var p = PHASES[index];
+    if (!p) return;
+    wrapper.style.setProperty('--acc-color', p.color);
+    wrapper.style.setProperty('--acc-color-bg', p.colorBg);
+    wrapper.style.setProperty('--acc-color-border', p.colorBorder);
+  }
 
   function setSidebarActive(index) {
     var p = PHASES[index];
@@ -595,10 +608,12 @@
     if (animate) {
       panelWrap.style.opacity = '0';
       setTimeout(function() {
+        setColors(index);
         renderPhase(index);
         panelWrap.style.opacity = '1';
       }, 200);
     } else {
+      setColors(index);
       renderPhase(index);
     }
   }
@@ -642,6 +657,7 @@
   });
 
   panelWrap.style.transition = 'opacity 0.2s';
+  setColors(0);
   setSidebarActive(0);
   renderPhase(0);
   startAutoPlay();
