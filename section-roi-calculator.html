@@ -855,30 +855,5 @@
     }
   }
   cleanWrappers(roi);
-  cleanWrappers(document.querySelector('.pcg-testimonials'));
-  cleanWrappers(document.querySelector('.pcg-services'));
-
-  /* Bridge glow on body to bypass all wrappers */
-  function placeGlow() {
-    var existing = document.getElementById('pcg-bridge-glow');
-    var rect = roi.getBoundingClientRect();
-    var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-    var top = rect.top + scrollY - 220;
-
-    if (!existing) {
-      var glow = document.createElement('div');
-      glow.id = 'pcg-bridge-glow';
-      glow.setAttribute('aria-hidden', 'true');
-      glow.style.cssText = 'position:absolute;width:450px;height:450px;right:0;pointer-events:none;z-index:10;border-radius:50%;background:radial-gradient(circle,rgba(147,112,219,0.18) 0%,transparent 70%);filter:blur(100px);';
-      glow.style.top = top + 'px';
-      document.body.appendChild(glow);
-    } else {
-      existing.style.top = top + 'px';
-    }
-  }
-
-  placeGlow();
-  window.addEventListener('resize', placeGlow);
-  window.addEventListener('load', placeGlow);
 })();
 </script>
