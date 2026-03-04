@@ -638,9 +638,8 @@
       if (window.innerWidth < 768) {
         // Carousels are activated via CSS (horizontal scroll)
         // We just need the arrow buttons present in DOM
-        buildCarousel('why-precision',        '.why-cards');
-        buildCarousel('testimonials',         '.testimonials-grid');
-        buildCarousel('services',             '.services-grid');
+        // Why Precision, Testimonials, and Services each have their own
+        // inline arrow JS now — no generic carousel calls needed.
       }
     }
 
