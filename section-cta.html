@@ -338,27 +338,5 @@
 
 </section>
 
-<!-- Calendly: lazy-load widget.js only when CTA section enters viewport -->
-<script>
-(function() {
-  var el = document.getElementById('calendly-embed');
-  if (!el) return;
-  var loaded = false;
-
-  function load() {
-    if (loaded) return;
-    loaded = true;
-    var s = document.createElement('script');
-    s.src = 'https://assets.calendly.com/assets/external/widget.js';
-    document.head.appendChild(s);
-  }
-
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function(entries, obs) {
-      if (entries[0].isIntersecting) { load(); obs.disconnect(); }
-    }, { rootMargin: '400px 0px' }).observe(el);
-  } else {
-    load();
-  }
-})();
-</script>
+<!-- Calendly widget — Flying Scripts plugin delays this until user interaction -->
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>

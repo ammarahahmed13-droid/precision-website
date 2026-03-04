@@ -332,29 +332,31 @@
 .pcg-testimonials .tm-dots {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0;
 }
 .pcg-testimonials .tm-dot {
   position: relative;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0 -4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pcg-testimonials .tm-dot::before {
+  content: '';
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.15);
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  transition: background 0.3s ease, width 0.3s ease;
+  transition: background 0.3s ease, width 0.3s ease, border-radius 0.3s ease;
+  flex-shrink: 0;
 }
-.pcg-testimonials .tm-dot::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 24px;
-  min-height: 24px;
-}
-.pcg-testimonials .tm-dot.active {
+.pcg-testimonials .tm-dot.active::before {
   width: 24px;
   border-radius: 4px;
   background: #00BFFF;
