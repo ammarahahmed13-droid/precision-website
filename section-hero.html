@@ -132,15 +132,15 @@
   }
 }
 
+/* ---------- RESPONSIVE ---------- */
 @media (max-width: 767px) {
   .hero-visual {
     max-width: 100%;
-    filter: brightness(1.2) drop-shadow(0 0 40px rgba(123, 104, 238, 0.25)) drop-shadow(0 0 80px rgba(0, 191, 255, 0.15));
+    filter: brightness(1.2);
   }
-}
-
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 767px) {
+  .hero-section .atmo-blob {
+    display: none;
+  }
   .hero-headline {
     font-size: 40px;
   }
@@ -217,10 +217,15 @@
 
     <div class="hero-visual">
       <img
-        src="https://s70.7b8.myftpupload.com/wp-content/uploads/2026/03/hero-dashboard-v2.webp"
+        src="https://goprecision.co/wp-content/uploads/2026/03/hero-dashboard-v2-1120w.webp"
+        srcset="
+          https://goprecision.co/wp-content/uploads/2026/03/hero-dashboard-v2-400w.webp 400w,
+          https://goprecision.co/wp-content/uploads/2026/03/hero-dashboard-v2-800w.webp 800w,
+          https://goprecision.co/wp-content/uploads/2026/03/hero-dashboard-v2-1120w.webp 1120w"
+        sizes="(max-width: 767px) 100vw, 560px"
         alt="Conversion performance dashboard showing +58% growth over 6 months with CR Rate +40%, AOV +35%, and Profit +58%"
         width="1120"
-        height="1076"
+        height="1075"
         loading="eager"
         fetchpriority="high"
       >
