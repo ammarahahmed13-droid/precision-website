@@ -38,11 +38,34 @@
 
 
   /* ============================================================
+     DEFERRED INIT HELPER
+     Runs callback only when element enters viewport (+ 200px margin)
+     ============================================================ */
+
+  function deferUntilVisible(selector, callback) {
+    var el = document.querySelector(selector);
+    if (!el) return;
+    if (!('IntersectionObserver' in window)) {
+      // Fallback: run immediately
+      callback();
+      return;
+    }
+    var observer = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) {
+        callback();
+        observer.disconnect();
+      }
+    }, { rootMargin: '200px' });
+    observer.observe(el);
+  }
+
+
+  /* ============================================================
      1. ROI CALCULATOR
      3 sliders → live computation → animated value updates
      ============================================================ */
 
-  (function initROICalculator() {
+  deferUntilVisible('#roi-calculator', function initROICalculator() {
     const visitorsInput = document.getElementById('monthly-visitors');
     const crInput       = document.getElementById('conversion-rate');
     const aovInput      = document.getElementById('avg-order-value');
@@ -139,7 +162,7 @@
 
     // Run once on init to populate outputs
     calculate();
-  })();
+  });
 
 
   /* ============================================================
@@ -149,7 +172,7 @@
      Accent color updates via CSS custom properties on #acc-wrapper.
      ============================================================ */
 
-  (function initAcceleratorTabs() {
+  deferUntilVisible('#acc-wrapper', function initAcceleratorTabs() {
     var PHASES = [
       {
         phase: 'Phase 01', period: 'Month 1', title: 'Deep Dive Audit',
@@ -294,7 +317,7 @@
     // Init: render phase 0, start auto-play
     activateTab(0);
     startAutoPlay();
-  })();
+  });
 
 
   /* ============================================================
