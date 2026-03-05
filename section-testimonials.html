@@ -439,23 +439,25 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 14px 36px;
-  background: #D4A843;
+  padding: 16px 40px;
+  background: #FFD166;
   color: #0B0B1E !important;
   -webkit-text-fill-color: #0B0B1E !important;
   font-family: 'Inter', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   border: none;
-  border-radius: 50px;
+  border-radius: 80px;
   text-decoration: none;
   cursor: pointer;
-  transition: background 0.25s ease, transform 0.25s ease;
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 24px rgba(255,209,102,0.35);
   white-space: nowrap;
 }
 .pcg-testimonials .tm-proof-btn:hover {
-  background: #E0B44E;
+  opacity: 0.92;
   transform: translateY(-1px);
+  box-shadow: 0 0 40px rgba(255,209,102,0.55);
 }
 
 /* ── Responsive: Desktop ────────────────────────────────── */
