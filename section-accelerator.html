@@ -537,6 +537,7 @@
   var currentIndex = 0;
   var autoTimer = null;
   var pauseTimer = null;
+  var fadeTimer = null;
   var lastTapTime = 0;
   var AUTO_INTERVAL = 3500;
   var PAUSE_DURATION = 20000;
@@ -569,8 +570,6 @@
         '<p class="acc-goal-text">' + p.goal + '</p>' +
         '<div class="acc-goal-progress"><div class="acc-goal-progress-fill" style="width:' + ((index + 1) * 20) + '%"></div></div>' +
       '</div>';
-
-    currentIndex = index;
   }
 
   function setColors(index) {
@@ -604,11 +603,14 @@
 
   function switchToTab(index, animate) {
     if (index === currentIndex) return;
+    currentIndex = index;
+    if (fadeTimer) { clearTimeout(fadeTimer); fadeTimer = null; }
     setColors(index);
     setSidebarActive(index);
     if (animate) {
       panelWrap.style.opacity = '0';
-      setTimeout(function() {
+      fadeTimer = setTimeout(function() {
+        fadeTimer = null;
         renderPhase(index);
         panelWrap.style.opacity = '1';
       }, 200);

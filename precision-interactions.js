@@ -4,7 +4,7 @@
  *
  * Sections:
  *  1. ROI Calculator — live calculation from 3 sliders
- *  2. Conversion Accelerator — auto-cycling tabs + click pause
+ *  2. Conversion Accelerator — handled by section-accelerator.html inline script
  *  3. Mobile hamburger menu toggle
  *  4. Mobile carousel arrows — Why Precision, Testimonials, Services
  */
@@ -166,158 +166,11 @@
 
 
   /* ============================================================
-     2. CONVERSION ACCELERATOR — SIDEBAR + PANEL TABS
-     Sidebar nav on left, panel content on right.
-     Auto-advances every 3.5s. Click pauses 20s then resumes.
-     Accent color updates via CSS custom properties on #acc-wrapper.
+     2. CONVERSION ACCELERATOR
+     Handled entirely by the inline <script> in section-accelerator.html
+     (which carries all fixes: fadeTimer, currentIndex timing, explicit
+     icon colour management). Do NOT duplicate here.
      ============================================================ */
-
-  deferUntilVisible('#acc-wrapper', function initAcceleratorTabs() {
-    var PHASES = [
-      {
-        phase: 'Phase 01', period: 'Month 1', title: 'Deep Dive Audit',
-        body: 'In-depth analysis of platform analytics, user behavior, and customer journey to identify high-impact opportunities.',
-        deliverables: ['Comprehensive audit report', 'User journey mapping', 'Competitive benchmarking', '90-day experimentation roadmap'],
-        goal: 'Accelerating your growth through prioritized, psychology-backed execution.',
-        color: '#22D3EE', colorBg: 'rgba(34,211,238,0.12)', colorBorder: 'rgba(34,211,238,0.22)',
-      },
-      {
-        phase: 'Phase 02', period: 'Month 1–2', title: 'Quick Fixes',
-        body: 'Rapid deployment of high-impact, low-effort wins identified in the audit — generating immediate conversion lift with minimal overhead.',
-        deliverables: ['Priority quick-win implementation', 'Copy & CTA optimisations', 'UX friction removal', 'Baseline A/B test setup'],
-        goal: 'Building early momentum and stakeholder confidence through fast, visible results.',
-        color: '#7C3AED', colorBg: 'rgba(124,58,237,0.12)', colorBorder: 'rgba(124,58,237,0.22)',
-      },
-      {
-        phase: 'Phase 03', period: 'Months 2–4', title: 'Experimentation',
-        body: 'Structured, hypothesis-driven A/B testing across your highest-impact conversion points, validated to statistical significance before scaling.',
-        deliverables: ['2–3 A/B tests per month', 'Statistical significance reporting', 'Winner documentation & rollout', 'Funnel-level conversion analysis'],
-        goal: 'Building a validated evidence base that makes every future growth decision data-backed.',
-        color: '#8B5CF6', colorBg: 'rgba(139,92,246,0.12)', colorBorder: 'rgba(139,92,246,0.22)',
-      },
-      {
-        phase: 'Phase 04', period: 'Months 5–6', title: 'Optimisation',
-        body: 'Scaling validated winners across the full funnel, introducing segment-based personalisation, and optimising the end-to-end customer journey.',
-        deliverables: ['Winning variant rollout at scale', 'Segment-based personalisation', 'Lifecycle & retention optimisation', 'Revenue-per-visitor benchmarking'],
-        goal: 'Compounding gains from every validated test into sustainable, measurable revenue growth.',
-        color: '#F97316', colorBg: 'rgba(249,115,22,0.12)', colorBorder: 'rgba(249,115,22,0.22)',
-      },
-      {
-        phase: 'Phase 05', period: 'Ongoing', title: 'Scaling Playbook',
-        body: 'A documented, repeatable growth system your team can run independently — with continued oversight, quarterly strategy reviews, and a living playbook.',
-        deliverables: ['Full growth playbook documentation', 'Team training & knowledge transfer', 'Quarterly strategy reviews', 'Performance benchmarking dashboard'],
-        goal: 'Building internal capability so your growth compounds long after our engagement ends.',
-        color: '#EC4899', colorBg: 'rgba(236,72,153,0.12)', colorBorder: 'rgba(236,72,153,0.22)',
-      },
-    ];
-
-    var wrapper      = document.getElementById('acc-wrapper');
-    var sidebarItems = document.querySelectorAll('.acc-sidebar-item');
-    var panelWrap    = document.getElementById('acc-panel-wrap');
-
-    if (!wrapper || !sidebarItems.length || !panelWrap) return;
-
-    var currentIndex = 0;
-    var autoTimer    = null;
-    var pauseTimer   = null;
-    var AUTO_INTERVAL  = 3500;
-    var PAUSE_DURATION = 20000;
-
-    var arrowSVG =
-      '<svg width="18" height="18" viewBox="0 0 18 18" fill="none">' +
-      '<path d="M3 9h12M9 3l6 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
-      '</svg>';
-
-    function renderPhase(index) {
-      var p = PHASES[index];
-      if (!p) return;
-
-      var checkSVG =
-        '<svg width="12" height="12" viewBox="0 0 12 12" fill="none">' +
-        '<path d="M2 6l3 3 5-5.5" stroke="' + p.color + '" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>' +
-        '</svg>';
-
-      var deliverableCards = p.deliverables.map(function(d) {
-        return (
-          '<div class="acc-deliverable">' +
-          '<span class="acc-deliverable-check">' + checkSVG + '</span>' +
-          d +
-          '</div>'
-        );
-      }).join('');
-
-      panelWrap.innerHTML =
-        '<div class="acc-panel-badges">' +
-        '  <span class="acc-panel-period-badge">' + p.period + '</span>' +
-        '  <span class="acc-panel-phase-label">' + p.phase + '</span>' +
-        '</div>' +
-        '<div class="acc-panel-main">' +
-        '  <h3 class="acc-panel-title">' + p.title + '</h3>' +
-        '  <p class="acc-panel-desc">' + p.body + '</p>' +
-        '  <div class="acc-deliverables">' + deliverableCards + '</div>' +
-        '</div>' +
-        '<div class="acc-goal-card">' +
-        '  <div class="acc-goal-arrow-btn" aria-hidden="true">' + arrowSVG + '</div>' +
-        '  <h4 class="acc-goal-title">Phase Goal</h4>' +
-        '  <p class="acc-goal-text">' + p.goal + '</p>' +
-        '  <div class="acc-goal-progress"><div class="acc-goal-progress-fill" style="width:' + ((index + 1) * 20) + '%"></div></div>' +
-        '</div>';
-    }
-
-    function activateTab(index) {
-      var p = PHASES[index];
-      if (!p) return;
-
-      // Update CSS accent color on wrapper
-      wrapper.style.setProperty('--acc-color',        p.color);
-      wrapper.style.setProperty('--acc-color-bg',     p.colorBg);
-      wrapper.style.setProperty('--acc-color-border', p.colorBorder);
-
-      // Update sidebar active states
-      sidebarItems.forEach(function(item, i) {
-        item.classList.toggle('acc-sidebar-item--active', i === index);
-        item.setAttribute('aria-selected', i === index ? 'true' : 'false');
-        item.setAttribute('tabindex', i === index ? '0' : '-1');
-      });
-
-      // Fade out → update content → fade in
-      panelWrap.classList.add('is-transitioning');
-      setTimeout(function() {
-        renderPhase(index);
-        panelWrap.classList.remove('is-transitioning');
-      }, 200);
-
-      currentIndex = index;
-    }
-
-    function startAutoPlay() {
-      stopAutoPlay();
-      autoTimer = setInterval(function() {
-        activateTab((currentIndex + 1) % sidebarItems.length);
-      }, AUTO_INTERVAL);
-    }
-
-    function stopAutoPlay() {
-      if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
-    }
-
-    function pauseAndResume() {
-      stopAutoPlay();
-      if (pauseTimer) clearTimeout(pauseTimer);
-      pauseTimer = setTimeout(startAutoPlay, PAUSE_DURATION);
-    }
-
-    sidebarItems.forEach(function(item, i) {
-      item.addEventListener('click', function() { activateTab(i); pauseAndResume(); });
-      item.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activateTab(i); pauseAndResume(); }
-      });
-    });
-
-    // Init: render phase 0, start auto-play
-    activateTab(0);
-    startAutoPlay();
-  });
 
 
   /* ============================================================
