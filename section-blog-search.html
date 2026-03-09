@@ -1,0 +1,168 @@
+<!-- ============================================================
+     PRECISION — Blog Search + Filter Tabs (Bricks Code Block)
+     Search input and category tabs. Broadcasts a 'blogFilter'
+     custom event and stores state in window._blgFilter so
+     the articles sections can read it on init.
+     ============================================================ -->
+
+<style>
+.blg-search-section *,
+.blg-search-section *::before,
+.blg-search-section *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.blg-search-section {
+  background: #0B0B1E;
+  padding: 0 24px 52px;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+
+/* ── Search bar ──────────────────────────────────────────── */
+.blg-search-wrap {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto 28px;
+}
+.blg-search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6B7280;
+  pointer-events: none;
+  display: flex;
+}
+.blg-search-input {
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 50px;
+  padding: 13px 20px 13px 44px;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  color: #FFFFFF;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.blg-search-input::placeholder { color: #6B7280; }
+.blg-search-input:focus {
+  border-color: rgba(0,191,255,0.35);
+  background: rgba(255,255,255,0.08);
+}
+
+/* ── Category tabs ───────────────────────────────────────── */
+.blg-filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+}
+.blg-filter-tab {
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  color: #9CA3AF;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+  -webkit-tap-highlight-color: transparent;
+}
+.blg-filter-tab:hover {
+  background: rgba(255,255,255,0.09);
+  color: #D1D5DC;
+}
+.blg-filter-tab--active {
+  background: #00BFFF;
+  border-color: #00BFFF;
+  color: #0B0B1E;
+  font-weight: 700;
+}
+
+@media (max-width: 767px) {
+  .blg-search-section { padding: 0 16px 40px; }
+  .blg-filter-tab { font-size: 13px; padding: 7px 14px; }
+}
+</style>
+
+<div class="blg-search-section">
+  <div class="blg-search-wrap">
+    <span class="blg-search-icon" aria-hidden="true">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M11 11l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+    </span>
+    <input
+      type="search"
+      class="blg-search-input"
+      id="blg-search"
+      placeholder="Search articles..."
+      aria-label="Search articles"
+      autocomplete="off"
+    />
+  </div>
+
+  <ul class="blg-filter-tabs" role="tablist" aria-label="Filter by category" id="blg-filter-tabs">
+    <li class="blg-filter-tab blg-filter-tab--active" role="tab" aria-selected="true"  data-category="all"              tabindex="0">All</li>
+    <li class="blg-filter-tab"                        role="tab" aria-selected="false" data-category="cro"              tabindex="-1">CRO</li>
+    <li class="blg-filter-tab"                        role="tab" aria-selected="false" data-category="e-commerce"       tabindex="-1">E-commerce</li>
+    <li class="blg-filter-tab"                        role="tab" aria-selected="false" data-category="aov-optimization" tabindex="-1">AOV Optimization</li>
+    <li class="blg-filter-tab"                        role="tab" aria-selected="false" data-category="product-ux"       tabindex="-1">Product UX</li>
+  </ul>
+</div>
+
+<script>
+(function () {
+  // Shared filter state — readable by any section on the page
+  window._blgFilter = { category: 'all', query: '' };
+
+  var searchInput = document.getElementById('blg-search');
+  var tabList     = document.getElementById('blg-filter-tabs');
+  if (!searchInput || !tabList) return;
+
+  function broadcast() {
+    document.dispatchEvent(new CustomEvent('blogFilter', {
+      detail: { category: window._blgFilter.category, query: window._blgFilter.query }
+    }));
+  }
+
+  // Category tab interaction
+  tabList.addEventListener('click', function (e) {
+    var tab = e.target.closest('.blg-filter-tab');
+    if (!tab) return;
+    tabList.querySelectorAll('.blg-filter-tab').forEach(function (t) {
+      t.classList.remove('blg-filter-tab--active');
+      t.setAttribute('aria-selected', 'false');
+      t.setAttribute('tabindex', '-1');
+    });
+    tab.classList.add('blg-filter-tab--active');
+    tab.setAttribute('aria-selected', 'true');
+    tab.setAttribute('tabindex', '0');
+    window._blgFilter.category = tab.dataset.category;
+    broadcast();
+  });
+
+  tabList.addEventListener('keydown', function (e) {
+    var tabs = Array.from(tabList.querySelectorAll('.blg-filter-tab'));
+    var idx  = tabs.indexOf(document.activeElement);
+    if (e.key === 'ArrowRight') { tabs[(idx + 1) % tabs.length].focus(); e.preventDefault(); }
+    if (e.key === 'ArrowLeft')  { tabs[(idx - 1 + tabs.length) % tabs.length].focus(); e.preventDefault(); }
+    if (e.key === 'Enter' || e.key === ' ') { e.target.click(); e.preventDefault(); }
+  });
+
+  // Search — debounced 200ms
+  var debounce;
+  searchInput.addEventListener('input', function () {
+    clearTimeout(debounce);
+    debounce = setTimeout(function () {
+      window._blgFilter.query = searchInput.value.trim().toLowerCase();
+      broadcast();
+    }, 200);
+  });
+})();
+</script>

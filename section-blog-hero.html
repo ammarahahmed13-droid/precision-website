@@ -1,0 +1,121 @@
+<!-- ============================================================
+     PRECISION — Blog Hero (Bricks Code Block)
+     Label + heading + subtext only. Pure visual, no JS.
+     ============================================================ -->
+
+<style>
+.blg-hero *,
+.blg-hero *::before,
+.blg-hero *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.blg-hero {
+  background: #0B0B1E;
+  padding: 80px 24px 40px;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.blg-hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.blg-hero-blob--top {
+  width: 700px; height: 700px;
+  top: -260px; left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(0,191,255,0.09) 0%, transparent 65%);
+  filter: blur(140px);
+}
+.blg-hero-blob--right {
+  width: 480px; height: 480px;
+  top: -60px; right: -160px;
+  background: radial-gradient(circle, rgba(123,104,238,0.09) 0%, transparent 70%);
+  filter: blur(120px);
+}
+
+.blg-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.blg-hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 50px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: #9CA3AF;
+  margin-bottom: 28px;
+}
+.blg-hero-label svg { flex-shrink: 0; color: #00BFFF; }
+
+.blg-hero-heading {
+  font-size: 52px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+  white-space: nowrap;
+}
+.blg-hero-gradient {
+  background: linear-gradient(to right, #00BFFF 0%, #7B68EE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text;
+  display: inline;
+  padding-bottom: 0.05em; /* prevents descender clip on 'g' */
+}
+
+.blg-hero-subtext {
+  font-size: 18px;
+  font-weight: 400;
+  color: #9CA3AF;
+  line-height: 1.55;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+  .blg-hero { padding: 60px 16px 32px; }
+  .blg-hero-heading { font-size: 32px; white-space: normal; }
+  .blg-hero-subtext { font-size: 16px; }
+}
+@media (min-width: 1024px) {
+  .blg-hero-heading { font-size: 58px; }
+}
+</style>
+
+<section class="blg-hero" aria-labelledby="blg-heading">
+  <div class="blg-hero-blob blg-hero-blob--top"   aria-hidden="true"></div>
+  <div class="blg-hero-blob blg-hero-blob--right" aria-hidden="true"></div>
+
+  <div class="blg-hero-inner">
+    <div class="blg-hero-label" aria-hidden="true">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <rect x="1"   y="1"   width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.4"/>
+        <rect x="8"   y="1"   width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.4"/>
+        <rect x="1"   y="8"   width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.4"/>
+        <rect x="8"   y="8"   width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.4"/>
+      </svg>
+      Insights &amp; Resources
+    </div>
+
+    <h1 class="blg-hero-heading" id="blg-heading">CRO &amp; Performance <span class="blg-hero-gradient">Insights</span></h1>
+
+    <p class="blg-hero-subtext">Deep-dive articles on conversion rate optimization, average order value strategies, and e-commerce growth tactics backed by real data and case studies.</p>
+  </div>
+</section>

@@ -1,0 +1,368 @@
+<!-- ============================================================
+     PRECISION — Blog All Articles Grid (Bricks Code Block)
+     3-column article card grid with live count.
+     Listens for 'blogFilter' events from section-blog-search.html.
+     ============================================================ -->
+
+<style>
+.blg-all *,
+.blg-all *::before,
+.blg-all *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.blg-all {
+  background: #0B0B1E;
+  padding: 0 24px 72px;
+  font-family: 'Inter', sans-serif;
+}
+
+.blg-all-inner {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* ── Row header ──────────────────────────────────────────── */
+.blg-all-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.blg-all-header svg { color: #00BFFF; flex-shrink: 0; }
+.blg-all-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  font-family: 'Inter', sans-serif;
+}
+.blg-all-count {
+  font-size: 14px;
+  font-weight: 400;
+  color: #6B7280;
+}
+
+/* ── Tag (reused from featured — define here in case featured
+       is not on the page in future) ──────────────────────── */
+.blg-tag {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start; /* prevent stretching in flex column cards */
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 50px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-family: 'Inter', sans-serif;
+}
+.blg-tag--cro              { color: #22D3EE; background: rgba(34,211,238,0.12);  border: 1px solid rgba(34,211,238,0.25); }
+.blg-tag--e-commerce       { color: #A78BFA; background: rgba(167,139,250,0.12); border: 1px solid rgba(167,139,250,0.25); }
+.blg-tag--aov-optimization { color: #FCD34D; background: rgba(252,211,77,0.12);  border: 1px solid rgba(252,211,77,0.25); }
+.blg-tag--product-ux       { color: #F472B6; background: rgba(244,114,182,0.12); border: 1px solid rgba(244,114,182,0.25); }
+
+.blg-read-time {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: #6B7280;
+  white-space: nowrap;
+}
+
+/* ── 3-col grid ──────────────────────────────────────────── */
+.blg-all-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ── Card ────────────────────────────────────────────────── */
+.blg-a-card {
+  background: #15152E;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.blg-a-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.14);
+}
+
+.blg-a-card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  font-family: 'Inter', sans-serif;
+}
+
+.blg-a-card-excerpt {
+  font-size: 14px;
+  color: #9CA3AF;
+  line-height: 1.55;
+  flex: 1;
+}
+
+.blg-a-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.blg-a-read-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  transition: opacity 0.18s;
+  white-space: nowrap;
+}
+.blg-a-read-link:hover { opacity: 0.75; }
+.blg-a-read-link:hover svg { transform: translateX(3px); }
+.blg-a-read-link svg { transition: transform 0.18s; }
+
+/* ── Empty state ─────────────────────────────────────────── */
+.blg-all-empty {
+  display: none;
+  text-align: center;
+  padding: 48px 0;
+  font-size: 15px;
+  color: #6B7280;
+}
+
+/* ── Hidden via filter ───────────────────────────────────── */
+.blg-card--hidden { display: none !important; }
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .blg-all { padding: 0 16px 56px; }
+  .blg-all-grid { grid-template-columns: 1fr; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .blg-all-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+
+<section class="blg-all" aria-label="All articles">
+  <div class="blg-all-inner">
+
+    <div class="blg-all-header">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        <path d="M3 5h12M3 9h12M3 13h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+        <circle cx="15" cy="13" r="2" stroke="currentColor" stroke-width="1.4"/>
+      </svg>
+      <h2 class="blg-all-title">All Articles</h2>
+      <span class="blg-all-count" id="blg-all-count">(6 articles)</span>
+    </div>
+
+    <div class="blg-all-grid" id="blg-all-grid">
+
+      <!-- Article 1 — placeholder -->
+      <article class="blg-a-card" data-category="e-commerce"
+               data-search="mobile-first e-commerce why desktop designs are failing mobile accounts 70 percent traffic convert desktop-level rates">
+        <span class="blg-tag blg-tag--e-commerce">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1.5 2.5h7l-1 4H2.5l-1-4Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><circle cx="3.5" cy="8" r="0.8" fill="currentColor"/><circle cx="7" cy="8" r="0.8" fill="currentColor"/></svg>
+          E-commerce
+        </span>
+        <h3 class="blg-a-card-title">Mobile-First E-commerce: Why Your Desktop Designs Are Failing</h3>
+        <p class="blg-a-card-excerpt">Mobile accounts for 70%+ of e-commerce traffic. Here's how to design mobile experiences that convert at desktop-level rates.</p>
+        <div class="blg-a-card-footer">
+          <span class="blg-read-time">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.3"/>
+              <path d="M6 3.5V6l2 1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+            7 min read
+          </span>
+          <a href="/insights/mobile-first-ecommerce-desktop-designs-failing" class="blg-a-read-link" style="color:#A78BFA">
+            Read
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 6h8M7 3l3 3-3 3" stroke="#A78BFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Article 2 — placeholder -->
+      <article class="blg-a-card" data-category="product-ux"
+               data-search="product page teardown what shopify plus stores get wrong common mistakes cost e-commerce brands millions lost revenue">
+        <span class="blg-tag blg-tag--product-ux">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M6.5 1.5a1 1 0 011.5 1.5L3 8l-2 .5.5-2 5-5Z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Product UX
+        </span>
+        <h3 class="blg-a-card-title">Product Page Teardown: What Shopify Plus Stores Get Wrong</h3>
+        <p class="blg-a-card-excerpt">A detailed analysis of common product page mistakes that cost e-commerce brands millions in lost revenue annually.</p>
+        <div class="blg-a-card-footer">
+          <span class="blg-read-time">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.3"/>
+              <path d="M6 3.5V6l2 1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+            12 min read
+          </span>
+          <a href="/insights/product-page-teardown-shopify-plus" class="blg-a-read-link" style="color:#F472B6">
+            Read
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 6h8M7 3l3 3-3 3" stroke="#F472B6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Article 3 — placeholder -->
+      <article class="blg-a-card" data-category="cro"
+               data-search="trust economics social proof impacts conversion rate testimonials reviews trust signals data 100 e-commerce experiments">
+        <span class="blg-tag blg-tag--cro">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 8l2.5-5.5L6 6l1.5-2.5L9 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          CRO
+        </span>
+        <h3 class="blg-a-card-title">The Trust Economics: How Social Proof Impacts Your Conversion Rate</h3>
+        <p class="blg-a-card-excerpt">Understanding the ROI of testimonials, reviews, and trust signals with data from 100+ e-commerce experiments.</p>
+        <div class="blg-a-card-footer">
+          <span class="blg-read-time">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.3"/>
+              <path d="M6 3.5V6l2 1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+            9 min read
+          </span>
+          <a href="/insights/trust-economics-social-proof-conversion-rate" class="blg-a-read-link" style="color:#22D3EE">
+            Read
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 6h8M7 3l3 3-3 3" stroke="#22D3EE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Article 4 — placeholder -->
+      <article class="blg-a-card" data-category="aov-optimization"
+               data-search="bundle pricing strategies increased aov 58 percent bundle strategy framework foodpanda case study marketplace models">
+        <span class="blg-tag blg-tag--aov-optimization">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M5 1v8M2.5 3.5C2.5 2.67 3.17 2 4 2h2a1.5 1.5 0 010 3H4a1.5 1.5 0 000 3h2.5c.83 0 1.5.67 1.5 1.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          AOV Optimization
+        </span>
+        <h3 class="blg-a-card-title">Bundle Pricing Strategies That Increased AOV by 58%</h3>
+        <p class="blg-a-card-excerpt">The exact bundle strategy framework used in our Foodpanda case study, adapted for various marketplace models.</p>
+        <div class="blg-a-card-footer">
+          <span class="blg-read-time">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.3"/>
+              <path d="M6 3.5V6l2 1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+            11 min read
+          </span>
+          <a href="/insights/bundle-pricing-strategies-aov-58-percent" class="blg-a-read-link" style="color:#FCD34D">
+            Read
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 6h8M7 3l3 3-3 3" stroke="#FCD34D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Article 5 — placeholder -->
+      <article class="blg-a-card" data-category="cro"
+               data-search="exit intent done right recovering abandoning visitors annoyance exit-intent strategies recover revenue brand experience gdpr compliance">
+        <span class="blg-tag blg-tag--cro">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 8l2.5-5.5L6 6l1.5-2.5L9 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          CRO
+        </span>
+        <h3 class="blg-a-card-title">Exit-Intent Done Right: Recovering Abandoning Visitors Without the Annoyance</h3>
+        <p class="blg-a-card-excerpt">How to implement exit-intent strategies that recover revenue without damaging your brand experience or GDPR compliance.</p>
+        <div class="blg-a-card-footer">
+          <span class="blg-read-time">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.3"/>
+              <path d="M6 3.5V6l2 1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+            8 min read
+          </span>
+          <a href="/insights/exit-intent-strategies-recovering-visitors" class="blg-a-read-link" style="color:#22D3EE">
+            Read
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 6h8M7 3l3 3-3 3" stroke="#22D3EE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Article 6 — placeholder -->
+      <article class="blg-a-card" data-category="product-ux"
+               data-search="above the fold homepage needs convert first 5 seconds hero section value proposition design landing page high-converting homepages">
+        <span class="blg-tag blg-tag--product-ux">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M6.5 1.5a1 1 0 011.5 1.5L3 8l-2 .5.5-2 5-5Z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Product UX
+        </span>
+        <h3 class="blg-a-card-title">Above the Fold: What Your Homepage Needs to Convert in the First 5 Seconds</h3>
+        <p class="blg-a-card-excerpt">A breakdown of what high-converting homepages get right in the first viewport — and the small changes that move the needle most.</p>
+        <div class="blg-a-card-footer">
+          <span class="blg-read-time">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.3"/>
+              <path d="M6 3.5V6l2 1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+            10 min read
+          </span>
+          <a href="/insights/above-the-fold-homepage-convert-5-seconds" class="blg-a-read-link" style="color:#F472B6">
+            Read
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 6h8M7 3l3 3-3 3" stroke="#F472B6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+    </div><!-- /#blg-all-grid -->
+
+    <p class="blg-all-empty" id="blg-all-empty">No articles match your filter or search.</p>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  var grid     = document.getElementById('blg-all-grid');
+  var countEl  = document.getElementById('blg-all-count');
+  var emptyMsg = document.getElementById('blg-all-empty');
+  var cards    = grid ? grid.querySelectorAll('.blg-a-card') : [];
+  if (!cards.length) return;
+
+  function applyFilter(category, query) {
+    var visible = 0;
+    cards.forEach(function (card) {
+      var catMatch    = category === 'all' || card.dataset.category === category;
+      var searchMatch = !query
+        || card.dataset.search.indexOf(query) !== -1
+        || card.querySelector('.blg-a-card-title').textContent.toLowerCase().indexOf(query) !== -1;
+      var show = catMatch && searchMatch;
+      card.classList.toggle('blg-card--hidden', !show);
+      if (show) visible++;
+    });
+    emptyMsg.style.display = visible === 0 ? 'block' : 'none';
+    if (countEl) {
+      countEl.textContent = '(' + visible + ' article' + (visible === 1 ? '' : 's') + ')';
+    }
+  }
+
+  // Read state set by section-blog-search.html (if already loaded)
+  var init = window._blgFilter || { category: 'all', query: '' };
+  applyFilter(init.category, init.query);
+
+  document.addEventListener('blogFilter', function (e) {
+    applyFilter(e.detail.category, e.detail.query);
+  });
+})();
+</script>

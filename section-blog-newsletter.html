@@ -1,0 +1,142 @@
+<!-- ============================================================
+     PRECISION — Blog Newsletter CTA (Bricks Code Block)
+     Email signup. No box/card, no dependencies.
+     ============================================================ -->
+
+<style>
+.blg-newsletter-section *,
+.blg-newsletter-section *::before,
+.blg-newsletter-section *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.blg-newsletter-section {
+  background: #0B0B1E;
+  padding: 0 24px 80px;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+
+.blg-newsletter-inner {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.blg-nl-heading {
+  font-size: 32px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  font-family: 'Inter', sans-serif;
+}
+
+.blg-nl-subtext {
+  font-size: 16px;
+  color: #9CA3AF;
+  line-height: 1.55;
+  max-width: 540px;
+  margin: 0 auto 32px;
+}
+
+.blg-nl-form {
+  display: flex;
+  gap: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.blg-nl-input {
+  flex: 1;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50px;
+  padding: 13px 20px;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  color: #FFFFFF;
+  outline: none;
+  transition: border-color 0.2s;
+  min-width: 0;
+}
+.blg-nl-input::placeholder { color: #6B7280; }
+.blg-nl-input:focus { border-color: rgba(244,114,182,0.40); }
+
+.blg-nl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  background: linear-gradient(135deg, #F472B6 0%, #EC4899 100%);
+  border: none;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.18s, transform 0.18s;
+}
+.blg-nl-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+
+.blg-nl-notice {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #4B5563;
+}
+
+@media (max-width: 767px) {
+  .blg-newsletter-section { padding: 0 16px 64px; }
+  .blg-nl-heading { font-size: 24px; }
+  .blg-nl-form { flex-direction: column; }
+  .blg-nl-btn { justify-content: center; }
+}
+</style>
+
+<div class="blg-newsletter-section">
+  <div class="blg-newsletter-inner" role="complementary" aria-label="Newsletter signup">
+    <h2 class="blg-nl-heading">Never Miss an Insight</h2>
+    <p class="blg-nl-subtext">Get the latest CRO strategies, case studies, and conversion optimization tactics delivered to your inbox.</p>
+
+    <form class="blg-nl-form" id="blg-nl-form" novalidate>
+      <input
+        type="email"
+        class="blg-nl-input"
+        id="blg-nl-email"
+        placeholder="Enter your email"
+        aria-label="Email address"
+        required
+      />
+      <button type="submit" class="blg-nl-btn" id="blg-nl-btn">
+        Subscribe
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </form>
+    <p class="blg-nl-notice">No spam. Unsubscribe at any time.</p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var form  = document.getElementById('blg-nl-form');
+  var input = document.getElementById('blg-nl-email');
+  var btn   = document.getElementById('blg-nl-btn');
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!input.value || !input.validity.valid) {
+      input.focus();
+      return;
+    }
+    btn.innerHTML = 'Subscribed! ✓';
+    btn.style.background = 'linear-gradient(135deg,#22D3EE,#7B68EE)';
+    btn.style.color = '#fff';
+    input.value = '';
+    input.disabled = true;
+    btn.disabled = true;
+  });
+})();
+</script>
