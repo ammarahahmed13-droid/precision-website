@@ -41,20 +41,24 @@
 .art-cta-btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 20px 36px;
+  justify-content: center;
+  gap: 8px;
+  padding: 18px 48px;
   background: #FFD166;
-  border-radius: 16px;
-  font-size: 17px;
-  font-weight: 700;
+  border-radius: 80px;
+  font-size: 18px;
+  font-weight: 600;
   color: #0B0B1E;
   text-decoration: none;
   font-family: 'Inter', sans-serif;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.20);
-  transition: opacity 0.18s, transform 0.18s;
+  transition: opacity 0.18s, transform 0.18s, box-shadow 0.18s;
 }
-.art-cta-btn:hover { opacity: 0.90; transform: translateY(-2px); }
-.art-cta-btn svg { flex-shrink: 0; }
+.art-cta-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 0 40px rgba(255,209,102,0.55);
+}
+.art-cta-btn svg { flex-shrink: 0; width: 20px; height: 20px; }
 
 @media (max-width: 767px) {
   .art-cta { padding: 0 16px 64px; }
