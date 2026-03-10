@@ -1,6 +1,7 @@
 <!-- ============================================================
      PRECISION — Article CTA (Bricks Code Block)
-     Author byline + Book a Call. Reusable across all articles.
+     Horizontal layout: headline left, Book a Call right.
+     Reusable across all articles.
      ============================================================ -->
 
 <style>
@@ -12,7 +13,6 @@
   background: #0B0B1E;
   padding: 0 24px 88px;
   font-family: 'Inter', sans-serif;
-  text-align: center;
 }
 
 .art-cta-inner {
@@ -24,18 +24,34 @@
 .art-cta-divider {
   height: 1px;
   background: linear-gradient(to right, transparent, rgba(255,255,255,0.20), transparent);
-  margin-bottom: 52px;
+  margin-bottom: 48px;
 }
 
-.art-cta-byline {
-  font-size: 15px;
-  color: #99A1AF;
-  margin-bottom: 28px;
-  line-height: 1.5;
+.art-cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
 }
-.art-cta-byline strong {
-  color: #FFFFFF;
+
+.art-cta-heading {
+  font-size: 22px;
   font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.35;
+  font-family: 'Inter', sans-serif;
+}
+.art-cta-heading .grad-cyan {
+  background: linear-gradient(90deg, #00BFFF, #06B6D4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.art-cta-heading .grad-pink {
+  background: linear-gradient(90deg, #F472B6, #EC4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .art-cta-btn {
@@ -51,6 +67,8 @@
   color: #0B0B1E;
   text-decoration: none;
   font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: opacity 0.18s, transform 0.18s, box-shadow 0.18s;
 }
 .art-cta-btn:hover {
@@ -62,6 +80,8 @@
 
 @media (max-width: 767px) {
   .art-cta { padding: 0 16px 64px; }
+  .art-cta-row { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .art-cta-heading { font-size: 20px; }
 }
 </style>
 
@@ -69,15 +89,18 @@
   <div class="art-cta-inner">
     <div class="art-cta-divider" aria-hidden="true"></div>
 
-    <p class="art-cta-byline">
-      By <strong>Ammarah Ahmed</strong> &middot; Founder, Precision Consulting Group
-    </p>
+    <div class="art-cta-row">
+      <p class="art-cta-heading">
+        Ready to bridge the gap between <span class="grad-cyan">traffic</span><br>
+        and <span class="grad-pink">revenue</span>?
+      </p>
 
-    <a href="https://calendly.com/ammarah-bumx/30min" class="art-cta-btn" target="_blank" rel="noopener">
-      Book a Call
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-        <path d="M4 10h12M12 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>
+      <a href="https://calendly.com/ammarah-bumx/30min" class="art-cta-btn" target="_blank" rel="noopener">
+        Book a Call
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M4 10h12M12 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
   </div>
 </div>
