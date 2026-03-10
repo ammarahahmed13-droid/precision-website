@@ -1,0 +1,707 @@
+<!-- ============================================================
+     PRECISION — Article Body: "Why Your E-Commerce Store Gets
+     Traffic But No Sales (And How to Fix It)"  (Bricks Code Block)
+     Category: E-Commerce  |  10 min read  |  March 10, 2026
+
+     IMAGES — upload to WordPress Media Library then replace src:
+       visual-1-funnel-1.png       → e-commerce conversion funnel
+       visual-2-roi-math-1.png     → ROI math / growth scenarios
+       visual-3-cart-abandonment-1.png → Baymard cart abandonment data
+       visual-4-product-page-1.png → product page side-by-side
+       visual-5-benchmarks-1.png   → conversion rates by industry
+     ============================================================ -->
+
+<style>
+.art-body *,
+.art-body *::before,
+.art-body *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.art-body {
+  background: #0B0B1E;
+  padding: 64px 24px 80px;
+  font-family: 'Inter', sans-serif;
+}
+
+.art-body-inner {
+  max-width: 896px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ── Typography ───────────────────────────────────────────── */
+.art-p {
+  font-size: 18px;
+  color: #D1D5DB;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.art-h2 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-top: 16px;
+  margin-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+}
+.art-h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 16px;
+  font-family: 'Inter', sans-serif;
+}
+.art-cyan  { color: #06B6D4; font-weight: 600; }
+.art-amber { color: #FFD166; font-weight: 600; }
+
+/* ── Section divider ─────────────────────────────────────── */
+.art-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.10), transparent);
+  margin: 52px 0;
+}
+
+/* ── Intro stat callout ───────────────────────────────────── */
+.art-callout {
+  background: linear-gradient(167deg, rgba(6,182,212,0.09) 0%, rgba(168,85,247,0.09) 100%);
+  border: 1px solid rgba(6,182,212,0.20);
+  border-radius: 20px;
+  padding: 28px 28px 28px 72px;
+  position: relative;
+  margin-bottom: 36px;
+}
+.art-callout-icon {
+  position: absolute;
+  left: 20px;
+  top: 26px;
+  width: 36px; height: 36px;
+  background: rgba(6,182,212,0.18);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 1;
+}
+.art-callout-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 8px;
+  font-family: 'Inter', sans-serif;
+}
+.art-callout-text {
+  font-size: 17px;
+  color: #D1D5DB;
+  line-height: 1.7;
+}
+
+/* ── "The psychology:" callout ────────────────────────────── */
+.art-psych {
+  background: rgba(6,182,212,0.05);
+  border: 1px solid rgba(6,182,212,0.15);
+  border-radius: 16px;
+  padding: 22px 22px 22px 64px;
+  position: relative;
+  margin-bottom: 24px;
+}
+.art-psych::before {
+  content: '🧠';
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  font-size: 22px;
+  line-height: 1;
+}
+.art-psych-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #06B6D4;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-family: 'Inter', sans-serif;
+}
+.art-psych p {
+  font-size: 16px;
+  color: #D1D5DB;
+  line-height: 1.7;
+}
+
+/* ── "The fix:" box ───────────────────────────────────────── */
+.art-fix {
+  background: rgba(255,209,102,0.07);
+  border: 1px solid rgba(255,209,102,0.25);
+  border-radius: 16px;
+  padding: 22px 22px 22px 64px;
+  position: relative;
+  margin-bottom: 40px;
+}
+.art-fix::before {
+  content: '💡';
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  font-size: 22px;
+  line-height: 1;
+}
+.art-fix-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #FFE5A0;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-family: 'Inter', sans-serif;
+}
+.art-fix p {
+  font-size: 16px;
+  color: #F3F4F6;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+.art-fix p:last-child { margin-bottom: 0; }
+.art-fix ul, .art-fix ol { padding-left: 20px; margin-top: 8px; }
+.art-fix li {
+  font-size: 16px;
+  color: #F3F4F6;
+  line-height: 1.65;
+  margin-bottom: 6px;
+}
+
+/* ── Article image ────────────────────────────────────────── */
+.art-img-wrap {
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.30);
+}
+.art-img-wrap img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+}
+.art-img-caption {
+  font-size: 13px;
+  color: #6B7280;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  padding: 0 8px;
+}
+
+/* ── Lists ────────────────────────────────────────────────── */
+.art-ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 24px;
+}
+.art-ul li {
+  font-size: 18px;
+  color: #D1D5DB;
+  line-height: 1.7;
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 10px;
+}
+.art-ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: #4B5563;
+}
+
+.art-ol {
+  list-style: none;
+  counter-reset: art-ol;
+  padding-left: 0;
+  margin-bottom: 24px;
+}
+.art-ol li {
+  font-size: 18px;
+  color: #D1D5DB;
+  line-height: 1.7;
+  padding-left: 32px;
+  position: relative;
+  margin-bottom: 10px;
+  counter-increment: art-ol;
+}
+.art-ol li::before {
+  content: counter(art-ol) '.';
+  position: absolute;
+  left: 0;
+  color: #6B7280;
+  font-weight: 600;
+}
+.art-ol li strong { color: #FFFFFF; font-weight: 600; }
+
+/* ── Abandonment reason pills ─────────────────────────────── */
+.art-reason-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.art-reason-list li {
+  font-size: 17px;
+  color: #D1D5DB;
+  line-height: 1.6;
+  padding-left: 24px;
+  position: relative;
+}
+.art-reason-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #A78BFA;
+}
+
+/* ── Blockquote ───────────────────────────────────────────── */
+.art-quote {
+  background: rgba(6,182,212,0.05);
+  border-left: 4px solid #06B6D4;
+  border-radius: 0 12px 12px 0;
+  padding: 20px 28px;
+  margin-bottom: 36px;
+}
+.art-quote p {
+  font-size: 20px;
+  font-style: italic;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Revenue math highlight box ───────────────────────────── */
+.art-math-box {
+  background: rgba(255,209,102,0.05);
+  border: 1px solid rgba(255,209,102,0.20);
+  border-radius: 20px;
+  padding: 28px 32px;
+  margin-bottom: 36px;
+}
+.art-math-box p {
+  font-size: 17px;
+  color: #D1D5DB;
+  line-height: 1.75;
+}
+
+/* ── "What to Do Next" conditional list ───────────────────── */
+.art-cond-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.art-cond-list li {
+  font-size: 17px;
+  color: #D1D5DB;
+  line-height: 1.65;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 14px 16px 14px 44px;
+  position: relative;
+}
+.art-cond-list li::before {
+  content: 'If';
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #06B6D4;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.art-cond-list li strong { color: #FFFFFF; font-weight: 600; }
+
+/* ── Key Takeaways ────────────────────────────────────────── */
+.art-takeaways {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.art-takeaways li {
+  font-size: 17px;
+  color: #D1D5DB;
+  line-height: 1.65;
+  padding-left: 28px;
+  position: relative;
+}
+.art-takeaways li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #4ADE80;
+  font-weight: 700;
+}
+
+/* ── FAQ section ─────────────────────────────────────────── */
+.art-faq { margin-bottom: 0; }
+.art-faq-item {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 28px 0;
+}
+.art-faq-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
+.art-faq-q {
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  font-family: 'Inter', sans-serif;
+}
+.art-faq-a {
+  font-size: 16px;
+  color: #9CA3AF;
+  line-height: 1.75;
+}
+
+/* ── Author box ───────────────────────────────────────────── */
+.art-author {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 28px;
+  margin-top: 8px;
+}
+.art-author-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 4px;
+  font-family: 'Inter', sans-serif;
+}
+.art-author-role {
+  font-size: 13px;
+  color: #6B7280;
+  margin-bottom: 14px;
+}
+.art-author-bio {
+  font-size: 15px;
+  color: #9CA3AF;
+  line-height: 1.7;
+}
+
+/* ── Italic CTA link ─────────────────────────────────────── */
+.art-outro {
+  font-size: 18px;
+  font-style: italic;
+  color: #9CA3AF;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+.art-outro a {
+  color: #06B6D4;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .art-body { padding: 40px 16px 56px; }
+  .art-h2 { font-size: 24px; }
+  .art-h3 { font-size: 19px; }
+  .art-p, .art-callout-text, .art-ul li, .art-ol li { font-size: 16px; }
+  .art-img-wrap img { height: 220px; }
+  .art-callout { padding-left: 60px; }
+  .art-psych, .art-fix { padding-left: 52px; }
+  .art-quote p { font-size: 17px; }
+}
+</style>
+
+<article class="art-body" itemscope itemtype="https://schema.org/Article">
+  <div class="art-body-inner">
+
+    <!-- ── Intro ─────────────────────────────────────────── -->
+    <p class="art-p">Your ads are running. Your SEO is working. Google Analytics shows thousands of visitors landing on your store every month. But when you check your sales dashboard, the numbers tell a different story.</p>
+
+    <p class="art-p">If this sounds familiar, you are not alone. The average e-commerce conversion rate is between <span class="art-amber">2% and 3%</span>, meaning that for every 100 visitors, 97 leave without making a purchase. And for most stores, the real number is worse — Shopify reports that its platform average is just <span class="art-amber">1.4%</span>.</p>
+
+    <p class="art-p">The gap between traffic and revenue is where most e-commerce businesses lose the game. Not because their product is wrong or their pricing is off, but because their store is leaking conversions at every stage of the buyer journey.</p>
+
+    <p class="art-p">We have seen this pattern across every type of e-commerce business we have worked with. At Foodpanda (Delivery Hero), we inherited a platform with strong traffic but underperforming revenue. After a systematic audit and six months of psychology-driven experimentation, we drove a <span class="art-amber">58% increase in total revenue</span> and a <span class="art-amber">40% improvement in conversion rate</span>.</p>
+
+    <p class="art-p">Here are the 7 most common reasons your e-commerce store gets traffic but no sales — and exactly what to do about each one.</p>
+
+    <!-- Image 1 — E-commerce conversion funnel -->
+    <figure class="art-img-wrap">
+      <img src="/wp-content/uploads/2026/03/visual-1-funnel-1.png"
+           alt="The e-commerce conversion funnel showing where 100,000 visitors drop off at each stage"
+           loading="lazy" width="864" height="420"/>
+    </figure>
+    <p class="art-img-caption">The e-commerce conversion funnel: where 100,000 visitors drop off at each stage.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Section 1 ───────────────────────────────────────── -->
+    <h2 class="art-h2">1. Your Product Pages Are Not Doing Their Job</h2>
+
+    <p class="art-p">Product pages are where buying decisions happen. Not the homepage, not the category page. Yet most e-commerce stores treat product pages as a template to fill in rather than a conversion tool to optimise.</p>
+
+    <p class="art-p">When we audit e-commerce stores, product pages consistently account for the largest share of lost revenue. The most common issues we see: vague or feature-heavy copy that does not connect to what the buyer actually cares about, images that show the product but do not show it in context, missing or buried social proof, and a cluttered layout that makes the &#8220;Add to Cart&#8221; button compete with 15 other elements for attention.</p>
+
+    <div class="art-psych">
+      <span class="art-psych-label">The Psychology</span>
+      <p>This is Hick&#8217;s Law: the more choices you throw at someone, the longer they take to decide — and the more likely they are to leave without deciding at all. Your product page is not just a display case. Every extra CTA, every unrelated link, every wall of spec text is a small bet against the sale. Fewer decisions, faster yes.</p>
+    </div>
+
+    <p class="art-p">When we restructured the product discovery experience for a major delivery platform — cutting cognitive noise and grouping by intent rather than category — conversion rates moved measurably. The principle is the same everywhere.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Audit your top 10 product pages by revenue. For each one, answer three questions:</p>
+      <ul>
+        <li>Is the primary benefit clear within 3 seconds?</li>
+        <li>Is the CTA visually dominant?</li>
+        <li>Is there social proof (reviews, ratings, purchase count) visible without scrolling?</li>
+      </ul>
+      <p>If the answer to any of these is no, start there.</p>
+    </div>
+
+    <!-- Image 2 — Product page side-by-side -->
+    <figure class="art-img-wrap">
+      <img src="/wp-content/uploads/2026/03/visual-4-product-page-1.png"
+           alt="Side-by-side comparison: common product page conversion killers versus psychology-driven fixes"
+           loading="lazy" width="864" height="420"/>
+    </figure>
+    <p class="art-img-caption">Side-by-side: common product page conversion killers (left) vs. psychology-driven fixes (right).</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Section 2 ───────────────────────────────────────── -->
+    <h2 class="art-h2">2. You Have No Trust Signals (or They Are in the Wrong Place)</h2>
+
+    <p class="art-p">Buying online requires trust. Visitors are handing over their credit card details to a website they may have never heard of. If your store does not actively earn that trust at the moment of decision, you are leaving revenue on the table.</p>
+
+    <p class="art-p">Trust signals include customer reviews, security badges, clear return policies, recognisable payment logos, and real customer photos. But having them is not enough. Where you place them matters more than whether you have them. A &#8220;30-day returns&#8221; badge buried in your footer does nothing to help the visitor decide whether to click &#8220;Add to Cart&#8221; on your product page.</p>
+
+    <div class="art-psych">
+      <span class="art-psych-label">The Psychology</span>
+      <p>This is Familiarity Bias at work. When your brain encounters something recognisable — star ratings, &#8220;Verified Buyer&#8221; badges, payment logos — it takes a shortcut: safe. When those patterns are absent, it takes a different shortcut: leave. Trust is not built by having the right signals. It is built by putting them in the right place, at the right moment.</p>
+    </div>
+
+    <p class="art-p">At Foodpanda, we designed every step of the user journey to set clear expectations for what comes next. That predictability directly reduced anxiety and drop-off. If a customer has to scroll past the fold to find a review, you have already lost the moment.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Place your strongest trust signal — review count, guarantee, or security badge — directly next to your &#8220;Add to Cart&#8221; button. Move your return policy from the footer to the product page. If you have fewer than 10 reviews for a product, prioritise generating reviews over increasing traffic.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Section 3 ───────────────────────────────────────── -->
+    <h2 class="art-h2">3. Your Checkout Is Killing Conversions</h2>
+
+    <p class="art-p">According to Baymard Institute&#8217;s research, the average cart abandonment rate across e-commerce sites sits at <span class="art-amber">70.19%</span>. That means 7 out of 10 visitors who want your product enough to add it to their cart still do not buy it.</p>
+
+    <p class="art-p">The top reasons:</p>
+
+    <ul class="art-reason-list">
+      <li>Unexpected costs at checkout — <span class="art-amber">48%</span> of abandoners</li>
+      <li>Forced account creation — <span class="art-amber">26%</span></li>
+      <li>A checkout process that is too long or complicated — <span class="art-amber">22%</span></li>
+    </ul>
+
+    <p class="art-p">The average e-commerce checkout contains <span class="art-amber">23 form elements</span>. Research shows the ideal is 12&#8211;14. That gap represents a 20% to 60% reduction that most stores could make without losing any necessary information.</p>
+
+    <div class="art-psych">
+      <span class="art-psych-label">The Psychology</span>
+      <p>This is the Peak&#8211;End Rule: people do not judge an experience by its average — they judge it by its worst moment and how it ended. If the sharpest pain point in your purchase flow is a 5-step checkout form with surprise shipping costs, that is the feeling your customer takes away. Not &#8220;I got a great product.&#8221; Just frustration. And frustrated customers do not come back.</p>
+    </div>
+
+    <p class="art-p">Checkout is the first thing we audit at Precision — not because it is glamorous, but because the <span class="art-amber">$260 billion</span> Baymard estimates sitting in abandoned carts is the most straightforward money in e-commerce, if you are willing to get out of your own way.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Enable guest checkout — do not force account creation. Show total costs including shipping as early as possible, ideally on the product page or cart page. Reduce form fields to the absolute minimum. If your checkout has more than one page, test a single-page checkout.</p>
+    </div>
+
+    <!-- Image 3 — Cart abandonment data -->
+    <figure class="art-img-wrap">
+      <img src="/wp-content/uploads/2026/03/visual-3-cart-abandonment-1.png"
+           alt="Baymard Institute 2025 data showing why 70% of shoppers abandon their cart and the $260B recovery opportunity"
+           loading="lazy" width="864" height="420"/>
+    </figure>
+    <p class="art-img-caption">Baymard Institute 2025 data: why 70% of shoppers abandon their cart, and the $260B recovery opportunity.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Section 4 ───────────────────────────────────────── -->
+    <h2 class="art-h2">4. You Are Ignoring Average Order Value</h2>
+
+    <p class="art-p">Most e-commerce founders obsess over conversion rate but completely ignore the other half of the revenue equation: how much each customer spends. Average Order Value (AOV) is often the faster, higher-impact lever to pull — and almost nobody is pulling it.</p>
+
+    <p class="art-p">When we analysed the Google Merchandise Store as a case study, we found their AOV was <span class="art-amber">68% lower</span> than apparel e-commerce benchmarks. The reason? No cart-page upselling, no personalised recommendations, no bundle offers. Enormous revenue was being left on the table from customers who were already buying.</p>
+
+    <p class="art-p">At Foodpanda, we addressed this directly by adding a &#8220;Popular with your order&#8221; product carousel on the cart page, using market basket analysis to recommend complementary products. The result: a <span class="art-cyan">+35% increase in Average Order Value</span>.</p>
+
+    <div class="art-psych">
+      <span class="art-psych-label">The Psychology</span>
+      <p>Two biases do the heavy lifting here. The first is the <strong style="color:#FFFFFF">Endowment Effect</strong>: once someone adds something to their cart, they already feel a degree of ownership over it. That psychological investment makes them more open to adding more. The second is <strong style="color:#FFFFFF">Anchoring Bias</strong>: when you show a bundled price next to the original, the discount does not just look like a saving — it feels like one.</p>
+    </div>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Add complementary product recommendations on your cart page. Set a free shipping threshold just above your current AOV (if your AOV is $45, set free shipping at $55). Test bundle offers that package your bestsellers with related products.</p>
+    </div>
+
+    <!-- Image 4 — Conversion benchmarks by industry -->
+    <figure class="art-img-wrap">
+      <img src="/wp-content/uploads/2026/03/visual-5-benchmarks-1.png"
+           alt="E-commerce conversion rates by industry in 2025"
+           loading="lazy" width="864" height="420"/>
+    </figure>
+    <p class="art-img-caption">E-commerce conversion rates by industry (2025). Where does your store sit relative to your vertical?</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Section 5 ───────────────────────────────────────── -->
+    <h2 class="art-h2">5. Your Site Is Too Slow (Especially on Mobile)</h2>
+
+    <p class="art-p">Speed is not a nice-to-have. It is a conversion requirement. A 1-second delay in page load time can reduce conversions by up to <span class="art-amber">7%</span>. When load times go from 1 to 3 seconds, bounce rates increase by <span class="art-amber">32%</span>. At 5 seconds, that jumps to <span class="art-amber">90%</span>.</p>
+
+    <p class="art-p">And here is why this matters more than ever: smartphones now account for roughly <span class="art-amber">78% of all retail site visits</span>. But mobile conversion rates lag far behind desktop — averaging around <span class="art-amber">1.8%</span> compared to desktop&#8217;s 3.9%. Part of that gap is inherent, but a major part is simply that most e-commerce sites are not optimised for mobile speed and usability.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Run your store through Google PageSpeed Insights right now. Compress images — this is the #1 culprit in most stores. Enable lazy loading for below-the-fold content. If your mobile site takes more than 3 seconds to load, treat it as a revenue emergency.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Section 6 ───────────────────────────────────────── -->
+    <h2 class="art-h2">6. You Are Not Personalising the Experience</h2>
+
+    <p class="art-p">If every visitor sees the same homepage, the same product recommendations, and the same pop-ups — regardless of whether they are a first-time browser or a returning customer who abandoned a cart yesterday — you are missing the easiest wins in e-commerce.</p>
+
+    <p class="art-p">Personalisation does not require a six-figure tech stack. It starts with basic segmentation: new visitors vs. returning visitors, browsing behaviour, cart history, and geographic location. Even small adjustments &#8212; such as displaying different homepage content to first-time visitors compared to returning customers &#8212; can significantly boost conversion rates.</p>
+
+    <p class="art-p">One of the most impactful discoveries we made at Foodpanda was through geo-data analysis. We partnered with local telecom companies to analyse user behaviour across regions and discovered that grocery delivery users had entirely different behaviour patterns than restaurant delivery users. By building separate customer personas and tailoring the experience accordingly, we created a targeted expansion strategy that was a foundational driver of the <span class="art-amber">+58% revenue growth</span>.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Start with your two biggest visitor segments: new visitors and returning customers. Show new visitors social proof and your strongest value proposition. Show returning visitors the products they viewed, their abandoned cart, or &#8220;back in stock&#8221; notifications. This single segmentation can move the needle more than any ad campaign.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Section 7 ───────────────────────────────────────── -->
+    <h2 class="art-h2">7. You Are Guessing Instead of Testing</h2>
+
+    <p class="art-p">This is the one that ties everything together. Most e-commerce businesses approach optimisation as a series of opinions: &#8220;I think the CTA should be green,&#8221; or &#8220;I feel like we should move the reviews above the fold.&#8221; Without a systematic testing process, you are making expensive bets with no data to back them up.</p>
+
+    <p class="art-p">The difference between stores that grow and those that plateau lies in methodology. At Precision, we use a structured 4-phase approach called the Conversion Accelerator: Deep Dive Audit, Quick Fixes, Big Swing A/B Tests, and Fine Tuning. Each phase builds on the last.</p>
+
+    <p class="art-p">This is exactly how we approached Foodpanda. The deep-dive audit revealed geo-data insights into grocery vs. restaurant users. Quick fixes delivered an <span class="art-cyan">80% increase in email click-through rate</span>. Big swing tests &#8212; cart page upselling (<span class="art-cyan">+35% AOV</span>) and loyalty gamification (<span class="art-cyan">+11% orders per customer</span>) &#8212; drove the transformative results.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Stop guessing. Before you change anything in your store, write down what you expect to happen and why. Then test it. If you do not have enough traffic for A/B testing, start with sequential testing (run version A for two weeks, version B for two weeks, compare). The goal is not perfection. The goal is to replace opinions with evidence.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── The Real Cost of Doing Nothing ─────────────────── -->
+    <h2 class="art-h2">The Real Cost of Doing Nothing</h2>
+
+    <p class="art-p">Here is the maths most e-commerce founders never do.</p>
+
+    <div class="art-math-box">
+      <p>If your store gets <span class="art-amber">100,000 monthly visitors</span> and converts at <span class="art-amber">1.5%</span> with a <span class="art-amber">$50 AOV</span>, your monthly revenue is $75,000.</p>
+      <p style="margin-top:12px">A <span class="art-cyan">40% improvement in conversion rate</span> alone — the result we achieved at Foodpanda — would add <span class="art-cyan">$30,000 per month</span> without a single extra visitor.</p>
+      <p style="margin-top:12px">Add a <span class="art-cyan">35% AOV boost</span> on top, and you are looking at an additional <span class="art-amber">$66,750 per month</span>. That is <span class="art-amber">$801,000 in annual revenue</span> from the traffic you already have.</p>
+    </div>
+
+    <p class="art-p">The issue is rarely traffic. It is what happens after the click.</p>
+
+    <!-- Image 5 — ROI math -->
+    <figure class="art-img-wrap">
+      <img src="/wp-content/uploads/2026/03/visual-2-roi-math-1.png"
+           alt="Three revenue growth scenarios from the same 100,000 monthly visitors: Conservative, Achievable, and Optimal"
+           loading="lazy" width="864" height="420"/>
+    </figure>
+    <p class="art-img-caption">Three growth scenarios from the same 100K monthly visitors: Conservative, Achievable, and Optimal.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── What to Do Next ────────────────────────────────── -->
+    <h2 class="art-h2">What to Do Next</h2>
+
+    <p class="art-p">You do not need to fix all seven issues at once. Start with the one that is costing you the most:</p>
+
+    <ul class="art-cond-list">
+      <li><strong>your product pages have low &#8220;Add to Cart&#8221; rates,</strong> start with Reason #1 (product page UX) and Reason #2 (trust signals).</li>
+      <li><strong>visitors are adding items to the cart but not buying,</strong> focus on Reasons #3 (checkout friction) and #4 (AOV optimisation).</li>
+      <li><strong>your bounce rate is high,</strong> prioritise Reason #5 (site speed) and Reason #6 (personalisation).</li>
+      <li><strong>you are making changes but not seeing results,</strong> read Reason #7 (testing methodology) twice.</li>
+    </ul>
+
+    <p class="art-outro">Want to find out exactly where your store is leaking revenue? <a href="https://calendly.com/ammarah-bumx/30min">Book a strategy session</a> to get a personalised audit of your e-commerce conversion funnel.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Key Takeaways ──────────────────────────────────── -->
+    <h2 class="art-h2">Key Takeaways</h2>
+
+    <ul class="art-takeaways">
+      <li>The average e-commerce conversion rate is 2&#8211;3%. If you are below that, your store has fixable problems.</li>
+      <li>The 7 most common conversion killers are: weak product pages, missing trust signals, checkout friction, ignoring AOV, slow site speed, no personalisation, and no testing process.</li>
+      <li>Each issue has a specific psychological principle behind it. Understanding why visitors behave the way they do is the key to changing that behaviour.</li>
+      <li>A 40% conversion rate improvement on 100,000 monthly visitors at $50 AOV adds $30,000/month. Add AOV optimisation, and the number is even larger.</li>
+      <li>You do not need more traffic. You need to convert the traffic you already have.</li>
+    </ul>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── FAQ ────────────────────────────────────────────── -->
+    <h2 class="art-h2">Frequently Asked Questions</h2>
+
+    <div class="art-faq">
+      <div class="art-faq-item">
+        <p class="art-faq-q">Why is my e-commerce store getting traffic but no sales?</p>
+        <p class="art-faq-a">The most common reasons are poor product page UX, missing trust signals, high checkout friction, no AOV optimisation, slow site speed (especially on mobile), lack of personalisation, and lack of a systematic testing process. In most cases, it is a combination of several of these working together to leak conversions at every stage of the buyer journey.</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">What is a good e-commerce conversion rate?</p>
+        <p class="art-faq-a">The global average ranges from 2% to 3%, depending on the source and methodology. Food and beverage e-commerce tends to convert at the highest rate (around 4&#8211;5%), while luxury and furniture convert at the lowest (1&#8211;2%). More important than hitting a benchmark is understanding your specific funnel: where visitors are dropping off, and why.</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">How do I increase my e-commerce conversion rate without more traffic?</p>
+        <p class="art-faq-a">Focus on the 7 areas outlined in this article. The fastest wins typically come from fixing checkout friction (reducing form fields, enabling guest checkout, showing costs upfront), improving product page UX (clearer CTAs, visible social proof), and adding AOV optimisation (cart-page upselling, bundle offers, free shipping thresholds). A structured CRO audit is the best way to identify which specific fixes will have the highest impact for your store.</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">How much revenue am I losing to cart abandonment?</p>
+        <p class="art-faq-a">With an average cart abandonment rate of 70%, most stores lose significant revenue from visitors who show purchase intent. Baymard Institute estimates that $260 billion in lost orders is recoverable across US and EU e-commerce through better checkout design alone. For your specific store, multiply your monthly cart additions by your AOV, then multiply by 0.70. That is your approximate monthly revenue at risk.</p>
+      </div>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── About the Author ───────────────────────────────── -->
+    <div class="art-author">
+      <p class="art-author-name">Ammarah Ahmed</p>
+      <p class="art-author-role">Founder, Precision Consulting Group</p>
+      <p class="art-author-bio">Ammarah helps growth-stage e-commerce businesses boost revenue through psychology-driven CRO and UX/UI. With over a decade of experience on major tech platforms across Asia and the Middle East, she combines behavioural psychology and user experience to drive effective conversion optimisation.</p>
+    </div>
+
+  </div>
+</article>

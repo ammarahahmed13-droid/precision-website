@@ -1,0 +1,79 @@
+<!-- ============================================================
+     PRECISION — Article CTA (Bricks Code Block)
+     Author byline + Book a Call. Reusable across all articles.
+     ============================================================ -->
+
+<style>
+.art-cta *,
+.art-cta *::before,
+.art-cta *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.art-cta {
+  background: #0B0B1E;
+  padding: 0 24px 88px;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+
+.art-cta-inner {
+  max-width: 896px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.art-cta-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.20), transparent);
+  margin-bottom: 52px;
+}
+
+.art-cta-byline {
+  font-size: 15px;
+  color: #99A1AF;
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+.art-cta-byline strong {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.art-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 36px;
+  background: #FFD166;
+  border-radius: 16px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #0B0B1E;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.20);
+  transition: opacity 0.18s, transform 0.18s;
+}
+.art-cta-btn:hover { opacity: 0.90; transform: translateY(-2px); }
+.art-cta-btn svg { flex-shrink: 0; }
+
+@media (max-width: 767px) {
+  .art-cta { padding: 0 16px 64px; }
+}
+</style>
+
+<div class="art-cta">
+  <div class="art-cta-inner">
+    <div class="art-cta-divider" aria-hidden="true"></div>
+
+    <p class="art-cta-byline">
+      By <strong>Ammarah Ahmed</strong> &middot; Founder, Precision Consulting Group
+    </p>
+
+    <a href="https://calendly.com/ammarah-bumx/30min" class="art-cta-btn" target="_blank" rel="noopener">
+      Book a Call
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M4 10h12M12 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+</div>

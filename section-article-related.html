@@ -1,0 +1,241 @@
+<!-- ============================================================
+     PRECISION — Article Related Articles (Bricks Code Block)
+     Shows 3 related article cards below an article.
+     Customise the 3 cards per article (title, tag, excerpt,
+     read time, href, colour).
+     ============================================================ -->
+
+<style>
+.art-related *,
+.art-related *::before,
+.art-related *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.art-related {
+  background: #0B0B1E;
+  padding: 0 24px 96px;
+  font-family: 'Inter', sans-serif;
+}
+
+.art-related-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.art-related-heading {
+  font-size: 28px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 28px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Grid ─────────────────────────────────────────────────── */
+.art-related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ── Card ─────────────────────────────────────────────────── */
+.art-rel-card {
+  background: rgba(21,21,46,0.6);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-decoration: none;
+  position: relative;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.art-rel-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,255,255,0.15);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+}
+
+/* ── Tag pill (matches blg-tag colours) ───────────────────── */
+.art-rel-tag {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 50px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-family: 'Inter', sans-serif;
+}
+.art-rel-tag--cro              { color: #22D3EE; background: rgba(34,211,238,0.10);  border: 1px solid rgba(34,211,238,0.22); }
+.art-rel-tag--e-commerce       { color: #A78BFA; background: rgba(167,139,250,0.10); border: 1px solid rgba(167,139,250,0.22); }
+.art-rel-tag--aov              { color: #FCD34D; background: rgba(252,211,77,0.10);  border: 1px solid rgba(252,211,77,0.22); }
+.art-rel-tag--ui-ux            { color: #F472B6; background: rgba(244,114,182,0.10); border: 1px solid rgba(244,114,182,0.22); }
+.art-rel-tag--product-psychology { color: #C084FC; background: rgba(192,132,252,0.10); border: 1px solid rgba(192,132,252,0.22); }
+.art-rel-tag--experimentation  { color: #4ADE80; background: rgba(74,222,128,0.10);  border: 1px solid rgba(74,222,128,0.22); }
+
+/* ── Card title ───────────────────────────────────────────── */
+.art-rel-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  font-family: 'Inter', sans-serif;
+  flex: 1;
+}
+
+/* ── Card excerpt ─────────────────────────────────────────── */
+.art-rel-excerpt {
+  font-size: 14px;
+  color: #9CA3AF;
+  line-height: 1.6;
+}
+
+/* ── Card footer ──────────────────────────────────────────── */
+.art-rel-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.art-rel-read-time {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: #6B7280;
+}
+.art-rel-read-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #00BFFF;
+  transition: opacity 0.18s;
+}
+.art-rel-read-link:hover { opacity: 0.75; }
+
+/* Stretched link — entire card is clickable */
+.art-rel-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .art-related { padding: 0 16px 72px; }
+  .art-related-grid { grid-template-columns: 1fr; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .art-related-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+
+<section class="art-related" aria-label="Related articles">
+  <div class="art-related-inner">
+
+    <h2 class="art-related-heading">Related Articles</h2>
+
+    <div class="art-related-grid">
+
+      <!-- Related 1 -->
+      <a href="/insights/mobile-first-ecommerce-desktop-designs-failing" class="art-rel-card">
+        <span class="art-rel-tag art-rel-tag--e-commerce">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+            <path d="M1.5 2.5h7l-1 4H2.5l-1-4Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+            <circle cx="3.5" cy="8" r="0.8" fill="currentColor"/>
+            <circle cx="7"   cy="8" r="0.8" fill="currentColor"/>
+          </svg>
+          E-Commerce
+        </span>
+        <p class="art-rel-title">Mobile-First E-Commerce: Why Your Desktop Designs Are Failing</p>
+        <p class="art-rel-excerpt">Mobile accounts for 70%+ of e-commerce traffic. Here's how to design mobile experiences that convert at desktop-level rates.</p>
+        <div class="art-rel-footer">
+          <span class="art-rel-read-time">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.3"/>
+              <path d="M6 3.5V6l2 1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+            7 min read
+          </span>
+          <span class="art-rel-read-link" style="color:#A78BFA">
+            Read
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 6h8M7 3l3 3-3 3" stroke="#A78BFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- Related 2 -->
+      <a href="/insights/trust-economics-social-proof-conversion-rate" class="art-rel-card">
+        <span class="art-rel-tag art-rel-tag--cro">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+            <circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width="1.3"/>
+            <circle cx="5" cy="5" r="2" stroke="currentColor" stroke-width="1.3"/>
+            <circle cx="5" cy="5" r="0.8" fill="currentColor"/>
+          </svg>
+          CRO
+        </span>
+        <p class="art-rel-title">The Trust Economics: How Social Proof Impacts Your Conversion Rate</p>
+        <p class="art-rel-excerpt">Understanding the ROI of testimonials, reviews, and trust signals with data from 100+ e-commerce experiments.</p>
+        <div class="art-rel-footer">
+          <span class="art-rel-read-time">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.3"/>
+              <path d="M6 3.5V6l2 1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+            9 min read
+          </span>
+          <span class="art-rel-read-link" style="color:#22D3EE">
+            Read
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 6h8M7 3l3 3-3 3" stroke="#22D3EE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- Related 3 -->
+      <a href="/insights/bundle-pricing-strategies-aov-58-percent" class="art-rel-card">
+        <span class="art-rel-tag art-rel-tag--aov">
+          <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
+            <text x="5" y="9" text-anchor="middle" font-size="11" font-weight="700" font-family="Inter,Arial,sans-serif" fill="currentColor">$</text>
+          </svg>
+          AOV
+        </span>
+        <p class="art-rel-title">Bundle Pricing Strategies That Increased AOV by 58%</p>
+        <p class="art-rel-excerpt">The exact bundle strategy framework used in our Foodpanda case study, adapted for various marketplace models.</p>
+        <div class="art-rel-footer">
+          <span class="art-rel-read-time">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.3"/>
+              <path d="M6 3.5V6l2 1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+            11 min read
+          </span>
+          <span class="art-rel-read-link" style="color:#FCD34D">
+            Read
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 6h8M7 3l3 3-3 3" stroke="#FCD34D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
