@@ -1,8 +1,11 @@
 <!-- ============================================================
      PRECISION — Article Related Articles (Bricks Code Block)
-     Shows 3 related article cards below an article.
-     Customise the 3 cards per article (title, tag, excerpt,
-     read time, href, colour).
+     Dynamic query loop: pulls 3 posts from the same category
+     as the current article. Falls back to recent posts if the
+     category has fewer than 3 others.
+
+     REQUIRES: "Execute PHP" enabled on this Code Block in Bricks.
+     BRICKS TEMPLATE: Set condition → Post Type = Post
      ============================================================ -->
 
 <style>
@@ -58,7 +61,7 @@
   box-shadow: 0 16px 40px rgba(0,0,0,0.25);
 }
 
-/* ── Tag pill (matches blg-tag colours) ───────────────────── */
+/* ── Tag pill ─────────────────────────────────────────────── */
 .art-rel-tag {
   display: inline-flex;
   align-items: center;
@@ -73,12 +76,13 @@
   white-space: nowrap;
   font-family: 'Inter', sans-serif;
 }
-.art-rel-tag--cro              { color: #22D3EE; background: rgba(34,211,238,0.10);  border: 1px solid rgba(34,211,238,0.22); }
-.art-rel-tag--e-commerce       { color: #A78BFA; background: rgba(167,139,250,0.10); border: 1px solid rgba(167,139,250,0.22); }
-.art-rel-tag--aov              { color: #FCD34D; background: rgba(252,211,77,0.10);  border: 1px solid rgba(252,211,77,0.22); }
-.art-rel-tag--ui-ux            { color: #F472B6; background: rgba(244,114,182,0.10); border: 1px solid rgba(244,114,182,0.22); }
-.art-rel-tag--product-psychology { color: #C084FC; background: rgba(192,132,252,0.10); border: 1px solid rgba(192,132,252,0.22); }
-.art-rel-tag--experimentation  { color: #4ADE80; background: rgba(74,222,128,0.10);  border: 1px solid rgba(74,222,128,0.22); }
+.art-rel-tag--cro               { color: #22D3EE; background: rgba(34,211,238,0.10);   border: 1px solid rgba(34,211,238,0.22); }
+.art-rel-tag--e-commerce        { color: #A78BFA; background: rgba(167,139,250,0.10);  border: 1px solid rgba(167,139,250,0.22); }
+.art-rel-tag--aov               { color: #FCD34D; background: rgba(252,211,77,0.10);   border: 1px solid rgba(252,211,77,0.22); }
+.art-rel-tag--ui-ux             { color: #F472B6; background: rgba(244,114,182,0.10);  border: 1px solid rgba(244,114,182,0.22); }
+.art-rel-tag--product-psychology{ color: #C084FC; background: rgba(192,132,252,0.10);  border: 1px solid rgba(192,132,252,0.22); }
+.art-rel-tag--experimentation   { color: #4ADE80; background: rgba(74,222,128,0.10);   border: 1px solid rgba(74,222,128,0.22); }
+.art-rel-tag--default           { color: #94A3B8; background: rgba(148,163,184,0.10);  border: 1px solid rgba(148,163,184,0.22); }
 
 /* ── Card title ───────────────────────────────────────────── */
 .art-rel-title {
@@ -121,7 +125,6 @@
   font-size: 13px;
   font-weight: 700;
   text-decoration: none;
-  color: #00BFFF;
   transition: opacity 0.18s;
 }
 .art-rel-read-link:hover { opacity: 0.75; }
@@ -144,97 +147,149 @@
 }
 </style>
 
+<?php
+// ── Category slug → tag config ─────────────────────────────
+$tag_cfg = [
+  'cro' => [
+    'mod'   => 'cro',
+    'color' => '#22D3EE',
+    'icon'  => '<circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width="1.3"/>'
+             . '<circle cx="5" cy="5" r="2" stroke="currentColor" stroke-width="1.3"/>'
+             . '<circle cx="5" cy="5" r=".8" fill="currentColor"/>',
+  ],
+  'e-commerce' => [
+    'mod'   => 'e-commerce',
+    'color' => '#A78BFA',
+    'icon'  => '<path d="M1.5 2.5h7l-1 4H2.5l-1-4Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>'
+             . '<circle cx="3.5" cy="8" r=".8" fill="currentColor"/>'
+             . '<circle cx="7" cy="8" r=".8" fill="currentColor"/>',
+  ],
+  'aov' => [
+    'mod'   => 'aov',
+    'color' => '#FCD34D',
+    'icon'  => '<text x="5" y="9" text-anchor="middle" font-size="11" font-weight="700" font-family="Inter,Arial,sans-serif" fill="currentColor">$</text>',
+  ],
+  'ui-ux' => [
+    'mod'   => 'ui-ux',
+    'color' => '#F472B6',
+    'icon'  => '<rect x="1" y="2" width="8" height="5.5" rx="1" stroke="currentColor" stroke-width="1.3"/>'
+             . '<path d="M3.5 7.5v1.5M6.5 7.5v1.5M2.5 9h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>',
+  ],
+  'product-psychology' => [
+    'mod'   => 'product-psychology',
+    'color' => '#C084FC',
+    'icon'  => '<path d="M5 1C3 1 1.5 2.5 1.5 4.5c0 1.4.8 2.6 1.9 3.2V9h3.2V7.7C7.7 7.1 8.5 5.9 8.5 4.5 8.5 2.5 7 1 5 1Z" stroke="currentColor" stroke-width="1.3"/>'
+             . '<path d="M3.5 9h3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>',
+  ],
+  'experimentation' => [
+    'mod'   => 'experimentation',
+    'color' => '#4ADE80',
+    'icon'  => '<path d="M3.5 1.5v3.8L1.5 8.5h7l-2-3.2V1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>'
+             . '<path d="M3 1.5h4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>',
+  ],
+];
+
+$default_cfg = [
+  'mod'   => 'default',
+  'color' => '#94A3B8',
+  'icon'  => '<circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width="1.3"/>',
+];
+
+// ── Read time from word count (200 WPM) ────────────────────
+if ( ! function_exists( 'precision_read_time' ) ) {
+  function precision_read_time( $post_id ) {
+    $words   = str_word_count( wp_strip_all_tags( get_post_field( 'post_content', $post_id ) ) );
+    $minutes = max( 1, (int) round( $words / 200 ) );
+    return $minutes . ' min read';
+  }
+}
+
+// ── Build list of posts to show ────────────────────────────
+$current_id  = get_the_ID();
+$cat_ids     = wp_list_pluck( wp_get_post_categories( $current_id, [ 'fields' => 'all' ] ), 'term_id' );
+
+// Primary: same category, random order
+$same_cat = new WP_Query( [
+  'post_type'           => 'post',
+  'post_status'         => 'publish',
+  'posts_per_page'      => 3,
+  'post__not_in'        => [ $current_id ],
+  'category__in'        => $cat_ids,
+  'orderby'             => 'rand',
+  'ignore_sticky_posts' => true,
+] );
+
+$posts_to_show = $same_cat->posts;
+
+// Fallback: fill remaining slots with recent posts
+if ( count( $posts_to_show ) < 3 ) {
+  $exclude      = array_merge( [ $current_id ], wp_list_pluck( $posts_to_show, 'ID' ) );
+  $recent       = new WP_Query( [
+    'post_type'           => 'post',
+    'post_status'         => 'publish',
+    'posts_per_page'      => 3 - count( $posts_to_show ),
+    'post__not_in'        => $exclude,
+    'orderby'             => 'date',
+    'order'               => 'DESC',
+    'ignore_sticky_posts' => true,
+  ] );
+  $posts_to_show = array_merge( $posts_to_show, $recent->posts );
+  wp_reset_postdata();
+}
+
+if ( empty( $posts_to_show ) ) return;
+?>
+
 <section class="art-related" aria-label="Related articles">
   <div class="art-related-inner">
-
     <h2 class="art-related-heading">Related Articles</h2>
-
     <div class="art-related-grid">
 
-      <!-- Related 1 -->
-      <a href="/blog/mobile-first-ecommerce-desktop-designs-failing" class="art-rel-card">
-        <span class="art-rel-tag art-rel-tag--e-commerce">
+      <?php foreach ( $posts_to_show as $rel_post ) :
+        // Resolve category tag config for this post
+        $terms     = get_the_terms( $rel_post->ID, 'category' );
+        $term_slug = ( $terms && ! is_wp_error( $terms ) ) ? $terms[0]->slug : '';
+        $cfg       = $tag_cfg[ $term_slug ] ?? $default_cfg;
+        $tag_label = ( $terms && ! is_wp_error( $terms ) ) ? $terms[0]->name : 'Article';
+        $read_time = precision_read_time( $rel_post->ID );
+        $excerpt   = wp_trim_words( get_the_excerpt( $rel_post ), 20, '…' );
+        $url       = get_permalink( $rel_post->ID );
+        $title     = get_the_title( $rel_post->ID );
+      ?>
+
+      <a href="<?php echo esc_url( $url ); ?>" class="art-rel-card">
+
+        <span class="art-rel-tag art-rel-tag--<?php echo esc_attr( $cfg['mod'] ); ?>">
           <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-            <path d="M1.5 2.5h7l-1 4H2.5l-1-4Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
-            <circle cx="3.5" cy="8" r="0.8" fill="currentColor"/>
-            <circle cx="7"   cy="8" r="0.8" fill="currentColor"/>
+            <?php echo $cfg['icon']; ?>
           </svg>
-          E-Commerce
+          <?php echo esc_html( $tag_label ); ?>
         </span>
-        <p class="art-rel-title">Mobile-First E-Commerce: Why Your Desktop Designs Are Failing</p>
-        <p class="art-rel-excerpt">Mobile accounts for 70%+ of e-commerce traffic. Here's how to design mobile experiences that convert at desktop-level rates.</p>
+
+        <p class="art-rel-title"><?php echo esc_html( $title ); ?></p>
+        <p class="art-rel-excerpt"><?php echo esc_html( $excerpt ); ?></p>
+
         <div class="art-rel-footer">
           <span class="art-rel-read-time">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
               <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.3"/>
               <path d="M6 3.5V6l2 1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
             </svg>
-            7 min read
+            <?php echo esc_html( $read_time ); ?>
           </span>
-          <span class="art-rel-read-link" style="color:#A78BFA">
+          <span class="art-rel-read-link" style="color:<?php echo esc_attr( $cfg['color'] ); ?>">
             Read
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M2 6h8M7 3l3 3-3 3" stroke="#A78BFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 6h8M7 3l3 3-3 3"
+                    stroke="<?php echo esc_attr( $cfg['color'] ); ?>"
+                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </div>
+
       </a>
 
-      <!-- Related 2 -->
-      <a href="/blog/trust-economics-social-proof-conversion-rate" class="art-rel-card">
-        <span class="art-rel-tag art-rel-tag--cro">
-          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-            <circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width="1.3"/>
-            <circle cx="5" cy="5" r="2" stroke="currentColor" stroke-width="1.3"/>
-            <circle cx="5" cy="5" r="0.8" fill="currentColor"/>
-          </svg>
-          CRO
-        </span>
-        <p class="art-rel-title">The Trust Economics: How Social Proof Impacts Your Conversion Rate</p>
-        <p class="art-rel-excerpt">Understanding the ROI of testimonials, reviews, and trust signals with data from 100+ e-commerce experiments.</p>
-        <div class="art-rel-footer">
-          <span class="art-rel-read-time">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-              <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.3"/>
-              <path d="M6 3.5V6l2 1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
-            </svg>
-            9 min read
-          </span>
-          <span class="art-rel-read-link" style="color:#22D3EE">
-            Read
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M2 6h8M7 3l3 3-3 3" stroke="#22D3EE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </div>
-      </a>
-
-      <!-- Related 3 -->
-      <a href="/blog/bundle-pricing-strategies-aov-58-percent" class="art-rel-card">
-        <span class="art-rel-tag art-rel-tag--aov">
-          <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
-            <text x="5" y="9" text-anchor="middle" font-size="11" font-weight="700" font-family="Inter,Arial,sans-serif" fill="currentColor">$</text>
-          </svg>
-          AOV
-        </span>
-        <p class="art-rel-title">Bundle Pricing Strategies That Increased AOV by 58%</p>
-        <p class="art-rel-excerpt">The exact bundle strategy framework used in our Foodpanda case study, adapted for various marketplace models.</p>
-        <div class="art-rel-footer">
-          <span class="art-rel-read-time">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-              <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.3"/>
-              <path d="M6 3.5V6l2 1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
-            </svg>
-            11 min read
-          </span>
-          <span class="art-rel-read-link" style="color:#FCD34D">
-            Read
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M2 6h8M7 3l3 3-3 3" stroke="#FCD34D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </div>
-      </a>
+      <?php endforeach; ?>
 
     </div>
   </div>
