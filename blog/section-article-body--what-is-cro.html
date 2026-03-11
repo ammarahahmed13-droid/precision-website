@@ -1,0 +1,776 @@
+<!-- ============================================================
+     PRECISION, Article Body: "What Is Conversion Rate
+     Optimisation? A Founder's No-Jargon Guide"
+     (Bricks Code Block)
+     Category: CRO  |  14 min read  |  March 12, 2026
+
+     IMAGES: URLs marked TODO_UPDATE_URL — update after uploading
+     to WordPress Media Library.
+     ============================================================ -->
+
+<style>
+.art-body *,
+.art-body *::before,
+.art-body *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.art-body {
+  background: #0B0B1E;
+  padding: 64px 24px 80px;
+  font-family: 'Inter', sans-serif;
+}
+
+.art-body-inner {
+  max-width: 896px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ── Typography ───────────────────────────────────────────── */
+.art-p {
+  font-size: 18px;
+  color: #D1D5DB;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.art-h2 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-top: 16px;
+  margin-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+}
+.art-h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 16px;
+  font-family: 'Inter', sans-serif;
+}
+.art-cyan  { color: #06B6D4; font-weight: 600; }
+.art-amber { color: #FFD166; font-weight: 600; }
+
+/* ── Section divider ─────────────────────────────────────── */
+.art-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.10), transparent);
+  margin: 52px 0;
+}
+
+/* ── Callout box ─────────────────────────────────────────── */
+.art-callout {
+  background: rgba(6,182,212,0.05);
+  border: 1px solid rgba(6,182,212,0.15);
+  border-radius: 16px;
+  padding: 22px 28px;
+  margin-bottom: 32px;
+}
+.art-callout p {
+  font-size: 18px;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  line-height: 1.7;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── "The psychology:" callout ────────────────────────────── */
+.art-psych {
+  background: rgba(6,182,212,0.05);
+  border: 1px solid rgba(6,182,212,0.15);
+  border-radius: 16px;
+  padding: 22px 22px 22px 64px;
+  position: relative;
+  margin-bottom: 24px;
+}
+.art-psych::before {
+  content: '🧠';
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  font-size: 22px;
+  line-height: 1;
+}
+.art-psych-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #06B6D4;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-family: 'Inter', sans-serif;
+}
+.art-psych p {
+  font-size: 16px;
+  color: #D1D5DB;
+  line-height: 1.7;
+}
+
+/* ── "The fix:" box ───────────────────────────────────────── */
+.art-fix {
+  background: rgba(255,209,102,0.07);
+  border: 1px solid rgba(255,209,102,0.25);
+  border-radius: 16px;
+  padding: 22px 22px 22px 64px;
+  position: relative;
+  margin-bottom: 40px;
+}
+.art-fix::before {
+  content: '💡';
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  font-size: 22px;
+  line-height: 1;
+}
+.art-fix-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #FFE5A0;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-family: 'Inter', sans-serif;
+}
+.art-fix p {
+  font-size: 16px;
+  color: #F3F4F6;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+.art-fix p:last-child { margin-bottom: 0; }
+.art-fix ul, .art-fix ol { padding-left: 20px; margin-top: 8px; }
+.art-fix li {
+  font-size: 16px;
+  color: #F3F4F6;
+  line-height: 1.65;
+  margin-bottom: 6px;
+}
+
+/* ── Article image ────────────────────────────────────────── */
+.art-img-wrap {
+  margin-bottom: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.30);
+  overflow: visible !important;
+  cursor: zoom-in;
+  position: relative;
+}
+.art-img-wrap img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: unset !important;
+  display: block;
+}
+
+/* ── Zoom hint badge (mobile only) ───────────────────────── */
+.art-img-wrap::after {
+  content: '🔍 Tap to zoom';
+  position: absolute;
+  bottom: 20px;
+  right: 12px;
+  background: rgba(0,0,0,0.55);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  padding: 5px 10px;
+  border-radius: 50px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+@media (max-width: 767px) {
+  .art-img-wrap::after { opacity: 1; }
+}
+
+/* ── Lightbox ─────────────────────────────────────────────── */
+.art-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0,0,0,0.92);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 16px;
+  cursor: zoom-out;
+}
+.art-lightbox.is-open { display: flex; }
+.art-lightbox img {
+  max-width: 100%;
+  max-height: 80vh;
+  width: auto !important;
+  height: auto !important;
+  box-shadow: 0 0 60px rgba(0,0,0,0.6);
+  cursor: default;
+}
+.art-lightbox-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 50px;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.18s;
+}
+.art-lightbox-close:hover { background: rgba(255,255,255,0.20); }
+.art-img-caption {
+  font-size: 13px;
+  color: #6B7280;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  padding: 0 8px;
+}
+
+/* ── Lists ────────────────────────────────────────────────── */
+.art-ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 24px;
+}
+.art-ul li {
+  font-size: 18px;
+  color: #D1D5DB;
+  line-height: 1.7;
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 10px;
+}
+.art-ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: #4B5563;
+}
+
+/* ── Reason list (▸ prefix) ───────────────────────────────── */
+.art-reason-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 28px;
+}
+.art-reason-list li {
+  font-size: 17px;
+  color: #D1D5DB;
+  line-height: 1.7;
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 12px;
+}
+.art-reason-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #06B6D4;
+  font-weight: 700;
+}
+
+/* ── Conditional list ─────────────────────────────────────── */
+.art-cond-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 28px;
+}
+.art-cond-list li {
+  font-size: 17px;
+  color: #D1D5DB;
+  line-height: 1.7;
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 12px;
+}
+.art-cond-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #FFD166;
+  font-weight: 700;
+}
+
+/* ── Math / revenue box ───────────────────────────────────── */
+.art-math-box {
+  background: rgba(255,209,102,0.05);
+  border: 1px solid rgba(255,209,102,0.18);
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 32px;
+}
+.art-math-box p {
+  font-size: 16px;
+  color: #F3F4F6;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+.art-math-box p:last-child { margin-bottom: 0; }
+
+/* ── Blockquote ───────────────────────────────────────────── */
+.art-quote {
+  background: rgba(6,182,212,0.05);
+  border-left: 4px solid #06B6D4;
+  border-radius: 0 12px 12px 0;
+  padding: 20px 28px;
+  margin-bottom: 36px;
+}
+.art-quote p {
+  font-size: 20px;
+  font-style: italic;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Key Takeaways ────────────────────────────────────────── */
+.art-takeaways {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.art-takeaways li {
+  font-size: 17px;
+  color: #D1D5DB;
+  line-height: 1.65;
+  padding-left: 28px;
+  position: relative;
+}
+.art-takeaways li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #4ADE80;
+  font-weight: 700;
+}
+
+/* ── FAQ section ─────────────────────────────────────────── */
+.art-faq { margin-bottom: 0; }
+.art-faq-item {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 28px 0;
+}
+.art-faq-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
+.art-faq-q {
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  font-family: 'Inter', sans-serif;
+}
+.art-faq-a {
+  font-size: 16px;
+  color: #9CA3AF;
+  line-height: 1.75;
+}
+
+/* ── Author box ───────────────────────────────────────────── */
+.art-author {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 28px;
+  margin-top: 8px;
+}
+.art-author-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 4px;
+  font-family: 'Inter', sans-serif;
+}
+.art-author-role {
+  font-size: 13px;
+  color: #6B7280;
+  margin-bottom: 14px;
+}
+.art-author-bio {
+  font-size: 15px;
+  color: #9CA3AF;
+  line-height: 1.7;
+}
+
+/* ── Italic CTA link ─────────────────────────────────────── */
+.art-outro {
+  font-size: 18px;
+  font-style: italic;
+  color: #9CA3AF;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+.art-outro a {
+  color: #06B6D4;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .art-body { padding: 40px 16px 56px; }
+  .art-h2 { font-size: 24px; }
+  .art-h3 { font-size: 19px; }
+  .art-p, .art-ul li { font-size: 16px; }
+  .art-psych, .art-fix { padding-left: 52px; }
+  .art-quote p { font-size: 17px; }
+}
+</style>
+
+<article class="art-body" itemscope itemtype="https://schema.org/Article">
+  <div class="art-body-inner">
+
+    <!-- ── Intro ─────────────────────────────────────────── -->
+    <p class="art-p">Conversion Rate Optimisation (CRO) is the systematic process of increasing the percentage of website visitors who take a desired action. That is the textbook definition. Here is the one that actually matters:</p>
+
+    <div class="art-callout">
+      <p>CRO is how you make more money from the traffic you already have, without spending another dollar on ads.</p>
+    </div>
+
+    <p class="art-p">If your store gets 100,000 monthly visitors and converts at a <span class="art-amber">1.5% rate</span>, you have 1,500 customers. If CRO moves that to <span class="art-amber">2.1%</span>, you have 2,100 from the same traffic. At an average order value of $50, that is an extra <span class="art-amber">$30,000 per month</span>. Add AOV optimisation on top, and it grows further.</p>
+
+    <p class="art-p">These are not hypothetical. At Foodpanda (Delivery Hero), a systematic CRO programme delivered <span class="art-cyan">+58% revenue</span>, <span class="art-cyan">+40% conversion rate</span>, and <span class="art-cyan">+35% AOV</span> over six months. No increase in marketing spend.</p>
+
+    <p class="art-p">This guide explains CRO from a commercial leader's perspective, not a marketer's. No jargon. No vanity metrics. Just what it is, how it works, what results look like, and when you are ready for it.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── What CRO Actually Is ──────────────────────────── -->
+    <h2 class="art-h2">What CRO actually is (and what it is not)</h2>
+
+    <p class="art-p">CRO is a revenue strategy, not a marketing tactic. This distinction matters. It determines how you think about it, how you budget for it, and how you measure success.</p>
+
+    <p class="art-p">Marketing brings traffic. CRO turns that traffic into revenue. They are complementary but fundamentally different. Most e-commerce businesses invest <span class="art-amber">80-90% of their growth budget</span> in traffic acquisition (ads, SEO, influencer partnerships) and less than 10% in optimising what happens after the click. The result is a leaky bucket: you keep pouring water in while the holes at the bottom get bigger.</p>
+
+    <p class="art-p">CRO is not changing button colours. It is not redesigning your homepage because someone on the team thought it looked dated. It is not implementing whatever "best practice" a SaaS tool is selling this quarter. Those are tactics, not strategy. Real CRO is a data-driven process: find where your funnel leaks, figure out why, test solutions, scale what works.</p>
+
+    <p class="art-p">Think of it this way: if your conversion rate is 1.5% and the industry average is 2.5-3%, there is a mathematical certainty that fixable problems exist on your site. CRO is the discipline of finding and fixing them.</p>
+
+    <!-- Image 1: Three levers -->
+    <figure class="art-img-wrap">
+      <img src="TODO_UPDATE_URL/art4_visual_1_three_levers.svg"
+           alt="The revenue equation: Traffic x Conversion Rate x AOV. Why optimising all three levers compounds growth"
+           loading="lazy"/>
+    </figure>
+    <p class="art-img-caption">The revenue equation: Traffic x Conversion Rate x AOV. Why optimising all three levers compounds growth.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── The Three Levers of Revenue ───────────────────── -->
+    <h2 class="art-h2">The three levers of revenue</h2>
+
+    <p class="art-p">E-commerce revenue is the product of three variables. Most businesses only optimise one.</p>
+
+    <div class="art-math-box">
+      <p><span class="art-amber">Revenue = Traffic x Conversion Rate x Average Order Value</span></p>
+    </div>
+
+    <p class="art-p"><strong style="color:#FFFFFF;">Traffic</strong> is where 80-90% of budgets go. Getting more visitors to your site. It is the most expensive lever and has diminishing returns. Doubling your ad spend does not double your revenue.</p>
+
+    <p class="art-p"><strong style="color:#FFFFFF;">Conversion rate</strong> is the percentage of visitors who make a purchase. Moving from 1.5% to 2.1% means 40% more customers from the same traffic. The cost of that improvement is a fraction of the equivalent increase in traffic.</p>
+
+    <p class="art-p"><strong style="color:#FFFFFF;">Average order value</strong> is how much each customer spends. Cart upselling, bundle pricing, free shipping thresholds, loyalty programmes. All increase AOV without needing more traffic or a higher conversion rate.</p>
+
+    <p class="art-p">Here is the thing most people miss: these levers multiply, not add.</p>
+
+    <div class="art-math-box">
+      <p>A 40% conversion lift and a 35% AOV lift do not combine to 75%. They compound.</p>
+      <p>On a <span class="art-amber">$75,000/month</span> baseline, the combined impact is <span class="art-cyan">$66,750 extra per month</span>.</p>
+      <p>That is <span class="art-cyan">$801,000 per year</span>.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── How the CRO Process Works ─────────────────────── -->
+    <h2 class="art-h2">How the CRO process actually works</h2>
+
+    <p class="art-p">Effective CRO follows a structured methodology, not a random list of tips you found on a blog. At Precision, we use a framework called the Conversion Accelerator, built from running programmes at Delivery Hero, Alibaba Group, and with growth-stage partners. Four phases.</p>
+
+    <!-- Image 2: Accelerator -->
+    <figure class="art-img-wrap">
+      <img src="TODO_UPDATE_URL/art4_visual_2_accelerator.svg"
+           alt="The Conversion Accelerator: 4-phase methodology from Deep Dive Audit through Fine Tuning"
+           loading="lazy"/>
+    </figure>
+    <p class="art-img-caption">The Conversion Accelerator: 4-phase methodology from Deep Dive Audit through Fine Tuning.</p>
+
+    <h3 class="art-h3">Phase 1: Deep dive audit</h3>
+
+    <p class="art-p">Every engagement starts here. Not a surface-level review. We are talking funnel drop-off analysis, heatmaps, session recordings, checkout flow assessment, mobile vs. desktop gaps, competitor benchmarking, and customer feedback. The output is a prioritised roadmap ranked by estimated revenue impact and implementation effort. This is where 100% of the opportunity gets mapped.</p>
+
+    <h3 class="art-h3">Phase 2: Quick fixes</h3>
+
+    <p class="art-p">The audit almost always reveals low-hanging fruit. Changes that can go live immediately without A/B testing because the data is so clear that testing would be a waste of time. Removing unnecessary form fields. Adding trust signals next to the CTA. Fixing mobile usability issues. Quick fixes typically capture <span class="art-amber">10-20% of the total opportunity</span> within the first 30 days.</p>
+
+    <h3 class="art-h3">Phase 3: Big swing A/B tests</h3>
+
+    <p class="art-p">This is where the significant gains happen. We design experiments that test specific hypotheses about user behaviour. Each one has a clear hypothesis, a success metric, and a rollback plan. Examples from our work:</p>
+
+    <ul class="art-reason-list">
+      <li>Redesigning homepage layout (<span class="art-cyan">+40% HP-to-PDP</span> at Foodpanda)</li>
+      <li>Cart-page upselling with data-driven recommendations (<span class="art-cyan">+35% AOV</span>)</li>
+      <li>Loyalty gamification (<span class="art-cyan">+11% orders/customer</span>)</li>
+      <li>Newsletter redesign (<span class="art-cyan">+80% CTR</span>)</li>
+    </ul>
+
+    <p class="art-p">This phase drives <span class="art-amber">60-70% of total gains</span>.</p>
+
+    <h3 class="art-h3">Phase 4: Fine tuning</h3>
+
+    <p class="art-p">Once big swings are validated, the final phase compounds them. Iterating on winners, testing secondary variations, expanding patterns to other pages, and building internal playbooks so your team can keep optimising after the engagement ends. This is where <span class="art-cyan">+58% revenue</span> becomes a sustainable engine rather than a one-time spike.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── What CRO Results Look Like ────────────────────── -->
+    <h2 class="art-h2">What CRO results actually look like</h2>
+
+    <p class="art-p">Most common question from founders: What results can I realistically expect? Honest answer: It depends on how far below potential you are currently performing. A store at 0.8% with no trust signals and a 6-step checkout has far more upside than one already at 2.5% with a clean funnel.</p>
+
+    <p class="art-p">That said, here are real results from our work:</p>
+
+    <ul class="art-reason-list">
+      <li><span class="art-cyan">+58% total revenue</span> (Foodpanda/Delivery Hero, 6-month engagement)</li>
+      <li><span class="art-cyan">+40% conversion rate</span> (homepage and product discovery)</li>
+      <li><span class="art-cyan">+35% Average Order Value</span> (cart-page upselling)</li>
+      <li><span class="art-cyan">+11% orders per customer</span> (loyalty gamification)</li>
+      <li><span class="art-cyan">+80% newsletter CTR</span> (newsletter redesign)</li>
+      <li><span class="art-cyan">+90% search-to-PDP CTR</span> (search optimisation at Daraz/Alibaba)</li>
+      <li><span class="art-cyan">-20% customer churn</span> (segmentation-based CRM at MEIG)</li>
+    </ul>
+
+    <p class="art-p">Common thread: systematic diagnosis, psychology-driven experimentation, rigorous measurement. Not random changes.</p>
+
+    <!-- Image 3: Readiness checklist -->
+    <figure class="art-img-wrap">
+      <img src="TODO_UPDATE_URL/art4_visual_3_readiness.svg"
+           alt="CRO Readiness Checklist: signals that you are ready vs. not ready for conversion optimisation"
+           loading="lazy"/>
+    </figure>
+    <p class="art-img-caption">CRO Readiness Checklist: signals that you are ready vs. not ready for conversion optimisation.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── When You're Ready for CRO ─────────────────────── -->
+    <h2 class="art-h2">When you are ready for CRO</h2>
+
+    <p class="art-p">CRO is not for every business at every stage. Here is a straightforward way to think about it.</p>
+
+    <h3 class="art-h3">You are ready if:</h3>
+
+    <ul class="art-reason-list">
+      <li><strong style="color:#FFFFFF;">You have 10,000+ monthly visitors.</strong> Below this, you do not have enough traffic to run statistically significant tests.</li>
+      <li><strong style="color:#FFFFFF;">You are spending on traffic acquisition.</strong> If you are investing in ads or SEO but not optimising post-click, CRO is your highest-ROI move.</li>
+      <li><strong style="color:#FFFFFF;">Your conversion rate is below the benchmark.</strong> If your vertical averages 2.5% and you are at 1.2%, there is quantifiable upside to grab.</li>
+      <li><strong style="color:#FFFFFF;">You have product-market fit.</strong> CRO amplifies what is working. It does not create demand from nothing.</li>
+    </ul>
+
+    <h3 class="art-h3">You are not ready if:</h3>
+
+    <ul class="art-ul">
+      <li><strong style="color:#FFFFFF;">Fewer than 1,000 monthly visitors.</strong> Focus on traffic first.</li>
+      <li><strong style="color:#FFFFFF;">No analytics installed.</strong> You need data before you can optimise.</li>
+      <li><strong style="color:#FFFFFF;">Product or pricing is broken.</strong> CRO does not fix a product nobody wants.</li>
+    </ul>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Why CRO Beats More Traffic ────────────────────── -->
+    <h2 class="art-h2">Why CRO almost always beats more traffic</h2>
+
+    <p class="art-p">Most founders increase ad spend when revenue plateaus. Intuitive, but mathematically inefficient.</p>
+
+    <div class="art-math-box">
+      <p>Double your traffic from 100,000 to 200,000 visitors, and revenue doubles from $75K to $150K. But doubling traffic usually means doubling your ad budget. That could be <span class="art-amber">$50K+ in additional monthly spend</span>.</p>
+      <p>Alternatively, keep the same 100,000 visitors but improve conversion to 2.1% from 1.5% and AOV to $67.50 from $50. Monthly revenue jumps to <span class="art-cyan">$141,750</span>.</p>
+      <p>Nearly the same result. A fraction of the cost. And the improvements are permanent. You do not keep paying for them month after month like ad spend.</p>
+    </div>
+
+    <p class="art-p">Before you invest another dollar in traffic, make sure the traffic you already have is converting as well as it can. The ROI of fixing your funnel is almost always higher than the ROI of filling it faster.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── What to Do Next ───────────────────────────────── -->
+    <h2 class="art-h2">What to do next</h2>
+
+    <p class="art-p">If this has you thinking CRO is worth exploring, here is where to start:</p>
+
+    <ul class="art-cond-list">
+      <li><strong style="color:#FFFFFF;">Check your conversion rate.</strong> Open Google Analytics, look at the last 90 days, and compare to your industry benchmark. Gap? CRO can close it.</li>
+      <li><strong style="color:#FFFFFF;">Walk your own store.</strong> Open it on your phone. Try to buy something. Note every moment of friction. Those are your opportunities.</li>
+      <li><strong style="color:#FFFFFF;">Find your biggest leak.</strong> Product page? Cart? Checkout? Wherever the biggest drop-off is, that is where to focus first.</li>
+    </ul>
+
+    <p class="art-outro">Want a professional assessment? <a href="https://calendly.com/ammarah-bumx/30min">Book a strategy session</a> for a personalised audit of your conversion funnel.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Key Takeaways ──────────────────────────────────── -->
+    <h2 class="art-h2">Key Takeaways</h2>
+
+    <ul class="art-takeaways">
+      <li>CRO is a revenue strategy that increases the money you make from existing traffic. Not button colour tests.</li>
+      <li>Revenue has three levers: traffic, conversion rate, and AOV. Most businesses pull only one, and it is the most expensive.</li>
+      <li>Effective CRO follows a process: audit, quick fixes, big swing tests, fine tuning. Random changes without data are not CRO.</li>
+      <li>Real results: <span class="art-cyan">+58% revenue</span>, <span class="art-cyan">+40% conversion</span>, <span class="art-cyan">+35% AOV</span> from systematic experimentation.</li>
+      <li>You are ready if you have 10K+ visitors, are spending on acquisition, and have product-market fit.</li>
+    </ul>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── FAQ ────────────────────────────────────────────── -->
+    <h2 class="art-h2">Frequently Asked Questions</h2>
+
+    <div class="art-faq">
+      <div class="art-faq-item">
+        <p class="art-faq-q">What is the difference between CRO and UX design?</p>
+        <p class="art-faq-a">UX makes a product pleasant to use. CRO makes a website effective at driving revenue. Big overlap, but CRO is explicitly tied to business metrics and uses A/B testing to validate changes. UX relies more on qualitative research and design principles.</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">How long until I see results?</p>
+        <p class="art-faq-a">Quick wins from an audit: 2-4 weeks. A/B testing gains: 2-3 months. Full programme with compounding improvements: 4-6 months for maximum impact. The Foodpanda results (+58%) were driven by a 6-month engagement.</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">How much does CRO cost?</p>
+        <p class="art-faq-a">Ranges from one-time audits ($2,000-$10,000) to ongoing programmes ($5,000-$20,000+/month). The real question is not cost. It is opportunity cost. If you are converting at 1.5% instead of 2.5%, that is 40% of potential revenue left on the table every single month.</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">Should I hire a consultant or build in-house?</p>
+        <p class="art-faq-a">Depends on expertise and bandwidth. In-house works if you have CRO experience, the right tools, and the capacity. A consultant brings specialised expertise, an external perspective (no internal biases), and a proven methodology. Most growth-stage businesses start externally, build the foundation, and then transition in-house.</p>
+      </div>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── About the Author ───────────────────────────────── -->
+    <div class="art-author">
+      <p class="art-author-name">Ammarah Ahmed</p>
+      <p class="art-author-role">Founder, Precision Consulting Group</p>
+      <p class="art-author-bio">Ammarah helps growth-stage e-commerce businesses boost revenue through psychology-driven CRO and UX/UI. With over a decade of experience on major tech platforms across Asia and the Middle East, she combines behavioural psychology and user experience to drive effective conversion optimisation.</p>
+    </div>
+
+  </div>
+</article>
+
+<!-- ── Image lightbox ──────────────────────────────────────── -->
+<div class="art-lightbox" id="artLightbox" role="dialog" aria-modal="true" aria-label="Image zoom">
+  <img src="" alt="" id="artLightboxImg"/>
+  <button class="art-lightbox-close" id="artLightboxClose" aria-label="Zoom out">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M4.5 7h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    Zoom Out
+  </button>
+</div>
+
+<script>
+(function () {
+  var lb   = document.getElementById('artLightbox');
+  var lbImg = document.getElementById('artLightboxImg');
+
+  function open(src, alt) {
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lb.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    lb.classList.remove('is-open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  document.querySelectorAll('.art-img-wrap img').forEach(function (img) {
+    img.parentElement.addEventListener('click', function () {
+      open(img.src, img.alt);
+    });
+  });
+
+  lb.addEventListener('click', function (e) {
+    if (e.target === lb || e.target === document.getElementById('artLightboxClose')) close();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+  });
+
+  // Fix: walk up the DOM from each image wrap and force overflow visible with !important
+  document.querySelectorAll('.art-img-wrap').forEach(function (fig) {
+    var el = fig.parentElement;
+    while (el && el !== document.documentElement) {
+      var cs = window.getComputedStyle(el);
+      if (cs.overflow === 'hidden' || cs.overflowY === 'hidden') {
+        el.style.setProperty('overflow', 'visible', 'important');
+        el.style.setProperty('overflow-y', 'visible', 'important');
+      }
+      if (cs.maxHeight && cs.maxHeight !== 'none') {
+        el.style.setProperty('max-height', 'none', 'important');
+      }
+      el = el.parentElement;
+    }
+  });
+})();
+
+// Auto-trim empty space at the bottom of SVG infographics
+(function () {
+  function trimSvg(img) {
+    fetch(img.src)
+      .then(function (r) { return r.text(); })
+      .then(function (svgText) {
+        var svgEl = new DOMParser().parseFromString(svgText, 'image/svg+xml').querySelector('svg');
+        if (!svgEl) return;
+
+        var vb = svgEl.viewBox.baseVal;
+        var vbW = vb.width  || parseFloat(svgEl.getAttribute('width')  || 0);
+        var vbH = vb.height || parseFloat(svgEl.getAttribute('height') || 0);
+        if (!vbW || !vbH) return;
+
+        svgEl.setAttribute('width',  vbW);
+        svgEl.setAttribute('height', vbH);
+        var host = document.createElement('div');
+        host.style.cssText = 'position:fixed;left:-99999px;top:0;width:' + vbW + 'px;height:' + vbH + 'px;visibility:hidden;pointer-events:none;';
+        host.appendChild(svgEl);
+        document.body.appendChild(host);
+        var bbox;
+        try { bbox = svgEl.getBBox(); } catch (e) {}
+        document.body.removeChild(host);
+        if (!bbox || !bbox.height) return;
+
+        var trimH = Math.min(bbox.y + bbox.height + 16, vbH);
+        var ratio  = trimH / vbH;
+
+        function apply() {
+          var w = img.offsetWidth;
+          if (!w) return;
+          var fig = img.parentElement;
+          fig.style.setProperty('height',   Math.round(w * vbH / vbW * ratio) + 'px', 'important');
+          fig.style.setProperty('overflow', 'hidden', 'important');
+        }
+
+        if (img.complete && img.naturalWidth) { apply(); }
+        else { img.addEventListener('load', apply); }
+        window.addEventListener('resize', apply, { passive: true });
+      });
+  }
+  document.querySelectorAll('.art-img-wrap img[src$=".svg"]').forEach(trimSvg);
+})();
+</script>
