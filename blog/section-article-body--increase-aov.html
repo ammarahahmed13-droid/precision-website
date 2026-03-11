@@ -1,0 +1,683 @@
+<!-- ============================================================
+     PRECISION, Article Body: "How to Increase Your Store's
+     Average Order Value: 7 Psychology-Backed Strategies"
+     (Bricks Code Block)
+     Category: AOV  |  14 min read  |  March 12, 2026
+
+     IMAGES, all hosted at goprecision.co/wp-content/uploads/2026/03/
+     ============================================================ -->
+
+<style>
+.art-body *,
+.art-body *::before,
+.art-body *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.art-body {
+  background: #0B0B1E;
+  padding: 64px 24px 80px;
+  font-family: 'Inter', sans-serif;
+}
+
+.art-body-inner {
+  max-width: 896px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ── Typography ───────────────────────────────────────────── */
+.art-p {
+  font-size: 18px;
+  color: #D1D5DB;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.art-h2 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-top: 16px;
+  margin-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+}
+.art-h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 16px;
+  font-family: 'Inter', sans-serif;
+}
+.art-cyan  { color: #06B6D4; font-weight: 600; }
+.art-amber { color: #FFD166; font-weight: 600; }
+
+/* ── Section divider ─────────────────────────────────────── */
+.art-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.10), transparent);
+  margin: 52px 0;
+}
+
+/* ── "The psychology:" callout ────────────────────────────── */
+.art-psych {
+  background: rgba(6,182,212,0.05);
+  border: 1px solid rgba(6,182,212,0.15);
+  border-radius: 16px;
+  padding: 22px 22px 22px 64px;
+  position: relative;
+  margin-bottom: 24px;
+}
+.art-psych::before {
+  content: '🧠';
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  font-size: 22px;
+  line-height: 1;
+}
+.art-psych-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #06B6D4;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-family: 'Inter', sans-serif;
+}
+.art-psych p {
+  font-size: 16px;
+  color: #D1D5DB;
+  line-height: 1.7;
+}
+
+/* ── "The fix:" box ───────────────────────────────────────── */
+.art-fix {
+  background: rgba(255,209,102,0.07);
+  border: 1px solid rgba(255,209,102,0.25);
+  border-radius: 16px;
+  padding: 22px 22px 22px 64px;
+  position: relative;
+  margin-bottom: 40px;
+}
+.art-fix::before {
+  content: '💡';
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  font-size: 22px;
+  line-height: 1;
+}
+.art-fix-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #FFE5A0;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-family: 'Inter', sans-serif;
+}
+.art-fix p {
+  font-size: 16px;
+  color: #F3F4F6;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+.art-fix p:last-child { margin-bottom: 0; }
+.art-fix ul, .art-fix ol { padding-left: 20px; margin-top: 8px; }
+.art-fix li {
+  font-size: 16px;
+  color: #F3F4F6;
+  line-height: 1.65;
+  margin-bottom: 6px;
+}
+
+/* ── Article image ────────────────────────────────────────── */
+.art-img-wrap {
+  margin-bottom: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.30);
+  overflow: visible !important;
+  cursor: zoom-in;
+  position: relative;
+}
+.art-img-wrap img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: unset !important;
+  display: block;
+}
+
+/* ── Zoom hint badge (mobile only) ───────────────────────── */
+.art-img-wrap::after {
+  content: '🔍 Tap to zoom';
+  position: absolute;
+  bottom: 20px;
+  right: 12px;
+  background: rgba(0,0,0,0.55);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  padding: 5px 10px;
+  border-radius: 50px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+@media (max-width: 767px) {
+  .art-img-wrap::after { opacity: 1; }
+}
+
+/* ── Lightbox ─────────────────────────────────────────────── */
+.art-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0,0,0,0.92);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 16px;
+  cursor: zoom-out;
+}
+.art-lightbox.is-open { display: flex; }
+.art-lightbox img {
+  max-width: 100%;
+  max-height: 80vh;
+  width: auto !important;
+  height: auto !important;
+  box-shadow: 0 0 60px rgba(0,0,0,0.6);
+  cursor: default;
+}
+.art-lightbox-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 50px;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.18s;
+}
+.art-lightbox-close:hover { background: rgba(255,255,255,0.20); }
+.art-img-caption {
+  font-size: 13px;
+  color: #6B7280;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  padding: 0 8px;
+}
+
+/* ── Lists ────────────────────────────────────────────────── */
+.art-ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 24px;
+}
+.art-ul li {
+  font-size: 18px;
+  color: #D1D5DB;
+  line-height: 1.7;
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 10px;
+}
+.art-ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: #4B5563;
+}
+
+/* ── Math / revenue box ───────────────────────────────────── */
+.art-math-box {
+  background: rgba(255,209,102,0.05);
+  border: 1px solid rgba(255,209,102,0.18);
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 32px;
+}
+.art-math-box p {
+  font-size: 16px;
+  color: #F3F4F6;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+.art-math-box p:last-child { margin-bottom: 0; }
+
+/* ── Blockquote ───────────────────────────────────────────── */
+.art-quote {
+  background: rgba(6,182,212,0.05);
+  border-left: 4px solid #06B6D4;
+  border-radius: 0 12px 12px 0;
+  padding: 20px 28px;
+  margin-bottom: 36px;
+}
+.art-quote p {
+  font-size: 20px;
+  font-style: italic;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Key Takeaways ────────────────────────────────────────── */
+.art-takeaways {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.art-takeaways li {
+  font-size: 17px;
+  color: #D1D5DB;
+  line-height: 1.65;
+  padding-left: 28px;
+  position: relative;
+}
+.art-takeaways li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #4ADE80;
+  font-weight: 700;
+}
+
+/* ── FAQ section ─────────────────────────────────────────── */
+.art-faq { margin-bottom: 0; }
+.art-faq-item {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 28px 0;
+}
+.art-faq-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
+.art-faq-q {
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  font-family: 'Inter', sans-serif;
+}
+.art-faq-a {
+  font-size: 16px;
+  color: #9CA3AF;
+  line-height: 1.75;
+}
+
+/* ── Author box ───────────────────────────────────────────── */
+.art-author {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 28px;
+  margin-top: 8px;
+}
+.art-author-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 4px;
+  font-family: 'Inter', sans-serif;
+}
+.art-author-role {
+  font-size: 13px;
+  color: #6B7280;
+  margin-bottom: 14px;
+}
+.art-author-bio {
+  font-size: 15px;
+  color: #9CA3AF;
+  line-height: 1.7;
+}
+
+/* ── Italic CTA link ─────────────────────────────────────── */
+.art-outro {
+  font-size: 18px;
+  font-style: italic;
+  color: #9CA3AF;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+.art-outro a {
+  color: #06B6D4;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .art-body { padding: 40px 16px 56px; }
+  .art-h2 { font-size: 24px; }
+  .art-h3 { font-size: 19px; }
+  .art-p, .art-ul li { font-size: 16px; }
+  .art-psych, .art-fix { padding-left: 52px; }
+  .art-quote p { font-size: 17px; }
+}
+</style>
+
+<article class="art-body" itemscope itemtype="https://schema.org/Article">
+  <div class="art-body-inner">
+
+    <!-- ── Intro ─────────────────────────────────────────── -->
+    <p class="art-p">Why is Google making less money per customer than most apparel e-commerce stores?</p>
+
+    <p class="art-p">When we analysed the Google Merchandise Store as a case study, we found something surprising: its Average Order Value was <span class="art-amber">68% lower than apparel e-commerce benchmarks</span>. Not because their products were cheap. Because they were doing almost nothing to increase the amount each customer spent. No cart-page upselling. No personalised recommendations. No bundle offers. No free shipping threshold. Nothing.</p>
+
+    <p class="art-p">This is the AOV problem. And it is one of the most overlooked levers in e-commerce. Most founders obsess over conversion rate (getting more visitors to buy) while completely ignoring how much each buyer spends. The maths is straightforward: if you can lift AOV by 35% alongside an improvement in conversion rate, the revenue impact compounds dramatically.</p>
+
+    <p class="art-p">At Foodpanda (Delivery Hero), we tackled AOV head-on with intelligent cart-page upselling. Result: <span class="art-cyan">+35% increase in Average Order Value</span>, contributing to <span class="art-cyan">+58% total revenue growth</span> over six months. No extra ad spend. No new traffic. Just more value per transaction from the customers already buying.</p>
+
+    <p class="art-p">Here are 7 strategies that actually work, each grounded in a specific behavioural psychology principle.</p>
+
+    <!-- Image 1: Strategies overview -->
+    <figure class="art-img-wrap">
+      <img src="https://goprecision.co/wp-content/uploads/2026/03/art3_visual_1_strategies_overview-1.svg"
+           alt="The 7 AOV strategies with their psychology principle and implementation priority"
+           loading="lazy"/>
+    </figure>
+    <p class="art-img-caption">The 7 AOV strategies with their psychology principle and implementation priority.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 1. Intelligent Cart-Page Upselling ────────────── -->
+    <h2 class="art-h2">1. Intelligent cart-page upselling</h2>
+
+    <p class="art-p">Once someone adds items to their cart, they have psychologically committed. Their guard is down. They are in buying mode. This is the Endowment Effect at work, and it is the highest-leverage moment to suggest complementary products.</p>
+
+    <p class="art-p">This was the centrepiece of our AOV work at Foodpanda. We added a "Popular with your order" carousel on the cart page, using market basket analysis to identify products frequently bought together. Not random promotions. Data-driven suggestions: eggs and bread in the cart meant they would see milk and butter. Result: <span class="art-cyan">+35% AOV</span>. The keys were timing (cart page, when ownership psychology is strongest), relevance (data-driven), and simplicity (one-tap add, no friction).</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Add a recommendation module to your cart page. Use purchase data to identify complementary products. Label it "Frequently bought together" or "Complete your order." Single-click add, no page reload. Test placement above vs. below the order summary.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 2. Bundle Pricing With Visible Savings ────────── -->
+    <h2 class="art-h2">2. Bundle pricing with visible savings</h2>
+
+    <p class="art-p">Anchoring Bias means the first price a customer sees becomes the reference point for everything after. When you show individual item prices before the bundle price, the savings feel real because they are measured against a higher anchor.</p>
+
+    <p class="art-p">A skincare brand selling a cleanser ($28), moisturiser ($35), and serum ($42) individually creates a natural anchor of <span class="art-amber">$105</span>. Offer the same three as a "Complete Routine Bundle" for $89, and the $16 savings feels concrete. Without the individual prices first, $89 is just a number, not a deal.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Create 2-3 bundles from your bestsellers. Always display individual prices alongside the bundle with savings explicitly stated ("Save $16"). Place offers on product pages, category pages, and the cart. Test "Build Your Own Bundle" options where customers pick 3-4 items from a curated selection at a discount.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 3. Free Shipping Thresholds ───────────────────── -->
+    <h2 class="art-h2">3. Free shipping thresholds</h2>
+
+    <p class="art-p">Loss Aversion. People feel the pain of losing something twice as intensely as the pleasure of gaining it. Paying for shipping feels like a loss. Earning free shipping by spending a bit more feels like a gain. When a customer is $12 away from the threshold, the mental calculation is not "Should I spend $12 more?" It is "Should I lose $7.99 on shipping or get $12 more in products?"</p>
+
+    <p class="art-p">The optimal threshold sits just above your current AOV. If your AOV is $45, set free shipping at $55-$60. Close enough to feel achievable, far enough to drive incremental spend. Too high and customers ignore it entirely.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Set the threshold 20-30% above your current AOV. Add a dynamic progress bar to the cart ("You are $12.50 away from free shipping!"). Suggest specific products that would push them over the edge. This single tactic consistently lifts AOV by <span class="art-amber">10-15%</span>.</p>
+    </div>
+
+    <!-- Image 2: Google Shop diagnosis -->
+    <figure class="art-img-wrap">
+      <img src="https://goprecision.co/wp-content/uploads/2026/03/art3_visual_2_google_shop-1.svg"
+           alt="Google Merchandise Store AOV diagnosis: 68% below apparel benchmarks, with the gaps and fixes"
+           loading="lazy"/>
+    </figure>
+    <p class="art-img-caption">Google Merchandise Store AOV diagnosis: 68% below apparel benchmarks, with the gaps and fixes.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 4. Tiered Pricing: Good-Better-Best ───────────── -->
+    <h2 class="art-h2">4. Tiered pricing: good-better-best</h2>
+
+    <p class="art-p">The Decoy Effect. When people see three options, they gravitate toward the middle one, especially when the lowest feels insufficient, and the highest feels excessive. Classic example: small coffee $3, medium $5, large $5.50. Almost nobody buys the small. Almost nobody buys the large. The medium wins because it is "the reasonable choice." Your medium should be the option you want most customers to buy.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Structure products as three tiers. Price the bottom high enough that it feels like poor value per unit. Price the top slightly above the middle so it draws attention but makes the middle feel sensible. Label the middle "Most Popular" or "Best Value." Works for subscriptions, product sizes, service packages, and physical bundles.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 5. Post-Purchase Cross-Sells ──────────────────── -->
+    <h2 class="art-h2">5. Post-purchase cross-sells</h2>
+
+    <p class="art-p">Right after a purchase, the customer feels good. They have made a decision, they are pleased with themselves, and if you have followed the Peak-End Rule, they are in a positive emotional state. This is reciprocity territory. Offer a complementary product at a small discount as a "thank you," and the conversion rate is surprisingly high.</p>
+
+    <p class="art-p">Post-purchase offers appear on the confirmation page or in the confirmation email. The transaction is already complete, so there is no risk of cart abandonment. Typical post-purchase cross-sells convert at <span class="art-amber">3-5%</span>. That is pure incremental revenue at zero acquisition cost.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Add a one-click cross-sell to your confirmation page. Offer a genuinely complementary product at 10-15% off, available only for 30 minutes. Frame it as "A thank-you from us" rather than another pitch. One recommendation, not a catalogue.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 6. Personalised Product Recommendations ────────── -->
+    <h2 class="art-h2">6. Personalised product recommendations</h2>
+
+    <p class="art-p">Familiarity Bias. People prefer things they recognise. When a returning customer sees products related to their browsing history or past purchases, those products feel familiar and trustworthy, even if the customer has not seen them before. The recommendation engine creates artificial familiarity.</p>
+
+    <p class="art-p">Generic "You might also like" modules showing random bestsellers are a missed opportunity. They treat every customer the same. Personalised recommendations based on actual behavioural data perform significantly better because they make customers feel like the store understands them.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>At a minimum, implement "Recently Viewed" and "Based on Your History" modules on your homepage and product pages. For returning customers, recommend replenishment products ("Time to restock?") or complementary items. Even basic segmentation (new vs. returning) dramatically improves relevance.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 7. Loyalty Programmes ─────────────────────────── -->
+    <h2 class="art-h2">7. Loyalty programmes that reward bigger baskets</h2>
+
+    <p class="art-p">The Goal Gradient Effect. People spend more when they can see how close they are to the next reward. The key is making progress visible and the next reward achievable.</p>
+
+    <p class="art-p">At Foodpanda, we designed a gamification system with Pandamart-themed badges and tiered rewards, built to offset a delivery fee increase by giving customers a reason to keep ordering. Clear progress toward the next badge, rewards attainable within 2-3 orders. Result: <span class="art-cyan">+11% orders per customer</span>.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Design a points system in which higher-value purchases earn disproportionately more points. Show a progress bar at every touchpoint. Make the first reward easy (within 1-2 orders) so customers feel the Goal Gradient early. Crucially, reward basket size, not just order frequency.</p>
+    </div>
+
+    <!-- Image 3: AOV math -->
+    <figure class="art-img-wrap">
+      <img src="https://goprecision.co/wp-content/uploads/2026/03/art3_visual_3_aov_math-1.svg"
+           alt="How AOV compounds with conversion rate: $75K baseline to $141.75K per month"
+           loading="lazy"/>
+    </figure>
+    <p class="art-img-caption">How AOV compounds with conversion rate: $75K baseline to $141.75K/month. AOV is the bigger revenue driver.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── The Revenue Maths ─────────────────────────────── -->
+    <h2 class="art-h2">The revenue maths: why AOV matters more than you think</h2>
+
+    <p class="art-p">Here is the calculation most e-commerce businesses never do.</p>
+
+    <div class="art-math-box">
+      <p><span class="art-amber">100,000</span> monthly visitors, <span class="art-amber">1.5%</span> conversion, <span class="art-amber">$50</span> AOV = <span class="art-amber">$75,000/month</span>.</p>
+      <p>A 40% improvement in conversion adds $30,000/month.</p>
+      <p>But add a 35% AOV lift on top, and you are at <span class="art-cyan">$141,750/month</span>.</p>
+      <p>That is an additional <span class="art-cyan">$66,750 every month</span> from the same traffic. <span class="art-cyan">$801,000 in additional annual revenue</span>.</p>
+    </div>
+
+    <p class="art-p">The CR improvement contributed $360,000. The AOV improvement contributed $441,000. AOV is actually the bigger revenue driver, yet almost nobody prioritises it.</p>
+
+    <p class="art-p">This is why AOV optimisation is central to everything we do at Precision. Revenue has two variables: how many people buy and how much they spend. Optimising only one is leaving money on the table.</p>
+
+    <p class="art-outro">Want to find the AOV opportunities hiding in your store? <a href="https://calendly.com/ammarah-bumx/30min">Book a strategy session</a> to get a psychology-driven audit of your revenue per customer.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Key Takeaways ──────────────────────────────────── -->
+    <h2 class="art-h2">Key Takeaways</h2>
+
+    <ul class="art-takeaways">
+      <li>AOV is the most overlooked lever in e-commerce. Most businesses focus exclusively on conversion rate and ignore how much each buyer spends.</li>
+      <li>7 highest-impact strategies: cart upselling, bundle pricing, free shipping thresholds, tiered pricing, post-purchase cross-sells, personalised recommendations, and loyalty programmes.</li>
+      <li>Each strategy is grounded in psychology: the Endowment Effect, Anchoring, Loss Aversion, the Decoy Effect, Reciprocity, Familiarity Bias, and the Goal Gradient.</li>
+      <li>Real results: <span class="art-cyan">+35% AOV</span> from cart upselling, <span class="art-cyan">+11% orders/customer</span> from loyalty, contributing to <span class="art-cyan">+58% total revenue</span>.</li>
+      <li>AOV improvements compound with CR improvements. On a $75K baseline, the combined impact is $801K in additional annual revenue.</li>
+    </ul>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── FAQ ────────────────────────────────────────────── -->
+    <h2 class="art-h2">Frequently Asked Questions</h2>
+
+    <div class="art-faq">
+      <div class="art-faq-item">
+        <p class="art-faq-q">What is a good AOV for e-commerce?</p>
+        <p class="art-faq-a">Varies by industry. Apparel averages $90-120, electronics $150-200, beauty $50-70, food delivery $25-40. More important than hitting a benchmark is whether you are actively optimising. If you have not implemented any AOV strategies, your current number is almost certainly below potential.</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">Which strategy should I implement first?</p>
+        <p class="art-faq-a">Free shipping thresholds. Minimal technical effort, works across every category. Set the threshold 20-30% above your AOV, add a progress bar, and measure for two weeks. Cart upselling is the highest-impact overall but needs more implementation work.</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">How do I increase AOV without annoying customers?</p>
+        <p class="art-faq-a">Relevance and timing. Recommendations that are genuinely useful add value. Irrelevant upsells, aggressive pop-ups, and forced add-ons destroy trust. Every suggestion should pass one test: would the customer thank you for it?</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">Can AOV optimisation hurt conversion rate?</p>
+        <p class="art-faq-a">Poorly executed, yes. Aggressive checkout pop-ups create friction. But well-designed AOV tactics, such as cart recommendations and free-shipping thresholds, typically improve both metrics. The Foodpanda results prove this: +35% AOV alongside +40% conversion.</p>
+      </div>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── About the Author ───────────────────────────────── -->
+    <div class="art-author">
+      <p class="art-author-name">Ammarah Ahmed</p>
+      <p class="art-author-role">Founder, Precision Consulting Group</p>
+      <p class="art-author-bio">Ammarah helps growth-stage e-commerce businesses boost revenue through psychology-driven CRO and UX/UI. With over a decade of experience on major tech platforms across Asia and the Middle East, she combines behavioural psychology and user experience to drive effective conversion optimisation.</p>
+    </div>
+
+  </div>
+</article>
+
+<!-- ── Image lightbox ──────────────────────────────────────── -->
+<div class="art-lightbox" id="artLightbox" role="dialog" aria-modal="true" aria-label="Image zoom">
+  <img src="" alt="" id="artLightboxImg"/>
+  <button class="art-lightbox-close" id="artLightboxClose" aria-label="Zoom out">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M4.5 7h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    Zoom Out
+  </button>
+</div>
+
+<script>
+(function () {
+  var lb   = document.getElementById('artLightbox');
+  var lbImg = document.getElementById('artLightboxImg');
+
+  function open(src, alt) {
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lb.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    lb.classList.remove('is-open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  document.querySelectorAll('.art-img-wrap img').forEach(function (img) {
+    img.parentElement.addEventListener('click', function () {
+      open(img.src, img.alt);
+    });
+  });
+
+  lb.addEventListener('click', function (e) {
+    if (e.target === lb || e.target === document.getElementById('artLightboxClose')) close();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+  });
+
+  // Fix: walk up the DOM from each image wrap and force overflow visible with !important
+  document.querySelectorAll('.art-img-wrap').forEach(function (fig) {
+    var el = fig.parentElement;
+    while (el && el !== document.documentElement) {
+      var cs = window.getComputedStyle(el);
+      if (cs.overflow === 'hidden' || cs.overflowY === 'hidden') {
+        el.style.setProperty('overflow', 'visible', 'important');
+        el.style.setProperty('overflow-y', 'visible', 'important');
+      }
+      if (cs.maxHeight && cs.maxHeight !== 'none') {
+        el.style.setProperty('max-height', 'none', 'important');
+      }
+      el = el.parentElement;
+    }
+  });
+})();
+
+// Auto-trim empty space at the bottom of SVG infographics
+(function () {
+  function trimSvg(img) {
+    fetch(img.src)
+      .then(function (r) { return r.text(); })
+      .then(function (svgText) {
+        var svgEl = new DOMParser().parseFromString(svgText, 'image/svg+xml').querySelector('svg');
+        if (!svgEl) return;
+
+        var vb = svgEl.viewBox.baseVal;
+        var vbW = vb.width  || parseFloat(svgEl.getAttribute('width')  || 0);
+        var vbH = vb.height || parseFloat(svgEl.getAttribute('height') || 0);
+        if (!vbW || !vbH) return;
+
+        svgEl.setAttribute('width',  vbW);
+        svgEl.setAttribute('height', vbH);
+        var host = document.createElement('div');
+        host.style.cssText = 'position:fixed;left:-99999px;top:0;width:' + vbW + 'px;height:' + vbH + 'px;visibility:hidden;pointer-events:none;';
+        host.appendChild(svgEl);
+        document.body.appendChild(host);
+        var bbox;
+        try { bbox = svgEl.getBBox(); } catch (e) {}
+        document.body.removeChild(host);
+        if (!bbox || !bbox.height) return;
+
+        var trimH = Math.min(bbox.y + bbox.height + 16, vbH);
+        var ratio  = trimH / vbH;
+
+        function apply() {
+          var w = img.offsetWidth;
+          if (!w) return;
+          var fig = img.parentElement;
+          fig.style.setProperty('height',   Math.round(w * vbH / vbW * ratio) + 'px', 'important');
+          fig.style.setProperty('overflow', 'hidden', 'important');
+        }
+
+        if (img.complete && img.naturalWidth) { apply(); }
+        else { img.addEventListener('load', apply); }
+        window.addEventListener('resize', apply, { passive: true });
+      });
+  }
+  document.querySelectorAll('.art-img-wrap img[src$=".svg"]').forEach(trimSvg);
+})();
+</script>

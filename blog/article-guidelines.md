@@ -217,7 +217,7 @@ These are Bricks Section Templates set to `Post type = Post`. They render via th
 | File | Purpose |
 |------|---------|
 | `section-article-hero.html` | Hero template — edit per article |
-| `section-article-body--traffic-no-sales.html` | Reference article body — copy as starting point |
+| `section-article-body--why-ecommerce-store-gets-traffic-but-no-sales.html` | Reference article body — copy as starting point |
 | `section-article-cta.html` | Global CTA template (do not edit per article) |
 | `section-article-related.html` | Dynamic related posts — PHP query loop (do not edit per article) |
 | `section-blog-newsletter.html` | Newsletter signup (do not edit per article) |
@@ -236,4 +236,4 @@ These are Bricks Section Templates set to `Post type = Post`. They render via th
 - [ ] Bricks CSS regenerated
 - [ ] Server cache cleared
 - [ ] Live URL checked — all 3 global templates visible
-- [ ] Article added to repo: `section-article-body--[slug].html`
+- [ ] Article added to repo: `blog/section-article-body--[slug].html`

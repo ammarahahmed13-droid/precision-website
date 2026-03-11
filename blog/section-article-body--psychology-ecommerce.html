@@ -1,0 +1,709 @@
+<!-- ============================================================
+     PRECISION, Article Body: "The Psychology of E-Commerce
+     Conversions: 10 Cognitive Biases That Drive Revenue"
+     (Bricks Code Block)
+     Category: Product Psychology  |  12 min read  |  March 12, 2026
+
+     IMAGES, all hosted at goprecision.co/wp-content/uploads/2026/03/
+     ============================================================ -->
+
+<style>
+.art-body *,
+.art-body *::before,
+.art-body *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.art-body {
+  background: #0B0B1E;
+  padding: 64px 24px 80px;
+  font-family: 'Inter', sans-serif;
+}
+
+.art-body-inner {
+  max-width: 896px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ── Typography ───────────────────────────────────────────── */
+.art-p {
+  font-size: 18px;
+  color: #D1D5DB;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.art-h2 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-top: 16px;
+  margin-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+}
+.art-h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 16px;
+  font-family: 'Inter', sans-serif;
+}
+.art-cyan  { color: #06B6D4; font-weight: 600; }
+.art-amber { color: #FFD166; font-weight: 600; }
+
+/* ── Section divider ─────────────────────────────────────── */
+.art-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.10), transparent);
+  margin: 52px 0;
+}
+
+/* ── "The psychology:" callout ────────────────────────────── */
+.art-psych {
+  background: rgba(6,182,212,0.05);
+  border: 1px solid rgba(6,182,212,0.15);
+  border-radius: 16px;
+  padding: 22px 22px 22px 64px;
+  position: relative;
+  margin-bottom: 24px;
+}
+.art-psych::before {
+  content: '🧠';
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  font-size: 22px;
+  line-height: 1;
+}
+.art-psych-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #06B6D4;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-family: 'Inter', sans-serif;
+}
+.art-psych p {
+  font-size: 16px;
+  color: #D1D5DB;
+  line-height: 1.7;
+}
+
+/* ── "The fix:" box ───────────────────────────────────────── */
+.art-fix {
+  background: rgba(255,209,102,0.07);
+  border: 1px solid rgba(255,209,102,0.25);
+  border-radius: 16px;
+  padding: 22px 22px 22px 64px;
+  position: relative;
+  margin-bottom: 40px;
+}
+.art-fix::before {
+  content: '💡';
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  font-size: 22px;
+  line-height: 1;
+}
+.art-fix-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #FFE5A0;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-family: 'Inter', sans-serif;
+}
+.art-fix p {
+  font-size: 16px;
+  color: #F3F4F6;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+.art-fix p:last-child { margin-bottom: 0; }
+.art-fix ul, .art-fix ol { padding-left: 20px; margin-top: 8px; }
+.art-fix li {
+  font-size: 16px;
+  color: #F3F4F6;
+  line-height: 1.65;
+  margin-bottom: 6px;
+}
+
+/* ── Article image ────────────────────────────────────────── */
+.art-img-wrap {
+  margin-bottom: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.30);
+  overflow: visible !important;
+  cursor: zoom-in;
+  position: relative;
+}
+.art-img-wrap img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: unset !important;
+  display: block;
+}
+
+/* ── Zoom hint badge (mobile only) ───────────────────────── */
+.art-img-wrap::after {
+  content: '🔍 Tap to zoom';
+  position: absolute;
+  bottom: 20px;
+  right: 12px;
+  background: rgba(0,0,0,0.55);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  padding: 5px 10px;
+  border-radius: 50px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+@media (max-width: 767px) {
+  .art-img-wrap::after { opacity: 1; }
+}
+
+/* ── Lightbox ─────────────────────────────────────────────── */
+.art-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0,0,0,0.92);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 16px;
+  cursor: zoom-out;
+}
+.art-lightbox.is-open { display: flex; }
+.art-lightbox img {
+  max-width: 100%;
+  max-height: 80vh;
+  width: auto !important;
+  height: auto !important;
+  box-shadow: 0 0 60px rgba(0,0,0,0.6);
+  cursor: default;
+}
+.art-lightbox-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 50px;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.18s;
+}
+.art-lightbox-close:hover { background: rgba(255,255,255,0.20); }
+.art-img-caption {
+  font-size: 13px;
+  color: #6B7280;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  padding: 0 8px;
+}
+
+/* ── Lists ────────────────────────────────────────────────── */
+.art-ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 24px;
+}
+.art-ul li {
+  font-size: 18px;
+  color: #D1D5DB;
+  line-height: 1.7;
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 10px;
+}
+.art-ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: #4B5563;
+}
+
+/* ── Blockquote ───────────────────────────────────────────── */
+.art-quote {
+  background: rgba(6,182,212,0.05);
+  border-left: 4px solid #06B6D4;
+  border-radius: 0 12px 12px 0;
+  padding: 20px 28px;
+  margin-bottom: 36px;
+}
+.art-quote p {
+  font-size: 20px;
+  font-style: italic;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Key Takeaways ────────────────────────────────────────── */
+.art-takeaways {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.art-takeaways li {
+  font-size: 17px;
+  color: #D1D5DB;
+  line-height: 1.65;
+  padding-left: 28px;
+  position: relative;
+}
+.art-takeaways li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #4ADE80;
+  font-weight: 700;
+}
+
+/* ── FAQ section ─────────────────────────────────────────── */
+.art-faq { margin-bottom: 0; }
+.art-faq-item {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 28px 0;
+}
+.art-faq-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
+.art-faq-q {
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  font-family: 'Inter', sans-serif;
+}
+.art-faq-a {
+  font-size: 16px;
+  color: #9CA3AF;
+  line-height: 1.75;
+}
+
+/* ── Author box ───────────────────────────────────────────── */
+.art-author {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 28px;
+  margin-top: 8px;
+}
+.art-author-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 4px;
+  font-family: 'Inter', sans-serif;
+}
+.art-author-role {
+  font-size: 13px;
+  color: #6B7280;
+  margin-bottom: 14px;
+}
+.art-author-bio {
+  font-size: 15px;
+  color: #9CA3AF;
+  line-height: 1.7;
+}
+
+/* ── Italic CTA link ─────────────────────────────────────── */
+.art-outro {
+  font-size: 18px;
+  font-style: italic;
+  color: #9CA3AF;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+.art-outro a {
+  color: #06B6D4;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .art-body { padding: 40px 16px 56px; }
+  .art-h2 { font-size: 24px; }
+  .art-h3 { font-size: 19px; }
+  .art-p, .art-ul li { font-size: 16px; }
+  .art-psych, .art-fix { padding-left: 52px; }
+  .art-quote p { font-size: 17px; }
+}
+</style>
+
+<article class="art-body" itemscope itemtype="https://schema.org/Article">
+  <div class="art-body-inner">
+
+    <!-- ── Intro ─────────────────────────────────────────── -->
+    <p class="art-p">Every purchase your customer makes is irrational. Not in a chaotic, random way, but in a predictable, systematic way that behavioural scientists have been mapping for decades. The question is not whether psychology influences your conversion rate. It does. The question is whether you are designing for it or against it.</p>
+
+    <p class="art-p">Most e-commerce stores are designing against it. They overload visitors with choices, bury trust signals below the fold, and treat checkout as a data-collection form rather than the final moment of the purchase experience. The result is the industry average: a <span class="art-amber">2-3% conversion rate</span>, meaning 97 out of 100 visitors leave without buying.</p>
+
+    <p class="art-p">At Precision, psychology is not something we layer on top of CRO. It is the foundation. Every experiment we design starts with a hypothesis rooted in a specific cognitive bias. That approach delivered <span class="art-cyan">+58% revenue</span>, <span class="art-cyan">+40% conversion rate</span>, and <span class="art-cyan">+35% AOV</span> for a major delivery platform over six months.</p>
+
+    <p class="art-p">Here are the 10 biases that have the biggest impact on e-commerce, along with real-world applications and results for each.</p>
+
+    <!-- Image 1: Bias overview -->
+    <figure class="art-img-wrap">
+      <img src="https://goprecision.co/wp-content/uploads/2026/03/art2_visual_1_bias_overview-1.svg"
+           alt="The 10 cognitive biases that drive e-commerce conversions, grouped by funnel stage"
+           loading="lazy"/>
+    </figure>
+    <p class="art-img-caption">The 10 cognitive biases that drive e-commerce conversions, grouped by funnel stage.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 1. Hick's Law ─────────────────────────────────── -->
+    <h2 class="art-h2">1. Hick's Law: More Options, Fewer Conversions</h2>
+
+    <p class="art-p">The time it takes to make a decision increases with the number of options available. Every extra CTA, variant selector, or navigation element on a page makes it harder for visitors to decide, and easier for them to leave. Think about it this way: if someone gave you 8 different jams to choose from at a tasting, you would probably get overwhelmed and leave the store with none. The same principle applies to your product page.</p>
+
+    <p class="art-p">This is one of the most commonly violated principles we see. Product pages routinely present <span class="art-amber">10+ clickable elements</span> all fighting for attention: Add to Cart, Buy Now, Wishlist, Compare, Share, variant pickers, and related products. Each one adds cognitive load. Each one reduces the probability of the one action you actually want.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Audit your top product pages and count the interactive elements above the fold. More than 3-4 CTAs visible at once? You are working against Hick's Law. Reduce secondary actions to subtle icons. Make your primary CTA visually dominant. And here is one people overlook: your CTA text and colour should remain consistent throughout the site, so your user can simply see the button on subsequent pages and click it without a second thought.</p>
+    </div>
+
+    <p class="art-p">When we simplified product discovery at a major delivery platform, grouping by user intent rather than internal taxonomy, homepage-to-product-page conversion improved measurably.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 2. Anchoring Bias ─────────────────────────────── -->
+    <h2 class="art-h2">2. Anchoring Bias: The First Number Wins</h2>
+
+    <p class="art-p">People rely disproportionately on the first piece of information they see. In pricing, the first number a customer encounters becomes the reference point against which everything else gets judged.</p>
+
+    <p class="art-p">This is why showing a "Compare at" price next to a sale price works. The higher number anchors value perception. The discount then feels like a gain, not a cost. It is also why tiered pricing works: the premium option anchors the mid-tier as the "reasonable" choice.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Always show the reference price before the actual price. On bundle offers, display individual item prices first, then the bundle price. At Foodpanda, we used anchoring on the cart page by showing original prices alongside "Popular with your order" suggestions. Result: <span class="art-cyan">+35% increase in Average Order Value</span>.</p>
+    </div>
+
+    <div class="art-psych">
+      <span class="art-psych-label">Important</span>
+      <p>Make sure you do not hike up the original price to appear higher or to showcase fake discounts. This automatically creates distrust with your customer, and rightfully so. You do not just lose that customer. Based on their review and word of mouth, you lose potential customers, too.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 3. Social Proof ───────────────────────────────── -->
+    <h2 class="art-h2">3. Social Proof: People Follow People</h2>
+
+    <p class="art-p">When visitors see evidence that others have purchased, reviewed, or endorsed a product, their confidence goes up. Social proof reduces perceived risk. Simple as that.</p>
+
+    <p class="art-p">But here is the thing most stores get wrong: placement matters as much as existence. A review count buried at the bottom of a product page does almost nothing. The same review count, placed directly beneath the product title and visible without scrolling, can meaningfully impact add-to-cart rates.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Place your strongest social proof (star rating, review count, or "Bestseller" badge) in the first viewport of every product page. If you have fewer than 10 reviews on a product, prioritise getting reviews over getting more traffic. And if your platform can support image reviews, that is even better. Customers love knowing they will get what they see in the product pictures, not a toned-down version of the goods.</p>
+    </div>
+
+    <p class="art-p">The data backs this up: shoppers who interact with customer photos on product pages convert at roughly double the rate of those who only see text reviews, with research showing a <span class="art-amber">106% lift in conversion</span>.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 4. Loss Aversion ──────────────────────────────── -->
+    <h2 class="art-h2">4. Loss Aversion: Fear of Missing Out Beats Desire to Gain</h2>
+
+    <p class="art-p">People feel the pain of losing something roughly twice as strongly as the pleasure of gaining something of equivalent value. This is why limited-time offers, low-stock warnings, and expiring discounts work. They frame the decision as a potential loss.</p>
+
+    <div class="art-psych">
+      <span class="art-psych-label">The Ethics</span>
+      <p>The ethical application of loss aversion is one of the biggest distinctions in psychology-driven CRO. Fake countdown timers and fabricated scarcity destroy trust. Real inventory levels, honest sale end dates, and cart reservation timers respect the customer while creating appropriate urgency.</p>
+    </div>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Show real inventory when stock is genuinely low. Use cart abandonment emails that remind customers what they are about to lose. Set free shipping thresholds just above your current AOV. The framing should always be honest. Customers who feel manipulated do not come back.</p>
+    </div>
+
+    <!-- Image 2: Funnel map -->
+    <figure class="art-img-wrap">
+      <img src="https://goprecision.co/wp-content/uploads/2026/03/art2_visual_2_funnel_map-1.svg"
+           alt="Which cognitive biases apply at each stage of the e-commerce funnel"
+           loading="lazy"/>
+    </figure>
+    <p class="art-img-caption">Which cognitive biases apply at each stage of the e-commerce funnel.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 5. Decision Fatigue ────────────────────────────── -->
+    <h2 class="art-h2">5. Decision Fatigue: Every Choice Costs Energy</h2>
+
+    <p class="art-p">Making repeated decisions depletes mental energy. In e-commerce, long checkout flows kill conversions. Every form field, every page transition, every "Are you sure?" prompt uses up the customer's willingness to continue.</p>
+
+    <p class="art-p">Baymard Institute's research shows the average e-commerce checkout has <span class="art-amber">23 form elements</span>. The ideal is <span class="art-amber">12-14</span>. That is 9-11 unnecessary decisions between "I want this" and "I bought this." Each one is an exit opportunity.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Map every decision point in your checkout. Remove anything that is not essential. Enable guest checkout. Auto-detect location from postal code. Pre-select the most common shipping option. The path from cart to confirmation should feel effortless, not interrogative.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 6. Peak-End Rule ───────────────────────────────── -->
+    <h2 class="art-h2">6. Peak-End Rule: The Last Impression Lasts</h2>
+
+    <p class="art-p">People judge an experience by its most intense moment and how it ended. In e-commerce, the checkout, order confirmation, and post-purchase communication disproportionately shape customers' perceptions of your brand.</p>
+
+    <p class="art-p">Most stores invest heavily in acquisition and almost nothing in post-purchase. The confirmation page is generic. The shipping email is a system notification. This is a massive missed opportunity. A delightful ending creates repeat customers. A frustrating ending creates refund requests.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Design your confirmation page as a celebration, not a receipt. Include a personalised thank-you, expected delivery timeline, and a reason to return (a discount code, a referral link, or content they would find useful). Make your shipping notifications branded and helpful, not generic system emails. The peak of the experience should be delight, not anxiety. Stores that nail the post-purchase experience see measurably higher repeat purchase rates and lower return rates.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 7. Goal Gradient Effect ────────────────────────── -->
+    <h2 class="art-h2">7. Goal Gradient Effect: Closer to the Finish, Faster You Run</h2>
+
+    <p class="art-p">People accelerate their effort as they approach a goal. Progress indicators, loyalty trackers, and completion bars measurably increase engagement.</p>
+
+    <p class="art-p">At Foodpanda, we built a loyalty system with Pandamart-themed badges and tiered rewards. The programme visualised progress toward the next reward, keeping users coming back. Result: <span class="art-cyan">+11% orders per customer</span>.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Add a progress bar to checkout. Show loyalty members how close they are to the next reward. For free shipping thresholds, show a dynamic bar in the cart ("You are $12 away from free shipping!"). The closer the goal feels, the more motivated people are to hit it.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 8. Von Restorff Effect ─────────────────────────── -->
+    <h2 class="art-h2">8. Von Restorff Effect: What Stands Out Gets Remembered</h2>
+
+    <p class="art-p">When similar items sit together, the visually distinctive one gets noticed and acted on. This is the scientific basis for contrasting CTA colours, "Most Popular" badges, and highlighted pricing tiers.</p>
+
+    <p class="art-p">When we redesigned Foodpanda's newsletter, the old layout featured generic banners identical to those in every other marketing email. The new design showcased top products with clear pricing and visual hierarchy. Result: <span class="art-cyan">+80% click-through rate</span> and <span class="art-cyan">+20% open rate</span>.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Your primary CTA should be the only element on the page in its colour. If "Add to Cart" is green, nothing else should be green. On pricing pages, visually distinguish your recommended plan. Use "Staff Pick" or "Best Seller" badges sparingly so they genuinely stand out.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 9. Endowment Effect ────────────────────────────── -->
+    <h2 class="art-h2">9. Endowment Effect: Once It Feels Like Mine, I Will Not Let Go</h2>
+
+    <p class="art-p">People value things more once they feel ownership. The moment a customer adds an item to their cart, it stops being a product on a shelf and starts being something they own.</p>
+
+    <p class="art-p">This is why "Your items are waiting" beats "Come back and shop" in cart recovery emails. The customer already feels ownership. You are reminding them of a loss, not making a new pitch.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Use ownership language: "Your cart," "Your selection," "Items you chose." Enable wishlists and saved carts. For abandoned cart emails, frame it as a reminder of what they have, not a fresh sales pitch.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 10. Reciprocity ───────────────────────────────── -->
+    <h2 class="art-h2">10. Reciprocity: Give Value First, Ask Second</h2>
+
+    <p class="art-p">When someone receives something of value, they feel an obligation to return the favour. Free shipping, free samples, free guides: these are not costs. They are investments in reciprocity. A customer who gets a free size guide is more likely to buy. One who receives free shipping is more likely to accept an upsell.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Lead with value at every stage. Offer a free checklist before requesting an email address. Send a helpful tip after purchase before asking for a review. The sequence matters: give, then ask.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── How These Biases Work Together ─────────────────── -->
+    <h2 class="art-h2">How These Biases Work Together</h2>
+
+    <p class="art-p">No single bias drives a purchase in isolation. A high-converting product page layers multiple principles: Hick's Law keeps it clean, Social Proof reduces uncertainty, Anchoring frames value, Von Restorff makes the CTA impossible to miss, Loss Aversion creates urgency, and Endowment kicks in the moment the item hits the cart.</p>
+
+    <p class="art-p">This is why isolated tactics fail. Changing a button colour does not fix a page that violates Hick's Law. A countdown timer does not help if there is no Social Proof to build trust first. Psychology-driven CRO works because it treats the experience as a system rather than a collection of individual tweaks.</p>
+
+    <p class="art-p">At Precision, this systems approach is the core of our Conversion Accelerator. We audit the full journey through the lens of these principles, find the highest-impact violations, and design experiments that address root causes. That is how we consistently deliver results like <span class="art-cyan">+58% revenue</span> and <span class="art-cyan">+40% conversion</span>.</p>
+
+    <p class="art-outro">Want to see which biases your store is violating? <a href="https://calendly.com/ammarah-bumx/30min">Book a strategy session</a> to get a psychology-driven audit of your conversion funnel.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Key Takeaways ──────────────────────────────────── -->
+    <h2 class="art-h2">Key Takeaways</h2>
+
+    <ul class="art-takeaways">
+      <li>Every e-commerce purchase is shaped by cognitive biases. Designing for them is not manipulation. It is removing friction and building trust.</li>
+      <li>The 10 highest-impact biases: Hick's Law, Anchoring, Social Proof, Loss Aversion, Decision Fatigue, Peak-End Rule, Goal Gradient, Von Restorff, Endowment Effect, and Reciprocity.</li>
+      <li>Placement matters as much as presence. Social proof below the fold is functionally invisible.</li>
+      <li>These biases compound. Layer them across the entire journey for transformative results.</li>
+      <li>Honesty builds long-term relationships. Dark patterns generate short-term conversions and long-term churn.</li>
+    </ul>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── FAQ ────────────────────────────────────────────── -->
+    <h2 class="art-h2">Frequently Asked Questions</h2>
+
+    <div class="art-faq">
+      <div class="art-faq-item">
+        <p class="art-faq-q">What are cognitive biases in e-commerce?</p>
+        <p class="art-faq-a">Systematic patterns in how people decide. They influence which products visitors click, whether they trust the site, and whether they complete a purchase. Understanding them lets you design with human behaviour, not against it.</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">Is using psychology in e-commerce manipulation?</p>
+        <p class="art-faq-a">When applied ethically, no. Every design decision influences behaviour. The line is transparency: real inventory levels, honest timelines, genuine value. The goal is to reduce friction, not to deceive.</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">Which bias has the biggest impact?</p>
+        <p class="art-faq-a">Depends on your leak. Overwhelmed visitors? Hick's Law. Trust issues? Social Proof. Cart abandonment? Decision Fatigue and Loss Aversion. Diagnose your funnel first.</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">Where should I start?</p>
+        <p class="art-faq-a">Walk through your own store as a customer. The three highest-impact areas: product page (Hick's Law + Social Proof + Von Restorff), checkout (Decision Fatigue + Peak-End Rule), and cart (Anchoring + Endowment + Loss Aversion).</p>
+      </div>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── About the Author ───────────────────────────────── -->
+    <div class="art-author">
+      <p class="art-author-name">Ammarah Ahmed</p>
+      <p class="art-author-role">Founder, Precision Consulting Group</p>
+      <p class="art-author-bio">Ammarah helps growth-stage e-commerce businesses boost revenue through psychology-driven CRO and UX/UI. With over a decade of experience on major tech platforms across Asia and the Middle East, she combines behavioural psychology and user experience to drive effective conversion optimisation.</p>
+    </div>
+
+  </div>
+</article>
+
+<!-- ── Image lightbox ──────────────────────────────────────── -->
+<div class="art-lightbox" id="artLightbox" role="dialog" aria-modal="true" aria-label="Image zoom">
+  <img src="" alt="" id="artLightboxImg"/>
+  <button class="art-lightbox-close" id="artLightboxClose" aria-label="Zoom out">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M4.5 7h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    Zoom Out
+  </button>
+</div>
+
+<script>
+(function () {
+  var lb   = document.getElementById('artLightbox');
+  var lbImg = document.getElementById('artLightboxImg');
+
+  function open(src, alt) {
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lb.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    lb.classList.remove('is-open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  // Click on any article image
+  document.querySelectorAll('.art-img-wrap img').forEach(function (img) {
+    img.parentElement.addEventListener('click', function () {
+      open(img.src, img.alt);
+    });
+  });
+
+  // Close on backdrop or close button
+  lb.addEventListener('click', function (e) {
+    if (e.target === lb || e.target === document.getElementById('artLightboxClose')) close();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+  });
+
+  // Fix: walk up the DOM from each image wrap and force overflow visible with !important
+  document.querySelectorAll('.art-img-wrap').forEach(function (fig) {
+    var el = fig.parentElement;
+    while (el && el !== document.documentElement) {
+      var cs = window.getComputedStyle(el);
+      if (cs.overflow === 'hidden' || cs.overflowY === 'hidden') {
+        el.style.setProperty('overflow', 'visible', 'important');
+        el.style.setProperty('overflow-y', 'visible', 'important');
+      }
+      if (cs.maxHeight && cs.maxHeight !== 'none') {
+        el.style.setProperty('max-height', 'none', 'important');
+      }
+      el = el.parentElement;
+    }
+  });
+})();
+
+// Auto-trim empty space at the bottom of SVG infographics
+(function () {
+  function trimSvg(img) {
+    fetch(img.src)
+      .then(function (r) { return r.text(); })
+      .then(function (svgText) {
+        var svgEl = new DOMParser().parseFromString(svgText, 'image/svg+xml').querySelector('svg');
+        if (!svgEl) return;
+
+        var vb = svgEl.viewBox.baseVal;
+        var vbW = vb.width  || parseFloat(svgEl.getAttribute('width')  || 0);
+        var vbH = vb.height || parseFloat(svgEl.getAttribute('height') || 0);
+        if (!vbW || !vbH) return;
+
+        // Mount in a hidden off-screen container so getBBox() works
+        svgEl.setAttribute('width',  vbW);
+        svgEl.setAttribute('height', vbH);
+        var host = document.createElement('div');
+        host.style.cssText = 'position:fixed;left:-99999px;top:0;width:' + vbW + 'px;height:' + vbH + 'px;visibility:hidden;pointer-events:none;';
+        host.appendChild(svgEl);
+        document.body.appendChild(host);
+        var bbox;
+        try { bbox = svgEl.getBBox(); } catch (e) {}
+        document.body.removeChild(host);
+        if (!bbox || !bbox.height) return;
+
+        // Trim to actual content bottom + 16px breathing room
+        var trimH = Math.min(bbox.y + bbox.height + 16, vbH);
+        var ratio  = trimH / vbH;
+
+        function apply() {
+          var w = img.offsetWidth;
+          if (!w) return;
+          var fig = img.parentElement;
+          fig.style.setProperty('height',   Math.round(w * vbH / vbW * ratio) + 'px', 'important');
+          fig.style.setProperty('overflow', 'hidden', 'important');
+        }
+
+        if (img.complete && img.naturalWidth) { apply(); }
+        else { img.addEventListener('load', apply); }
+        window.addEventListener('resize', apply, { passive: true });
+      });
+  }
+  document.querySelectorAll('.art-img-wrap img[src$=".svg"]').forEach(trimSvg);
+})();
+</script>
