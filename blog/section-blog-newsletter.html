@@ -1,6 +1,6 @@
 <!-- ============================================================
      PRECISION — Blog Newsletter CTA (Bricks Code Block)
-     Email signup. No box/card, no dependencies.
+     Kit (ConvertKit) integration. Form ID: 9198342
      ============================================================ -->
 
 <style>
@@ -78,11 +78,26 @@
   transition: opacity 0.18s, transform 0.18s;
 }
 .blg-nl-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+.blg-nl-btn:disabled { opacity: 0.7; cursor: default; transform: none; }
 
 .blg-nl-notice {
   margin-top: 16px;
   font-size: 13px;
   color: #4B5563;
+}
+
+.blg-nl-success {
+  font-size: 15px;
+  color: #4ADE80;
+  line-height: 1.5;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.blg-nl-error {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #F87171;
 }
 
 @media (max-width: 767px) {
@@ -96,13 +111,14 @@
 <div class="blg-newsletter-section">
   <div class="blg-newsletter-inner" role="complementary" aria-label="Newsletter signup">
     <h2 class="blg-nl-heading">Never Miss an Insight</h2>
-    <p class="blg-nl-subtext">Get the latest CRO strategies, case studies, and conversion optimization tactics delivered to your inbox.</p>
+    <p class="blg-nl-subtext">Get weekly CRO strategies, real test results, and conversion tactics used by 7-figure e-commerce brands — delivered straight to your inbox.</p>
 
     <form class="blg-nl-form" id="blg-nl-form" novalidate>
       <input
         type="email"
         class="blg-nl-input"
         id="blg-nl-email"
+        name="email_address"
         placeholder="Enter your email"
         aria-label="Email address"
         required
@@ -114,15 +130,16 @@
         </svg>
       </button>
     </form>
-    <p class="blg-nl-notice">No spam. Unsubscribe at any time.</p>
+    <p class="blg-nl-notice" id="blg-nl-notice">No spam. Unsubscribe at any time.</p>
   </div>
 </div>
 
 <script>
 (function () {
-  var form  = document.getElementById('blg-nl-form');
-  var input = document.getElementById('blg-nl-email');
-  var btn   = document.getElementById('blg-nl-btn');
+  var form   = document.getElementById('blg-nl-form');
+  var input  = document.getElementById('blg-nl-email');
+  var btn    = document.getElementById('blg-nl-btn');
+  var notice = document.getElementById('blg-nl-notice');
   if (!form) return;
 
   form.addEventListener('submit', function (e) {
@@ -131,12 +148,38 @@
       input.focus();
       return;
     }
-    btn.innerHTML = 'Subscribed! ✓';
-    btn.style.background = 'linear-gradient(135deg,#22D3EE,#7B68EE)';
-    btn.style.color = '#fff';
-    input.value = '';
-    input.disabled = true;
+
     btn.disabled = true;
+    btn.innerHTML = 'Subscribing\u2026';
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://app.kit.com/forms/9198342/subscriptions');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    xhr.onload = function () {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        form.innerHTML = '<p class="blg-nl-success">You\u2019re in! Check your inbox for a confirmation email.<br>If you don\u2019t see it, check your spam folder and mark us as \u201cnot spam\u201d so you never miss an issue.</p>';
+        notice.textContent = '';
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'newsletter_subscribe',
+          page_path: location.pathname
+        });
+      } else {
+        btn.disabled = false;
+        btn.innerHTML = 'Subscribe <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        notice.innerHTML = '<span class="blg-nl-error">Something went wrong. Please try again.</span>';
+      }
+    };
+
+    xhr.onerror = function () {
+      btn.disabled = false;
+      btn.innerHTML = 'Subscribe <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      notice.innerHTML = '<span class="blg-nl-error">Connection error. Please try again.</span>';
+    };
+
+    xhr.send('email_address=' + encodeURIComponent(input.value));
   });
 })();
 </script>
