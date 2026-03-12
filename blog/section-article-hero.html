@@ -277,25 +277,6 @@
 
     var articleTitle = document.getElementById('art-title') ? document.getElementById('art-title').textContent : document.title;
 
-    if (type === 'linkedin') {
-      window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + url, '_blank', 'width=600,height=500');
-    } else if (type === 'x') {
-      window.open('https://x.com/intent/tweet?url=' + url + '&text=' + title, '_blank', 'width=600,height=500');
-    } else if (type === 'whatsapp') {
-      window.open('https://wa.me/?text=' + title + '%20' + url, '_blank', 'width=600,height=500');
-    } else if (type === 'instagram') {
-      var igLabel = wrap.querySelector('[data-ig-label]');
-      navigator.clipboard.writeText(location.href).then(function () {
-        igLabel.textContent = 'Link copied for Instagram!';
-        setTimeout(function () { igLabel.textContent = 'Share on Instagram'; }, 3000);
-      });
-    } else if (type === 'copy') {
-      navigator.clipboard.writeText(location.href).then(function () {
-        copyLabel.textContent = 'Copied!';
-        setTimeout(function () { copyLabel.textContent = 'Copy link'; }, 2000);
-      });
-    }
-
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: 'article_share_click',
@@ -304,7 +285,26 @@
       page_path: location.pathname
     });
 
-    if (type === 'instagram' || type === 'copy') return;
+    if (type === 'linkedin') {
+      window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + url, '_blank', 'width=600,height=500');
+    } else if (type === 'x') {
+      window.open('https://x.com/intent/tweet?url=' + url + '&text=' + title, '_blank', 'width=600,height=500');
+    } else if (type === 'whatsapp') {
+      window.open('https://wa.me/?text=' + title + '%20' + url, '_blank', 'width=600,height=500');
+    } else if (type === 'instagram') {
+      var igLabel = wrap.querySelector('[data-ig-label]');
+      try { navigator.clipboard.writeText(location.href).then(function () {
+        igLabel.textContent = 'Link copied for Instagram!';
+        setTimeout(function () { igLabel.textContent = 'Share on Instagram'; }, 3000);
+      }); } catch(e) {}
+      return;
+    } else if (type === 'copy') {
+      try { navigator.clipboard.writeText(location.href).then(function () {
+        copyLabel.textContent = 'Copied!';
+        setTimeout(function () { copyLabel.textContent = 'Copy link'; }, 2000);
+      }); } catch(e) {}
+      return;
+    }
     dropdown.classList.remove('art-share-dropdown--open');
     btn.setAttribute('aria-expanded', 'false');
   });
