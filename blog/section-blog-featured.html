@@ -1,9 +1,10 @@
 <!-- ============================================================
      PRECISION — Blog Featured Articles (Bricks Code Block)
-     2-column featured article cards.
+     DYNAMIC: Pulls 2 most recent published posts via WP_Query.
      Listens for 'blogFilter' events from section-blog-search.html.
-     Hidden entirely when a specific category is active (featured
-     articles are curated across all categories).
+     Hidden entirely when a specific category is active.
+
+     REQUIRES: "Execute code" enabled on this Code Block in Bricks.
      ============================================================ -->
 
 <style>
@@ -50,17 +51,34 @@
   background: #15152E;
   border: 1px solid rgba(255,255,255,0.07);
   border-radius: 20px;
-  padding: 28px;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 0;
   transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
   position: relative;
+  overflow: hidden;
 }
 .blg-f-card:hover {
   transform: translateY(-3px);
   border-color: rgba(0,191,255,0.20);
   box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 0 40px rgba(0,191,255,0.07);
+}
+
+/* ── Featured image ──────────────────────────────────────── */
+.blg-f-card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.blg-f-card-content {
+  padding: 24px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
 }
 
 .blg-f-card-meta {
@@ -140,7 +158,6 @@
 .blg-read-link:hover { opacity: 0.75; }
 .blg-read-link:hover svg { transform: translateX(3px); }
 .blg-read-link svg { transition: transform 0.18s; }
-.blg-read-link--amber { color: #FCD34D; }
 .blg-read-link::after {
   content: '';
   position: absolute;
@@ -169,6 +186,30 @@
 }
 </style>
 
+<?php
+/* ── Category config ─────────────────────────────────────── */
+$cat_config = array(
+  'cro'                => array( 'label' => 'CRO',                'color' => '#22D3EE', 'icon' => '<circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width="1.3"/><circle cx="5" cy="5" r="2" stroke="currentColor" stroke-width="1.3"/><circle cx="5" cy="5" r="0.8" fill="currentColor"/>' ),
+  'e-commerce'         => array( 'label' => 'E-Commerce',         'color' => '#A78BFA', 'icon' => '<path d="M1.5 2.5h7l-1 4H2.5l-1-4Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><circle cx="3.5" cy="8" r="0.8" fill="currentColor"/><circle cx="7" cy="8" r="0.8" fill="currentColor"/>' ),
+  'aov'                => array( 'label' => 'AOV',                'color' => '#FCD34D', 'icon' => '<text x="5" y="9" text-anchor="middle" font-size="11" font-weight="700" font-family="Inter,Arial,sans-serif" fill="currentColor">$</text>' ),
+  'ui-ux'              => array( 'label' => 'UI/UX',              'color' => '#F472B6', 'icon' => '<path d="M6.5 1.5a1 1 0 011.5 1.5L3 8l-2 .5.5-2 5-5Z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>' ),
+  'product-psychology' => array( 'label' => 'Product Psychology', 'color' => '#C084FC', 'icon' => '<circle cx="5" cy="3.5" r="2.5" stroke="currentColor" stroke-width="1.3"/><path d="M1 9.5C1 7.5 3 6.5 5 6.5s4 1 4 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>' ),
+  'experimentation'    => array( 'label' => 'Experimentation',    'color' => '#4ADE80', 'icon' => '<path d="M3.5 1v3L1.5 8.5h7L6.5 4V1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.5 1h3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>' ),
+);
+
+/* ── Query: 2 most recent posts ──────────────────────────── */
+$featured_q = new WP_Query( array(
+  'post_type'      => 'post',
+  'post_status'    => 'publish',
+  'posts_per_page' => 2,
+  'orderby'        => 'date',
+  'order'          => 'DESC',
+  'ignore_sticky_posts' => true,
+) );
+
+if ( $featured_q->have_posts() ) :
+?>
+
 <section class="blg-featured" id="blg-featured-section" aria-label="Featured articles">
   <div class="blg-featured-inner">
 
@@ -182,69 +223,58 @@
 
     <div class="blg-featured-grid" id="blg-featured-grid">
 
-      <!-- Featured 1 -->
-      <article class="blg-f-card" data-category="cro"
-               data-search="psychology high-converting checkout flows cognitive biases psychological triggers checkout conversion rates 45">
-        <div class="blg-f-card-meta">
-          <span class="blg-tag blg-tag--cro">
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-              <circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width="1.3"/>
-              <circle cx="5" cy="5" r="2" stroke="currentColor" stroke-width="1.3"/>
-              <circle cx="5" cy="5" r="0.8" fill="currentColor"/>
-            </svg>
-            CRO
-          </span>
-          <span class="blg-read-time">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-              <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.3"/>
-              <path d="M6 3.5V6l2 1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
-            </svg>
-            8 min read
-          </span>
-        </div>
-        <h3 class="blg-f-card-title">The Psychology Behind High-Converting Checkout Flows</h3>
-        <p class="blg-f-card-excerpt">Discover how cognitive biases and psychological triggers can dramatically increase your checkout conversion rates by up to 45%.</p>
-        <div class="blg-f-card-footer">
-          <time class="blg-date" datetime="2026-03-01">March 1, 2026</time>
-          <a href="/blog/psychology-high-converting-checkout-flows" class="blg-read-link">
-            Read Article
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M2.5 7h9M8 3.5l3.5 3.5L8 10.5" stroke="#00BFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-        </div>
-      </article>
+<?php
+while ( $featured_q->have_posts() ) : $featured_q->the_post();
+  /* Determine category */
+  $cats     = get_the_category();
+  $cat_slug = ! empty( $cats ) ? $cats[0]->slug : 'cro';
+  $cfg      = isset( $cat_config[ $cat_slug ] ) ? $cat_config[ $cat_slug ] : $cat_config['cro'];
 
-      <!-- Featured 2 -->
-      <article class="blg-f-card" data-category="aov"
-               data-search="5 aov optimization strategies generated 2m revenue average order value marketplace clients real data case studies">
-        <div class="blg-f-card-meta">
-          <span class="blg-tag blg-tag--aov">
-            <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
-              <text x="5" y="9" text-anchor="middle" font-size="11" font-weight="700" font-family="Inter,Arial,sans-serif" fill="currentColor">$</text>
-            </svg>
-            AOV
-          </span>
-          <span class="blg-read-time">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-              <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.3"/>
-              <path d="M6 3.5V6l2 1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
-            </svg>
-            10 min read
-          </span>
-        </div>
-        <h3 class="blg-f-card-title">5 AOV Optimization Strategies That Generated $2M+ in Revenue</h3>
-        <p class="blg-f-card-excerpt">Learn the exact tactics we used to increase average order value for marketplace clients, backed by real data and case studies.</p>
-        <div class="blg-f-card-footer">
-          <time class="blg-date" datetime="2026-02-25">February 25, 2026</time>
-          <a href="/blog/aov-optimization-strategies-2m-revenue" class="blg-read-link blg-read-link--amber">
-            Read Article
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M2.5 7h9M8 3.5l3.5 3.5L8 10.5" stroke="#FCD34D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
+  /* Read time — use custom field "read_time" (set per post) */
+  $read_min = get_post_meta( get_the_ID(), 'read_time', true );
+  $read_min = $read_min ? intval( $read_min ) : 5;
+
+  /* Excerpt — priority: manual excerpt → Yoast meta desc → trimmed content */
+  $excerpt = get_the_excerpt();
+  if ( empty( trim( $excerpt ) ) ) {
+    $excerpt = get_post_meta( get_the_ID(), '_yoast_wpseo_metadesc', true );
+  }
+  if ( empty( trim( $excerpt ) ) ) {
+    $excerpt = wp_trim_words( $content_raw, 25, '...' );
+  }
+?>
+      <article class="blg-f-card" data-category="<?php echo esc_attr( $cat_slug ); ?>">
+        <?php if ( has_post_thumbnail() ) : ?>
+          <img class="blg-f-card-img" src="<?php echo esc_url( get_the_post_thumbnail_url( get_the_ID(), 'medium_large' ) ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>" loading="lazy"/>
+        <?php endif; ?>
+        <div class="blg-f-card-content">
+          <div class="blg-f-card-meta">
+            <span class="blg-tag blg-tag--<?php echo esc_attr( $cat_slug ); ?>">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><?php echo $cfg['icon']; ?></svg>
+              <?php echo esc_html( $cfg['label'] ); ?>
+            </span>
+            <span class="blg-read-time">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.3"/>
+                <path d="M6 3.5V6l2 1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+              </svg>
+              <?php echo $read_min; ?> min read
+            </span>
+          </div>
+          <h3 class="blg-f-card-title"><?php the_title(); ?></h3>
+          <p class="blg-f-card-excerpt"><?php echo esc_html( $excerpt ); ?></p>
+          <div class="blg-f-card-footer">
+            <time class="blg-date" datetime="<?php echo get_the_date( 'Y-m-d' ); ?>"><?php echo get_the_date( 'F j, Y' ); ?></time>
+            <a href="<?php the_permalink(); ?>" class="blg-read-link" style="color:<?php echo esc_attr( $cfg['color'] ); ?>">
+              Read Article
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2.5 7h9M8 3.5l3.5 3.5L8 10.5" stroke="<?php echo esc_attr( $cfg['color'] ); ?>" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
         </div>
       </article>
+<?php endwhile; ?>
 
     </div>
 
@@ -252,16 +282,21 @@
   </div>
 </section>
 
+<?php
+wp_reset_postdata();
+endif;
+?>
+
 <script>
 (function () {
   var section     = document.getElementById('blg-featured-section');
   var grid        = document.getElementById('blg-featured-grid');
   var emptyMsg    = document.getElementById('blg-featured-empty');
-  var cards       = grid ? grid.querySelectorAll('.blg-f-card') : [];
-  if (!section || !cards.length) return;
+  if (!section || !grid) return;
+  var cards       = grid.querySelectorAll('.blg-f-card');
+  if (!cards.length) return;
 
   function applyFilter(category, query) {
-    // Hide entire section when a specific category is active
     if (category !== 'all') {
       section.classList.add('blg-featured--hidden');
       return;
@@ -271,7 +306,7 @@
     var words = query ? query.split(/\s+/).filter(Boolean) : [];
     var visible = 0;
     cards.forEach(function (card) {
-      var searchText = card.dataset.search + ' ' + card.querySelector('.blg-f-card-title').textContent.toLowerCase() + ' ' + card.querySelector('.blg-f-card-excerpt').textContent.toLowerCase();
+      var searchText = (card.dataset.category + ' ' + card.querySelector('.blg-f-card-title').textContent + ' ' + card.querySelector('.blg-f-card-excerpt').textContent).toLowerCase();
       var searchMatch = !words.length || words.every(function (w) { return searchText.indexOf(w) !== -1; });
       card.classList.toggle('blg-card--hidden', !searchMatch);
       if (searchMatch) visible++;
@@ -279,7 +314,6 @@
     emptyMsg.style.display = visible === 0 ? 'block' : 'none';
   }
 
-  // Read state set by section-blog-search.html (if already loaded)
   var init = window._blgFilter || { category: 'all', query: '' };
   applyFilter(init.category, init.query);
 

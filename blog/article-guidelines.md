@@ -26,6 +26,8 @@ Every article is a WordPress **Post** (not a Page) built in Bricks Builder using
 - Go to **WordPress Admin → Posts → Add New**
 - Set the **title**, **slug**, **category**, and **publish date**
 - Assign a **category** using one of the approved slugs (see Categories below)
+- **Add a manual Excerpt** (Post sidebar → Excerpt): 1-2 sentence summary of the article. This is used on the blog listing page cards. If Excerpt panel is not visible, enable it via the three-dot menu → Preferences → Panels.
+- Fill in **Yoast meta title** and **meta description** for SEO
 - Click **Edit with Bricks**
 
 ### 2. Add Code Block 1 — Article Hero
