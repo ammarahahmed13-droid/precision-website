@@ -38,7 +38,7 @@ Every article is a WordPress **Post** (not a Page) built in Bricks Builder using
   - Category class: `art-cat-tag--[slug]` and label text
   - `<h1>` title text
   - Read time (e.g. `10 min read`)
-  - Date (e.g. `March 10, 2026`)
+  - Date (e.g. `November 4, 2025`) — **must match the WordPress publish date** so the Featured Articles section (which queries by publish date) stays in sync
 
 ### 3. Add Code Block 2 — Article Body
 - Add a second **Code** element below the hero
