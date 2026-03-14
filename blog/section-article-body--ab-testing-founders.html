@@ -1,0 +1,750 @@
+<!-- ============================================================
+     PRECISION, Article Body: "A/B Testing for Founders:
+     How to Run Your First Experiment Without Wasting Time"
+     (Bricks Code Block)
+     Category: Experimentation  |  9 min read  |  December 2, 2025
+     ============================================================ -->
+
+<style>
+.art-body *,
+.art-body *::before,
+.art-body *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.art-body {
+  background: #0B0B1E;
+  padding: 64px 24px 80px;
+  font-family: 'Inter', sans-serif;
+}
+
+.art-body-inner {
+  max-width: 896px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ── Typography ───────────────────────────────────────────── */
+.art-p {
+  font-size: 18px;
+  color: #D1D5DB;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.art-h2 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-top: 16px;
+  margin-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+}
+.art-h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 16px;
+  font-family: 'Inter', sans-serif;
+}
+.art-cyan  { color: #06B6D4; font-weight: 600; }
+.art-amber { color: #FFD166; font-weight: 600; }
+
+/* ── Section divider ─────────────────────────────────────── */
+.art-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.10), transparent);
+  margin: 52px 0;
+}
+
+/* ── Callout box ─────────────────────────────────────────── */
+.art-callout {
+  background: rgba(6,182,212,0.05);
+  border: 1px solid rgba(6,182,212,0.15);
+  border-radius: 16px;
+  padding: 22px 28px;
+  margin-bottom: 32px;
+}
+.art-callout p {
+  font-size: 18px;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  line-height: 1.7;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── "Further reading:" callout ───────────────────────────── */
+.art-reading {
+  background: rgba(139,92,246,0.05);
+  border: 1px solid rgba(139,92,246,0.15);
+  border-radius: 16px;
+  padding: 22px 22px 22px 64px;
+  position: relative;
+  margin-bottom: 32px;
+}
+.art-reading::before {
+  content: '📖';
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  font-size: 22px;
+  line-height: 1;
+}
+.art-reading-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #A78BFA;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-family: 'Inter', sans-serif;
+}
+.art-reading p {
+  font-size: 16px;
+  color: #D1D5DB;
+  line-height: 1.7;
+}
+
+/* ── Article image ────────────────────────────────────────── */
+.art-img-wrap {
+  margin-bottom: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.30);
+  overflow: visible !important;
+  cursor: zoom-in;
+  position: relative;
+}
+.art-img-wrap img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: unset !important;
+  display: block;
+}
+
+/* ── Zoom hint badge (mobile only) ───────────────────────── */
+.art-img-wrap::after {
+  content: '🔍 Tap to zoom';
+  position: absolute;
+  bottom: 20px;
+  right: 12px;
+  background: rgba(0,0,0,0.55);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  padding: 5px 10px;
+  border-radius: 50px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+@media (max-width: 767px) {
+  .art-img-wrap::after { opacity: 1; }
+}
+
+/* ── Lightbox ─────────────────────────────────────────────── */
+.art-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0,0,0,0.92);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 16px;
+  cursor: zoom-out;
+}
+.art-lightbox.is-open { display: flex; }
+.art-lightbox img {
+  max-width: 100%;
+  max-height: 80vh;
+  width: auto !important;
+  height: auto !important;
+  box-shadow: 0 0 60px rgba(0,0,0,0.6);
+  cursor: default;
+}
+.art-lightbox-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 50px;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.18s;
+}
+.art-lightbox-close:hover { background: rgba(255,255,255,0.20); }
+.art-img-caption {
+  font-size: 13px;
+  color: #6B7280;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  padding: 0 8px;
+}
+
+/* ── Lists ────────────────────────────────────────────────── */
+.art-ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 24px;
+}
+.art-ul li {
+  font-size: 18px;
+  color: #D1D5DB;
+  line-height: 1.7;
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 10px;
+}
+.art-ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: #4B5563;
+}
+
+/* ── Reason list (▸ prefix) ───────────────────────────────── */
+.art-reason-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 28px;
+}
+.art-reason-list li {
+  font-size: 17px;
+  color: #D1D5DB;
+  line-height: 1.7;
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 12px;
+}
+.art-reason-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #06B6D4;
+  font-weight: 700;
+}
+
+/* ── Conditional list ─────────────────────────────────────── */
+.art-cond-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 28px;
+}
+.art-cond-list li {
+  font-size: 17px;
+  color: #D1D5DB;
+  line-height: 1.7;
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 12px;
+}
+.art-cond-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #FFD166;
+  font-weight: 700;
+}
+
+/* ── Numbered list ────────────────────────────────────────── */
+.art-ol {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 28px;
+  counter-reset: art-ol-counter;
+}
+.art-ol li {
+  font-size: 17px;
+  color: #D1D5DB;
+  line-height: 1.7;
+  padding-left: 32px;
+  position: relative;
+  margin-bottom: 12px;
+  counter-increment: art-ol-counter;
+}
+.art-ol li::before {
+  content: counter(art-ol-counter) '.';
+  position: absolute;
+  left: 0;
+  color: #06B6D4;
+  font-weight: 700;
+}
+
+/* ── Math / revenue box ───────────────────────────────────── */
+.art-math-box {
+  background: rgba(255,209,102,0.05);
+  border: 1px solid rgba(255,209,102,0.18);
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 32px;
+}
+.art-math-box p {
+  font-size: 16px;
+  color: #F3F4F6;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+.art-math-box p:last-child { margin-bottom: 0; }
+
+/* ── Blockquote ───────────────────────────────────────────── */
+.art-quote {
+  background: rgba(6,182,212,0.05);
+  border-left: 4px solid #06B6D4;
+  border-radius: 0 12px 12px 0;
+  padding: 20px 28px;
+  margin-bottom: 36px;
+}
+.art-quote p {
+  font-size: 20px;
+  font-style: italic;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Key Takeaways ────────────────────────────────────────── */
+.art-takeaways {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.art-takeaways li {
+  font-size: 17px;
+  color: #D1D5DB;
+  line-height: 1.65;
+  padding-left: 28px;
+  position: relative;
+}
+.art-takeaways li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #4ADE80;
+  font-weight: 700;
+}
+
+/* ── FAQ section ─────────────────────────────────────────── */
+.art-faq { margin-bottom: 0; }
+.art-faq-item {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 28px 0;
+}
+.art-faq-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
+.art-faq-q {
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  font-family: 'Inter', sans-serif;
+}
+.art-faq-a {
+  font-size: 16px;
+  color: #9CA3AF;
+  line-height: 1.75;
+}
+
+/* ── Author box ───────────────────────────────────────────── */
+.art-author {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 28px;
+  margin-top: 8px;
+}
+.art-author-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 4px;
+  font-family: 'Inter', sans-serif;
+}
+.art-author-role {
+  font-size: 13px;
+  color: #6B7280;
+  margin-bottom: 14px;
+}
+.art-author-bio {
+  font-size: 15px;
+  color: #9CA3AF;
+  line-height: 1.7;
+}
+
+/* ── Italic CTA link ─────────────────────────────────────── */
+.art-outro {
+  font-size: 18px;
+  font-style: italic;
+  color: #9CA3AF;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+.art-outro a {
+  color: #06B6D4;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .art-body { padding: 40px 16px 56px; }
+  .art-h2 { font-size: 24px; }
+  .art-h3 { font-size: 19px; }
+  .art-p, .art-ul li { font-size: 16px; }
+  .art-quote p { font-size: 17px; }
+}
+</style>
+
+<article class="art-body" itemscope itemtype="https://schema.org/Article">
+  <div class="art-body-inner">
+
+    <!-- ── Intro ─────────────────────────────────────────── -->
+    <p class="art-p">"We should test that."</p>
+
+    <p class="art-p">When most founders say this, what they actually do is just make the change. A new layout goes live. The checkout flow gets rearranged. A different headline replaces the old one. And then they compare last month's numbers to this month's numbers and call it a test.</p>
+
+    <p class="art-p">It is not a test. It is a before-and-after comparison with no controls, no isolation of variables, and no way to know whether the change caused the result or was due to seasonal traffic, a promotion that happened to overlap, or random fluctuation. The result looks real, but there is no way to trust it.</p>
+
+    <p class="art-p">A true A/B test is different. It runs both versions simultaneously, splitting live traffic between them so external factors affect both groups equally. It uses statistical significance to determine whether the difference in results is real or just noise. And it requires enough visitors to detect a meaningful change.</p>
+
+    <div class="art-callout">
+      <p>A/B testing is not complicated. The tools handle the maths. Your job is the thinking: what to test, why, and what to do with the results.</p>
+    </div>
+
+    <p class="art-p">At Precision, every experiment we design starts with a hypothesis rooted in behavioural psychology. That approach delivered <span class="art-cyan">+58% revenue</span> over six months for a major delivery platform. Not from one lucky test. From a systematic series of experiments, each building on the last.</p>
+
+    <!-- Image 1: Real vs Fake test -->
+    <figure class="art-img-wrap">
+      <img src="https://goprecision.co/wp-content/uploads/2026/03/art11_visual_1_real_vs_fake-1.svg"
+           alt="What most founders think is an A/B test (before/after comparison) vs. what a real A/B test looks like (simultaneous split with statistical significance)"
+           loading="lazy"/>
+    </figure>
+    <p class="art-img-caption">What most founders think is an A/B test (before/after comparison) vs. what a real A/B test looks like (simultaneous split with statistical significance).</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── What A/B Testing Actually Is ──────────────────── -->
+    <h2 class="art-h2">What A/B testing actually is (and is not)</h2>
+
+    <p class="art-p">A/B testing means showing two versions of something to two groups of visitors at the same time and measuring which one performs better. Group A sees the original (the "control"). Group B sees the variation (the "challenger"). Traffic is split randomly and simultaneously. You compare the results on a specific metric and pick the winner.</p>
+
+    <p class="art-p">The keyword is <span class="art-amber">simultaneously</span>. That is what separates a real test from a before-and-after guess. When both versions run at the same time, external factors (day of week, promotions, seasonality, ad campaigns) affect both groups equally. The only difference between the groups is the change you are testing. So if one version outperforms the other, you can be confident the change caused it.</p>
+
+    <p class="art-p">A before-and-after comparison cannot give you that confidence. Too many things change between periods. You will never know whether the improvement was due to your layout change or to the fact that it was payday week.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Step 1: Start With a Hypothesis ───────────────── -->
+    <h2 class="art-h2">Step 1: Start with a hypothesis, not an idea</h2>
+
+    <p class="art-p">Most founders make a mistake here. Instead of questioning why the current button is not effective, they jump straight to testing a different button colour.</p>
+
+    <p class="art-p">A good hypothesis has three parts:</p>
+
+    <ul class="art-reason-list">
+      <li><strong style="color:#FFFFFF;">The change:</strong> What you are going to modify. Be specific. "Changing the CTA from grey to high-contrast cyan and making it the only element on the page in that colour."</li>
+      <li><strong style="color:#FFFFFF;">The expected outcome:</strong> What metric do you expect to improve? "Increase add-to-cart rate."</li>
+      <li><strong style="color:#FFFFFF;">The reasoning:</strong> Why you believe this will work, ideally grounded in psychology or data. "The Von Restorff Effect predicts that visually distinctive elements are more likely to be noticed and acted on. Our heatmap data shows that less than 30% of users are clicking the current CTA."</li>
+    </ul>
+
+    <p class="art-p">Without the reasoning, you are testing randomly. With it, you learn something regardless of whether the test wins or loses. If it wins, you have validated the principle. If it loses, you have learned the bottleneck is somewhere else.</p>
+
+    <!-- Image 2: Hypothesis anatomy -->
+    <figure class="art-img-wrap">
+      <img src="https://goprecision.co/wp-content/uploads/2026/03/art11_visual_2_hypothesis-1.svg"
+           alt="Anatomy of a good hypothesis vs. a bad one. Bad: Let us try a green button. Good: Change + expected outcome + reasoning grounded in psychology"
+           loading="lazy"/>
+    </figure>
+    <p class="art-img-caption">Anatomy of a good hypothesis vs. a bad one. Bad: "Let us try a green button." Good: Change + expected outcome + reasoning grounded in psychology.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Step 2: Pick the Right Thing to Test ──────────── -->
+    <h2 class="art-h2">Step 2: Pick the right thing to test</h2>
+
+    <p class="art-p">Not everything is worth testing. The goal is maximum learning per test, and you have finite traffic.</p>
+
+    <p class="art-p"><strong style="color:#FFFFFF;">Test big changes first.</strong> A completely restructured product page teaches you more than a change to the headline font. At Foodpanda, our first major test was a full redesign of the homepage layout, not a button tweak. It delivered <span class="art-cyan">+40% conversion</span>. Start with structural changes, then fine-tune.</p>
+
+    <p class="art-p"><strong style="color:#FFFFFF;">Test where the biggest drop-off is.</strong> Check your funnel analytics. If 70% of visitors leave the product page without adding to the cart, that is where to focus. If cart abandonment is the leak, test the checkout. Fish where the fish are.</p>
+
+    <p class="art-p"><strong style="color:#FFFFFF;">Do not test multiple things at once.</strong> If you change the headline, the image, and the CTA simultaneously, you will not know which change caused the result. One variable per test. Run them in sequence.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Step 3: Get the Numbers Right ─────────────────── -->
+    <h2 class="art-h2">Step 3: Get the numbers right</h2>
+
+    <p class="art-p">This is the part that intimidates people. It should not.</p>
+
+    <h3 class="art-h3">How much traffic do I need?</h3>
+
+    <p class="art-p">The answer depends on your current conversion rate and the size of the improvement you want to detect. Rule of thumb: to detect a 20% relative improvement on a 2% conversion rate (moving from 2.0% to 2.4%), you need roughly <span class="art-amber">4,000-5,000 visitors per variation</span>. At 10,000 monthly visitors, that is a 2-4 week test.</p>
+
+    <p class="art-p">The concept behind this is statistical power. A well-designed experiment needs a sufficiently large sample size to have an 80% or greater chance of detecting a real effect. Too small a sample and you will miss real improvements (false negatives). Too large and you are wasting time testing changes that are already clearly significant.</p>
+
+    <p class="art-p">If you have fewer than 5,000 monthly visitors, formal A/B testing is not practical yet. Focus on evidence-based changes instead and save testing for when you have more traffic.</p>
+
+    <h3 class="art-h3">How long should I run the test?</h3>
+
+    <p class="art-p">Until it reaches statistical significance. Not until it looks like one version is winning. Not for exactly 7 days. Until the maths says you can trust the result.</p>
+
+    <p class="art-p">The standard is <span class="art-amber">95% confidence</span>, meaning there is only a 5% chance the result is a fluke. Most testing tools calculate this for you automatically. You do not need to understand the maths. You need to understand the principle: do not stop early.</p>
+
+    <div class="art-math-box">
+      <p><strong style="color:#FFFFFF;">Common and expensive mistake:</strong> stopping a test because one version is ahead on day 3. Results fluctuate wildly in the first few days. A version that is "winning" on day 3 might lose by day 10. Run the full test, or you are making decisions on noise.</p>
+    </div>
+
+    <h3 class="art-h3">What do I measure?</h3>
+
+    <p class="art-p"><strong style="color:#FFFFFF;">Primary metric (the success metric):</strong> Pick one. Not three. One. If you are testing a product page change, your primary metric is the add-to-cart rate. If you are testing checkout, it is the completion rate. The test is decided on this metric alone.</p>
+
+    <p class="art-p"><strong style="color:#FFFFFF;">Guardrail metrics (the safety net):</strong> These are the metrics you monitor to make sure your test is not accidentally hurting the business while improving the primary metric.</p>
+
+    <ul class="art-reason-list">
+      <li><strong style="color:#FFFFFF;">Revenue per visitor:</strong> the ultimate business health check. If this drops, something is wrong regardless of what the primary metric says.</li>
+      <li><strong style="color:#FFFFFF;">Bounce rate:</strong> are you driving people away from the page entirely?</li>
+      <li><strong style="color:#FFFFFF;">Average order value:</strong> especially important when testing cart or checkout changes. A higher conversion rate with a lower AOV might mean less total revenue.</li>
+      <li><strong style="color:#FFFFFF;">Return/refund rate:</strong> some changes (aggressive urgency tactics, misleading copy) increase conversions short-term but generate returns.</li>
+      <li><strong style="color:#FFFFFF;">Page load time:</strong> if your variation adds heavy scripts or images, speed drops kill conversions elsewhere.</li>
+    </ul>
+
+    <p class="art-p">You do not stop a test because a guardrail metric dips slightly. You stop a test if a guardrail metric shows a significant, sustained decline that would outweigh the improvement in the primary metric.</p>
+
+    <!-- Image 3: Metrics -->
+    <figure class="art-img-wrap">
+      <img src="https://goprecision.co/wp-content/uploads/2026/03/art11_visual_3_metrics-1.svg"
+           alt="Primary metric vs. guardrail metrics: the success metric decides the test, guardrail metrics protect the business"
+           loading="lazy"/>
+    </figure>
+    <p class="art-img-caption">Primary metric vs. guardrail metrics: the success metric decides the test, guardrail metrics protect the business.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Step 4: Run the Test Properly ─────────────────── -->
+    <h2 class="art-h2">Step 4: Run the test properly</h2>
+
+    <p class="art-p">Once your test is live, the hardest part is doing nothing. Do not peek at results and draw conclusions. Do not end it early. Do not make other site changes that contaminate the data.</p>
+
+    <ul class="art-reason-list">
+      <li><strong style="color:#FFFFFF;">Split traffic 50/50.</strong> Equal traffic to both versions. Any other split reduces statistical power and extends test duration.</li>
+      <li><strong style="color:#FFFFFF;">Run for at least one full business cycle.</strong> Buying behaviour changes throughout the week. A test that runs Monday to Thursday misses weekend shoppers. At minimum, one full week; ideally, two.</li>
+      <li><strong style="color:#FFFFFF;">Do not change anything else.</strong> If you launch a promotion, change navigation, or update pricing while a test is running, the results are contaminated. Pause the test or wait.</li>
+    </ul>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Step 5: Read the Results ──────────────────────── -->
+    <h2 class="art-h2">Step 5: Read the results (and actually learn from them)</h2>
+
+    <p class="art-p">When the test reaches significance, you have three possible outcomes:</p>
+
+    <ul class="art-reason-list">
+      <li><strong style="color:#FFFFFF;">Clear winner:</strong> one version significantly outperforms the other on the primary metric, and guardrail metrics are stable. Implement the winner and move on.</li>
+      <li><strong style="color:#FFFFFF;">No significant difference:</strong> the change did not matter. This is still valuable. You have learned that this element is not the bottleneck. Go deeper.</li>
+      <li><strong style="color:#FFFFFF;">Surprising result:</strong> the variation performed worse. Do not ignore this. Investigate why. Sometimes a losing test reveals a more important insight than a winning one.</li>
+    </ul>
+
+    <p class="art-p">Document everything. The hypothesis, the setup, the duration, the result, the guardrail impact, and what you learned. This becomes your experimentation playbook, and its value compounds over time.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Tools You Actually Need ────────────────────────── -->
+    <h2 class="art-h2">Tools you actually need (and do not)</h2>
+
+    <ul class="art-reason-list">
+      <li><strong style="color:#FFFFFF;">Free/cheap:</strong> VWO (free tier), Shopify's built-in testing, Google Tag Manager for event tracking.</li>
+      <li><strong style="color:#FFFFFF;">Mid-range ($50-$200/month):</strong> VWO, Optimizely, Convert. Visual editors, automatic traffic splitting, and significance calculators built in.</li>
+      <li><strong style="color:#FFFFFF;">What you do not need:</strong> a data science team, custom experimentation platforms, or statistical expertise beyond understanding confidence levels. The tools handle the maths. Your job is the hypothesis.</li>
+    </ul>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── The 5 Mistakes ────────────────────────────────── -->
+    <h2 class="art-h2">The 5 mistakes that waste your tests</h2>
+
+    <ol class="art-ol">
+      <li><strong style="color:#FFFFFF;">Testing without a hypothesis.</strong> "Let us see what happens" is not a test. It is a coin flip with analytics attached.</li>
+      <li><strong style="color:#FFFFFF;">Stopping tests too early.</strong> Day 3 results are noise. Wait for statistical significance. Every single time.</li>
+      <li><strong style="color:#FFFFFF;">Testing tiny changes on low traffic.</strong> If you have 5,000 monthly visitors and you are testing font sizes, you will wait 6 months for a result that does not matter.</li>
+      <li><strong style="color:#FFFFFF;">Ignoring guardrail metrics.</strong> A test that boosts add-to-cart but tanks checkout completion is a net loss. Always monitor the full funnel.</li>
+      <li><strong style="color:#FFFFFF;">Not documenting results.</strong> If you cannot remember what you tested last quarter, you are starting from scratch every time. The playbook is the asset.</li>
+    </ol>
+
+    <div class="art-reading">
+      <span class="art-reading-label">Further Reading</span>
+      <p>Super Thinking by Gabriel Weinberg and Lauren McCann has an excellent chapter on statistical significance, false positives, and experimental design. Highly recommended for founders who want to go deeper into the maths behind A/B testing.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Key Takeaways ──────────────────────────────────── -->
+    <h2 class="art-h2">Key Takeaways</h2>
+
+    <ul class="art-takeaways">
+      <li>A real A/B test runs both versions simultaneously, with traffic split randomly. A before-and-after comparison is not a test.</li>
+      <li>Always start with a hypothesis: the change, the expected outcome, and the reasoning (ideally backed by psychology).</li>
+      <li>Test big changes first, test where the biggest drop-off is, and isolate one variable at a time.</li>
+      <li>Use a primary metric to decide the test and guardrail metrics (revenue per visitor, bounce rate, AOV, returns) to protect the business.</li>
+      <li>Wait for 95% statistical significance. Early results are noise. Document everything.</li>
+    </ul>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── FAQ ────────────────────────────────────────────── -->
+    <h2 class="art-h2">Frequently Asked Questions</h2>
+
+    <div class="art-faq">
+      <div class="art-faq-item">
+        <p class="art-faq-q">How much traffic do I need for A/B testing?</p>
+        <p class="art-faq-a">Minimum 10,000 monthly visitors for reliable testing. Below that, focus on evidence-based changes rather than formal split tests. You need enough traffic to reach statistical significance within a reasonable timeframe.</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">How long should I run a test?</p>
+        <p class="art-faq-a">Until it reaches 95% statistical significance, and for at least one full week. Most e-commerce tests take 2-4 weeks, depending on traffic and the size of the effect you are trying to detect.</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">What should I test first?</p>
+        <p class="art-faq-a">The page with the biggest funnel drop-off. Check Google Analytics for where visitors leave. High product page abandonment? Test the product page. High cart abandonment? Test checkout. Start with the biggest leak.</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">What if my test shows no difference?</p>
+        <p class="art-faq-a">That is still a result. It means the element you tested is not the bottleneck. Go deeper. Every "no result" narrows the search for what actually matters.</p>
+      </div>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── About the Author ───────────────────────────────── -->
+    <div class="art-author">
+      <p class="art-author-name">Ammarah Ahmed</p>
+      <p class="art-author-role">Founder, Precision Consulting Group</p>
+      <p class="art-author-bio">Ammarah helps growth-stage e-commerce businesses boost revenue through psychology-driven CRO and UX/UI. With over a decade of experience on major tech platforms across Asia and the Middle East, she combines behavioural psychology and user experience to drive effective conversion optimisation.</p>
+    </div>
+
+  </div>
+</article>
+
+<!-- ── Image lightbox ──────────────────────────────────────── -->
+<div class="art-lightbox" id="artLightbox" role="dialog" aria-modal="true" aria-label="Image zoom">
+  <img src="" alt="" id="artLightboxImg"/>
+  <button class="art-lightbox-close" id="artLightboxClose" aria-label="Zoom out">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M4.5 7h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    Zoom Out
+  </button>
+</div>
+
+<script>
+(function () {
+  var lb   = document.getElementById('artLightbox');
+  var lbImg = document.getElementById('artLightboxImg');
+
+  function open(src, alt) {
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lb.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    lb.classList.remove('is-open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  document.querySelectorAll('.art-img-wrap img').forEach(function (img) {
+    img.parentElement.addEventListener('click', function () {
+      open(img.src, img.alt);
+    });
+  });
+
+  lb.addEventListener('click', function (e) {
+    if (e.target === lb || e.target === document.getElementById('artLightboxClose')) close();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+  });
+
+  // Fix: walk up the DOM from each image wrap and force overflow visible with !important
+  document.querySelectorAll('.art-img-wrap').forEach(function (fig) {
+    var el = fig.parentElement;
+    while (el && el !== document.documentElement) {
+      var cs = window.getComputedStyle(el);
+      if (cs.overflow === 'hidden' || cs.overflowY === 'hidden') {
+        el.style.setProperty('overflow', 'visible', 'important');
+        el.style.setProperty('overflow-y', 'visible', 'important');
+      }
+      if (cs.maxHeight && cs.maxHeight !== 'none') {
+        el.style.setProperty('max-height', 'none', 'important');
+      }
+      el = el.parentElement;
+    }
+  });
+})();
+
+// Auto-trim empty space at the bottom of SVG infographics
+(function () {
+  function trimSvg(img) {
+    fetch(img.src)
+      .then(function (r) { return r.text(); })
+      .then(function (svgText) {
+        var svgEl = new DOMParser().parseFromString(svgText, 'image/svg+xml').querySelector('svg');
+        if (!svgEl) return;
+
+        var vb = svgEl.viewBox.baseVal;
+        var vbW = vb.width  || parseFloat(svgEl.getAttribute('width')  || 0);
+        var vbH = vb.height || parseFloat(svgEl.getAttribute('height') || 0);
+        if (!vbW || !vbH) return;
+
+        svgEl.setAttribute('width',  vbW);
+        svgEl.setAttribute('height', vbH);
+        var host = document.createElement('div');
+        host.style.cssText = 'position:fixed;left:-99999px;top:0;width:' + vbW + 'px;height:' + vbH + 'px;visibility:hidden;pointer-events:none;';
+        host.appendChild(svgEl);
+        document.body.appendChild(host);
+        var bbox;
+        try { bbox = svgEl.getBBox(); } catch (e) {}
+        document.body.removeChild(host);
+        if (!bbox || !bbox.height) return;
+
+        var trimH = Math.min(bbox.y + bbox.height + 16, vbH);
+        var ratio  = trimH / vbH;
+
+        function apply() {
+          var w = img.offsetWidth;
+          if (!w) return;
+          var fig = img.parentElement;
+          fig.style.setProperty('height',   Math.round(w * vbH / vbW * ratio) + 'px', 'important');
+          fig.style.setProperty('overflow', 'hidden', 'important');
+        }
+
+        if (img.complete && img.naturalWidth) { apply(); }
+        else { img.addEventListener('load', apply); }
+        window.addEventListener('resize', apply, { passive: true });
+      });
+  }
+  document.querySelectorAll('.art-img-wrap img[src$=".svg"]').forEach(trimSvg);
+})();
+</script>
