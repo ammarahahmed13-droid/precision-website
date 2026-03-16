@@ -1,0 +1,805 @@
+<!-- ============================================================
+     PRECISION, Article Body: "Landing Page Optimisation:
+     A Step-by-Step Framework for E-Commerce Brands"
+     (Bricks Code Block)
+     Category: UI/UX  |  11 min read  |  December 16, 2025
+     ============================================================ -->
+
+<style>
+.art-body *,
+.art-body *::before,
+.art-body *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.art-body {
+  background: #0B0B1E;
+  padding: 64px 24px 80px;
+  font-family: 'Inter', sans-serif;
+}
+
+.art-body-inner {
+  max-width: 896px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ── Typography ───────────────────────────────────────────── */
+.art-p {
+  font-size: 18px;
+  color: #D1D5DB;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.art-h2 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-top: 16px;
+  margin-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+}
+.art-h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 16px;
+  font-family: 'Inter', sans-serif;
+}
+.art-cyan  { color: #06B6D4; font-weight: 600; }
+.art-amber { color: #FFD166; font-weight: 600; }
+
+/* ── Section divider ─────────────────────────────────────── */
+.art-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.10), transparent);
+  margin: 52px 0;
+}
+
+/* ── Callout box ─────────────────────────────────────────── */
+.art-callout {
+  background: rgba(6,182,212,0.05);
+  border: 1px solid rgba(6,182,212,0.15);
+  border-radius: 16px;
+  padding: 22px 28px;
+  margin-bottom: 32px;
+}
+.art-callout p {
+  font-size: 18px;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  line-height: 1.7;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Psychology callout ──────────────────────────────────── */
+.art-psych {
+  background: rgba(244,114,182,0.05);
+  border: 1px solid rgba(244,114,182,0.15);
+  border-radius: 16px;
+  padding: 22px 22px 22px 64px;
+  position: relative;
+  margin-bottom: 32px;
+}
+.art-psych::before {
+  content: '\1F9E0';
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  font-size: 22px;
+  line-height: 1;
+}
+.art-psych-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #F472B6;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-family: 'Inter', sans-serif;
+}
+.art-psych p {
+  font-size: 16px;
+  color: #D1D5DB;
+  line-height: 1.7;
+}
+
+/* ── The Fix callout ─────────────────────────────────────── */
+.art-fix {
+  background: rgba(6,182,212,0.05);
+  border: 1px solid rgba(6,182,212,0.15);
+  border-radius: 16px;
+  padding: 22px 22px 22px 64px;
+  position: relative;
+  margin-bottom: 32px;
+}
+.art-fix::before {
+  content: '\1F4A1';
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  font-size: 22px;
+  line-height: 1;
+}
+.art-fix-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #06B6D4;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-family: 'Inter', sans-serif;
+}
+.art-fix p {
+  font-size: 16px;
+  color: #D1D5DB;
+  line-height: 1.7;
+}
+
+/* ── "Further reading:" callout ───────────────────────────── */
+.art-reading {
+  background: rgba(139,92,246,0.05);
+  border: 1px solid rgba(139,92,246,0.15);
+  border-radius: 16px;
+  padding: 22px 22px 22px 64px;
+  position: relative;
+  margin-bottom: 32px;
+}
+.art-reading::before {
+  content: '\1F4D6';
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  font-size: 22px;
+  line-height: 1;
+}
+.art-reading-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #A78BFA;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-family: 'Inter', sans-serif;
+}
+.art-reading p {
+  font-size: 16px;
+  color: #D1D5DB;
+  line-height: 1.7;
+}
+
+/* ── Article image ────────────────────────────────────────── */
+.art-img-wrap {
+  margin-bottom: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.30);
+  overflow: visible !important;
+  cursor: zoom-in;
+  position: relative;
+}
+.art-img-wrap img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: unset !important;
+  display: block;
+}
+
+/* ── Zoom hint badge (mobile only) ───────────────────────── */
+.art-img-wrap::after {
+  content: '\1F50D Tap to zoom';
+  position: absolute;
+  bottom: 20px;
+  right: 12px;
+  background: rgba(0,0,0,0.55);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  padding: 5px 10px;
+  border-radius: 50px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+@media (max-width: 767px) {
+  .art-img-wrap::after { opacity: 1; }
+}
+
+/* ── Lightbox ─────────────────────────────────────────────── */
+.art-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0,0,0,0.92);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 16px;
+  cursor: zoom-out;
+}
+.art-lightbox.is-open { display: flex; }
+.art-lightbox img {
+  max-width: 100%;
+  max-height: 80vh;
+  width: auto !important;
+  height: auto !important;
+  box-shadow: 0 0 60px rgba(0,0,0,0.6);
+  cursor: default;
+}
+.art-lightbox-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 50px;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.18s;
+}
+.art-lightbox-close:hover { background: rgba(255,255,255,0.20); }
+.art-img-caption {
+  font-size: 13px;
+  color: #6B7280;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  padding: 0 8px;
+}
+
+/* ── Lists ────────────────────────────────────────────────── */
+.art-ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 24px;
+}
+.art-ul li {
+  font-size: 18px;
+  color: #D1D5DB;
+  line-height: 1.7;
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 10px;
+}
+.art-ul li::before {
+  content: '\2014';
+  position: absolute;
+  left: 0;
+  color: #4B5563;
+}
+
+/* ── Reason list (▸ prefix) ───────────────────────────────── */
+.art-reason-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 28px;
+}
+.art-reason-list li {
+  font-size: 17px;
+  color: #D1D5DB;
+  line-height: 1.7;
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 12px;
+}
+.art-reason-list li::before {
+  content: '\25B8';
+  position: absolute;
+  left: 0;
+  color: #06B6D4;
+  font-weight: 700;
+}
+
+/* ── Numbered list ────────────────────────────────────────── */
+.art-ol {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 28px;
+  counter-reset: art-ol-counter;
+}
+.art-ol li {
+  font-size: 17px;
+  color: #D1D5DB;
+  line-height: 1.7;
+  padding-left: 32px;
+  position: relative;
+  margin-bottom: 12px;
+  counter-increment: art-ol-counter;
+}
+.art-ol li::before {
+  content: counter(art-ol-counter) '.';
+  position: absolute;
+  left: 0;
+  color: #06B6D4;
+  font-weight: 700;
+}
+
+/* ── Blockquote ───────────────────────────────────────────── */
+.art-quote {
+  background: rgba(6,182,212,0.05);
+  border-left: 4px solid #06B6D4;
+  border-radius: 0 12px 12px 0;
+  padding: 20px 28px;
+  margin-bottom: 36px;
+}
+.art-quote p {
+  font-size: 20px;
+  font-style: italic;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Key Takeaways ────────────────────────────────────────── */
+.art-takeaways {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.art-takeaways li {
+  font-size: 17px;
+  color: #D1D5DB;
+  line-height: 1.65;
+  padding-left: 28px;
+  position: relative;
+}
+.art-takeaways li::before {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  color: #4ADE80;
+  font-weight: 700;
+}
+
+/* ── FAQ section ─────────────────────────────────────────── */
+.art-faq { margin-bottom: 0; }
+.art-faq-item {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 28px 0;
+}
+.art-faq-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
+.art-faq-q {
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  font-family: 'Inter', sans-serif;
+}
+.art-faq-a {
+  font-size: 16px;
+  color: #9CA3AF;
+  line-height: 1.75;
+}
+
+/* ── Author box ───────────────────────────────────────────── */
+.art-author {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 28px;
+  margin-top: 8px;
+}
+.art-author-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 4px;
+  font-family: 'Inter', sans-serif;
+}
+.art-author-role {
+  font-size: 13px;
+  color: #6B7280;
+  margin-bottom: 14px;
+}
+.art-author-bio {
+  font-size: 15px;
+  color: #9CA3AF;
+  line-height: 1.7;
+}
+
+/* ── Italic CTA link ─────────────────────────────────────── */
+.art-outro {
+  font-size: 18px;
+  font-style: italic;
+  color: #9CA3AF;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+.art-outro a {
+  color: #06B6D4;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .art-body { padding: 40px 16px 56px; }
+  .art-h2 { font-size: 24px; }
+  .art-h3 { font-size: 19px; }
+  .art-p, .art-ul li { font-size: 16px; }
+  .art-quote p { font-size: 17px; }
+}
+</style>
+
+<article class="art-body" itemscope itemtype="https://schema.org/Article">
+  <div class="art-body-inner">
+
+    <!-- ── Intro ─────────────────────────────────────────── -->
+    <p class="art-p">There is a study I keep coming back to. Robert Cialdini describes it in Influence. Researchers sent visitors to an online furniture store. Half landed on a page featuring soft, fluffy clouds. The other half landed on a page showing coins. Same store. Same products. Completely different behaviour.</p>
+
+    <p class="art-p">The cloud group decided comfort was what mattered most and chose comfortable furniture. The coin group decided price was what mattered most and chose the cheapest options. The landing page image did not just set a mood. It rewired what people cared about.</p>
+
+    <p class="art-p">I think about this every time I audit a landing page. Because most e-commerce brands treat their landing page like a brochure. Here is our logo, here is our story, here is a rotating banner that tries to say everything and ends up saying nothing. A stock photo that was chosen because it looked "professional," not because it would prime the visitor to feel something specific.</p>
+
+    <p class="art-p">Meanwhile, the visitor's brain is doing something very simple: scanning for reasons to stay or leave. As Chip and Dan Heath put it in Made to Stick, the most basic way to get attention is to <span class="art-amber">break a pattern</span>. Your visitor has seen hundreds of landing pages this month. If yours looks, reads, and feels like all the others, their brain files it under "more of the same" and moves on. You have got about <span class="art-amber">3 seconds</span> before that happens.</p>
+
+    <div class="art-callout">
+      <p>This framework is what we use at Precision when building or auditing landing pages. Seven sections, each grounded in a specific cognitive bias, with the psychology behind why each one works.</p>
+    </div>
+
+    <!-- Image 1: Framework -->
+    <figure class="art-img-wrap">
+      <img src="https://goprecision.co/wp-content/uploads/2026/03/art8_visual_1_framework-1.svg"
+           alt="The landing page conversion framework: 7 sections from hero to CTA, with the psychology principle behind each one"
+           loading="lazy"/>
+    </figure>
+    <p class="art-img-caption">The landing page conversion framework: 7 sections from hero to CTA, with the psychology principle behind each one.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Step 1: The Hero Section ──────────────────────── -->
+    <h2 class="art-h2">Step 1: The hero section (your 3-second window)</h2>
+
+    <p class="art-p">The hero section is not just the top of the page. It is the experiment that determines whether everything below it even gets seen. In those first 3 seconds, your visitor's brain is asking one question: "Is this for me?"</p>
+
+    <div class="art-psych">
+      <span class="art-psych-label">The Psychology</span>
+      <p><strong style="color:#FFFFFF;">Visual Hierarchy</strong> determines what gets processed first. The human eye follows a predictable scan pattern: the largest element (your headline), then the supporting text, then the CTA. If any of these are unclear, cluttered, or missing, the brain defaults to the easiest decision: leave.</p>
+    </div>
+
+    <p class="art-p">But here is where Cialdini's research becomes directly relevant to your landing page. Whatever image and headline your visitor sees first does not just capture attention. It <span class="art-amber">primes the frame</span> through which they evaluate everything that follows. A hero image showing someone using your product in a real-life context primes them to imagine owning it. A hero showing the product on a white background primes them to evaluate specifications. Choose the frame deliberately.</p>
+
+    <h3 class="art-h3">What good looks like</h3>
+
+    <ul class="art-reason-list">
+      <li><strong style="color:#FFFFFF;">Headline:</strong> One clear benefit statement. Not your company name. Not a pun. Not "Welcome to our store." The benefit the customer gets. "Same Traffic. More Revenue." beats "Precision Consulting Group: Your Growth Partner."</li>
+      <li><strong style="color:#FFFFFF;">Subheadline:</strong> How you deliver that benefit, in one sentence. This is where you get slightly more specific about the method or proof.</li>
+      <li><strong style="color:#FFFFFF;">CTA:</strong> One primary action. Not two, not three. One button that tells the visitor exactly what happens next.</li>
+      <li><strong style="color:#FFFFFF;">Visual:</strong> A product-in-context image, lifestyle shot, or demo that shows the outcome. Remember the Cialdini study: this image primes the entire decision framework.</li>
+    </ul>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Open your landing page and cover everything except the top 600 pixels. Can a stranger tell what you sell, who it is for, and why it matters? If not, rewrite the hero.</p>
+    </div>
+
+    <p class="art-p">And one thing I see constantly: do not overengineer the headline. If your hero statement sounds very clever but does not actually explain anything, you have annoyed the visitor immediately. They either leave or, worse, they continue browsing with a negative sentiment. And once that negative frame is set, even if the subsequent sections do explain your value clearly, the visitor is not absorbing it. They have already decided you are not for them. Your headline's job is clarity, not cleverness.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Step 2: The Problem Statement ─────────────────── -->
+    <h2 class="art-h2">Step 2: The problem statement (make them feel understood)</h2>
+
+    <p class="art-p">After the hero hooks them, the next section needs to make the visitor feel like you get it. This is where you describe the problem your product solves, in their language, not yours.</p>
+
+    <div class="art-psych">
+      <span class="art-psych-label">The Psychology</span>
+      <p><strong style="color:#FFFFFF;">Unity and the Empathy Gap:</strong> When a visitor reads a description of their exact frustration, their brain responds with "This brand understands me." That is the foundation of trust. And trust is the foundation of conversion.</p>
+    </div>
+
+    <p class="art-p">Most landing pages skip this entirely and jump straight to the solution. That is like a doctor prescribing medication before asking about symptoms. The customer needs to feel diagnosed before they will trust the treatment.</p>
+
+    <h3 class="art-h3">What good looks like</h3>
+
+    <p class="art-p">Lead with the customer's pain, not your product. "You are spending thousands on ads, but your sales dashboard tells a different story" resonates more than "Our platform helps optimise conversions." Use their words. If customers describe their problem as "too many abandoned carts," use that phrase, not "suboptimal checkout flow efficiency."</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Read your last 20 customer support tickets or survey responses. Find the phrases they actually use to describe their frustration. Write the problem statement in those words.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Step 3: The Solution ──────────────────────────── -->
+    <h2 class="art-h2">Step 3: The solution (prove it, do not just claim it)</h2>
+
+    <p class="art-p">Now that you have validated their problem, show how you solve it. But do not just tell them. Prove it. This is where <span class="art-amber">Social Proof</span> becomes the most powerful element on the page.</p>
+
+    <div class="art-psych">
+      <span class="art-psych-label">The Psychology</span>
+      <p><strong style="color:#FFFFFF;">Social Proof:</strong> People look to others' behaviour to determine their own, especially under conditions of uncertainty. A visitor on your landing page is, by definition, uncertain. They do not know you yet. They do not trust you yet. Other people's experiences bridge that gap.</p>
+    </div>
+
+    <h3 class="art-h3">What good looks like</h3>
+
+    <ul class="art-reason-list">
+      <li><strong style="color:#FFFFFF;">Specific results beat vague praise.</strong> "Revenue increased <span class="art-cyan">58% in 6 months</span>" beats "Great service, highly recommend." Numbers are concrete. Adjectives are forgettable.</li>
+      <li><strong style="color:#FFFFFF;">Named testimonials beat anonymous ones.</strong> "Ibad Ahmed, Director of New Verticals, Foodpanda," carries more weight than "Satisfied Customer."</li>
+      <li><strong style="color:#FFFFFF;">Image reviews beat text reviews.</strong> Shoppers who interact with customer photos convert at roughly <span class="art-amber">2x the rate</span> of those who read text-only reviews.</li>
+    </ul>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Pair every product claim with a specific proof point. No unsubstantiated claims. If you say "300+ sold," show the proof with a large number of verified reviews. If you say "<span class="art-cyan">+35% AOV</span>," link to the case study.</p>
+    </div>
+
+    <!-- Image 2: Sections -->
+    <figure class="art-img-wrap">
+      <img src="https://goprecision.co/wp-content/uploads/2026/03/art8_visual_2_sections-1.svg"
+           alt="Above the fold vs. below the fold: what goes where, the job of each section, and the psychology principle driving it"
+           loading="lazy"/>
+    </figure>
+    <p class="art-img-caption">Above the fold vs. below the fold: what goes where, the job of each section, and the psychology principle driving it.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Step 4: The Offer ─────────────────────────────── -->
+    <h2 class="art-h2">Step 4: The offer (frame the value)</h2>
+
+    <p class="art-p">This is where most e-commerce landing pages lose people. The customer understands the problem, believes you can solve it, and now wants to know: exactly what am I getting, and what does it cost?</p>
+
+    <div class="art-psych">
+      <span class="art-psych-label">The Psychology</span>
+      <p><strong style="color:#FFFFFF;">Anchoring Bias:</strong> The first price the customer sees becomes their reference point. If you show a higher price first (original or competitor) and then your actual price, the actual price feels like a gain. If you show your price in isolation, it is just a number with no context.</p>
+    </div>
+
+    <p class="art-p">If you offer tiers, the <span class="art-amber">Decoy Effect</span> applies: three options, with the middle one as your target. The low tier exists to make the middle feel like a smart choice. The high tier exists to make the middle feel reasonable.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Can someone who has never heard of your brand understand what they are buying within 10 seconds of reading the offer section? If not, simplify. Show what is included, what it costs, and why it is worth it.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Step 5: Handle Objections ─────────────────────── -->
+    <h2 class="art-h2">Step 5: Handle objections before they are asked</h2>
+
+    <p class="art-p">By this point, interested visitors have one thing stopping them: doubt. "What if it does not work?" "What if it is not for me?" "What if I cannot return it?"</p>
+
+    <div class="art-psych">
+      <span class="art-psych-label">The Psychology</span>
+      <p><strong style="color:#FFFFFF;">Loss Aversion:</strong> The fear of making a bad purchase outweighs the excitement of getting a good product. Your job is to neutralise that fear before the customer has to ask. An FAQ section that addresses the top 3-5 objections head-on. A visible return policy. A guarantee badge.</p>
+    </div>
+
+    <p class="art-p">This connects to a concept in Made to Stick called the <span class="art-amber">"Curse of Knowledge."</span> Once you know your product well, it is hard to imagine not knowing it. The objections that seem obvious to your customers are invisible to you because you have lost the ability to see your product through a newcomer's eyes.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>List the top 5 reasons people do not buy from you (ask your sales team or read negative reviews). Address each one explicitly on the page. "Free returns within 30 days" directly next to the CTA removes more doubt than a beautifully designed FAQ page.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Step 6: The CTA ───────────────────────────────── -->
+    <h2 class="art-h2">Step 6: The CTA (one page, one goal, one action)</h2>
+
+    <div class="art-psych">
+      <span class="art-psych-label">The Psychology</span>
+      <p><strong style="color:#FFFFFF;">Hick's Law:</strong> Every additional link, navigation option, or secondary action reduces the probability of the primary action you want. One page, one goal, one CTA.</p>
+    </div>
+
+    <p class="art-p">The <span class="art-amber">Von Restorff Effect</span> determines whether your CTA gets noticed. It should be the most visually distinctive element on the page. Contrasting colour, larger size, clear action-oriented text. "Start My Free Trial" beats "Submit." "Add to Cart" beats "Continue." And crucially, it should look the same everywhere on your site, so the visitor's brain recognises it without a second thought.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Count every clickable element on your landing page. If there are more than 3 links (CTA, logo home, privacy policy), you are leaking attention. Remove anything that does not directly support the primary conversion goal.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Step 7: Speed and Mobile ──────────────────────── -->
+    <h2 class="art-h2">Step 7: Speed and mobile (the non-negotiables)</h2>
+
+    <p class="art-p">None of the above matters if the page takes 5 seconds to load or looks broken on a phone. Mobile drives <span class="art-amber">78% of retail traffic</span>. Every second of page load delay costs up to <span class="art-amber">7% of conversions</span>. These are not design considerations. They are revenue requirements.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Test every landing page on mobile before desktop. If it does not load in under 3 seconds, compress images and defer non-critical scripts. If the CTA is not visible above the fold on mobile, redesign the hero for smaller screens.</p>
+    </div>
+
+    <!-- Image 3: Checklist -->
+    <figure class="art-img-wrap">
+      <img src="https://goprecision.co/wp-content/uploads/2026/03/art8_visual_3_checklist-1.svg"
+           alt="The landing page optimisation checklist: 7 steps, what to check for each, and the psychology principle behind it"
+           loading="lazy"/>
+    </figure>
+    <p class="art-img-caption">The landing page optimisation checklist: 7 steps, what to check for each, and the psychology principle behind it.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── The 5 Landing Page Mistakes ────────────────────── -->
+    <h2 class="art-h2">The 5 landing page mistakes we see in every audit</h2>
+
+    <ol class="art-ol">
+      <li><strong style="color:#FFFFFF;">Leading with your brand, not the customer's problem.</strong> Nobody cares who you are until they know you understand their problem. Diagnose first, prescribe second.</li>
+      <li><strong style="color:#FFFFFF;">Multiple CTAs fighting for attention.</strong> "Book a Call," "Download Guide," "Start Trial," "Learn More." That is four decisions. You want one obvious next step. Hick's Law applies to buttons just as much as product variants.</li>
+      <li><strong style="color:#FFFFFF;">Social proof buried at the bottom.</strong> If your best testimonial is below the 3rd scroll, most visitors will never see it. Place it near the hero or immediately after the solution section.</li>
+      <li><strong style="color:#FFFFFF;">No mobile-specific design.</strong> If you are shrinking your desktop page for mobile instead of designing mobile-first, you are losing the majority of your traffic. <span class="art-amber">78% of visits are on phones</span>.</li>
+      <li><strong style="color:#FFFFFF;">Ignoring the priming effect of images.</strong> Your hero image is not decoration. As Cialdini's research shows, it actively shapes what visitors value next. A lifestyle image primes them for the experience. A product-on-white image primes them for specifications and price comparison.</li>
+    </ol>
+
+    <div class="art-reading">
+      <span class="art-reading-label">Further Reading</span>
+      <p>Robert Cialdini's Influence covers the six principles of persuasion (including social proof and reciprocity) that underpin most high-converting pages. His follow-up, Pre-Suasion, goes deeper on the science of priming and attentional focus, explaining why what a visitor sees before your pitch matters as much as the pitch itself. Chip and Dan Heath's Made to Stick explains why some messages are remembered and acted on while others are instantly forgotten, with practical frameworks (the SUCCESs model) that apply directly to headline writing and value proposition design. All three are foundational readings for anyone designing pages meant to convert.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── What to Do Next ───────────────────────────────── -->
+    <p class="art-outro">If your landing page is not converting the way it should, <a href="https://calendly.com/ammarah-bumx/30min">book a free strategy call</a> and we will walk through your page together using this framework.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Key Takeaways ──────────────────────────────────── -->
+    <h2 class="art-h2">Key Takeaways</h2>
+
+    <ul class="art-takeaways">
+      <li>Your landing page's first image and headline do not just capture attention. They prime the entire decision framework that follows.</li>
+      <li>7-step framework: hero, problem, solution with proof, offer, objection handling, CTA, speed and mobile.</li>
+      <li>Every section is grounded in psychology: Priming, Empathy, Social Proof, Anchoring, Loss Aversion, Hick's Law, and Von Restorff.</li>
+      <li>One page, one goal, one CTA. Every additional link dilutes conversion probability.</li>
+      <li>Mobile-first, speed-first. If it does not work on a phone in under 3 seconds, nothing else matters.</li>
+    </ul>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── FAQ ────────────────────────────────────────────── -->
+    <h2 class="art-h2">Frequently Asked Questions</h2>
+
+    <div class="art-faq">
+      <div class="art-faq-item">
+        <p class="art-faq-q">How long should a landing page be?</p>
+        <p class="art-faq-a">As long as it needs to be to address every objection, and no longer. For a simple product, that might be a single scrolling page. For a high-ticket service, it could be much longer. The test: if removing a section does not hurt conversions, it should not be there.</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">Should I remove navigation from landing pages?</p>
+        <p class="art-faq-a">For paid traffic, yes. Every navigation link is an exit opportunity. For SEO pages within your site, minimal navigation is acceptable. But the CTA should still dominate visually.</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">How do I know if my landing page is converting well?</p>
+        <p class="art-faq-a">Benchmarks vary by traffic source. Paid search landing pages typically convert at 3-5%. Paid social at 1-3%. If you are below these, start with the 7-step framework and address the most obvious gap first.</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">What is the single most impactful change?</p>
+        <p class="art-faq-a">Usually, the headline. A clear benefit-first headline that answers "What is in it for me?" in under 8 words consistently outperforms clever, ambiguous, or brand-centric copy. Test 3 headline variations before anything else.</p>
+      </div>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── About the Author ───────────────────────────────── -->
+    <div class="art-author">
+      <p class="art-author-name">Ammarah Ahmed</p>
+      <p class="art-author-role">Founder, Precision Consulting Group</p>
+      <p class="art-author-bio">Ammarah helps growth-stage e-commerce businesses boost revenue through psychology-driven CRO and UX/UI. With over a decade of experience on major tech platforms across Asia and the Middle East, she combines behavioural psychology and user experience to drive effective conversion optimisation.</p>
+    </div>
+
+  </div>
+</article>
+
+<!-- ── Image lightbox ──────────────────────────────────────── -->
+<div class="art-lightbox" id="artLightbox" role="dialog" aria-modal="true" aria-label="Image zoom">
+  <img src="" alt="" id="artLightboxImg"/>
+  <button class="art-lightbox-close" id="artLightboxClose" aria-label="Zoom out">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M4.5 7h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    Zoom Out
+  </button>
+</div>
+
+<script>
+(function () {
+  var lb   = document.getElementById('artLightbox');
+  var lbImg = document.getElementById('artLightboxImg');
+
+  function open(src, alt) {
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lb.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    lb.classList.remove('is-open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  document.querySelectorAll('.art-img-wrap img').forEach(function (img) {
+    img.parentElement.addEventListener('click', function () {
+      open(img.src, img.alt);
+    });
+  });
+
+  lb.addEventListener('click', function (e) {
+    if (e.target === lb || e.target === document.getElementById('artLightboxClose')) close();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+  });
+
+  // Fix: walk up the DOM from each image wrap and force overflow visible with !important
+  document.querySelectorAll('.art-img-wrap').forEach(function (fig) {
+    var el = fig.parentElement;
+    while (el && el !== document.documentElement) {
+      var cs = window.getComputedStyle(el);
+      if (cs.overflow === 'hidden' || cs.overflowY === 'hidden') {
+        el.style.setProperty('overflow', 'visible', 'important');
+        el.style.setProperty('overflow-y', 'visible', 'important');
+      }
+      if (cs.maxHeight && cs.maxHeight !== 'none') {
+        el.style.setProperty('max-height', 'none', 'important');
+      }
+      el = el.parentElement;
+    }
+  });
+})();
+
+// Auto-trim empty space at the bottom of SVG infographics
+(function () {
+  function trimSvg(img) {
+    fetch(img.src)
+      .then(function (r) { return r.text(); })
+      .then(function (svgText) {
+        var svgEl = new DOMParser().parseFromString(svgText, 'image/svg+xml').querySelector('svg');
+        if (!svgEl) return;
+
+        var vb = svgEl.viewBox.baseVal;
+        var vbW = vb.width  || parseFloat(svgEl.getAttribute('width')  || 0);
+        var vbH = vb.height || parseFloat(svgEl.getAttribute('height') || 0);
+        if (!vbW || !vbH) return;
+
+        svgEl.setAttribute('width',  vbW);
+        svgEl.setAttribute('height', vbH);
+        var host = document.createElement('div');
+        host.style.cssText = 'position:fixed;left:-99999px;top:0;width:' + vbW + 'px;height:' + vbH + 'px;visibility:hidden;pointer-events:none;';
+        host.appendChild(svgEl);
+        document.body.appendChild(host);
+        var bbox;
+        try { bbox = svgEl.getBBox(); } catch (e) {}
+        document.body.removeChild(host);
+        if (!bbox || !bbox.height) return;
+
+        var trimH = Math.min(bbox.y + bbox.height + 16, vbH);
+        var ratio  = trimH / vbH;
+
+        function apply() {
+          var w = img.offsetWidth;
+          if (!w) return;
+          var fig = img.parentElement;
+          fig.style.setProperty('height',   Math.round(w * vbH / vbW * ratio) + 'px', 'important');
+          fig.style.setProperty('overflow', 'hidden', 'important');
+        }
+
+        if (img.complete && img.naturalWidth) { apply(); }
+        else { img.addEventListener('load', apply); }
+        window.addEventListener('resize', apply, { passive: true });
+      });
+  }
+  document.querySelectorAll('.art-img-wrap img[src$=".svg"]').forEach(trimSvg);
+})();
+</script>
