@@ -1,0 +1,759 @@
+<!-- ============================================================
+     PRECISION, Article Body: "Product Page Design:
+     The Behavioural Science Behind Pages That Convert"
+     (Bricks Code Block)
+     Category: UI/UX  |  10 min read  |  January 27, 2026
+     ============================================================ -->
+
+<style>
+.art-body *,
+.art-body *::before,
+.art-body *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.art-body {
+  background: #0B0B1E;
+  padding: 64px 24px 80px;
+  font-family: 'Inter', sans-serif;
+}
+
+.art-body-inner {
+  max-width: 896px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ── Typography ───────────────────────────────────────────── */
+.art-p {
+  font-size: 18px;
+  color: #D1D5DB;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.art-h2 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-top: 16px;
+  margin-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+}
+.art-h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 16px;
+  font-family: 'Inter', sans-serif;
+}
+.art-cyan  { color: #06B6D4; font-weight: 600; }
+.art-amber { color: #FFD166; font-weight: 600; }
+
+/* ── Section divider ─────────────────────────────────────── */
+.art-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.10), transparent);
+  margin: 52px 0;
+}
+
+/* ── Callout box ─────────────────────────────────────────── */
+.art-callout {
+  background: rgba(6,182,212,0.05);
+  border: 1px solid rgba(6,182,212,0.15);
+  border-radius: 16px;
+  padding: 22px 28px;
+  margin-bottom: 32px;
+}
+.art-callout p {
+  font-size: 18px;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  line-height: 1.7;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Psychology callout ──────────────────────────────────── */
+.art-psych {
+  background: rgba(244,114,182,0.05);
+  border: 1px solid rgba(244,114,182,0.15);
+  border-radius: 16px;
+  padding: 22px 22px 22px 64px;
+  position: relative;
+  margin-bottom: 32px;
+}
+.art-psych::before {
+  content: '\1F9E0';
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  font-size: 22px;
+  line-height: 1;
+}
+.art-psych-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #F472B6;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-family: 'Inter', sans-serif;
+}
+.art-psych p {
+  font-size: 16px;
+  color: #D1D5DB;
+  line-height: 1.7;
+}
+
+/* ── The Fix callout ─────────────────────────────────────── */
+.art-fix {
+  background: rgba(6,182,212,0.05);
+  border: 1px solid rgba(6,182,212,0.15);
+  border-radius: 16px;
+  padding: 22px 22px 22px 64px;
+  position: relative;
+  margin-bottom: 32px;
+}
+.art-fix::before {
+  content: '\1F4A1';
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  font-size: 22px;
+  line-height: 1;
+}
+.art-fix-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #06B6D4;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-family: 'Inter', sans-serif;
+}
+.art-fix p {
+  font-size: 16px;
+  color: #D1D5DB;
+  line-height: 1.7;
+}
+
+/* ── "Further Reading" callout ────────────────────────────── */
+.art-reading {
+  background: rgba(139,92,246,0.05);
+  border: 1px solid rgba(139,92,246,0.15);
+  border-radius: 16px;
+  padding: 22px 22px 22px 64px;
+  position: relative;
+  margin-bottom: 32px;
+}
+.art-reading::before {
+  content: '\1F4D6';
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  font-size: 22px;
+  line-height: 1;
+}
+.art-reading-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #A78BFA;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-family: 'Inter', sans-serif;
+}
+.art-reading p {
+  font-size: 16px;
+  color: #D1D5DB;
+  line-height: 1.7;
+}
+
+/* ── Article image ────────────────────────────────────────── */
+.art-img-wrap {
+  margin-bottom: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.30);
+  overflow: visible !important;
+  cursor: zoom-in;
+  position: relative;
+}
+.art-img-wrap img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: unset !important;
+  display: block;
+}
+
+/* ── Zoom hint badge (mobile only) ───────────────────────── */
+.art-img-wrap::after {
+  content: '\1F50D Tap to zoom';
+  position: absolute;
+  bottom: 20px;
+  right: 12px;
+  background: rgba(0,0,0,0.55);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  padding: 5px 10px;
+  border-radius: 50px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+@media (max-width: 767px) {
+  .art-img-wrap::after { opacity: 1; }
+}
+
+/* ── Lightbox ─────────────────────────────────────────────── */
+.art-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0,0,0,0.92);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 16px;
+  cursor: zoom-out;
+}
+.art-lightbox.is-open { display: flex; }
+.art-lightbox img {
+  max-width: 100%;
+  max-height: 80vh;
+  width: auto !important;
+  height: auto !important;
+  box-shadow: 0 0 60px rgba(0,0,0,0.6);
+  cursor: default;
+}
+.art-lightbox-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 50px;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.18s;
+}
+.art-lightbox-close:hover { background: rgba(255,255,255,0.20); }
+.art-img-caption {
+  font-size: 13px;
+  color: #6B7280;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  padding: 0 8px;
+}
+
+/* ── Lists ────────────────────────────────────────────────── */
+.art-ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 24px;
+}
+.art-ul li {
+  font-size: 18px;
+  color: #D1D5DB;
+  line-height: 1.7;
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 10px;
+}
+.art-ul li::before {
+  content: '\2014';
+  position: absolute;
+  left: 0;
+  color: #4B5563;
+}
+
+/* ── Reason list (▸ prefix) ───────────────────────────────── */
+.art-reason-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 28px;
+}
+.art-reason-list li {
+  font-size: 17px;
+  color: #D1D5DB;
+  line-height: 1.7;
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 12px;
+}
+.art-reason-list li::before {
+  content: '\25B8';
+  position: absolute;
+  left: 0;
+  color: #06B6D4;
+  font-weight: 700;
+}
+
+/* ── Numbered list ────────────────────────────────────────── */
+.art-ol {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 28px;
+  counter-reset: art-ol-counter;
+}
+.art-ol li {
+  font-size: 17px;
+  color: #D1D5DB;
+  line-height: 1.7;
+  padding-left: 32px;
+  position: relative;
+  margin-bottom: 12px;
+  counter-increment: art-ol-counter;
+}
+.art-ol li::before {
+  content: counter(art-ol-counter) '.';
+  position: absolute;
+  left: 0;
+  color: #06B6D4;
+  font-weight: 700;
+}
+
+/* ── Blockquote ───────────────────────────────────────────── */
+.art-quote {
+  background: rgba(6,182,212,0.05);
+  border-left: 4px solid #06B6D4;
+  border-radius: 0 12px 12px 0;
+  padding: 20px 28px;
+  margin-bottom: 36px;
+}
+.art-quote p {
+  font-size: 20px;
+  font-style: italic;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Key Takeaways ────────────────────────────────────────── */
+.art-takeaways {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.art-takeaways li {
+  font-size: 17px;
+  color: #D1D5DB;
+  line-height: 1.65;
+  padding-left: 28px;
+  position: relative;
+}
+.art-takeaways li::before {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  color: #4ADE80;
+  font-weight: 700;
+}
+
+/* ── FAQ section ─────────────────────────────────────────── */
+.art-faq { margin-bottom: 0; }
+.art-faq-item {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 28px 0;
+}
+.art-faq-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
+.art-faq-q {
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  font-family: 'Inter', sans-serif;
+}
+.art-faq-a {
+  font-size: 16px;
+  color: #9CA3AF;
+  line-height: 1.75;
+}
+
+/* ── Author box ───────────────────────────────────────────── */
+.art-author {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 28px;
+  margin-top: 8px;
+}
+.art-author-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 4px;
+  font-family: 'Inter', sans-serif;
+}
+.art-author-role {
+  font-size: 13px;
+  color: #6B7280;
+  margin-bottom: 14px;
+}
+.art-author-bio {
+  font-size: 15px;
+  color: #9CA3AF;
+  line-height: 1.7;
+}
+
+/* ── Italic CTA link ─────────────────────────────────────── */
+.art-outro {
+  font-size: 18px;
+  font-style: italic;
+  color: #9CA3AF;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+.art-outro a {
+  color: #06B6D4;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .art-body { padding: 40px 16px 56px; }
+  .art-h2 { font-size: 24px; }
+  .art-h3 { font-size: 19px; }
+  .art-p, .art-ul li { font-size: 16px; }
+  .art-quote p { font-size: 17px; }
+}
+</style>
+
+<article class="art-body" itemscope itemtype="https://schema.org/Article">
+  <div class="art-body-inner">
+
+    <!-- ── Intro ─────────────────────────────────────────── -->
+    <p class="art-p">If you sell products online, do not be mistaken: your product page is the most important page on your site.</p>
+
+    <p class="art-p">Not the homepage. Not the category page. Not the brand story. The product page. It is where the buying decision actually happens. Everything before it (your ads, your SEO, your social content, your email sequences) exists to get someone there. Everything after it depends on what happens in that moment.</p>
+
+    <p class="art-p">And yet most e-commerce stores treat the product page like a form to fill in. Product image, title, price, specs, and Add to Cart. Done. Next product. Same template.</p>
+
+    <div class="art-callout">
+      <p>Buying decisions are not made by reading spec sheets. They are made by a brain that is running constant background checks: Can I trust this? Is it worth it? What happens if I get it wrong? Every element on your product page either answers those questions or leaves them hanging.</p>
+    </div>
+
+    <p class="art-p">When we audit e-commerce stores, product pages consistently account for the largest share of fixable lost revenue. At a multinational food delivery platform, when we redesigned the product discovery experience, we delivered <span class="art-cyan">+40% conversion</span> from the homepage to the product page. The principles that drove that result apply to any store selling online. Here is the science behind them.</p>
+
+    <!-- Image 1: Anatomy -->
+    <figure class="art-img-wrap">
+      <img src="https://goprecision.co/wp-content/uploads/2026/03/art12_visual_1_anatomy.jpg"
+           alt="The anatomy of a high-converting product page: 8 elements, each with the psychology principle behind it"
+           loading="lazy"/>
+    </figure>
+    <p class="art-img-caption">The anatomy of a high-converting product page: 8 elements, each with the psychology principle behind it.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 1. The Hero Image ─────────────────────────────── -->
+    <h2 class="art-h2">1. The hero image: show the outcome, not just the product</h2>
+
+    <p class="art-p">Your product image gets processed before a single word gets read. Visual information moves through the brain far faster than language does. Images are encoded more deeply and recalled more reliably than text because they engage multiple areas of the brain at once.</p>
+
+    <div class="art-psych">
+      <span class="art-psych-label">The Psychology</span>
+      <p><strong style="color:#FFFFFF;">Mental Simulation:</strong> Research compiled in Made to Stick shows that when people can vividly imagine using something, they engage the same parts of the brain as if they were actually doing it. A lifestyle image does not just look better. It triggers the mental experience of ownership.</p>
+    </div>
+
+    <p class="art-p">Most product pages lead with a clean shot on a white background. Professional? Sure. But also emotionally dead. A white-background image answers one question: what does the product look like? It does not answer the question that actually drives purchase: <span class="art-amber">what would owning this feel like?</span></p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Lead with a lifestyle image that shows the product in use. Keep the clean product shots as secondary images for customers who want to examine details. A coffee mug on white says "mug." A coffee mug on a desk next to an open laptop says "your productive morning." Minimum five images per product. Multiple angles, a close-up on texture or detail, and ideally a scale reference. High-quality product images increase conversions by up to <span class="art-cyan">94%</span> compared to low-quality images.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 2. The Headline ───────────────────────────────── -->
+    <h2 class="art-h2">2. The headline: benefits before features</h2>
+
+    <p class="art-p">The first words a customer reads set the frame for everything that follows. Lead with a benefit, and their brain processes the page through the lens of what the product does for them. Lead with a model number or spec, and they start evaluating the product. Those are two very different mental frames, and the first one converts better.</p>
+
+    <div class="art-psych">
+      <span class="art-psych-label">The Psychology</span>
+      <p><strong style="color:#FFFFFF;">Progressive Disclosure:</strong> Surface the most relevant information first, then layer in detail for the customers who want it. Benefit headline up top. Short explanation of how the product delivers that benefit below it. Full specifications in a collapsible section further down.</p>
+    </div>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Rewrite your top product headlines to lead with the primary benefit. "Track your sleep, wake up refreshed" does more work than "Advanced Sleep Monitoring Device." Save technical specs for a collapsed section below the fold. The customers who need that information will find it. The ones who do not will be distracted by it.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 3. The Price ──────────────────────────────────── -->
+    <h2 class="art-h2">3. The price: frame it, do not just state it</h2>
+
+    <p class="art-p">A price on its own is just a number. $79.99 means nothing without something to compare it against. The first number a customer sees becomes the reference point against which everything else is judged. Show the original price crossed out before the sale price, and make the sale price look like a gain. Remove that anchor, and the same number just feels like money leaving a wallet.</p>
+
+    <div class="art-psych">
+      <span class="art-psych-label">The Psychology</span>
+      <p><strong style="color:#FFFFFF;">Anchoring Bias:</strong> Dan Ariely demonstrated in Predictably Irrational that participants who wrote down a random two-digit number before bidding on products consistently let that completely irrelevant number influence what they were willing to pay. Initial numbers anchor our perception of value, even when they have nothing to do with what we are buying.</p>
+    </div>
+
+    <p class="art-p">And this is not about fake, inflated prices. Fabricated "was" prices destroy trust the moment a customer looks it up. This is about giving a <span class="art-amber">genuine reference</span>. What the product normally costs, what comparable products cost, or what individual items in a bundle would cost separately.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Always display a reference price. If there is a sale, show the original crossed out and state the savings explicitly ("Save $20"). For bundles, show individual item values alongside the bundle total. For subscriptions, show the per-unit cost against a one-off purchase. Give the customer's brain something to anchor against.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 4. Social Proof ───────────────────────────────── -->
+    <h2 class="art-h2">4. Social proof: the most influential element on the page</h2>
+
+    <p class="art-p">Star ratings. Review counts. Customer photos. Bestseller badges. These are not nice-to-haves. For most e-commerce products, they are the single biggest driver of whether a visitor buys or leaves.</p>
+
+    <div class="art-psych">
+      <span class="art-psych-label">The Psychology</span>
+      <p><strong style="color:#FFFFFF;">Social Proof:</strong> When people are not sure, they look at what other people like them have done. Products with 11-30 reviews convert roughly <span class="art-amber">68% higher</span> than those with zero, according to PowerReviews research.</p>
+    </div>
+
+    <p class="art-p">But the type of review matters just as much as the quantity. Products with customer photo reviews convert at roughly <span class="art-cyan">double the rate</span> of text-only reviews. A typed sentence saying "great quality" is easy to ignore. A photo of the product on someone's kitchen counter, in their living room, on their wrist, is proof you cannot fake.</p>
+
+    <p class="art-p">And placement matters as much as existence. Reviews buried three scrolls down are functionally invisible at the moment of decision. The customer forms their first impression in the opening seconds. If your reviews are not in that window, they are not doing anything.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Place star ratings and the review count directly below the product title, so they are visible without scrolling. If you have customer photo reviews, surface them above the fold, not hidden in a reviews tab. And if a product has fewer than 10 reviews, prioritise getting more reviews before driving more traffic to it. Social proof compounds. Each review makes the next sale easier.</p>
+    </div>
+
+    <!-- Image 2: Above the fold -->
+    <figure class="art-img-wrap">
+      <img src="https://goprecision.co/wp-content/uploads/2026/03/art12_visual_2_above_fold.jpg"
+           alt="Above-the-fold anatomy: the 6 elements that must be visible without scrolling and the psychology behind each one"
+           loading="lazy"/>
+    </figure>
+    <p class="art-img-caption">Above-the-fold anatomy: the 6 elements that must be visible without scrolling and the psychology behind each one.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 5. The CTA ────────────────────────────────────── -->
+    <h2 class="art-h2">5. The CTA: one button, one action, one colour</h2>
+
+    <div class="art-psych">
+      <span class="art-psych-label">The Psychology</span>
+      <p><strong style="color:#FFFFFF;">Hick's Law and the Von Restorff Effect:</strong> Every secondary CTA on your product page (Wishlist, Compare, Share, Subscribe) reduces the probability of the one action you actually want. And what stands out is what gets acted on. Your "Add to Cart" button should be the only element on the page in its colour.</p>
+    </div>
+
+    <p class="art-p">When we audited the Rocketbook e-commerce site, a specific problem jumped out: the "Add to Cart" button changed colour depending on which product variant the user selected. Blue product, blue button. Orange product, orange button. The CTA was <span class="art-amber">camouflaging itself</span> on every page. The customer's brain could not build the pattern recognition needed to click without hesitating.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>One primary CTA, one high-contrast colour, consistent across every product page sitewide. Reduce secondary actions to subtle icons or plain text links. The button should be the most visually prominent interactive element above the fold, and it should look identical every single time.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 6. Trust Signals ──────────────────────────────── -->
+    <h2 class="art-h2">6. Trust signals: placed where the doubt is</h2>
+
+    <p class="art-p">Buying from a website requires a small act of trust. The customer is handing over payment details to a company they may never have interacted with before. Their brain handles this by scanning for recognisable patterns: security badges, return policy statements, payment logos. When those patterns are present, the shortcut fires: this feels safe. When they are absent, something feels off.</p>
+
+    <p class="art-p">Most stores have these trust signals somewhere. Footer. FAQ page. Buried in the navigation. That is the wrong place. They need to be next to the CTA, visible at the exact moment the customer is deciding whether to click it.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Place your return policy, security badge, and payment logos in a tight row directly below "Add to Cart." "Free returns within 30 days" should be visible without scrolling on every product page. Trust signals belong at the point of friction, not in the footer.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 7. Urgency ────────────────────────────────────── -->
+    <h2 class="art-h2">7. Urgency: honest scarcity, not fake timers</h2>
+
+    <div class="art-psych">
+      <span class="art-psych-label">The Psychology</span>
+      <p><strong style="color:#FFFFFF;">Loss Aversion:</strong> People feel the pain of missing out roughly twice as strongly as the pleasure of getting something. When a product is genuinely limited or a sale genuinely time-bound, that constraint makes it feel more valuable.</p>
+    </div>
+
+    <p class="art-p">The keyword is <span class="art-amber">genuinely</span>. Countdown timers that reset on refresh, "Only 2 left!" notices on products with 5,000 units in the warehouse, and manufactured deadlines that extend indefinitely. These are dark patterns. They might produce a short-term spike. They also generate returns, negative reviews, and customers who never come back. Customers who feel manipulated do not become repeat buyers.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Show real inventory levels when stock is actually low. Use genuine sale end dates and communicate them clearly. If there is no real urgency, do not manufacture it. The scarcity principle works because it communicates a fact. The moment that fact is fabricated, it stops working and starts eroding trust.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── 8. Below the Fold ─────────────────────────────── -->
+    <h2 class="art-h2">8. Below the fold: specs, comparisons, and FAQ</h2>
+
+    <p class="art-p">Everything above the fold drives the buying decision. Everything below it serves a different purpose: reducing lingering doubt among customers who are not ready to commit yet.</p>
+
+    <p class="art-p">Do not front-load every specification into the main view. Customers who need that depth will scroll for it. Customers who do not will be overwhelmed by it. Collapsible sections for specs, sizing guides, comparison charts, and FAQ keep the page clean at the top while making the information available to the people who want it.</p>
+
+    <div class="art-psych">
+      <span class="art-psych-label">The Psychology</span>
+      <p><strong style="color:#FFFFFF;">The Zeigarnik Effect:</strong> People remember incomplete tasks better than completed ones. A collapsed "Size Guide" signals that there is useful information waiting. That mild sense of incompleteness often draws the click.</p>
+    </div>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Organise below-the-fold content into collapsible sections: Specifications, Sizing Guide, Shipping and Returns, FAQ. Keep the product page visually clean above the fold and richly detailed below it. Every type of customer gets what they need without the page feeling cluttered.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── The Product Page Audit ─────────────────────────── -->
+    <h2 class="art-h2">The product page audit</h2>
+
+    <p class="art-p">Open your top-selling product page on your phone right now. Eight questions:</p>
+
+    <ol class="art-ol">
+      <li>Does the hero image show the product in use, not just on a white background?</li>
+      <li>Does the headline lead with a benefit rather than a model name or spec?</li>
+      <li>Is the price anchored against a reference (original, competitor, or bundle)?</li>
+      <li>Are star ratings and review count visible without scrolling?</li>
+      <li>Is the CTA the most visually prominent element, in a consistent colour?</li>
+      <li>Are trust signals (returns, security, payment) next to the CTA?</li>
+      <li>Is urgency based on real data (actual stock levels, genuine sale dates)?</li>
+      <li>Are specs and details in collapsible sections below the fold?</li>
+    </ol>
+
+    <div class="art-callout">
+      <p>If you answered no to more than 3 of these, your product page is losing sales that your ads already paid for.</p>
+    </div>
+
+    <p class="art-outro">Want a personalised audit of your product pages? <a href="https://calendly.com/ammarah-bumx/30min">Book a free strategy call</a> and we will walk through your top pages together.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Further Reading ────────────────────────────────── -->
+    <div class="art-reading">
+      <span class="art-reading-label">Further Reading</span>
+      <p>Robert Cialdini's Influence covers social proof and scarcity in depth, both of which are directly applicable to product page design. Predictably Irrational by Dan Ariely explains anchoring and arbitrary coherence, essential for anyone pricing products online. Made to Stick by Chip and Dan Heath covers mental simulation and concreteness, which is why lifestyle imagery works the way it does.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Key Takeaways ──────────────────────────────────── -->
+    <h2 class="art-h2">Key Takeaways</h2>
+
+    <ul class="art-takeaways">
+      <li>The product page is where buying decisions happen. Everything else on your site is traffic acquisition.</li>
+      <li>8 elements, each grounded in behavioural science: hero image, benefit headline, anchored price, social proof, single CTA, trust signals, honest urgency, progressive disclosure.</li>
+      <li>Placement matters as much as existence. Social proof and trust signals do nothing if they are not visible at the moment of decision.</li>
+      <li>Consistency builds recognition. Same CTA colour, same button text, every page, every time.</li>
+      <li>+40% conversion from redesigned product discovery at Foodpanda. The principles apply across any e-commerce store.</li>
+    </ul>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── FAQ ────────────────────────────────────────────── -->
+    <h2 class="art-h2">Frequently Asked Questions</h2>
+
+    <div class="art-faq">
+      <div class="art-faq-item">
+        <p class="art-faq-q">Which element has the biggest impact?</p>
+        <p class="art-faq-a">Social proof placement. Moving star ratings and review counts from below the fold to directly beneath the product title is consistently one of the highest-impact changes we see. It reduces perceived risk at the exact moment the customer is forming their impression.</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">How many product images should I have?</p>
+        <p class="art-faq-a">Minimum 5. Lead with a lifestyle image, then provide clean product shots from multiple angles, a close-up on details or texture, and ideally a scale reference. Customer photos in reviews add further confidence.</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">Should I use video on product pages?</p>
+        <p class="art-faq-a">If you can produce it well, yes. Short video (under 30 seconds, auto-play on mute) showing the product in use outperforms longer demo content. Video increases time on page and answers questions static images cannot, particularly how something moves, sounds, or functions in real life.</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">How do I get more reviews?</p>
+        <p class="art-faq-a">Post-purchase email sequences, timed right. Send a review request 7-10 days after delivery (enough time to use the product, not so long they have forgotten). Offering a small incentive specifically for photo reviews (a discount on the next purchase or loyalty points) increases both submission rate and review quality.</p>
+      </div>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── About the Author ───────────────────────────────── -->
+    <div class="art-author">
+      <p class="art-author-name">Ammarah Ahmed</p>
+      <p class="art-author-role">Founder, Precision Consulting Group</p>
+      <p class="art-author-bio">Ammarah helps growth-stage e-commerce businesses boost revenue through psychology-driven CRO and UX/UI. With over a decade of experience on major tech platforms across Asia and the Middle East, she combines behavioural psychology and user experience to drive effective conversion optimisation.</p>
+    </div>
+
+  </div>
+</article>
+
+<!-- ── Image lightbox ──────────────────────────────────────── -->
+<div class="art-lightbox" id="artLightbox" role="dialog" aria-modal="true" aria-label="Image zoom">
+  <img src="" alt="" id="artLightboxImg"/>
+  <button class="art-lightbox-close" id="artLightboxClose" aria-label="Zoom out">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M4.5 7h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    Zoom Out
+  </button>
+</div>
+
+<script>
+(function () {
+  var lb   = document.getElementById('artLightbox');
+  var lbImg = document.getElementById('artLightboxImg');
+
+  function open(src, alt) {
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lb.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    lb.classList.remove('is-open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  document.querySelectorAll('.art-img-wrap img').forEach(function (img) {
+    img.parentElement.addEventListener('click', function () {
+      open(img.src, img.alt);
+    });
+  });
+
+  lb.addEventListener('click', function (e) {
+    if (e.target === lb || e.target === document.getElementById('artLightboxClose')) close();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+  });
+
+  document.querySelectorAll('.art-img-wrap').forEach(function (fig) {
+    var el = fig.parentElement;
+    while (el && el !== document.documentElement) {
+      var cs = window.getComputedStyle(el);
+      if (cs.overflow === 'hidden' || cs.overflowY === 'hidden') {
+        el.style.setProperty('overflow', 'visible', 'important');
+        el.style.setProperty('overflow-y', 'visible', 'important');
+      }
+      if (cs.maxHeight && cs.maxHeight !== 'none') {
+        el.style.setProperty('max-height', 'none', 'important');
+      }
+      el = el.parentElement;
+    }
+  });
+})();
+</script>
