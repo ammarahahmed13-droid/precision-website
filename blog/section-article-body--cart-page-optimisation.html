@@ -1,0 +1,748 @@
+<!-- ============================================================
+     PRECISION, Article Body: "Cart Page Optimisation:
+     How Smart Upselling and Cross-Selling Can Boost Your Revenue"
+     (Bricks Code Block)
+     Category: AOV  |  8 min read  |  February 3, 2026
+     ============================================================ -->
+
+<style>
+.art-body *,
+.art-body *::before,
+.art-body *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.art-body {
+  background: #0B0B1E;
+  padding: 64px 24px 80px;
+  font-family: 'Inter', sans-serif;
+}
+
+.art-body-inner {
+  max-width: 896px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ── Typography ───────────────────────────────────────────── */
+.art-p {
+  font-size: 18px;
+  color: #D1D5DB;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.art-h2 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-top: 16px;
+  margin-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+}
+.art-h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 16px;
+  font-family: 'Inter', sans-serif;
+}
+.art-cyan  { color: #06B6D4; font-weight: 600; }
+.art-amber { color: #FFD166; font-weight: 600; }
+
+/* ── Section divider ─────────────────────────────────────── */
+.art-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.10), transparent);
+  margin: 52px 0;
+}
+
+/* ── Callout box ─────────────────────────────────────────── */
+.art-callout {
+  background: rgba(6,182,212,0.05);
+  border: 1px solid rgba(6,182,212,0.15);
+  border-radius: 16px;
+  padding: 22px 28px;
+  margin-bottom: 32px;
+}
+.art-callout p {
+  font-size: 18px;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  line-height: 1.7;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Psychology callout ──────────────────────────────────── */
+.art-psych {
+  background: rgba(244,114,182,0.05);
+  border: 1px solid rgba(244,114,182,0.15);
+  border-radius: 16px;
+  padding: 22px 22px 22px 64px;
+  position: relative;
+  margin-bottom: 32px;
+}
+.art-psych::before {
+  content: '\1F9E0';
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  font-size: 22px;
+  line-height: 1;
+}
+.art-psych-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #F472B6;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-family: 'Inter', sans-serif;
+}
+.art-psych p {
+  font-size: 16px;
+  color: #D1D5DB;
+  line-height: 1.7;
+}
+
+/* ── The Fix callout ─────────────────────────────────────── */
+.art-fix {
+  background: rgba(6,182,212,0.05);
+  border: 1px solid rgba(6,182,212,0.15);
+  border-radius: 16px;
+  padding: 22px 22px 22px 64px;
+  position: relative;
+  margin-bottom: 32px;
+}
+.art-fix::before {
+  content: '\1F4A1';
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  font-size: 22px;
+  line-height: 1;
+}
+.art-fix-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #06B6D4;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-family: 'Inter', sans-serif;
+}
+.art-fix p {
+  font-size: 16px;
+  color: #D1D5DB;
+  line-height: 1.7;
+}
+
+/* ── "Further Reading" callout ────────────────────────────── */
+.art-reading {
+  background: rgba(139,92,246,0.05);
+  border: 1px solid rgba(139,92,246,0.15);
+  border-radius: 16px;
+  padding: 22px 22px 22px 64px;
+  position: relative;
+  margin-bottom: 32px;
+}
+.art-reading::before {
+  content: '\1F4D6';
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  font-size: 22px;
+  line-height: 1;
+}
+.art-reading-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #A78BFA;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-family: 'Inter', sans-serif;
+}
+.art-reading p {
+  font-size: 16px;
+  color: #D1D5DB;
+  line-height: 1.7;
+}
+
+/* ── Article image ────────────────────────────────────────── */
+.art-img-wrap {
+  margin-bottom: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.30);
+  overflow: visible !important;
+  cursor: zoom-in;
+  position: relative;
+}
+.art-img-wrap img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: unset !important;
+  display: block;
+}
+
+/* ── Zoom hint badge (mobile only) ───────────────────────── */
+.art-img-wrap::after {
+  content: '\1F50D Tap to zoom';
+  position: absolute;
+  bottom: 20px;
+  right: 12px;
+  background: rgba(0,0,0,0.55);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  padding: 5px 10px;
+  border-radius: 50px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+@media (max-width: 767px) {
+  .art-img-wrap::after { opacity: 1; }
+}
+
+/* ── Lightbox ─────────────────────────────────────────────── */
+.art-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0,0,0,0.92);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 16px;
+  cursor: zoom-out;
+}
+.art-lightbox.is-open { display: flex; }
+.art-lightbox img {
+  max-width: 100%;
+  max-height: 80vh;
+  width: auto !important;
+  height: auto !important;
+  box-shadow: 0 0 60px rgba(0,0,0,0.6);
+  cursor: default;
+}
+.art-lightbox-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 50px;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.18s;
+}
+.art-lightbox-close:hover { background: rgba(255,255,255,0.20); }
+.art-img-caption {
+  font-size: 13px;
+  color: #6B7280;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  padding: 0 8px;
+}
+
+/* ── Lists ────────────────────────────────────────────────── */
+.art-ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 24px;
+}
+.art-ul li {
+  font-size: 18px;
+  color: #D1D5DB;
+  line-height: 1.7;
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 10px;
+}
+.art-ul li::before {
+  content: '\2014';
+  position: absolute;
+  left: 0;
+  color: #4B5563;
+}
+
+/* ── Reason list (▸ prefix) ───────────────────────────────── */
+.art-reason-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 28px;
+}
+.art-reason-list li {
+  font-size: 17px;
+  color: #D1D5DB;
+  line-height: 1.7;
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 12px;
+}
+.art-reason-list li::before {
+  content: '\25B8';
+  position: absolute;
+  left: 0;
+  color: #06B6D4;
+  font-weight: 700;
+}
+
+/* ── Numbered list ────────────────────────────────────────── */
+.art-ol {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 28px;
+  counter-reset: art-ol-counter;
+}
+.art-ol li {
+  font-size: 17px;
+  color: #D1D5DB;
+  line-height: 1.7;
+  padding-left: 32px;
+  position: relative;
+  margin-bottom: 12px;
+  counter-increment: art-ol-counter;
+}
+.art-ol li::before {
+  content: counter(art-ol-counter) '.';
+  position: absolute;
+  left: 0;
+  color: #06B6D4;
+  font-weight: 700;
+}
+
+/* ── Blockquote ───────────────────────────────────────────── */
+.art-quote {
+  background: rgba(6,182,212,0.05);
+  border-left: 4px solid #06B6D4;
+  border-radius: 0 12px 12px 0;
+  padding: 20px 28px;
+  margin-bottom: 36px;
+}
+.art-quote p {
+  font-size: 20px;
+  font-style: italic;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Key Takeaways ────────────────────────────────────────── */
+.art-takeaways {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.art-takeaways li {
+  font-size: 17px;
+  color: #D1D5DB;
+  line-height: 1.65;
+  padding-left: 28px;
+  position: relative;
+}
+.art-takeaways li::before {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  color: #4ADE80;
+  font-weight: 700;
+}
+
+/* ── FAQ section ─────────────────────────────────────────── */
+.art-faq { margin-bottom: 0; }
+.art-faq-item {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 28px 0;
+}
+.art-faq-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
+.art-faq-q {
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  font-family: 'Inter', sans-serif;
+}
+.art-faq-a {
+  font-size: 16px;
+  color: #9CA3AF;
+  line-height: 1.75;
+}
+
+/* ── Author box ───────────────────────────────────────────── */
+.art-author {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 28px;
+  margin-top: 8px;
+}
+.art-author-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  margin-bottom: 4px;
+  font-family: 'Inter', sans-serif;
+}
+.art-author-role {
+  font-size: 13px;
+  color: #6B7280;
+  margin-bottom: 14px;
+}
+.art-author-bio {
+  font-size: 15px;
+  color: #9CA3AF;
+  line-height: 1.7;
+}
+
+/* ── Italic CTA link ─────────────────────────────────────── */
+.art-outro {
+  font-size: 18px;
+  font-style: italic;
+  color: #9CA3AF;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+.art-outro a {
+  color: #06B6D4;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .art-body { padding: 40px 16px 56px; }
+  .art-h2 { font-size: 24px; }
+  .art-h3 { font-size: 19px; }
+  .art-p, .art-ul li { font-size: 16px; }
+  .art-quote p { font-size: 17px; }
+}
+</style>
+
+<article class="art-body" itemscope itemtype="https://schema.org/Article">
+  <div class="art-body-inner">
+
+    <!-- ── Intro ─────────────────────────────────────────── -->
+    <p class="art-p">Most e-commerce stores are sitting on revenue they are not collecting. Not because they need more traffic. Because they are letting customers check out with less than they could have bought.</p>
+
+    <p class="art-p">Here is the thing about the cart page: by the time someone lands on it, the hard part is done. They found your product. They want it. They have added it. The psychological resistance that exists at every earlier stage of the funnel? Mostly gone. What is left is a customer in full buying mode with their wallet metaphorically open.</p>
+
+    <p class="art-p">And most stores respond to that moment by showing them a total and a checkout button. That is it.</p>
+
+    <div class="art-callout">
+      <p>At a major food delivery platform's Q-commerce vertical, we implemented intelligent upselling and cross-selling on the cart page. The result: <span class="art-cyan">+35% average order value</span> and a direct contribution to <span class="art-cyan">+58% overall revenue growth</span>. Same traffic. Same products. Just a cart page that did more work.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Why the Cart Page ─────────────────────────────── -->
+    <h2 class="art-h2">Why the cart page is your most underused revenue tool</h2>
+
+    <p class="art-p">Think about the last time you were at a till and the cashier said, "Do you want batteries with that?" You have probably said yes at some point. Not because you were pressured. Because it was relevant, the timing was right, and saying yes required almost no effort.</p>
+
+    <p class="art-p">That is exactly what a well-designed cart page does. The customer is already buying. They are not browsing or comparing. The decision is made. Showing them something relevant at this moment is not an interruption. It is an addition to a decision they have already taken.</p>
+
+    <div class="art-psych">
+      <span class="art-psych-label">The Psychology</span>
+      <p><strong style="color:#FFFFFF;">Anchoring and Relative Cost:</strong> Once someone commits to spending $80, a $12 add-on does not feel like a separate purchase. It feels like a small increment on something already approved. That is not manipulation. That is just how our brains process relative cost.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Upselling vs Cross-Selling ────────────────────── -->
+    <h2 class="art-h2">Upselling vs cross-selling: know the difference</h2>
+
+    <p class="art-p">These get used interchangeably, but they are not the same, and treating them as one will hurt your results.</p>
+
+    <ul class="art-reason-list">
+      <li><strong style="color:#FFFFFF;">Upselling</strong> is offering a better version of what is already in the cart. A customer buying the standard plan gets shown the premium. A single unit becomes a three-pack at a per-unit discount. The message is: you are already buying this. Here is a better version.</li>
+      <li><strong style="color:#FFFFFF;">Cross-selling</strong> is offering something complementary. Camera in the cart? Show them a memory card. Skincare serum? Surface the matching moisturiser. The message is: people who buy this also need that.</li>
+    </ul>
+
+    <h3 class="art-h3">When to upsell</h3>
+
+    <p class="art-p">Upselling lands best when the upgrade is genuinely better, and the price gap is proportionally small. A $15 upgrade on a $120 purchase is easy. The same $15 on a $20 product feels like a 75% uplift. Higher ticket items give you more room to work with.</p>
+
+    <h3 class="art-h3">When to cross-sell</h3>
+
+    <p class="art-p">Cross-selling only works when the recommendations are specific. A generic "you might also like" carousel populated with random products from across your catalogue does nothing. "Goes well with your order" featuring items that genuinely pair with what is in the cart? That converts. <span class="art-amber">Relevance is everything.</span></p>
+
+    <!-- Image 1: GoPro good example -->
+    <figure class="art-img-wrap">
+      <img src="https://goprecision.co/wp-content/uploads/2026/03/art07_visual_1_gopro_good.jpg"
+           alt="GoPro cart page: free upsell framing, anchored pricing, social proof on the add-on, and relevant accessory cross-sells"
+           loading="lazy"/>
+    </figure>
+    <p class="art-img-caption">GoPro cart page: free upsell framing, anchored pricing, social proof on the add-on, and relevant accessory cross-sells below.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── How We Built It ───────────────────────────────── -->
+    <h2 class="art-h2">How we built it: the Pandamart cart page</h2>
+
+    <p class="art-p">The brief was straightforward: grow order value without increasing acquisition spend. The cart page was the obvious place to start.</p>
+
+    <p class="art-p">The insight driving the approach was behavioural. A customer adding groceries to a Pandamart basket is mentally working through a shopping list. They know roughly what they need. If you can surface the missing items before they check out, they will add them. Not because they are being sold to. Because it is genuinely useful.</p>
+
+    <p class="art-p">We built it in two parts. First, a "Popular with your order" module on the cart page, powered by co-purchase data. Yoghurt and granola in the basket? Surface fruit and honey. Pasta and sauce? Show parmesan and olive oil. No manual curation. The data told us what went together, and we showed it.</p>
+
+    <p class="art-p">Second, bundle offers. Frequently bought-together items packaged at a slight discount, shown directly in the cart view. The discount was not the main draw. The convenience was. The customer did not have to go back and search. The items were already there.</p>
+
+    <p class="art-p">The result was <span class="art-cyan">+35% AOV</span>, compounding across transaction volume into <span class="art-cyan">+58% overall revenue growth</span> for the vertical. The traffic did not change. The products did not change. The cart page did.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── The Psychology ─────────────────────────────────── -->
+    <h2 class="art-h2">The psychology behind why it works</h2>
+
+    <p class="art-p">It is not magic. There are specific psychological mechanisms at work here, and understanding them means you can apply them properly rather than just bolting on a widget and wondering why nothing moved.</p>
+
+    <h3 class="art-h3">Social proof at the decision point</h3>
+
+    <div class="art-psych">
+      <span class="art-psych-label">The Psychology</span>
+      <p><strong style="color:#FFFFFF;">Social Proof Framing:</strong> "People also bought," "Popular with your order," "Frequently bought together." These phrases shift the customer out of individual decision mode. They are not being asked to evaluate a new product independently. They are being shown what people like them typically do. That is a fundamentally easier ask.</p>
+    </div>
+
+    <h3 class="art-h3">Anchoring and relative cost</h3>
+
+    <p class="art-p">Ariely's research on arbitrary coherence shows that when we get a number stuck in our heads, it becomes our reference point. Everything else gets measured against it. A customer with a $90 cart total is not evaluating a $14 add-on from scratch. They are evaluating it against $90. That is a completely different calculation, and it almost always comes out in favour of adding.</p>
+
+    <h3 class="art-h3">Free shipping thresholds</h3>
+
+    <div class="art-psych">
+      <span class="art-psych-label">The Psychology</span>
+      <p><strong style="color:#FFFFFF;">The Power of Free:</strong> Ariely documented Amazon's free shipping experiment in Predictably Irrational. When Amazon introduced free shipping above a threshold, sales increased in every market except France, where the French division had priced shipping at one franc instead. Basically nothing. But not free. Sales did not move. The moment they changed it to genuinely free, France matched every other market.</p>
+    </div>
+
+    <p class="art-p">A shipping threshold on your cart page that shows the customer they are <span class="art-amber">$12 away from qualifying</span> is one of the most effective nudges you have. Build it as a progress bar. Show the exact gap. The visible goal combined with the free trigger is a strong motivator.</p>
+
+    <!-- Image 2: Gymshark -->
+    <figure class="art-img-wrap">
+      <img src="https://goprecision.co/wp-content/uploads/2026/03/art07_visual_3_gymshark.png"
+           alt="Gymshark cart: reachable free shipping threshold with visible progress bar, honest scarcity nudge, and relevant cross-sells"
+           loading="lazy"/>
+    </figure>
+    <p class="art-img-caption">Gymshark cart: reachable free shipping threshold with visible progress bar, honest scarcity nudge, and relevant cross-sells framed as completing the threshold.</p>
+
+    <h3 class="art-h3">The endowed progress effect</h3>
+
+    <p class="art-p">Nir Eyal's research on habit-forming products examines the endowment effect: people are more motivated to complete a task when they believe they have already started. A study on loyalty punch cards found that customers given a card with two stamps already filled in completed the card at <span class="art-amber">82% higher rates</span> than those given a blank card requiring the same eight additional purchases.</p>
+
+    <p class="art-p">On the cart page, this applies to loyalty points. A progress summary showing current points balance, points about to be earned from this order, and how close they are to the next reward triggers the same dynamic. They are already partway there. Adding more moves them forward.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Where to Place Upsells ─────────────────────────── -->
+    <h2 class="art-h2">Where to place your upsells</h2>
+
+    <p class="art-p">Getting this wrong is how stores convince themselves that upselling does not work. The timing matters as much as the offer.</p>
+
+    <ul class="art-reason-list">
+      <li><strong style="color:#FFFFFF;">Cart page:</strong> This is your primary window. The customer has not committed to the final total yet. They are still in review mode. Additions feel natural here. Three to five recommendations are typically the ceiling before you tip into choice paralysis.</li>
+      <li><strong style="color:#FFFFFF;">Checkout:</strong> Narrower window. The customer is focused on completing the transaction. If you upsell at checkout, keep it to a single offer, one click to add, no navigation required.</li>
+      <li><strong style="color:#FFFFFF;">Post-purchase:</strong> The thank you page and post-purchase email are massively underused. The customer just bought something. They are in a positive state. A relevant complementary offer here, ideally with a short-window incentive, can generate a second transaction without disrupting the first.</li>
+    </ul>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── The Relevance Rule ─────────────────────────────── -->
+    <h2 class="art-h2">The relevance rule</h2>
+
+    <p class="art-p">If I had to reduce all of this to one thing, it would be <span class="art-amber">relevance</span>.</p>
+
+    <p class="art-p">A generic recommendations carousel populated by a basic algorithm does not convert. It is noise. A customer with running shoes in their cart, seeing candles and stationery in "Frequently bought together," is not going to add anything. They are going to wonder if your site is broken.</p>
+
+    <p class="art-p">Start with co-purchase data. What do customers who buy product A actually also buy? That is your recommendation logic. If you do not have enough transaction history yet, start with manual curation. You know your products. You know what genuinely belongs together. A coffee grinder and specific beans. A camera body and a compatible lens. A cleanser and the toner from the same range.</p>
+
+    <div class="art-fix">
+      <span class="art-fix-label">The Fix</span>
+      <p>Look at your cart page right now. If you have recommendations, ask yourself: would a good salesperson in a physical store suggest this combination? If the answer is no, the recommendation should not be there. If you do not have any recommendations, start with manual pairings for your five best-selling products. Build from there.</p>
+    </div>
+
+    <!-- Image 3: Longhairs bad example -->
+    <figure class="art-img-wrap">
+      <img src="https://goprecision.co/wp-content/uploads/2026/03/art07_visual_2_longhairs_bad.png"
+           alt="The Longhairs cart: an unachievable shipping threshold, one irrelevant cross-sell, dead white space, and no trust signals at checkout"
+           loading="lazy"/>
+    </figure>
+    <p class="art-img-caption">The Longhairs cart: an unachievable shipping threshold (5x the cart total), one irrelevant cross-sell, dead white space, and no trust signals at checkout.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── The Decoy Effect ──────────────────────────────── -->
+    <h2 class="art-h2">Using the decoy effect in pricing</h2>
+
+    <div class="art-psych">
+      <span class="art-psych-label">The Psychology</span>
+      <p><strong style="color:#FFFFFF;">The Decoy Effect:</strong> Ariely's research shows that introducing a third option that is clearly inferior to one of the two alternatives makes that alternative appear significantly more valuable. The Economist offered three subscription options: digital-only, print-only, and print-plus-digital. Print only and print plus digital were the same price. Almost nobody chose print only. But its presence made the combined subscription look like an obvious deal.</p>
+    </div>
+
+    <p class="art-p">Applied to your store: if you sell a 250g option at $12 and a 500g option at $18, a 350g option at $17 can shift many customers toward the 500g by making the value gap obvious. The middle option does not need to sell. It exists to make the high-value option look like the rational choice.</p>
+
+    <p class="art-p">Bundles work the same way. Show the individual prices next to the bundle price. The individual total becomes the anchor that makes the bundle feel like a win.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── The Cart Page Audit ─────────────────────────────── -->
+    <h2 class="art-h2">The cart page audit</h2>
+
+    <p class="art-p">Open your cart page right now. Four questions:</p>
+
+    <ol class="art-ol">
+      <li>Do you have any upsell or cross-sell recommendations showing? If not, that is your first fix.</li>
+      <li>Are your recommendations driven by actual purchase pattern data or a generic algorithm?</li>
+      <li>Do you have a free shipping threshold? If yes, is it visible on the cart page with a progress indicator?</li>
+      <li>Are you using checkout or post-purchase for any additional offers?</li>
+    </ol>
+
+    <div class="art-callout">
+      <p>If you answered no to the first question, you have a direct revenue opportunity sitting unused. No extra traffic. No new ad spend. No product changes. Just a cart page that is not doing the job it could.</p>
+    </div>
+
+    <p class="art-outro">Want to see what your cart page is leaving on the table? <a href="https://calendly.com/ammarah-bumx/30min">Book a free strategy call</a> and we will walk through it together.</p>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Further Reading ────────────────────────────────── -->
+    <div class="art-reading">
+      <span class="art-reading-label">Further Reading</span>
+      <p>Predictably Irrational by Dan Ariely covers the power of Free and the Decoy Effect, both directly applicable to cart-page pricing and threshold mechanics. Influence by Robert Cialdini explains why "Frequently bought together" framing outperforms generic recommendation copy. Hooked by Nir Eyal covers the Endowed Progress Effect, explaining why loyalty progress indicators on the cart page drive completion behaviour.</p>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── Key Takeaways ──────────────────────────────────── -->
+    <h2 class="art-h2">Key Takeaways</h2>
+
+    <ul class="art-takeaways">
+      <li>The cart page is the highest purchase-intent moment in your funnel. Use it.</li>
+      <li>Upselling and cross-selling are different mechanics. Upselling offers a better version. Cross-selling offers something complementary. Both need relevance to work.</li>
+      <li>"People also bought" converts better than "you might like." Social proof framing removes pressure on individual decision-making.</li>
+      <li>Free shipping thresholds with a visible progress bar are among the most effective cart-page tools available. The word free does the heavy lifting.</li>
+      <li>Co-purchase data beats manual curation, but manual curation beats nothing. Start wherever you are.</li>
+      <li>+35% AOV and +58% revenue growth from cart page upselling at a major Q-commerce platform. The traffic and products did not change. The cart page did.</li>
+    </ul>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── FAQ ────────────────────────────────────────────── -->
+    <h2 class="art-h2">Frequently Asked Questions</h2>
+
+    <div class="art-faq">
+      <div class="art-faq-item">
+        <p class="art-faq-q">What is the difference between upselling and cross-selling?</p>
+        <p class="art-faq-a">Upselling offers a higher-value version of what is already in the cart. Cross-selling offers something complementary. Both increase average order value but need different recommendation logic. Upselling lands best when the price gap is proportionally small. Cross-selling only works when the recommendation is genuinely relevant.</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">How many recommendations should I show?</p>
+        <p class="art-faq-a">Three to five on the cart page. Below three, and you are not giving the customer enough to engage with. Above five and you introduce choice paralysis. Lead with your highest-relevance recommendation and order the rest by conversion data.</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">Will upselling hurt my cart abandonment rate?</p>
+        <p class="art-faq-a">Done badly, yes. Aggressive pop-ups, irrelevant recommendations, and cluttered layouts all add friction. Done well, no. Relevant suggestions clearly displayed alongside the existing cart do not disrupt the checkout flow. The key is relevance and placement.</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">What if I do not have enough data to power recommendations yet?</p>
+        <p class="art-faq-a">Start with manual curation. You know your products better than any algorithm at this stage. Identify your top sellers and think honestly about what genuinely belongs with each one. Implement those pairings manually, track which ones get added, and use that data to inform what you build next.</p>
+      </div>
+      <div class="art-faq-item">
+        <p class="art-faq-q">Where should I set my free shipping threshold?</p>
+        <p class="art-faq-a">15 to 25% above your current average order value. If your AOV is $60, set it to $70-$75. Close enough that most customers can get there with one small addition. Far enough that they actually need to add something. Too high and customers ignore it. At or below AOV, and you are just giving away shipping with no incremental revenue benefit.</p>
+      </div>
+    </div>
+
+    <div class="art-divider" aria-hidden="true"></div>
+
+    <!-- ── About the Author ───────────────────────────────── -->
+    <div class="art-author">
+      <p class="art-author-name">Ammarah Ahmed</p>
+      <p class="art-author-role">Founder, Precision Consulting Group</p>
+      <p class="art-author-bio">Ammarah helps growth-stage e-commerce businesses boost revenue through psychology-driven CRO and UX/UI. With over a decade of experience on major tech platforms across Asia and the Middle East, she combines behavioural psychology and user experience to drive effective conversion optimisation.</p>
+    </div>
+
+  </div>
+</article>
+
+<!-- ── Image lightbox ──────────────────────────────────────── -->
+<div class="art-lightbox" id="artLightbox" role="dialog" aria-modal="true" aria-label="Image zoom">
+  <img src="" alt="" id="artLightboxImg"/>
+  <button class="art-lightbox-close" id="artLightboxClose" aria-label="Zoom out">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M4.5 7h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    Zoom Out
+  </button>
+</div>
+
+<script>
+(function () {
+  var lb   = document.getElementById('artLightbox');
+  var lbImg = document.getElementById('artLightboxImg');
+
+  function open(src, alt) {
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lb.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    lb.classList.remove('is-open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  document.querySelectorAll('.art-img-wrap img').forEach(function (img) {
+    img.parentElement.addEventListener('click', function () {
+      open(img.src, img.alt);
+    });
+  });
+
+  lb.addEventListener('click', function (e) {
+    if (e.target === lb || e.target === document.getElementById('artLightboxClose')) close();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+  });
+
+  document.querySelectorAll('.art-img-wrap').forEach(function (fig) {
+    var el = fig.parentElement;
+    while (el && el !== document.documentElement) {
+      var cs = window.getComputedStyle(el);
+      if (cs.overflow === 'hidden' || cs.overflowY === 'hidden') {
+        el.style.setProperty('overflow', 'visible', 'important');
+        el.style.setProperty('overflow-y', 'visible', 'important');
+      }
+      if (cs.maxHeight && cs.maxHeight !== 'none') {
+        el.style.setProperty('max-height', 'none', 'important');
+      }
+      el = el.parentElement;
+    }
+  });
+})();
+</script>
