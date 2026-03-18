@@ -28,6 +28,8 @@ Every article is a WordPress **Post** (not a Page) built in Bricks Builder using
 - Assign a **category** using one of the approved slugs (see Categories below)
 - **Add a manual Excerpt** (Post sidebar → Excerpt): 1-2 sentence summary of the article. This is used on the blog listing page cards. If Excerpt panel is not visible, enable it via the three-dot menu → Preferences → Panels.
 - Fill in **Yoast meta title** and **meta description** for SEO
+- Verify the Yoast **Schema** tab shows Article type (default)
+- In the Yoast **Social** tab, add an OG title, description, and social image (1200x675px) if different from the defaults
 - Click **Edit with Bricks**
 
 ### 2. Add Code Block 1 — Article Hero
@@ -147,6 +149,30 @@ Use between every major section. Also use before Key Takeaways, FAQ, and Author 
 
 Aim for 3–5 questions targeting common search queries related to the article topic.
 
+**FAQPage schema is required.** After the closing `</script>` tag at the end of the article body, add a FAQPage JSON-LD block matching every Q&A in the `.art-faq` section:
+
+```html
+<!-- FAQPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Question text here?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Answer text here."
+      }
+    }
+  ]
+}
+</script>
+```
+
+Repeat the Question object for each FAQ item. The `name` and `text` values must exactly match the visible `.art-faq-q` and `.art-faq-a` content.
+
 ### Author Box
 
 ```html
@@ -226,16 +252,35 @@ These are Bricks Section Templates set to `Post type = Post`. They render via th
 
 ---
 
+## AI SEO Requirements
+
+Every article must include these for AI search visibility and rich results:
+
+1. **FAQPage schema** — JSON-LD block appended after the final `</script>` tag, matching all `.art-faq` Q&A pairs exactly
+2. **Yoast meta title and description** — keyword-rich, no redundant site name suffix
+3. **Yoast Social tab** — OG title and description filled in (uses Facebook/LinkedIn standard)
+4. **Author name consistency** — always "Ammarah Ahmed" in both visible content and WordPress user profile
+5. **First paragraph** — should contain a direct, extractable answer or definition relevant to the article's primary query
+6. **Statistics with sources** — cite original research by name (e.g. "Ariely's research shows..."), include specific numbers
+7. **Headings match search queries** — H2s should reflect how people phrase questions (e.g. "Why the cart page is your most underused revenue tool" not "Cart Page Overview")
+
+The Organization schema is handled site-wide via the footer template. No per-article action needed.
+
+---
+
 ## Checklist for Every New Article
 
 - [ ] Created as WordPress **Post** (not Page)
 - [ ] Category assigned using approved slug
 - [ ] Slug set to match intended URL
+- [ ] Yoast: meta title, meta description, social tab filled in
 - [ ] Hero code block: category class, title, read time, date updated
 - [ ] Body code block: all content updated, image URLs correct
+- [ ] FAQPage JSON-LD schema appended after final `</script>` tag
 - [ ] Both code blocks have **Execute code** and **Render without wrapper** ON
 - [ ] Post published
 - [ ] Bricks CSS regenerated
 - [ ] Server cache cleared
 - [ ] Live URL checked — all 3 global templates visible
+- [ ] Schema validated at https://validator.schema.org/ (paste article URL)
 - [ ] Article added to repo: `blog/section-article-body--[slug].html`
