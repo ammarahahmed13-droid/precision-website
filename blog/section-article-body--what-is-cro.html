@@ -774,3 +774,45 @@
   document.querySelectorAll('.art-img-wrap img[src$=".svg"]').forEach(trimSvg);
 })();
 </script>
+
+<!-- FAQPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between CRO and UX design?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "UX makes a product pleasant to use. CRO makes a website effective at driving revenue. Big overlap, but CRO is explicitly tied to business metrics and uses A/B testing to validate changes. UX relies more on qualitative research and design principles."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long until I see results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Quick wins from an audit: 2-4 weeks. A/B testing gains: 2-3 months. Full programme with compounding improvements: 4-6 months for maximum impact. The Foodpanda results (+58%) were driven by a 6-month engagement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does CRO cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ranges from one-time audits ($2,000-$10,000) to ongoing programmes ($5,000-$20,000+/month). The real question is not cost. It is opportunity cost. If you are converting at 1.5% instead of 2.5%, that is 40% of potential revenue left on the table every single month."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I hire a consultant or build in-house?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depends on expertise and bandwidth. In-house works if you have CRO experience, the right tools, and the capacity. A consultant brings specialised expertise, an external perspective (no internal biases), and a proven methodology. Most growth-stage businesses start externally, build the foundation, and then transition in-house."
+      }
+    }
+  ]
+}
+</script>

@@ -681,3 +681,45 @@
   document.querySelectorAll('.art-img-wrap img[src$=".svg"]').forEach(trimSvg);
 })();
 </script>
+
+<!-- FAQPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a good AOV for e-commerce?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Varies by industry. Apparel averages $90-120, electronics $150-200, beauty $50-70, food delivery $25-40. More important than hitting a benchmark is whether you are actively optimising. If you have not implemented any AOV strategies, your current number is almost certainly below potential."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which strategy should I implement first?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Free shipping thresholds. Minimal technical effort, works across every category. Set the threshold 20-30% above your AOV, add a progress bar, and measure for two weeks. Cart upselling is the highest-impact overall but needs more implementation work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I increase AOV without annoying customers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Relevance and timing. Recommendations that are genuinely useful add value. Irrelevant upsells, aggressive pop-ups, and forced add-ons destroy trust. Every suggestion should pass one test: would the customer thank you for it?"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can AOV optimisation hurt conversion rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Poorly executed, yes. Aggressive checkout pop-ups create friction. But well-designed AOV tactics, such as cart recommendations and free-shipping thresholds, typically improve both metrics. The Foodpanda results prove this: +35% AOV alongside +40% conversion."
+      }
+    }
+  ]
+}
+</script>

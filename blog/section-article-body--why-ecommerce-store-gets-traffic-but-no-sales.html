@@ -876,3 +876,45 @@
   document.querySelectorAll('.art-img-wrap img[src$=".svg"]').forEach(trimSvg);
 })();
 </script>
+
+<!-- FAQPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why is my e-commerce store getting traffic but no sales?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The most common reasons are poor product page UX, missing trust signals, high checkout friction, no AOV optimisation, slow site speed (especially on mobile), lack of personalisation, and lack of a systematic testing process. In most cases, it is a combination of several of these working together to leak conversions at every stage of the buyer journey."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a good e-commerce conversion rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The global average ranges from 2% to 3%, depending on the source and methodology. Food and beverage e-commerce tends to convert at the highest rate (around 4-5%), while luxury and furniture convert at the lowest (1-2%). More important than hitting a benchmark is understanding your specific funnel: where visitors are dropping off, and why."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I increase my e-commerce conversion rate without more traffic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Focus on the 7 areas outlined in this article. The fastest wins typically come from fixing checkout friction (reducing form fields, enabling guest checkout, showing costs upfront), improving product page UX (clearer CTAs, visible social proof), and adding AOV optimisation (cart-page upselling, bundle offers, free shipping thresholds). A structured CRO audit is the best way to identify which specific fixes will have the highest impact for your store."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much revenue am I losing to cart abandonment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "With an average cart abandonment rate of 70%, most stores lose significant revenue from visitors who show purchase intent. Baymard Institute estimates that $260 billion in lost orders is recoverable across US and EU e-commerce through better checkout design alone. For your specific store, multiply your monthly cart additions by your AOV, then multiply by 0.70. That is your approximate monthly revenue at risk."
+      }
+    }
+  ]
+}
+</script>

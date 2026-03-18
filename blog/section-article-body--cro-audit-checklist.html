@@ -788,3 +788,45 @@
   document.querySelectorAll('.art-img-wrap img[src$=".svg"]').forEach(trimSvg);
 })();
 </script>
+
+<!-- FAQPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which item should I fix first?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Page speed. It affects every other metric. A slow site undermines every improvement you make to product pages, checkout, or trust signals. It takes 30 minutes to diagnose, and the fixes are usually straightforward."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if my conversion rate is below the benchmark?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open Google Analytics, check the last 90 days. The global average for e-commerce is 2-3%. Industry benchmarks vary: beauty 3-4%, electronics 1-2%, apparel 2-3%, food and beverage 4-6%. Below your vertical's average? These 10 fixes will move the needle."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I fix these myself, or do I need an agency?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most are DIY-able if you have access to a CMS. Page speed, CTA styling, checkout settings, and copy changes do not need a developer. Cart-page recommendation modules might. Start with what you can do today."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much revenue am I losing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Do the maths. 50,000 monthly visitors at 1.5% conversion and $50 AOV = $37,500/month. At 2.5% (still below top performers), that is $62,500. That is $25,000/month left on the table. $300,000 a year. And that is before AOV improvements."
+      }
+    }
+  ]
+}
+</script>

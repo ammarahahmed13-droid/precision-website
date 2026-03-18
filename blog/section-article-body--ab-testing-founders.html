@@ -748,3 +748,45 @@
   document.querySelectorAll('.art-img-wrap img[src$=".svg"]').forEach(trimSvg);
 })();
 </script>
+
+<!-- FAQPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much traffic do I need for A/B testing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Minimum 10,000 monthly visitors for reliable testing. Below that, focus on evidence-based changes rather than formal split tests. You need enough traffic to reach statistical significance within a reasonable timeframe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long should I run a test?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Until it reaches 95% statistical significance, and for at least one full week. Most e-commerce tests take 2-4 weeks, depending on traffic and the size of the effect you are trying to detect."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I test first?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The page with the biggest funnel drop-off. Check Google Analytics for where visitors leave. High product page abandonment? Test the product page. High cart abandonment? Test checkout. Start with the biggest leak."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if my test shows no difference?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That is still a result. It means the element you tested is not the bottleneck. Go deeper. Every no result narrows the search for what actually matters."
+      }
+    }
+  ]
+}
+</script>

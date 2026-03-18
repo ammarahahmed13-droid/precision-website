@@ -707,3 +707,45 @@
   document.querySelectorAll('.art-img-wrap img[src$=".svg"]').forEach(trimSvg);
 })();
 </script>
+
+<!-- FAQPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are cognitive biases in e-commerce?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Systematic patterns in how people decide. They influence which products visitors click, whether they trust the site, and whether they complete a purchase. Understanding them lets you design with human behaviour, not against it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is using psychology in e-commerce manipulation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When applied ethically, no. Every design decision influences behaviour. The line is transparency: real inventory levels, honest timelines, genuine value. The goal is to reduce friction, not to deceive."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which bias has the biggest impact?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depends on your leak. Overwhelmed visitors? Hick's Law. Trust issues? Social Proof. Cart abandonment? Decision Fatigue and Loss Aversion. Diagnose your funnel first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where should I start?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Walk through your own store as a customer. The three highest-impact areas: product page (Hick's Law + Social Proof + Von Restorff), checkout (Decision Fatigue + Peak-End Rule), and cart (Anchoring + Endowment + Loss Aversion)."
+      }
+    }
+  ]
+}
+</script>

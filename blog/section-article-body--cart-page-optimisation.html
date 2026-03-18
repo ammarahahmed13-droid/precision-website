@@ -746,3 +746,53 @@
   });
 })();
 </script>
+
+<!-- FAQPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between upselling and cross-selling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Upselling offers a higher-value version of what is already in the cart. Cross-selling offers something complementary. Both increase average order value but need different recommendation logic. Upselling lands best when the price gap is proportionally small. Cross-selling only works when the recommendation is genuinely relevant."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many recommendations should I show?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three to five on the cart page. Below three, and you are not giving the customer enough to engage with. Above five and you introduce choice paralysis. Lead with your highest-relevance recommendation and order the rest by conversion data."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will upselling hurt my cart abandonment rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Done badly, yes. Aggressive pop-ups, irrelevant recommendations, and cluttered layouts all add friction. Done well, no. Relevant suggestions clearly displayed alongside the existing cart do not disrupt the checkout flow. The key is relevance and placement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I do not have enough data to power recommendations yet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start with manual curation. You know your products better than any algorithm at this stage. Identify your top sellers and think honestly about what genuinely belongs with each one. Implement those pairings manually, track which ones get added, and use that data to inform what you build next."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where should I set my free shipping threshold?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "15 to 25% above your current average order value. If your AOV is $60, set it to $70-$75. Close enough that most customers can get there with one small addition. Far enough that they actually need to add something. Too high and customers ignore it. At or below AOV, and you are just giving away shipping with no incremental revenue benefit."
+      }
+    }
+  ]
+}
+</script>
